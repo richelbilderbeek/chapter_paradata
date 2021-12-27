@@ -4,7 +4,7 @@ Chapter for edited volume about paradata
 
 ## Abstract
 
-Paradata = data that describes the generation of data.
+Here we define paradata as the data that describes the generation of data.
 In theoretical biology, the data generated is mostly simulated,
 as done by computer code.
 In such context, paradata is usually the scientific paper that
