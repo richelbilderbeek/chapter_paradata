@@ -4,7 +4,10 @@ Chapter for edited volume about paradata
 
 ## Abstract 1: theoretical computational research
 
+ * @Lisa: I suggest this approach, as it will result in a cleaner chapter,
+   but the relevance is less apparent than the second abstract
  * Data is simulated
+ * Focus on theoretical biology
 
 Here we define paradata as the data that describes the generation of data.
 In theoretical computational research, the data generated is mostly simulated,
@@ -21,6 +24,7 @@ and hence allowing computational research to be truly reproducible.
 
 ## Abstract 2: genetic epidemiology
 
+ * @Lisa: you may pick this approach, as this has a more direct relevance
  * Data is the result of an analysis
  * Input (e.g. DNA sequences) is established
 
