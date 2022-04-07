@@ -18,12 +18,34 @@ and hence allowing theoretical biology research to be truly reproducible.
 
 ## Introduction
 
+### Universities produce knowledge
+
 The currency that universities generate is knowledge, which in turn is distributed
 in mostly lectures and academic papers.
 
+### A paper holds knowledge based on an experiment
+
+### The experiment is described English
+
+### For some fields, the experiment is actually run by code
+
+### The experiments within genetic epidemology works are done by code
+
+### Complex pipelines should not be described in full detail
+
+### It is the complex pipeline that creates the figure
+
+### If the code and the paper disagree, it is the code that generated the figures
+
+### Hence, the knowledge is stored in the code for the experiment. The code is the paradata for the experiment
 
 
-Knowledge management efforts typically focus on organisational objectives such as improved performance, competitive advantage, innovation, the sharing of lessons learned, integration and continuous improvement of the organisation.
+
+
+
+Knowledge management efforts typically focus on organisational objectives 
+such as improved performance, competitive advantage, innovation, 
+the sharing of lessons learned, integration and continuous improvement of the organisation.
 
  * [ ] introduce the practical situation where paradata is relevant for the readership
    clearly enough that even readers outside your own discipline can follow the rationale

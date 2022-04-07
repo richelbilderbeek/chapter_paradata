@@ -1,5 +1,18 @@
 Invitation to edited volume: Perspectives to Paradata
 
+> Feedback
+> 
+> Thank you for your abstract. We have read it and discussed it in the editorial group and apart from saying a big thank you and really giving you a go ahead for writing a complete draft for the June workshop, we would like you to consider the following points.
+> 
+> [...] We are also encouraging you to introduce the practical situation where paradata is relevant for the readership clearly enough that even readers outside your own discipline can follow the rationale of your writing. Remember to describe explicitly (but briefly) your disciplinary (scholarly and practical) and research context, research front and motivate the focus of the discussion. Please also state explicitly the relevance/implications of the results from and for your practical case/perspective.
+> 
+> In addition, we would like to direct your attention to a couple of general issues. Our volume will appear in a book series that relates to knowledge management. This means that we are going to discuss the chapters in the introduction and the epilogue/conclusions from a KM perspective and KM researchers and professionals are also, in a very broad sense,  one of the major target audiences of the volume as a whole. In a very broad sense, KM encompasses different aspects relevant to the management, governance, administration, curation and facilitation of information, knowledge, data, records etc. and related processes and practises. This does not mean that you need to assume a KM perspective in the chapter BUT if there are relevant management (or similar) aspects that stem from the discussion in the chapter, you are free to make a note of them.
+> 
+> As an additional remark, considering the interdisciplinarity of the volume we encourage you to illustrate the point you make in your chapter using a concrete problem that exists and provide enough information on the research (and practical) context you are writing about that a person outside of your own field can follow your argument. Moreover, remember to motivate the relevance of your findings and/or conclusions again considering the interdisciplinary audience.
+> 
+> Finally, we have included brief author instructions in the attachment including preliminary information about the forthcoming author workshop.
+
+
 We are planning a multi-disciplinary edited volume, preliminarily titled “Perspectives to
 Paradata - Research and Practices of Documenting Data Processes”, on documentation of
 data making processes. We have found your work on [insert here specification] exciting and
