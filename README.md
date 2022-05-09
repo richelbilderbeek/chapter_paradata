@@ -16,7 +16,18 @@ code that has generated the results.
 The chapter concludes by some rules how to allow code to serve as paradata,
 and hence allowing theoretical biology research to be truly reproducible.
 
+## Definitions
+
+Term     | Definition                                            | Example
+---------|-------------------------------------------------------|----------------
+Data     | Individual facts, statistics, or items of information | A SNP that has a significant association
+Paradata | Data that describes the generation of data            | The code to conclude that SNP
+Metadata | Data that provides information about other data       | The article that describes the research
+
 ## Introduction
+
+
+
 
 ### Universities produce knowledge
 
@@ -38,6 +49,44 @@ in mostly lectures and academic papers.
 ### If the code and the paper disagree, it is the code that generated the figures
 
 ### Hence, the knowledge is stored in the code for the experiment. The code is the paradata for the experiment
+
+
+
+
+
+
+### Definition of data  
+
+Data is information that is used a foundation to base a research on.
+
+### Definition of paradata
+
+Paradata is defined as data that describes the acquisition of data.
+An example of paradata is [...]
+
+ * Paradata gives extra information.
+
+### Use of paradata
+
+Paradata is extra information, that does not necessarily ends up in a
+scientific article, yet it can be.
+
+### Results of a research is data
+
+The results of articles are a form as data, as these are used
+in other articles.
+
+### Code of a research is paradata
+
+These results were acquired using computer code. 
+
+### Article is not paradata
+
+The article is not paradata. An article is metadata about a research.
+
+
+
+
 
 
 
