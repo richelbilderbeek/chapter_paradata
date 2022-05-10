@@ -58,6 +58,7 @@ in mostly lectures and academic papers.
 ### Definition of data  
 
 Data is information that is used a foundation to base a research on.
+Data are individual facts, statistics, or items of information, often numeric [OECD Glossary of Statistical Terms. OECD. 2008. p. 119. ISBN 978-92-64-025561.]
 
 ### Definition of paradata
 
