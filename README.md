@@ -26,8 +26,11 @@ Metadata | Data that provides information about other data       | The article t
 
 ## Introduction
 
-
-
+```
+This section has paragraph headers. This helps me, the author,
+to focus the contents of my paragraphs.
+In the final version of this manuscript, these will be removed.
+```
 
 ### Universities produce knowledge
 
@@ -42,48 +45,57 @@ in mostly lectures and academic papers.
 
 ### The experiments within genetic epidemology works are done by code
 
-### Complex pipelines should not be described in full detail
+### An experiment uses data to create data
 
-### It is the complex pipeline that creates the figure
-
-### If the code and the paper disagree, it is the code that generated the figures
-
-### Hence, the knowledge is stored in the code for the experiment. The code is the paradata for the experiment
-
-
-
-
-
-
-### Definition of data  
-
-Data is information that is used a foundation to base a research on.
+An experiment uses data to create data.
 Data are individual facts, statistics, or items of information, often numeric [OECD Glossary of Statistical Terms. OECD. 2008. p. 119. ISBN 978-92-64-025561.]
-
-### Definition of paradata
-
+In the example of genetic epidemiology,
+the data used are known associations,
+the data generated additional associations.
 Paradata is defined as data that describes the acquisition of data.
-An example of paradata is [...]
 
- * Paradata gives extra information.
+### The code is the paradata for the results of an experiment
 
-### Use of paradata
+Programming code is paradata, as it is data that describes how data is collected.
+Programming code is data that is usually in the form of text, 
+spread over one or more files, that describes the experiment.
+The experiment collects the data.
+The data collected is the data we call the results of an experiment.
 
-Paradata is extra information, that does not necessarily ends up in a
-scientific article, yet it can be.
+The article is metadata. Metadata is data that describes other
+data. An article describes the
+experiment and hence the programming
+code in English. However, it is not the best
+candidate to describe how the data is collected,
+as it has a loose connection with collecting the data.
+Again, if the code and article of an experiment disagree,
+it is the code that actually let the data be collected.  
+Instead, an article is metadata about a research.
 
-### Results of a research is data
+### Code has important properties
 
-The results of articles are a form as data, as these are used
-in other articles.
+ * ground truth: if the code and the paper disagree, it is the code that generated the figures
+ * convincing: The unit tests and programming style give an indication of the correctness of the results
+ * concise: code directly describes what it does;
+   complex pipelines should/cannot not be described in English in full detail
 
-### Code of a research is paradata
+### Code is hard to manage
 
-These results were acquired using computer code. 
+Unlike English, code is fragile in standing the test of time.
+Containers can alleviate this.
+Code has a limited lifetime.
 
-### Article is not paradata
+### Code has important metadata
 
-The article is not paradata. An article is metadata about a research.
+ * Number of commits
+ * Commit history
+ * Code coverage
+
+
+
+
+
+
 
 
 
@@ -114,4 +126,7 @@ In addition, we would like to direct your attention to a couple of general issue
 
 As an additional remark, considering the interdisciplinarity of the volume we encourage you to illustrate the point you make in your chapter using a concrete problem that exists and provide enough information on the research (and practical) context you are writing about that a person outside of your own field can follow your argument. Moreover, remember to motivate the relevance of your findings and/or conclusions again considering the interdisciplinary audience.
 
+
+
+ * [1] Cantor, Rita M., Kenneth Lange, and Janet S. Sinsheimer. "Prioritizing GWAS results: a review of statistical methods and recommendations for their application." The American Journal of Human Genetics 86.1 (2010): 6-22.
 
