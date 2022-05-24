@@ -19,10 +19,10 @@ and hence allowing theoretical biology research to be truly reproducible.
 ## Definitions
 
 Term     | Definition                                            | Example
----------|-------------------------------------------------------|----------------
+---------|-------------------------------------------------------|--------------------------------------------------------------
 Data     | Individual facts, statistics, or items of information | A SNP that has a significant association
-Paradata | Data that describes the generation of data            | The code to conclude that SNP
-Metadata | Data that provides information about other data       | The article that describes the research
+Paradata | Data that describes the generation of data            | The code to conclude that a SNP has a significant association
+Metadata | Data that provides information about other data       | The article that describes an experiment
 
 ## Introduction
 
@@ -36,12 +36,118 @@ In the final version of this manuscript, these will be removed.
 
 The currency that universities generate is knowledge, which in turn is distributed
 in mostly lectures and academic papers.
+Academic papers contain knowledge, either as the
+report of measurements or the outcome of an experiment.
+These reports are described in English, the current lingua franca of science.
 
-### A paper holds knowledge based on an experiment
+### A paper contains data and should be FAIR data
 
-### The experiment is described English
+A paper contains and/or describes data, where we define
+data as 'individual facts, statistics, or items of information, often 
+numeric' [OECD 2008].
+To ensure unhampered knowledge growth, this data should [TODO: Why? Reference!] 
+follow the FAIR 
+principles.
+The FAIR principles [Wilkinson et al., 2016] are that data should be 
+[TODO: there are probably better examples]
+Findable (e.g. found by web),
+Accessible (e.g. DataDryad and or Zenoda), 
+Interoperable (e.g. comma-separated files) 
+and Reusable (e.g. work on all operating systems)
+
+### A paper is data and should be FAIR data
+
+A paper in itself is data, as it is a collection of text and
+figures that we itself can do measurements upon.
+Also here, a paper should be FAIR, 
+[TODO: there are probably better examples]
+i.e.
+Findable (e.g. Google Scholar)
+Accessible (e.g. view it online), 
+Interoperable (e.g. written in English)
+and Reusable (e.g. it is valid to cite and build upon earlier academic papers).
+This paper itself will later specify the standpoint that a paper
+is metadata (i.e. data about data), instead of paradata (i.e.
+data that describes the collection of data)
 
 ### For some fields, the experiment is actually run by code
+
+This paper focusses on research fields that uses computation
+to do experiments and uses genetic epidemiology as an example.
+Genetic epidemiology is a field within biology that, among 
+others, measures the spread (hence 'epidemiology') 
+of heritable (i.e. genetic) traits, as well as the relation
+between having a certain genetic makeup and a certain trait,
+where the trait can be any human property, such as weight, height,
+the amount of metabolites and having a disease yes/no.
+
+As an example, we'll use a pseudorandomly selected paper
+from [Ahsan et al., 2017]. The data used by that paper is
+from a population study called the Northern Swedish Population
+Health Study (NSPHS) that started in 2010 [Igl et al., 2010]. 
+The approximately 1000 participants were initially mostly surveyed
+about lifestyle [Igl et al., 2010] and follow-up studies
+provided the type of data relevant for this paper, 
+which are (1) the genetic data [Johansson et al., 2013],
+(2) the concentration of certain proteins in the 
+blood [Enroth et al., 2014][Enroth et al., 2015].
+
+The first type of data, the (final form of the) genetic data,
+consists out of single nucleotide polymorphisms (SNPs).
+SNPs consist out of a name, a position and a nucleotide. 
+DNA consists out of many nucleotides, of which there are four types,
+called adenosine, cytosine, guanine and thyrosine, all commonly abreviated
+as A, C, G and T respectively.
+One SNP example is, that 'rs12133641' is a SNP located at position 154,428,283,
+where some people have a certain nucleotide. In this case, 
+67 percent of the people within this study have an A,
+and 33 percent have a G (also from [Ahsan et al., 2017], Table S3).
+
+The second type of data are concentrations of certain proteins in the 
+blood. DNA contains the code for building proteins, as well as the rate
+at which a protein is created. Some proteins end up in the blood and
+their presence can be used to assess the health of an individual.
+IL6RA is a protein [TODO: more info]
+
+The field of genetic epidemiology looks -among others- for
+correlations between genetic data and biological traits.
+For example, figure F10 (from [Ahsan et al., 2017]) shows that
+SNP rs12133641 is highly correlated (p value is 3.0 * 10e-73, 
+961 individuals) with protein IL6RA. What this results does
+not yet teach us, is how this correlation works, yet
+figure F20 shows us the direction of the association:
+the X axis shows the possible genetic make-ups (aka the genotype) of the individuals,
+where 0 denotes the individuals with genotype
+AA (the individual inherited one adenosine 
+from his/here mother and one adenosine from his/her father), 
+1.0 denotes AG (one A is inherited from one parent, 
+where the G is inherited from the other parent) and 2.0 denotes GG.
+From Figure F20 we can conclude that, on average,
+the more guanines are inherited at that SNPs location,
+the higher concentration of IL6RA can be found in a human's blood.
+There is, however, a certain amount variance per genotype
+and 'only' 43 percent of the variance can be attributed to an individuals'
+genotype. There are multiple reasons why a genotype 
+does not completely determine a phenotype, such as the effect
+of the environment (e.g. geographic location), lifestyle (e.g. smoking yes/no)
+or having a disease.
+
+![Ahsan et al., 2017, part of Table 2](ahsan2017relative_table_2_sub.png)
+
+> Figure F10 shows an example result of a genetic epideological research.
+> It shows that the SNP named rs12133641 (located at position 154,428,283
+> of chromosome 1) is highly correlated (p value is 3.0 * 10e-73, 
+> 961 individuals) to the concentration of the protein IL6RA, as measured
+> in blood. The table is a simplified result from [Ahsan et al., 2017].
+
+![](ahsan2017relative_s6.png)
+
+> Figure F20: the relation between the genotype for SNP rs12133641 
+> and the protein concentration of IL6RA is relatively strong.
+> The X axis shows the the genotype of the individuals,
+> where 0 denotes AA, 1.0 denotes AG and 2.0 denotes GG.
+> The Y axis shows the concentration of the protein IL6RA 
+> as found in the participants' blood.
 
 ### The experiments within genetic epidemology works are done by code
 
@@ -129,4 +235,22 @@ As an additional remark, considering the interdisciplinarity of the volume we en
 
 
  * [1] Cantor, Rita M., Kenneth Lange, and Janet S. Sinsheimer. "Prioritizing GWAS results: a review of statistical methods and recommendations for their application." The American Journal of Human Genetics 86.1 (2010): 6-22.
+
+## References
+
+ * [Ahsan et al., 2017] Ahsan, Muhammad, et al. "The relative contribution of DNA methylation and genetic variants on protein biomarkers for human diseases." PLoS genetics 13.9 (2017): e1007005.
+
+
+ * [Enroth et al., 2014] Enroth, Stefan, et al. "Strong effects of genetic and lifestyle factors on biomarker variation and use of personalized cutoffs." Nature communications 5.1 (2014): 1-11.
+
+ * [Enroth et al., 2015] Enroth, Stefan, et al. "Effect of genetic and environmental factors on protein biomarkers for common non-communicable disease and use of personally normalized plasma protein profiles (PNPPP)." Biomarkers 20.6-7 (2015): 355-364.
+
+ * [Igl et al., 2010] Igl, Wilmar, Åsa Johansson, and Ulf Gyllensten. "The Northern Swedish Population Health Study (NSPHS)–a paradigmatic study in a rural population combining community health and basic research." Rural and remote health 10.2 (2010): 198-215.
+
+ * [Johansson et al., 2013] Johansson, Åsa, et al. "Identification of genetic variants influencing the human plasma proteome." Proceedings of the National Academy of Sciences 110.12 (2013): 4673-4678.
+
+ * [OECD 2008] OECD Glossary of Statistical Terms. OECD. 2008. p. 119. ISBN 978-92-64-025561.
+
+ * [Wilkinson et al., 2016] Wilkinson, Mark D., et al. "The FAIR Guiding Principles for scientific data management and stewardship." Scientific data 3.1 (2016): 1-9.
+
 
