@@ -81,6 +81,13 @@ between having a certain genetic makeup and a certain trait,
 where the trait can be any human property, such as weight, height,
 the amount of metabolites and having a disease yes/no.
 
+![](Karesuando_church.jpg)
+
+> Figure F2: Picture of Karesuando's church,
+> the village where the Northern Swedish Population
+> Health Study started.
+> From [Höpfner, 2005]
+
 As an example, we'll use a pseudorandomly selected paper
 from [Ahsan et al., 2017]. The data used by that paper is
 from a population study called the Northern Swedish Population
@@ -92,10 +99,20 @@ which are (1) the genetic data [Johansson et al., 2013],
 (2) the concentration of certain proteins in the 
 blood [Enroth et al., 2014][Enroth et al., 2015].
 
+![](1189px-Eukaryote_DNA-en.png)
+
+> Fig F3: A cell has a nucleus that contains chromosomes. 
+> Each of these chromosomes (46 in humans) consist out of DNA. 
+> DNA itself conists out of 4 nucleotides, 
+> as depicted by the horizontal sticks 
+> with the colors red, yellow, green and blue.
+> From [Sponk et al., 2012]
+
 The first type of data, the (final form of the) genetic data,
 consists out of single nucleotide polymorphisms (SNPs).
 SNPs consist out of a name, a position and a nucleotide. 
-DNA consists out of many nucleotides, of which there are four types,
+DNA (organized into chromosomes and present in every (nucleated) cell, 
+see figure F3) consists out of many nucleotides, of which there are four types,
 called adenosine, cytosine, guanine and thyrosine, all commonly abreviated
 as A, C, G and T respectively.
 One SNP example is, that 'rs12133641' is a SNP located at position 154,428,283,
@@ -103,8 +120,20 @@ where some people have a certain nucleotide. In this case,
 67 percent of the people within this study have an A,
 and 33 percent have a G (also from [Ahsan et al., 2017], Table S3).
 
+![](DNA_to_protein_or_ncRNA.png)
+
+> Fig F5: Parts of DNA (so-called 'genes') code for proteins. 
+> The DNA, that always stays put in the cell's nucleus, 
+> is transcripted to messenger RNA (mRNA).
+> mRNA leaves the nucleus and its code gets translated to 
+> a protein sequence.
+> Near the start of a gene are regions that determine the amount
+> of proteins produced (not shown in figure).
+> Adapted from [Shafee, 2015]
+
 The second type of data are concentrations of certain proteins in the 
-blood. DNA contains the code for building proteins, as well as the rate
+blood. DNA contains the code for building proteins (see Figure F5), 
+as well as the rate
 at which a protein is created. Some proteins end up in the blood and
 their presence can be used to assess the health of an individual.
 IL6RA is a protein [TODO: more info]
@@ -151,25 +180,35 @@ or having a disease.
 
 ### The experiments within genetic epidemology works are done by code
 
-### An experiment uses data to create data
+The experiment described above is run by code. There is no fieldwork,
+nor lab-work involved. It is the researcher that writes the code,
+after which the code does the work. A genetic epidemiologist that
+looks for associations between genotype and phenotype,
+one does not need a lab.
 
-An experiment uses data to create data.
-Data are individual facts, statistics, or items of information, often numeric [OECD Glossary of Statistical Terms. OECD. 2008. p. 119. ISBN 978-92-64-025561.]
-In the example of genetic epidemiology,
-the data used are known associations,
-the data generated additional associations.
-Paradata is defined as data that describes the acquisition of data.
+To **obtain** the genetic data, yes, there may be fieldwork and/or lab-work
+involved. For example, a researcher needs to go into the field to take
+samples (e.g. blood) of humans or other species. To analyse these samples,
+a researcher needs a lab. Depending on the technique being used on
+how to analyse the samples, there may be a big bioinformatics step
+to aggregate the measurements into useful genetic data. 
+Although this paper does not focus on the code run to 
+aggragate the raw data into useful genetic data, the same arguments
+can be made for that code as in the example: that code is 
+the ground truth of how the raw data is collected into useful genetic data.
 
 ### The code is the paradata for the results of an experiment
 
-Programming code is paradata, as it is data that describes how data is collected.
+Programming code is paradata, as it is data that describes how data is collected,
+which is the definition of paradata [TODO: REF].
 Programming code is data that is usually in the form of text, 
 spread over one or more files, that describes the experiment.
 The experiment collects the data.
 The data collected is the data we call the results of an experiment.
 
-The article is metadata. Metadata is data that describes other
-data. An article describes the
+The article is metadata, as it is data that describes other
+data, which is the definition of metadata [TODO: REF]:
+an article describes the
 experiment and hence the programming
 code in English. However, it is not the best
 candidate to describe how the data is collected,
@@ -178,12 +217,90 @@ Again, if the code and article of an experiment disagree,
 it is the code that actually let the data be collected.  
 Instead, an article is metadata about a research.
 
+### Code should be published
+
+For science to be reproducible (a fundamental property of the scientific 
+method), it is the code that should be published, instead of the
+English description of what the code does (i.e. the article), if one
+would have to pick one, as it is the code does the actual work.
+Hence, from a knowledge management perspective, emphasis should be
+put more on the preservation of code, as it is the most important actor
+in an experiment.
+
 ### Code has important properties
 
- * ground truth: if the code and the paper disagree, it is the code that generated the figures
- * convincing: The unit tests and programming style give an indication of the correctness of the results
- * concise: code directly describes what it does;
-   complex pipelines should/cannot not be described in English in full detail
+Code has three important properties, which -if a choice needed to be made-
+make it the superior choice from a knowledge preservation point of view:
+code contains the ground truth of an experiment,
+it's text is more concise than English,
+and it gives an honest indication of the quality of the experiment.
+Optionally, code can actively teach what it does.
+Here, I will go into more detail of each point.
+
+#### Example of code being the ground truth
+
+The first important property of code is that code holds the
+ground truth of an experiment.
+To illustrate this, consider this fictional example
+of a text in a paper:
+
+> We compared the values of `x` and `y` using a one-tailed T-test,
+> as we expect `x` to be smaller
+
+Taking a look at the (in this case, the programming language R) code, 
+we find the following line:
+
+```r
+t.test(x, y)
+```
+
+For those unfamiliar with R: `t.test` is the name of an R function to do a T-test.
+By default, however, this function does a **two**-tailed T-test.
+Of course, we can specify to do a one-sided T-test as well,
+and the code below seems like a corrected version:
+
+```r
+t.test(x, y, "less")
+```
+
+Again, this code tests if the **alternative** (i.e. `y`) is less.
+Also in this example, the code mismatches the English text.
+
+It is the paper that accompanies the code,
+as it is the code that generates the results.
+When humans are fallible and code gets bigger, the likelihood of
+a mismatch between the English paper and the code increases.
+But regardless of the size of the code, 
+it is the code that is the ground truth.
+
+### Example of code being concise
+
+[TODO: unconvinced myself]
+
+The second important property of code is that it is concise,
+as code directly describes what it does;
+complex pipelines should/cannot not be described in English in full detail
+
+#### Example of code being convincing
+
+As code is paradata, as it describes how data is being collected,
+it can convince (or not) that it does so correctly.
+Similar to a cell biologist that can be working sterile to avoid contamination
+by airborne bacteria, 
+or sloppy and likelier to have contaminated samples,
+code can be examplary or sloppy.
+
+
+
+### Need for code being available
+
+To quote a review on reproducibility [Peng and Hicks, 2021], 
+'Reproducibility is typically thwarted by a 
+lack of availability of the original data and computer code'.
+In the case of genetic epidemiology, it is a given that the original
+data cannot be published as this data is sensitive.
+
+
 
 ### Code is hard to manage
 
@@ -240,16 +357,24 @@ As an additional remark, considering the interdisciplinarity of the volume we en
 
  * [Ahsan et al., 2017] Ahsan, Muhammad, et al. "The relative contribution of DNA methylation and genetic variants on protein biomarkers for human diseases." PLoS genetics 13.9 (2017): e1007005.
 
-
  * [Enroth et al., 2014] Enroth, Stefan, et al. "Strong effects of genetic and lifestyle factors on biomarker variation and use of personalized cutoffs." Nature communications 5.1 (2014): 1-11.
 
  * [Enroth et al., 2015] Enroth, Stefan, et al. "Effect of genetic and environmental factors on protein biomarkers for common non-communicable disease and use of personally normalized plasma protein profiles (PNPPP)." Biomarkers 20.6-7 (2015): 355-364.
+
+ * [Höpfner, 2005] Nicolas Höpfner, 2005, [https://commons.wikimedia.org/wiki/File:Karesuando_church.jpg](https://commons.wikimedia.org/wiki/File:Karesuando_church.jpg)
 
  * [Igl et al., 2010] Igl, Wilmar, Åsa Johansson, and Ulf Gyllensten. "The Northern Swedish Population Health Study (NSPHS)–a paradigmatic study in a rural population combining community health and basic research." Rural and remote health 10.2 (2010): 198-215.
 
  * [Johansson et al., 2013] Johansson, Åsa, et al. "Identification of genetic variants influencing the human plasma proteome." Proceedings of the National Academy of Sciences 110.12 (2013): 4673-4678.
 
  * [OECD 2008] OECD Glossary of Statistical Terms. OECD. 2008. p. 119. ISBN 978-92-64-025561.
+
+ * [Peng and Hicks, 2021] Peng, Roger D., and Stephanie C. Hicks. "Reproducible research: A retrospective." Annual review of public health 42 (2021): 79-93.
+   [https://www.annualreviews.org/doi/abs/10.1146/annurev-publhealth-012420-105110](https://www.annualreviews.org/doi/abs/10.1146/annurev-publhealth-012420-105110)
+
+ * [Shafee, 2015] Thomas Shafee, [https://en.wikipedia.org/wiki/File:DNA_to_protein_or_ncRNA.svg](https://en.wikipedia.org/wiki/File:DNA_to_protein_or_ncRNA.svg)
+
+ * [Sponk et al., 2012] Sponk, Tryphon, Magnus Manske, User:Dietzel65, LadyofHats (Mariana Ruiz), Radio89, [https://commons.wikimedia.org/wiki/File:Eukaryote_DNA-en.svg](https://commons.wikimedia.org/wiki/File:Eukaryote_DNA-en.svg)
 
  * [Wilkinson et al., 2016] Wilkinson, Mark D., et al. "The FAIR Guiding Principles for scientific data management and stewardship." Scientific data 3.1 (2016): 1-9.
 
