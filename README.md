@@ -18,11 +18,14 @@ and hence allowing theoretical biology research to be truly reproducible.
 
 ## Definitions
 
-Term     | Definition                                            | Example
----------|-------------------------------------------------------|--------------------------------------------------------------
-Data     | Individual facts, statistics, or items of information | A SNP that has a significant association
-Paradata | Data that describes the generation of data            | The code to conclude that a SNP has a significant association
-Metadata | Data that provides information about other data       | The article that describes an experiment
+Term      | Definition                                            | Example
+----------|-------------------------------------------------------|--------------------------------------------------------------
+Data      | Individual facts, statistics, or items of information | A SNP that has a significant association
+Genotype  | The DNA allele at a certain location                  | AA, AC, CG, GT, ...
+Paradata  | Data that describes the generation of data            | The code to conclude that a SNP has a significant association
+Phenotype | How an organism looks like in the broadest sense      | The concentration of IL6RA in the blood
+Metadata  | Data that provides information about other data       | The article that describes an experiment
+Trait     | A phenotype                                           | The concentration of IL6RA in the blood
 
 ## Introduction
 
@@ -154,12 +157,17 @@ where the G is inherited from the other parent) and 2.0 denotes GG.
 From Figure F20 we can conclude that, on average,
 the more guanines are inherited at that SNPs location,
 the higher concentration of IL6RA can be found in a human's blood.
-There is, however, a certain amount variance per genotype
-and 'only' 43 percent of the variance can be attributed to an individuals'
-genotype. There are multiple reasons why a genotype 
-does not completely determine a phenotype, such as the effect
-of the environment (e.g. geographic location), lifestyle (e.g. smoking yes/no)
-or having a disease.
+
+The amount of variance that can be explained by an association (i.e.
+the R squared value) is rarely 100 percent, which means that a trait (in
+this case, IL6RA concentrations) cannot be perfectly explained
+from the genotype alone. As we can see in figure F20, 
+43 percent of the variance can be attributed to an individuals'
+genotype and additional factors, 
+such as the effect
+of the environment (e.g. geographic location, time of day), 
+lifestyle (e.g. smoking yes/no) or having a disease (e.g. diabetes) 
+are needed to explain the variation between individuals better.
 
 ![Ahsan et al., 2017, part of Table 2](ahsan2017relative_table_2_sub.png)
 
@@ -176,7 +184,8 @@ or having a disease.
 > The X axis shows the the genotype of the individuals,
 > where 0 denotes AA, 1.0 denotes AG and 2.0 denotes GG.
 > The Y axis shows the concentration of the protein IL6RA 
-> as found in the participants' blood.
+> as found in the participants' blood. n = 1 denotes the number
+> of SNPs that were determined to be involved.
 
 ### The experiments within genetic epidemology works are done by code
 
@@ -227,26 +236,33 @@ Hence, from a knowledge management perspective, emphasis should be
 put more on the preservation of code, as it is the most important actor
 in an experiment.
 
-### Code has important properties
+To quote a review on reproducibility [Peng and Hicks, 2021], 
+'Reproducibility is typically thwarted by a 
+lack of availability of the original data and computer code'.
+In the case of genetic epidemiology, it is a given that the original
+data cannot be published as this data is sensitive.
 
-Code has three important properties, which -if a choice needed to be made-
-make it the superior choice from a knowledge preservation point of view:
-code contains the ground truth of an experiment,
-it's text is more concise than English,
-and it gives an honest indication of the quality of the experiment.
-Optionally, code can actively teach what it does.
-Here, I will go into more detail of each point.
+
 
 #### Example of code being the ground truth
 
-The first important property of code is that code holds the
-ground truth of an experiment.
-To illustrate this, consider this fictional example
+Code should be published, as it holds the
+ground truth of an experiment; it does the actual work.
+The more complex the computation pipeline is, the easier it is
+to have a mismatch between the article (that describes what the
+code does) and the code (that actually does the work).
+It is easy (tempting?) to overlook how easy it is to have a mismatch
+between paper and code.
+
+To illustrate how easy it is to get a mismatch between a paper
+and the code, consider this fictional example
 of a text in a paper:
 
-> We compared the values of `x` and `y` using a one-tailed T-test,
-> as we expect `x` to be smaller
+> We compared the values of `x` and `y` using a one-tailed Student's T-test,
+> as we expect the average value of `x` to be less than the average value of `y`.
 
+We ignore the choices of words and style of this sentence: what is
+important is the content: a one-tailed T test is performed.
 Taking a look at the (in this case, the programming language R) code, 
 we find the following line:
 
@@ -254,17 +270,17 @@ we find the following line:
 t.test(x, y)
 ```
 
-For those unfamiliar with R: `t.test` is the name of an R function to do a T-test.
-By default, however, this function does a **two**-tailed T-test.
-Of course, we can specify to do a one-sided T-test as well,
-and the code below seems like a corrected version:
+The line of code is simplified (as the result of the T test is never stored),
+but the code is correct: 
+`t.test` is indeed the name of an R function to do a T-test
+and it is reasonable to assume that this code, when found in the code
+of an article, is assumed to be correct.
 
-```r
-t.test(x, y, "less")
-```
-
-Again, this code tests if the **alternative** (i.e. `y`) is less.
-Also in this example, the code mismatches the English text.
+Here, however, we see a mismatch between the English description and the code:
+by default, the R function `t.test` does a **two**-tailed T-test.
+A consequence of this fictional example is that the published p-values are
+higher than needed, resulting in less significant findings, which
+results in less conclusions drawn from a paper.
 
 It is the paper that accompanies the code,
 as it is the code that generates the results.
@@ -273,13 +289,19 @@ a mismatch between the English paper and the code increases.
 But regardless of the size of the code, 
 it is the code that is the ground truth.
 
-### Example of code being concise
+### Code has important properties
 
-[TODO: unconvinced myself]
+The code of a computational experiment is
+more important to preserve than the article describing
+the experiment, even when both describe the experiment identically,
+correctly and reproducibly. 
+Here I will argue why this is the
+case and the implications and best practices for knowledge preservation.
+To summarize, (1) it gives an honest indication of the quality 
+of a computational experiment, ....
 
-The second important property of code is that it is concise,
-as code directly describes what it does;
-complex pipelines should/cannot not be described in English in full detail
+Optionally, code can actively teach what it does.
+Here, I will go into more detail of each point.
 
 #### Example of code being convincing
 
@@ -289,16 +311,6 @@ Similar to a cell biologist that can be working sterile to avoid contamination
 by airborne bacteria, 
 or sloppy and likelier to have contaminated samples,
 code can be examplary or sloppy.
-
-
-
-### Need for code being available
-
-To quote a review on reproducibility [Peng and Hicks, 2021], 
-'Reproducibility is typically thwarted by a 
-lack of availability of the original data and computer code'.
-In the case of genetic epidemiology, it is a given that the original
-data cannot be published as this data is sensitive.
 
 
 
@@ -324,38 +336,117 @@ Code has a limited lifetime.
 
 
 
+## Conclusions
 
+The code that does the work in a computational experiment should
+always be published together with a scholarly article.
+For research to be reproducible, one ideally has access to
+both the data used and the code.
+In some fields, such as genetic epidemiology, the data is
+sensitive, hence cannot be released,
+yet there are methods being devised to run code on sensitive
+data with assured privacy [Zhang et al., 2016][Azencott, 2018].
 
+Code has additional useful information, similar to confidence intervals,
+that allow a reader to gauge how much he/she trusts the results.
+The most important way to determine the quality of code
+is the amount of unit tests.
+When following a set of best practices, such as DevOps, TDD, Agile,
+writing unit tests is an essential 
+part in writing code.
+The amount of unit tests is an honest signal 
+for code correctness (i.e. it does what it is supposed to do, as opposed
+to 'it does something').
+In academia, to uncover the truth, code correctness is essential.
+To make a comparison with cell biologists, where working
+sterile is essential to have the correct results,
+unit tests allow a computational biologist to have the same.
 
+Code is harder to preserve than an English text.
 
-Knowledge management efforts typically focus on organisational objectives 
-such as improved performance, competitive advantage, innovation, 
-the sharing of lessons learned, integration and continuous improvement of the organisation.
+Although code is the primary actor in computational experiments,
+there is no incentive to submit code alongside a publication.
+Most academic journal do not require authors to submit their code,
+nor it the submitted code peer reviewed.
 
- * [ ] introduce the practical situation where paradata is relevant for the readership
-   clearly enough that even readers outside your own discipline can follow the rationale
-   of your writing. Remember to describe explicitly (but briefly) your disciplinary
-   (scholarly and practical) and research context, research front and motivate the 
-   focus of the discussion. Please also state explicitly the relevance/implications
-   of the results from and for your practical case/perspective.
+Although the code of computation experiments can be archived well, 
+there is no incentive to do so.
 
+Although a runnable version of a computation experiment can be archived well, 
+there is no incentive to do so.
 
-## M
+## Discussion
 
+### Definition
 
+Code may or may not be paradata, depending on how the definition
+is interpreted.
+Here we repeat the definition of 'paradata' and discuss 
+its (numbered) constituents.
+This paper defined paradata as 'data (1) about the collecting (2) of the data (3)',
+where (1) code must be seen as data, (2) downloading raw data
+and doing calculations must be seen as collecting, and (3) the
+results of an experiment must be seen as data.
+This paper argues, that (1) code is data in the form of text spread
+over one or more files, that has useful measurable properties, 
+(2) downloading raw datas and doing calculations, such as a T-test,
+does describe how the bits and pieces of an end result is collected,
+and (3) an experimental results is data, as it can be measured and
+used as the raw data of a next experiment.
 
+### The drawbacks of publishing code
 
-In addition, we would like to direct your attention to a couple of general issues. Our volume will appear in a book series that relates to knowledge management. This means that we are going to discuss the chapters in the introduction and the epilogue/conclusions from a KM perspective and KM researchers and professionals are also, in a very broad sense,  one of the major target audiences of the volume as a whole. In a very broad sense, KM encompasses different aspects relevant to the management, governance, administration, curation and facilitation of information, knowledge, data, records etc. and related processes and practises. This does not mean that you need to assume a KM perspective in the chapter BUT if there are relevant management (or similar) aspects that stem from the discussion in the chapter, you are free to make a note of them.
+Publishing code may be disadvantageous for an author.
+For science, yes, as this allows reproducible research.
+For an author, publishing code alongside an experiment opens up
+the possibily to receive questions regarding that code.
+For a publisher
+For a knowledge archivist, 
 
-As an additional remark, considering the interdisciplinarity of the volume we encourage you to illustrate the point you make in your chapter using a concrete problem that exists and provide enough information on the research (and practical) context you are writing about that a person outside of your own field can follow your argument. Moreover, remember to motivate the relevance of your findings and/or conclusions again considering the interdisciplinary audience.
+### The drawbacks of publishing version-controlled code
 
+Is it worth it to publish version-controlled code?
+For an author, 
+there is additional training involved, and also here,
+publishing code alongside an experiment opens up
+the possibily to receive questions regarding that code.
 
+### The drawbacks of publishing a running version of code
 
- * [1] Cantor, Rita M., Kenneth Lange, and Janet S. Sinsheimer. "Prioritizing GWAS results: a review of statistical methods and recommendations for their application." The American Journal of Human Genetics 86.1 (2010): 6-22.
+Is it worth it to archive running versions of code?
+For an author, 
+there is additional training involved.
+There is no FAIR infrastructure for Singularity containers.
+
+### Recommendations
+
+Being able to re-do an experiment is a core principle of the scientific method.
+Publishing only a paper about a computational experiment is not enough,
+as the results are too likely to mismatch that English description.
+Journal should make it mandatory for authors
+to publish their code alongside a computational experiment.
+Authors should follow the FAIR principes for their code as well,
+as can be done using the infrastructure as supplied by, 
+for example, GitHub and GitLab, opening up new angles in
+metascience regarding computational experiments.
+Knowledge managers should create the infrastructure for the preservation
+of runnable experiments, to allow scientist to upload a Singularity
+container, so these are as well following the FAIR principles.
+
+### Final word
+
+The world of science would be a more open, humble, trustworthy, truthful
+and helpful would the code that accompanies a scientific paper
+be treated like a first class citizen. As doing so in an exemplary way
+in yet to be rewarded, hence it has to be the idealististic scientists
+to wage this battle. I feel the truth and science are worth fighting for
+and I hope this paper helps others to join.
 
 ## References
 
  * [Ahsan et al., 2017] Ahsan, Muhammad, et al. "The relative contribution of DNA methylation and genetic variants on protein biomarkers for human diseases." PLoS genetics 13.9 (2017): e1007005.
+
+ * [Azencott, 2018] Azencott, C-A. "Machine learning and genomics: precision medicine versus patient privacy." Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences 376.2128 (2018): 20170350.
 
  * [Enroth et al., 2014] Enroth, Stefan, et al. "Strong effects of genetic and lifestyle factors on biomarker variation and use of personalized cutoffs." Nature communications 5.1 (2014): 1-11.
 
@@ -377,5 +468,8 @@ As an additional remark, considering the interdisciplinarity of the volume we en
  * [Sponk et al., 2012] Sponk, Tryphon, Magnus Manske, User:Dietzel65, LadyofHats (Mariana Ruiz), Radio89, [https://commons.wikimedia.org/wiki/File:Eukaryote_DNA-en.svg](https://commons.wikimedia.org/wiki/File:Eukaryote_DNA-en.svg)
 
  * [Wilkinson et al., 2016] Wilkinson, Mark D., et al. "The FAIR Guiding Principles for scientific data management and stewardship." Scientific data 3.1 (2016): 1-9.
+
+ * [Zhang et al., 2016] Zhang, Lifang, Yan Zheng, and Raimo Kantoa. "A review of homomorphic encryption and its applications." Proceedings of the 9th EAI International Conference on Mobile Multimedia Communications. 2016.
+   [PDF](https://dl.acm.org/doi/epdf/10.5555/3021385.3021405)
 
 
