@@ -1,0 +1,33 @@
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: "0 0 1 * *"
+
+name: Build LaTeX document using dante-ev's Action
+
+jobs:
+  build_latex:
+
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Count number of words
+        run: wc --words README.md
+
+      #- name: Compile LaTeX document
+      #  uses: dante-ev/latex-action@latest
+      #  with:
+      #    root_file: header.tex
+
+      #- name: Upload PDF to the workflow tab
+      #  uses: actions/upload-artifact@v2
+      #  with:
+      #    name: dante_ev_pdf
+      #    path: header.pdf
+      #    if-no-files-found: error
+
