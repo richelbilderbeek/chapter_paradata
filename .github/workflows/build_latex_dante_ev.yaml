@@ -19,15 +19,15 @@ jobs:
       - name: Count number of words
         run: wc --words README.md
 
-      #- name: Compile LaTeX document
-      #  uses: dante-ev/latex-action@latest
-      #  with:
-      #    root_file: header.tex
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: header.tex
 
-      #- name: Upload PDF to the workflow tab
-      #  uses: actions/upload-artifact@v2
-      #  with:
-      #    name: dante_ev_pdf
-      #    path: header.pdf
-      #    if-no-files-found: error
+      - name: Upload PDF to the workflow tab
+        uses: actions/upload-artifact@v2
+        with:
+          name: dante_ev_pdf
+          path: header.pdf
+          if-no-files-found: error
 
