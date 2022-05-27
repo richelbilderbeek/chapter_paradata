@@ -16,7 +16,7 @@ In this chapter it is argued that the source code should should be supplied,
 as this is the true paradata: if the paper and code disagree, it is the
 code that has generated the results.
 The chapter concludes by some rules how to allow code to serve as paradata,
-and hence allowing theoretical biology research to be truly reproducible.
+and hence allowing computational research to be truly reproducible.
 
 ## Definitions
 
@@ -328,7 +328,7 @@ Code has a limited lifetime.
 ### Runnable code has other important features
 
  * Reproduce an experiment
- * Code can teach the user
+ * Code can teach the user, see babette
  * Build upon an experiment
 
 ## Conclusions
