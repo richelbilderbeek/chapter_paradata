@@ -1,5 +1,7 @@
 # chapter_paradata
 
+[![Build LaTeX document](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/build_latex_thomas_chauvet.yaml/badge.svg?branch=master)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/build_latex_dante_ev.yaml)
+
 ## Abstract
 
 Here we define paradata as the data that describes the generation of data.
