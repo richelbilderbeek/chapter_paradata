@@ -244,8 +244,6 @@ lack of availability of the original data and computer code'.
 In the case of genetic epidemiology, it is a given that the original
 data cannot be published as this data is sensitive.
 
-
-
 #### Example of code being the ground truth
 
 Code should be published, as it holds the
@@ -291,7 +289,7 @@ a mismatch between the English paper and the code increases.
 But regardless of the size of the code, 
 it is the code that is the ground truth.
 
-### Code has important properties
+### Code itself has important properties
 
 The code of a computational experiment is
 more important to preserve than the article describing
@@ -314,29 +312,24 @@ by airborne bacteria,
 or sloppy and likelier to have contaminated samples,
 code can be examplary or sloppy.
 
-
-
 ### Code is hard to manage
 
 Unlike English, code is fragile in standing the test of time.
 Containers can alleviate this.
 Code has a limited lifetime.
 
-### Code has important metadata
+### Hosted code has important metadata
 
  * Number of commits
  * Commit history
  * Code coverage
+ * Objective indicator of work being done
 
+### Runnable code has other important features
 
-
-
-
-
-
-
-
-
+ * Reproduce an experiment
+ * Code can teach the user
+ * Build upon an experiment
 
 ## Conclusions
 
