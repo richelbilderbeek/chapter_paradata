@@ -94,6 +94,10 @@ between having a certain genetic makeup and a certain trait,
 where the trait can be any human property, such as weight, height,
 the amount of metabolites and having a disease yes/no.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example study}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{Karesuando_church.jpg}
@@ -225,6 +229,10 @@ are needed to explain the variation between individuals better.
   \label{fig:ahsan2017relative_s6}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Code is more important than the (English) paper}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \paragraph{The experiments within genetic epidemology works are done by code}
 
 The experiment described above is run by code. There is no fieldwork,
@@ -233,7 +241,7 @@ after which the code does the work. A genetic epidemiologist that
 looks for associations between genotype and phenotype,
 one does not need a lab.
 
-To **obtain** the genetic data, yes, there may be fieldwork and/or lab-work
+To \emph{obtain} the genetic data, yes, there may be fieldwork and/or lab-work
 involved. For example, a researcher needs to go into the field to take
 samples (e.g. blood) of humans or other species. To analyse these samples,
 a researcher needs a lab. Depending on the technique being used on
@@ -327,41 +335,148 @@ a mismatch between the English paper and the code increases.
 But regardless of the size of the code, 
 it is the code that is the ground truth.
 
-\paragraph{Code itself has important properties}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{There are multiple way to publish code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The code of a computational experiment is
+There are multiple ways of publishing code,
+that are increasingly hard to do, yet result
+in more reproducible experiments:
+(1) publishing the code as text only, e.g. by printing
+it in a Supplementary Materials, (2) publishing
+the code on a hosted website, e.g on GitHub, with
+added features (3) publishing 
+the installed code within a virtual environment,
+for example, using a Singularity container.
+Here I will go into details of each of these ways.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Publishing raw code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Code is commonly published alongside of a 
+paper, pasted as text in the Supplementary Materials 
+(for example, in \cite{labrecque2019interpretation}).
+This is the rawest form of publishing code,
+as it is just text.
+
+\paragraph{Raw code is important}
+
+The raw code of a computational experiment is
 more important to preserve than the article describing
 the experiment, even when both describe the experiment identically,
-correctly and reproducibly. 
-Here I will argue why this is the
-case and the implications and best practices for knowledge preservation.
-To summarize, (1) it gives an honest indication of the quality 
-of a computational experiment, ....
+correctly and reproducibly, 
+as it has/should been that code that generated the results of an experiment.
+Again: if the paper and code differ, it is the code that did
+the actual work with the actual/true results.
 
-Optionally, code can actively teach what it does.
-Here, I will go into more detail of each point.
+\paragraph{Raw code is an indicator of quality}
 
-\paragraph{Example of code being convincing}
+Raw code gives an indication of the quality 
+of a computational experiment and several metrics are
+devised to get an idea of the quality of code.
 
-As code is paradata, as it describes how data is being collected,
-it can convince (or not) that it does so correctly.
-Similar to a cell biologist that can be working sterile to avoid contamination
-by airborne bacteria, 
-or sloppy and likelier to have contaminated samples,
-code can be examplary or sloppy.
+The simplest metric to assess the quality of code is 
+the amount of (single) lines of code (SLOC). 
+Code that has a lower SLOC count, i.e. it is more concise,
+is usually regarded as having a lower chance of containing bugs.
+
+A more interesting metric is the cyclomatic complexity of the code.
+The cyclomatic complexity is defined as the number of ways that
+the code can be executed. 
+For example, code that has only one \verb|if| statement
+has a cyclomatic complexity of 2, as the condition within the \verb|if|
+statement can be true or false.
+The cyclomatic complexity correlates with code complexity,
+where more complex code is likelier to contain bugs.
+
+A feature that deserves more attention
+is that code can actively teach what it does.
+A mechanism to do so, which is present in most programming
+languages, is error handling: errors are the mechanism
+by which a programmer can teach the user what to do/expect.
+One example is when calculating the variance of a distribution.
+To calculate the variance of a distribution, at least two values
+are required. When the variance of only one value is requested,
+an error message can helpfully indicate that one needs at least two values.
+
+\paragraph{The problems with raw code}
+
+There are multiple problems with publishing raw code.
+First, there is no guarantee that that code \emph{can} actually
+run, for example, due to a typo added after the code was pasted.
+Secondly, there is no way to determine if code that worked yesterday
+works today. These problems can be prevented by, instead of
+pasting raw code, using a website to host that code (see below).
+
+\paragraph{Raw code is already better than no code}
+
+Publishing raw code is already better than not publishing code at all,
+as that raw code can be assumed to have run successfully at least once.
+To reproduce an experiment from raw code can be painful, 
+yet way better than rewriting the same code from scratch.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Publishing hosted code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Code is sometimes published alongside a paper, 
+in the form of a hosted website.
+This way of publishing code gives additional options,
+both for the authors of that code, as well as its users.
+
+\paragraph{Example of hosted code}
+
+There are multiple websites for hosting code, with GitHub,
+and GitLab being the most well-known.
+GitHub is the most commonly used website to host code in general,
+with millions of users.
+GitHub users can create dedicated websites (called 'repositories')
+to upload code. GitHub hosts that uploaded by and provides
+a user interface for every visiter of such a website.
+An example from the author is the website \cite{bbbq_article_issue_157},
+that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}.
+
+\paragraph{Hosted code has important metadata}
+
+Hosted code has many additional features, such as
+a version-controlled history, continuous integration scripts
+and automatically generated metrics.
+
+\paragraph{Hosted code has a commit history}
+
+Hosted code commonly has a commit history. For example, GitHub
+uses a version control system called \verb|git| (hence its name).
+In practice, this means that when a change is made to the code,
+a new version is created. In the case that the change was harmful,
+one can go back to an earlier version and continue again from there.
+
+\paragraph{A commit history helps assess honest reporting}
+
+A commit history helps to assess the honesty 
+in the reporting of the code. 
+Ideally, the full version history of the code 
+has been generated, by hosting the code directly at its inception.
+However, in some repositories, only the final version of the code has been
+posted, which means all historical information is lost.
+From a code history, it can be observed, for example, 
+how much statistical tests have really/actually been done 
+and see if all are reported:
+not reporting a statistical tests is considered a Dubious Research Practice.
+
+\paragraph{Continuous integration helps assess code quality}
+
+\paragraph{Metrics help assess the honest division of labour}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Publishing a virtual environment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Code is hard to manage}
 
 Unlike English, code is fragile in standing the test of time.
 Containers can alleviate this.
 Code has a limited lifetime.
-
-\paragraph{Hosted code has important metadata}
-
- * Number of commits
- * Commit history
- * Code coverage
- * Objective indicator of work being done
 
 \paragraph{Runnable code has other important features}
 
