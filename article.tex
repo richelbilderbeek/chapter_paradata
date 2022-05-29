@@ -98,7 +98,7 @@ the amount of metabolites and having a disease yes/no.
   \centering
   \includegraphics[width=\linewidth]{Karesuando_church.jpg}
   \caption{
-    Figure F2: Picture of Karesuando's church,
+    Picture of Karesuando's church,
     the village where the Northern Swedish Population
     Health Study started.
     From \cite{hopfner2005}
@@ -121,12 +121,12 @@ blood \cite{enroth2014strong,enroth2015effect}.
   \centering
   \includegraphics[width=\linewidth]{1189px-Eukaryote_DNA-en.png}
   \caption{
-    Fig F3: A cell has a nucleus that contains chromosomes. 
+    A cell has a nucleus that contains chromosomes. 
     Each of these chromosomes (46 in humans) consist out of DNA. 
     DNA itself conists out of 4 nucleotides, 
     as depicted by the horizontal sticks 
     with the colors red, yellow, green and blue.
-    From [Sponk et al., 2012]
+    From \cite{sponk2012}
   }
   \label{fig:eukakyote_dna}
 \end{figure}
@@ -135,10 +135,11 @@ The first type of data, the (final form of the) genetic data,
 consists out of single nucleotide polymorphisms (SNPs).
 SNPs consist out of a name, a position and a nucleotide. 
 DNA (organized into chromosomes and present in every (nucleated) cell, 
-see figure F3) consists out of many nucleotides, of which there are four types,
+see figure \ref{fig:eukakyote_dna}) consists out of many nucleotides, of which there are four types,
 called adenosine, cytosine, guanine and thyrosine, all commonly abreviated
 as A, C, G and T respectively.
-One SNP example is, that 'rs12133641' is a SNP located at position 154,428,283,
+One SNP example is \verb|rs12133641|, which is a SNP located at position 
+154,428,283,
 where some people have a certain nucleotide. In this case, 
 67 percent of the people within this study have an A,
 and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
@@ -147,20 +148,21 @@ and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
   \centering
   \includegraphics[width=\linewidth]{DNA_to_protein_or_ncRNA.png}
   \caption{
-    Fig F5: Parts of DNA (so-called 'genes') code for proteins. 
+    Parts of DNA (so-called 'genes') code for proteins. 
     The DNA, that always stays put in the cell's nucleus, 
     is transcripted to messenger RNA (mRNA).
     mRNA leaves the nucleus and its code gets translated to 
     a protein sequence.
     Near the start of a gene are regions that determine the amount
     of proteins produced (not shown in figure).
-    Adapted from [Shafee, 2015]
+    Adapted from \cite{shafee2015}
   }
   \label{fig:dna_to_protein}
 \end{figure}
 
 The second type of data are concentrations of certain proteins in the 
-blood. DNA contains the code for building proteins (see Figure F5), 
+blood. DNA contains the code for building proteins (see Figure 
+\ref{fig:dna_to_protein}), 
 as well as the rate
 at which a protein is created. Some proteins end up in the blood and
 their presence can be used to assess the health of an individual.
@@ -168,25 +170,25 @@ IL6RA is a protein [TODO: more info]
 
 The field of genetic epidemiology looks -among others- for
 correlations between genetic data and biological traits.
-For example, figure F10 (from \cite{ahsan2017relative}) shows that
-SNP rs12133641 is highly correlated (p value is 3.0 * 10e-73, 
+For example, figure \ref{fig:ahsan2017relative_table_2_sub} (from \cite{ahsan2017relative}) shows that
+SNP \verb|rs12133641| is highly correlated (p value is 3.0 * 10e-73, 
 961 individuals) with protein IL6RA. What this results does
 not yet teach us, is how this correlation works, yet
-figure F20 shows us the direction of the association:
+figure \ref{fig:ahsan2017relative_s6} shows us the direction of the association:
 the X axis shows the possible genetic make-ups (aka the genotype) of the individuals,
 where 0 denotes the individuals with genotype
 AA (the individual inherited one adenosine 
 from his/here mother and one adenosine from his/her father), 
 1.0 denotes AG (one A is inherited from one parent, 
 where the G is inherited from the other parent) and 2.0 denotes GG.
-From Figure F20 we can conclude that, on average,
+From Figure \ref{fig:ahsan2017relative_s6} we can conclude that, on average,
 the more guanines are inherited at that SNPs location,
 the higher concentration of IL6RA can be found in a human's blood.
 
 The amount of variance that can be explained by an association (i.e.
 the R squared value) is rarely 100 percent, which means that a trait (in
 this case, IL6RA concentrations) cannot be perfectly explained
-from the genotype alone. As we can see in figure F20, 
+from the genotype alone. As we can see in figure \ref{fig:ahsan2017relative_s6}, 
 43 percent of the variance can be attributed to an individuals'
 genotype and additional factors, 
 such as the effect
@@ -198,7 +200,7 @@ are needed to explain the variation between individuals better.
   \centering
   \includegraphics[width=\linewidth]{ahsan2017relative_table_2_sub.png}
   \caption{
-    Figure F10 shows an example result of a genetic epideological research.
+    An example result of a genetic epideological research.
     It shows that the SNP named rs12133641 (located at position 154,428,283
     of chromosome 1) is highly correlated (p value is 3.0 * 10e-73, 
     961 individuals) to the concentration of the protein IL6RA, as measured
@@ -212,7 +214,7 @@ are needed to explain the variation between individuals better.
   \centering
   \includegraphics[width=\linewidth]{ahsan2017relative_s6.png}
   \caption{
-    Figure F20: the relation between the genotype for SNP rs12133641 
+    The relation between the genotype for SNP rs12133641 
     and the protein concentration of IL6RA is relatively strong.
     The X axis shows the the genotype of the individuals,
     where 0 denotes AA, 1.0 denotes AG and 2.0 denotes GG.
@@ -292,8 +294,10 @@ To illustrate how easy it is to get a mismatch between a paper
 and the code, consider this fictional example
 of a text in a paper:
 
-> We compared the values of `x` and `y` using a one-tailed Student's T-test,
-> as we expect the average value of `x` to be less than the average value of `y`.
+\begin{verbatim}
+We compared the values of x and y using a one-tailed Student's T-test,
+as we expect the average value of x to be less than the average value of y.
+\end{verbatim}
 
 We ignore the choices of words and style of this sentence: what is
 important is the content: a one-tailed T test is performed.
@@ -306,12 +310,12 @@ t.test(x, y)
 
 The line of code is simplified (as the result of the T test is never stored),
 but the code is correct:
-\verb{t.test} is indeed the name of an R function to do a T-test
+\verb|t.test| is indeed the name of an R function to do a T-test
 and it is reasonable to assume that this code, when found in the code
 of an article, is assumed to be correct.
 
 Here, however, we see a mismatch between the English description and the code:
-by default, the R function \verb{t.test} does a \textbf{two}-tailed T-test.
+by default, the R function \verb|t.test| does a \textbf{two}-tailed T-test.
 A consequence of this fictional example is that the published p-values are
 higher than needed, resulting in less significant findings, which
 results in less conclusions drawn from a paper.
