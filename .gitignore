@@ -44,3 +44,4 @@ vignettes/*.pdf
 *.log
 *.out
 *.pdf
+header.toc
