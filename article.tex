@@ -107,15 +107,15 @@ the amount of metabolites and having a disease yes/no.
 \end{figure}
 
 As an example, we'll use a pseudorandomly selected paper
-from [Ahsan et al., 2017]. The data used by that paper is
+from \cite{ahsan2017relative}. The data used by that paper is
 from a population study called the Northern Swedish Population
-Health Study (NSPHS) that started in 2010 [Igl et al., 2010]. 
+Health Study (NSPHS) that started in 2010 \cite{igl2010northern}. 
 The approximately 1000 participants were initially mostly surveyed
-about lifestyle [Igl et al., 2010] and follow-up studies
+about lifestyle \cite{igl2010northern} and follow-up studies
 provided the type of data relevant for this paper, 
-which are (1) the genetic data [Johansson et al., 2013],
+which are (1) the genetic data \cite{johansson2013identification},
 (2) the concentration of certain proteins in the 
-blood [Enroth et al., 2014][Enroth et al., 2015].
+blood \cite{enroth2014strong,enroth2015effect}.
 
 \begin{figure}[!htbp]
   \centering
@@ -141,7 +141,7 @@ as A, C, G and T respectively.
 One SNP example is, that 'rs12133641' is a SNP located at position 154,428,283,
 where some people have a certain nucleotide. In this case, 
 67 percent of the people within this study have an A,
-and 33 percent have a G (also from [Ahsan et al., 2017], Table S3).
+and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
 
 \begin{figure}[!htbp]
   \centering
@@ -168,7 +168,7 @@ IL6RA is a protein [TODO: more info]
 
 The field of genetic epidemiology looks -among others- for
 correlations between genetic data and biological traits.
-For example, figure F10 (from [Ahsan et al., 2017]) shows that
+For example, figure F10 (from \cite{ahsan2017relative}) shows that
 SNP rs12133641 is highly correlated (p value is 3.0 * 10e-73, 
 961 individuals) with protein IL6RA. What this results does
 not yet teach us, is how this correlation works, yet
@@ -202,7 +202,7 @@ are needed to explain the variation between individuals better.
     It shows that the SNP named rs12133641 (located at position 154,428,283
     of chromosome 1) is highly correlated (p value is 3.0 * 10e-73, 
     961 individuals) to the concentration of the protein IL6RA, as measured
-    in blood. The table is a simplified result from [Ahsan et al., 2017].
+    in blood. The table is a simplified result from \cite{ahsan2017relative}.
   }
   \label{fig:ahsan2017relative_table_2_sub}
 \end{figure}
@@ -272,7 +272,7 @@ Hence, from a knowledge management perspective, emphasis should be
 put more on the preservation of code, as it is the most important actor
 in an experiment.
 
-To quote a review on reproducibility [Peng and Hicks, 2021], 
+To quote a review on reproducibility \cite{peng2021reproducible}, 
 'Reproducibility is typically thwarted by a 
 lack of availability of the original data and computer code'.
 In the case of genetic epidemiology, it is a given that the original
@@ -305,13 +305,13 @@ t.test(x, y)
 \end{verbatim}
 
 The line of code is simplified (as the result of the T test is never stored),
-but the code is correct: 
-`t.test` is indeed the name of an R function to do a T-test
+but the code is correct:
+\verb{t.test} is indeed the name of an R function to do a T-test
 and it is reasonable to assume that this code, when found in the code
 of an article, is assumed to be correct.
 
 Here, however, we see a mismatch between the English description and the code:
-by default, the R function `t.test` does a **two**-tailed T-test.
+by default, the R function \verb{t.test} does a \textbf{two}-tailed T-test.
 A consequence of this fictional example is that the published p-values are
 higher than needed, resulting in less significant findings, which
 results in less conclusions drawn from a paper.
@@ -376,7 +376,7 @@ both the data used and the code.
 In some fields, such as genetic epidemiology, the data is
 sensitive, hence cannot be released,
 yet there are methods being devised to run code on sensitive
-data with assured privacy [Zhang et al., 2016][Azencott, 2018].
+data with assured privacy \cite{zhang2016review,azencott2018machine}.
 
 Code has additional useful information, similar to confidence intervals,
 that allow a reader to gauge how much he/she trusts the results.
