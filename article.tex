@@ -273,21 +273,54 @@ Again, if the code and article of an experiment disagree,
 it is the code that actually let the data be collected.  
 Instead, an article is metadata about a research.
 
+\paragraph{Science should be reproducible}
+
+A scientific claim must be reproducible before it is accepted
+by the scientific community.
+Reproducibility (i.e. to reproduce the same results) 
+and replicability (i.e. to reconclude a conclusion)
+are fundamental characteristics of scientific studies (\cite{patil2019visual}).
+For computational science, it is relatively easy to 
+reproduce an experiment, as all it takes is a computer, electricity,
+an optional internet connection, the code and the data.
+In computational science, however, it appears that 
+culture to reproduce results has been lost 
+and to counter this, it has been suggested to make
+reproducible research a minimal requirement for 
+publication (\cite{peng2011reproducible}).
+
 \paragraph{Code should be published}
 
-For science to be reproducible (a fundamental property of the scientific 
-method), it is the code that should be published, instead of the
-English description of what the code does (i.e. the article), if one
-would have to pick one, as it is the code does the actual work.
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{peng2011reproducible_fig_1.png}
+  \caption{
+    Levels of reproducibility, from \cite{peng2011reproducible}
+  }
+  \label{fig:peng2011reproducible}
+\end{figure}
+
+The code of a computational experiment must be published
+for an experiment to reproducible.
+It is however (too) common that the original data
+and/or code are unavailable (\cite{peng2021reproducible}).
+One sad example is described in \cite{haibe2020importance}, where
+an algorithm that detects breast cancer better than a human expert,
+was irreproducible.
+In the case of genetic epidemiology, it is a given that the original
+data cannot be published as this data is sensitive.
+The code of a computational experiment, however, can be
+distributed without such problems.
+It is, however, not code that is published, but an English
+description of what that code does instead.
+From a knowledge management's perspective,
+to conserve an experiment,
+it is the code that must be archived and not the
+English description of what it does:
+it is the code does the actual work.
 Hence, from a knowledge management perspective, emphasis should be
 put more on the preservation of code, as it is the most important actor
 in an experiment.
-
-To quote a review on reproducibility \cite{peng2021reproducible}, 
-'Reproducibility is typically thwarted by a 
-lack of availability of the original data and computer code'.
-In the case of genetic epidemiology, it is a given that the original
-data cannot be published as this data is sensitive.
 
 \paragraph{Example of code being the ground truth}
 
@@ -329,10 +362,36 @@ A consequence of this fictional example is that the published p-values are
 higher than needed, resulting in less significant findings, which
 results in less conclusions drawn from a paper.
 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{baggerly2009deriving_fig_1a_zoom.png}
+  \includegraphics[width=\linewidth]{baggerly2009deriving_fig_1a.png}
+  \caption{
+    A published off-by-one error.
+    Left: a zoom in. 
+    Horizontal axis is the sample name.
+    Vertical axis is UNKNOWN.
+    Color in the cell denotes gene expression.
+    The colors above the cells, with the dendrogram, shows
+    red for non-responders (red) and responsive (blue).
+    Right: visisualization of sample that shows samples are duplicated,
+    as annotated by the pink rectangles. Note that, due to this, some
+    samples are both non-responders and responders.
+    Adapted from \cite{baggerly2009deriving}
+  }
+  \label{fig:baggerly2009deriving}
+\end{figure}
+
 It is the paper that accompanies the code,
 as it is the code that generates the results.
 When humans are fallible and code gets bigger, the likelihood of
 a mismatch between the English paper and the code increases.
+We know that the most common errors are 
+simple (and may legitimately fear that those simple errors are common) 
+(\cite{baggerly2009deriving}),
+and this example is not too far off from the
+examples given in that paper.
+
 But regardless of the size of the code, 
 it is the code that is the ground truth.
 
@@ -430,9 +489,9 @@ both for the authors of that code, as well as its users.
 
 \paragraph{Example of hosted code}
 
-There are multiple websites for hosting code, with GitHub,
-and GitLab being the most well-known.
-GitHub is the most commonly used website to host code in general,
+There are multiple websites for hosting code, with BitBucket, GitHub,
+GitLab and SourceForge being the most well-known.
+Of these, GitHub is the most popular website to host code in general,
 with millions of users.
 GitHub users can create dedicated websites (called 'repositories')
 to upload code. GitHub hosts that uploaded by and provides
