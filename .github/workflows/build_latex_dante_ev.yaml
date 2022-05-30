@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Count number of words
-        run: wc --words README.md
+        run: texcount article.tex
 
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@latest
