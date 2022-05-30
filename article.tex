@@ -28,6 +28,7 @@ genetic epidemiology
   \begin{tabular}{lll}
     Term      & Definition                                            & Example                                                         \\
     \hline
+    Code      & Body of text to be run by a computer                  & The scripts run by a computational experiment                   \\
     Data      & Individual facts, statistics, or items of information & A SNP that has a significant association                        \\
     Genotype  & The DNA allele at a certain location                  & AA, AC, CG, GT, ...                                             \\
     Paradata  & Data that describes the generation of data            & The code to conclude that a SNP has a significant association   \\
@@ -380,6 +381,8 @@ The simplest metric to assess the quality of code is
 the amount of (single) lines of code (SLOC). 
 Code that has a lower SLOC count, i.e. it is more concise,
 is usually regarded as having a lower chance of containing bugs.
+Additionally, following a style guide (e.g. \cite{style_guide}), 
+improves software quality (\cite{fang2001}).
 
 A more interesting metric is the cyclomatic complexity of the code.
 The cyclomatic complexity is defined as the number of ways that
@@ -434,6 +437,10 @@ with millions of users.
 GitHub users can create dedicated websites (called 'repositories')
 to upload code. GitHub hosts that uploaded by and provides
 a user interface for every visiter of such a website.
+The use of code hosting websites, such as GitHub,
+accommodates collaboration (\cite{perez2016ten}).
+\begin{sloppypar}\url{https://github.com/richelbilderbeek/babette},\end{sloppypar}
+and improves transparency (\cite{gorgolewski2016practical}).
 An example from the author is the website \cite{bbbqarticleissue157},
 that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}.
 
@@ -453,8 +460,9 @@ one can go back to an earlier version and continue again from there.
 
 \paragraph{A commit history helps assess honest reporting}
 
-A commit history helps to assess the honesty 
-in the reporting of the code. 
+Hosted code improves transparency (\cite{gorgolewski2016practical}).
+The history of changes, called the commit history, 
+helps to assess the honesty in the reporting of the code. 
 Ideally, the full version history of the code 
 has been generated, by hosting the code directly at its inception.
 However, in some repositories, only the final version of the code has been
@@ -473,10 +481,15 @@ To determine the reproducibility of the code, one such script should
 run the code (on trivial data) to verify if the code works at all.
 If the functionality of the code is lost, the researcher
 can immediatly see which small change was the cause of this.
+A formalized version of this workflow is called continuous integration (CI).
+Using a CI service (such as GitHub Actions), is known to significantly 
+increase the number of bugs exposed (\cite{vasilescu2015}) and increases
+the speed at which new features are added (\cite{vasilescu2015}).
+
 A more sophisticated check for the code's correctness is
 to run units tests and determine the percentage of code that has been
-tested, which is called the code coverage. The higher the code coverage,
-the \richel{ref}.
+tested, which is called the code coverage. Code coverage
+correlates with code quality (\cite{horgan1994,del1995correlation}). 
 
 \paragraph{Metrics help assess the honest division of labour}
 
@@ -685,7 +698,7 @@ and I hope this paper helps others to join.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This article and its metadata can be found at 
-\url{https://github.com/richelbilderbeek/chapter_paradata}.
+\begin{sloppypar}\url{https://github.com/richelbilderbeek/chapter_paradata}\end{sloppypar}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
