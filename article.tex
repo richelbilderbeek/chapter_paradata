@@ -499,7 +499,22 @@ accommodates collaboration (\cite{perez2016ten}).
 \begin{sloppypar}\url{https://github.com/richelbilderbeek/babette},\end{sloppypar}
 and improves transparency (\cite{gorgolewski2016practical}).
 An example from the author is the website \cite{bbbqarticleissue157},
-that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}.
+that hosts part of the code for the paper \cite{bilderbeek2022transmembrane},
+as shown in Figure \ref{fig:bbbqarticleissue157}.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{bbbq_article_issue_157.png}
+  \caption{
+    A typical GitHub repository (\cite{bbbqarticleissue157}), 
+    hosting the code for a
+    computational experiment, 
+    as published with \cite{bilderbeek2022transmembrane}.
+    Note that this repository has 72 commits, where a commit is a change
+    to the code.
+  }
+  \label{fig:bbbqarticleissue157}
+\end{figure}
 
 \paragraph{Hosted code has important metadata}
 
@@ -592,7 +607,20 @@ Most code hosts, among others, GitHub and GitLab,
 automatically keep track of certain metrics.
 One such metric is the amount of code each contributor has made.
 In that way, authors involved in the writing of the software
-are honestly acknowledged.
+are honestly acknowledged. Figure \ref{fig:daisie_contributors}
+shows the number of commits the authors of DAISIE (\cite{etienne2020daisie})
+have made to its code.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{daisie_contributors.png}
+  \caption{
+    An overview of the commits that multiple contributors have
+    made, in this case, to the code of DAISIE (\cite{etienne2020daisie})
+  }
+  \label{fig:daisie_contributors}
+\end{figure}
+
 
 \paragraph{A reader can contact the author}
 
@@ -813,15 +841,20 @@ of runnable experiments, to allow scientist to upload a Singularity
 container, so these are as well following the FAIR principles.
 
 \begin{table}[h]
-  \begin{tabular}{lp{9cm}}
-    Type of code  & Recommendation \\
+  \begin{tabular}{|l|p{9cm}|}
+    \hline
+    \textbf{Type of code} & \textbf{Recommendation} \\
     \hline
     No code       & Disallow papers that do not supply code publicly \\
+    \hline
     Raw code      & Don't publish raw code as text, instead, host it on a code hosting website \\
+    \hline
     Hosted code   & Add CI. Use standarized badges for build status and code coverage. 
                     Provide for a standarized way to link between paper and code host \\
+    \hline
     Runnable code & Provide website to upload containers with proper annotation.
-                    Provide for a standarized way to link between container, paper and code repository
+                    Provide for a standarized way to link between container, paper and code repository \\
+    \hline
   \end{tabular}
   \caption{Recommendations described in this paper}
   \label{tab:recommendations}
