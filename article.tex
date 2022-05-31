@@ -840,20 +840,24 @@ Knowledge managers should create the infrastructure for the preservation
 of runnable experiments, to allow scientist to upload a Singularity
 container, so these are as well following the FAIR principles.
 
+\rowcolors{2}{gray!10}{gray!40}
 \begin{table}[h]
-  \begin{tabular}{|l|p{9cm}|}
+  \begin{tabular}{|p{2cm}|l|}
     \hline
     \textbf{Type of code} & \textbf{Recommendation} \\
     \hline
     No code       & Disallow papers that do not supply code publicly \\
     \hline
-    Raw code      & Don't publish raw code as text, instead, host it on a code hosting website \\
+    Raw code      & Don't publish raw code as text, host it on a code hosting website \\
     \hline
-    Hosted code   & Add CI. Use standarized badges for build status and code coverage. 
-                    Provide for a standarized way to link between paper and code host \\
+    Hosted code   & Use a standarized badge for build status \\
+                  & Use a standarized badge for code coverage \\
+                  & Standardize to link between paper and code host \\
     \hline
-    Runnable code & Provide website to upload containers with proper annotation.
-                    Provide for a standarized way to link between container, paper and code repository \\
+    Runnable code & Allow to upload containers without limits \\
+                  & Website to host containers must allow for annotation \\
+                  & Use a standarized badge for the container to be functioning  \\
+                  & Standarize to link between container, paper and code repository \\
     \hline
   \end{tabular}
   \caption{Recommendations described in this paper}
