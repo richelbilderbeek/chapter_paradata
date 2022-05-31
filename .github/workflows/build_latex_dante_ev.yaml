@@ -16,6 +16,9 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
+      - name: Install texcount
+        run: sudo apt install texcount
+
       - name: Count number of words
         run: texcount article.tex
 
