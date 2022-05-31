@@ -46,7 +46,7 @@ genetic epidemiology
 % to focus the contents of my paragraphs.
 % In the final version of this manuscript, these will be removed.
 
-\paragraph{Universities produce knowledge}
+% \paragraph{Universities produce knowledge}
 
 The currency that universities generate is knowledge, which in turn is distributed
 in mostly lectures and academic papers.
@@ -54,7 +54,7 @@ Academic papers contain knowledge, either as the
 report of measurements or the outcome of an experiment.
 These reports are described in English, the current lingua franca of science.
 
-\paragraph{A paper contains data and should be FAIR data}
+% \paragraph{A paper contains data and should be FAIR data}
 
 A paper contains and/or describes data, where we define
 data as 'individual facts, statistics, or items of information, often 
@@ -69,7 +69,7 @@ Accessible (e.g. DataDryad and or Zenoda),
 Interoperable (e.g. comma-separated files) 
 and Reusable (e.g. work on all operating systems)
 
-\paragraph{A paper is data and should be FAIR data}
+% \paragraph{A paper is data and should be FAIR data}
 
 A paper in itself is data, as it is a collection of text and
 figures that we itself can do measurements upon.
@@ -84,7 +84,7 @@ This paper itself will later specify the standpoint that a paper
 is metadata (i.e. data about data), instead of paradata (i.e.
 data that describes the collection of data)
 
-\paragraph{For some fields, the experiment is actually run by code}
+% \paragraph{For some fields, the experiment is actually run by code}
 
 This paper focusses on research fields that uses computation
 to do experiments and uses genetic epidemiology as an example.
@@ -234,7 +234,7 @@ are needed to explain the variation between individuals better.
 \section{Code is more important than the (English) paper}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{The experiments within genetic epidemology works are done by code}
+% \paragraph{The experiments within genetic epidemology works are done by code}
 
 The experiment described above is run by code. There is no fieldwork,
 nor lab-work involved. It is the researcher that writes the code,
@@ -253,7 +253,7 @@ aggragate the raw data into useful genetic data, the same arguments
 can be made for that code as in the example: that code is 
 the ground truth of how the raw data is collected into useful genetic data.
 
-\paragraph{The code is the paradata for the results of an experiment}
+% \paragraph{The code is the paradata for the results of an experiment}
 
 Programming code is paradata, as it is data that describes how data is collected,
 which is the definition of paradata [TODO: REF].
@@ -273,7 +273,7 @@ Again, if the code and article of an experiment disagree,
 it is the code that actually let the data be collected.  
 Instead, an article is metadata about a research.
 
-\paragraph{Science should be reproducible}
+% \paragraph{Science should be reproducible}
 
 A scientific claim must be reproducible before it is accepted
 by the scientific community.
@@ -289,7 +289,7 @@ and to counter this, it has been suggested to make
 reproducible research a minimal requirement for 
 publication (\cite{peng2011reproducible}).
 
-\paragraph{Code should be published}
+% \paragraph{Code should be published}
 
 \begin{figure}[!htbp]
   \centering
@@ -322,7 +322,7 @@ Hence, from a knowledge management perspective, emphasis should be
 put more on the preservation of code, as it is the most important actor
 in an experiment.
 
-\paragraph{Example of code being the ground truth}
+% \paragraph{Example of code being the ground truth}
 
 Code should be published, as it holds the
 ground truth of an experiment; it does the actual work.
@@ -418,7 +418,7 @@ paper, pasted as text in the Supplementary Materials
 This is the rawest form of publishing code,
 as it is just text.
 
-\paragraph{Raw code is important}
+% \paragraph{Raw code is important}
 
 The raw code of a computational experiment is
 more important to preserve than the article describing
@@ -428,7 +428,7 @@ as it has/should been that code that generated the results of an experiment.
 Again: if the paper and code differ, it is the code that did
 the actual work with the actual/true results.
 
-\paragraph{Raw code is an indicator of quality}
+% \paragraph{Raw code is an indicator of quality}
 
 Raw code gives an indication of the quality 
 of a computational experiment and several metrics are
@@ -460,7 +460,7 @@ To calculate the variance of a distribution, at least two values
 are required. When the variance of only one value is requested,
 an error message can helpfully indicate that one needs at least two values.
 
-\paragraph{The problems with raw code}
+% \paragraph{The problems with raw code}
 
 There are multiple problems with publishing raw code.
 First, there is no guarantee that that code \emph{can} actually
@@ -469,7 +469,7 @@ Secondly, there is no way to determine if code that worked yesterday
 works today. These problems can be prevented by, instead of
 pasting raw code, using a website to host that code (see below).
 
-\paragraph{Raw code is already better than no code}
+% \paragraph{Raw code is already better than no code}
 
 Publishing raw code is already better than not publishing code at all,
 as that raw code can be assumed to have run successfully at least once.
@@ -485,7 +485,7 @@ in the form of a hosted website.
 This way of publishing code gives additional options,
 both for the authors of that code, as well as its users.
 
-\paragraph{Example of hosted code}
+% \paragraph{Example of hosted code}
 
 There are multiple websites for hosting code, with BitBucket, GitHub,
 GitLab and SourceForge being the most well-known.
@@ -516,13 +516,13 @@ as shown in Figure \ref{fig:bbbqarticleissue157}.
   \label{fig:bbbqarticleissue157}
 \end{figure}
 
-\paragraph{Hosted code has important metadata}
+% \paragraph{Hosted code has important metadata}
 
 Hosted code has many additional features, such as
 a version-controlled history, continuous integration scripts
 and automatically generated metrics.
 
-\paragraph{Hosted code has a commit history}
+% \paragraph{Hosted code has a commit history}
 
 Hosted code commonly has a commit history. For example, GitHub
 uses a version control system called \verb|git| (hence its name).
@@ -530,7 +530,7 @@ In practice, this means that when a change is made to the code,
 a new version is created. In the case that the change was harmful,
 one can go back to an earlier version and continue again from there.
 
-\paragraph{A commit history helps assess honest reporting}
+% \paragraph{A commit history helps assess honest reporting}
 
 Hosted code improves transparency (\cite{gorgolewski2016practical}).
 The history of changes, called the commit history, 
@@ -545,7 +545,7 @@ and see if all are reported:
 not reporting a statistical tests is considered a Dubious Research Practice 
 \richel{REF}, as this allows dishonest reporting of p-value hacking.
 
-\paragraph{Continuous integration helps assess code quality}
+% \paragraph{Continuous integration helps assess code quality}
 
 Some code hosts, among others, GitHub, 
 allows the researcher to start software scripts when uploading a new version.
@@ -573,7 +573,7 @@ could be built.
   \label{fig:build_badge}
 \end{figure}
 
-\paragraph{Code coverage helps assess code quality}
+% \paragraph{Code coverage helps assess code quality}
 
 A more sophisticated check for the code's correctness is
 to run units tests and determine the percentage of code that has been
@@ -601,7 +601,7 @@ has a 100\% code coverage.
   \label{fig:badge_codecov}
 \end{figure}
 
-\paragraph{Metrics help assess the honest division of labour}
+% \paragraph{Metrics help assess the honest division of labour}
 
 Most code hosts, among others, GitHub and GitLab,
 automatically keep track of certain metrics.
@@ -622,7 +622,7 @@ have made to its code.
 \end{figure}
 
 
-\paragraph{A reader can contact the author}
+% \paragraph{A reader can contact the author}
 
 A feature that gets too few attention is that code hosts
 allow users to post bug reports and/or ask questions.
@@ -642,7 +642,7 @@ of the code.
   \label{fig:issue_ldpred2}
 \end{figure}
 
-\paragraph{The problems with hosted code}
+% \paragraph{The problems with hosted code}
 
 Albeith hosted code is vastly superior over raw code
 in case of reproduciblity and correctness,
@@ -662,7 +662,7 @@ This is however, a rather selfish point: a bug should be reported and
 given proper attention, for the sake of the correctness of the 
 results published. 
 
-\paragraph{Suggestions for knowledge management}
+% \paragraph{Suggestions for knowledge management}
 
 Here are multiple suggestions to make hosted code FAIR.
 To make the hosted code findable, commonly a paper refers to its URL.
@@ -693,7 +693,7 @@ where the latter is the only viable option to be able to run
 an experiment on a high performance computing (HPC) environment,
 such as a computer cluster.
 
-\paragraph{Containers allow for runnable code, for longer periods of time}
+% \paragraph{Containers allow for runnable code, for longer periods of time}
 
 Unlike English, code is fragile in standing the test of time.
 Containers can alleviate this, as these can be created at a point
@@ -706,7 +706,7 @@ one refrains from updating.
 Ideally, to re-do an experiment, one would need a one-liner to a container,
 for example, \verb|singularity run my_experiment.sif run|.
 
-\paragraph{Runnable code can precisely reproduce an experiment}
+% \paragraph{Runnable code can precisely reproduce an experiment}
 
 Containers allow a computation experiment to be highly reproducible:
 given the same data, an experiment put into a container will give
@@ -715,12 +715,12 @@ In practice, differences may be observed when peripheral factors
 are different, such as the random numbers as generated by an operating
 system, or data that is downloaded from additional online sources.
 
-\paragraph{Runnable code allows others to re-use an experiment}
+% \paragraph{Runnable code allows others to re-use an experiment}
 
 Containers allow a computation experiment to be highly re-usable,
 as any scientist can work with it and tweak code.
 
-\paragraph{The problems with runnable code}
+% \paragraph{The problems with runnable code}
 
 There are some problems with providing a container with a runnable container.
 First, a container is several gigabytes and need to be stored somewhere
@@ -729,7 +729,7 @@ there is a limit of 15 Gb. Also, Sylabs does not allow much metadata to
 be entered, such as the URL of the article, nor the URL of hosted code.
 Also, journals do not request hosted code, nor runnable code.
 
-\paragraph{Suggestions for knowledge management}
+% \paragraph{Suggestions for knowledge management}
 
 Here are multiple suggestions to make containers with runnable code FAIR.
 To make such containers findable, the most common 
@@ -744,7 +744,7 @@ similar website to upload containers, as the metadata for these
 sites are limited to free-text comments and tags (DockerHub)
 or not metadata at all (Syslabs).
 
-\paragraph{Runnable code is the pinnacle of reproducible research}
+% \paragraph{Runnable code is the pinnacle of reproducible research}
 
 When research truly needs to be reproducible, putting the code 
 of an experiment into a container is a good solution, as it 
@@ -796,7 +796,7 @@ there is no incentive to do so.
 \section{Discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Definition of paradata}
+% \paragraph{Definition of paradata}
 
 Code may or may not be paradata, depending on how the definition
 is interpreted.
@@ -813,7 +813,7 @@ does describe how the bits and pieces of an end result is collected,
 and (3) an experimental results is data, as it can be measured and
 used as the raw data of a next experiment.
 
-\paragraph{The drawbacks of publishing code}
+% \paragraph{The drawbacks of publishing code}
 
 Publishing code may be disadvantageous for an author.
 For science, yes, as this allows reproducible research.
@@ -823,7 +823,7 @@ Note, however, that not publishing code will always thwart
 the reproduction of incorrect code, at the cost of a scientific
 career \cite{baggerly2009deriving}.
 
-\paragraph{The drawbacks of publishing version-controlled code}
+% \paragraph{The drawbacks of publishing version-controlled code}
 
 Is it worth it to publish version-controlled code?
 For an author, 
@@ -831,16 +831,16 @@ there is additional training involved, and also here,
 publishing code alongside an experiment opens up
 the possibily to receive questions regarding that code.
 
-\paragraph{The drawbacks of publishing a running version of code}
+% \paragraph{The drawbacks of publishing a running version of code}
 
 Is it worth it to archive running versions of code?
 For an author, 
 there is additional training involved.
 There is no FAIR infrastructure for Singularity containers.
 
-\paragraph{Still need the same data to do a reproducible experiment}
+% \paragraph{Still need the same data to do a reproducible experiment}
 
-\paragraph{Recommendations}
+% \paragraph{Recommendations}
 
 Being able to re-do an experiment is a core principle of the scientific method.
 Publishing only a paper about a computational experiment is not enough,
@@ -879,7 +879,7 @@ container, so these are as well following the FAIR principles.
   \label{tab:recommendations}
 \end{table}
 
-\paragraph{Final word}
+% \paragraph{Final word}
 
 The world of science would be a more open, humble, trustworthy, truthful
 and helpful would the code that accompanies a scientific paper
