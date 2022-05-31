@@ -11,13 +11,13 @@ assumption that there is a perfect match between the paper and the code.
 In this chapter it is argued that the source code should should be supplied,
 as this is the true paradata: if the paper and code disagree, it is the
 code that has generated the results.
-The chapter concludes by some rules how to allow code to serve as paradata,
+The chapter concludes by some rules how to better code to serve as paradata,
 and hence allowing computational research to be truly reproducible.
 
 \end{abstract}
 
 {\bf Keywords:} paradata, reproducible research, code, software,
-FAIR data, computational research, Open Science, DevOps, best practices,
+FAIR data, computational research, Open Science, best practices,
 genetic epidemiology
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -25,7 +25,7 @@ genetic epidemiology
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{table}[h]
-  \begin{tabular}{lll}
+  \begin{tabular}{lp{5cm}p{5cm}}
     Term      & Definition                                            & Example                                                         \\
     \hline
     Code      & Body of text to be run by a computer                  & The scripts run by a computational experiment                   \\
@@ -542,6 +542,21 @@ A formalized version of this workflow is called continuous integration (CI).
 Using a CI service (such as GitHub Actions), is known to significantly 
 increase the number of bugs exposed (\cite{vasilescu2015}) and increases
 the speed at which new features are added (\cite{vasilescu2015}).
+Using CI opens up the possibility to informally annotate features of
+a repository. For example, Figure \ref{fig:build_badge} shows a 
+build badge that indicates that a LaTeX document (i.e. this paper)
+could be built.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{build_badge.png}
+  \caption{
+    A build badge for the GitHub repository of this article.
+    The description indicates which process it is that the badge
+    signals success (as in this case) or failure of. 
+  }
+  \label{fig:build_badge}
+\end{figure}
 
 \paragraph{Code coverage helps assess code quality}
 
@@ -551,6 +566,25 @@ tested, which is called the code coverage. Code coverage
 correlates with code quality (\cite{horgan1994,del1995correlation}). 
 The non-profit organisation rOpenSci, which peer-reviews code,
 has made it a prerequisite to have a code coverage of 100\%.
+Also here, CI opens up the possibility to informally annotate the
+code coverage. For example, Figure \ref{fig:badge_codecov} shows a 
+build badge that indicates that certain R package's code 
+has a 100\% code coverage.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[]{badge_codecov.png}
+  \caption{
+    A build badge for the code coverage of an R 
+    package (\url{https://github.com/ropensci/beautier}).
+    The umbrella signals that the code coverage is hosted by
+    CodeCov (\url{https://codecov.io/}). 
+    The text indicates which process it is that the badge
+    signals, which in this case, is that the code is fully covered
+    by tests.
+  }
+  \label{fig:badge_codecov}
+\end{figure}
 
 \paragraph{Metrics help assess the honest division of labour}
 
@@ -587,6 +621,20 @@ This is however, a rather selfish point: a bug should be reported and
 given proper attention, for the sake of the correctness of the 
 results published. 
 
+\paragraph{Suggestions for knowledge management}
+
+Here are multiple suggestions to make hosted code FAIR.
+To make the hosted code findable, commonly a paper refers to its URL.
+At the homepage of hosted code, there is no standardized metadata, to,
+for example, link to the paper.
+Using a popular code host ensures the code is easily accessible.
+There is some interoperabily supplied by a version control manager,
+such as in obtaining the history of the code.
+The reusability of code is reasonably easy to assess, by using build badges.
+However, there is no guarantee that a build badge that claimes success,
+actually is an honest signal (i.e. that code may not actually build),
+nor are there standards for what 'success' entails.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Publishing a virtual environment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -594,6 +642,9 @@ results published.
 The most reproducible way of submitting the code of an experiment,
 is by providing the code and all it needs 
 installed in a virtual container.
+This is close to the golden standard suggested by 
+\cite{peng2011reproducible} (see also Figure \ref{fig:peng2011reproducible}),
+however, that was before virtualization existed.
 Virtualization allows one to provide a standard environment,
 that can be used on any other computer.
 The best known examples of container software are Docker and Singularity,
@@ -636,6 +687,21 @@ online. Ideally, this would be at Syslabs, as that one is free, yet
 there is a limit of 15 Gb. Also, Sylabs does not allow much metadata to
 be entered, such as the URL of the article, nor the URL of hosted code.
 Also, journals do not request hosted code, nor runnable code.
+
+\paragraph{Suggestions for knowledge management}
+
+Here are multiple suggestions to make containers with runnable code FAIR.
+To make such containers findable, the most common 
+environments (Syslabs and DockerHub) to upload containers must be indexed.
+Uploading a container to those environments is, however, limited by
+a restricted amount of free storage, with the possible consequence that
+those containers are uploaded somewhere where they escape proper indexing.
+Having containers uploaded at the existing websites ensures they are
+accessible, interoperable and reusable.
+One could argue however, that the scientific community need its own,
+similar website to upload containers, as the metadata for these
+sites are limited to free-text comments and tags (DockerHub)
+or not metadata at all (Syslabs).
 
 \paragraph{Runnable code is the pinnacle of reproducible research}
 
@@ -689,7 +755,7 @@ there is no incentive to do so.
 \section{Discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Definition}
+\paragraph{Definition of paradata}
 
 Code may or may not be paradata, depending on how the definition
 is interpreted.
@@ -712,8 +778,9 @@ Publishing code may be disadvantageous for an author.
 For science, yes, as this allows reproducible research.
 For an author, publishing code alongside an experiment opens up
 the possibily to receive questions regarding that code.
-For a publisher
-For a knowledge archivist, 
+Note, however, that not publishing code will always thwart
+the reproduction of incorrect code, at the cost of a scientific
+career \cite{baggerly2009deriving}.
 
 \paragraph{The drawbacks of publishing version-controlled code}
 
