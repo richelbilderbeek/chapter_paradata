@@ -1,11 +1,11 @@
 \begin{abstract}
 
-Here we define paradata as the data that describes the generation of data.
+Here we define paradata as the data that describes the process of generating data.
 In genetic epidemiology, the data generated is mostly the results 
 of an analysis (e.g. predicting a person having a disease),
 as done by computer code.
-In such context, paradata is usually the scientific paper that
-describes what the computer code does.
+In such context, one could argue incorrectly that
+it is the scientific paper describes what the computer code does.
 However, this has the unrealtistic 
 assumption that there is a perfect match between the paper and the code.
 In this chapter it is argued that the source code should should be supplied,
@@ -31,9 +31,11 @@ genetic epidemiology
     Code      & Body of text to be run by a computer                  & The scripts run by a computational experiment                   \\
     Data      & Individual facts, statistics, or items of information & A SNP that has a significant association                        \\
     Genotype  & The DNA allele at a certain location                  & AA, AC, CG, GT, ...                                             \\
-    Paradata  & Data that describes the generation of data            & The code to conclude that a SNP has a significant association   \\
+    Paradata  & Data that describes the process of generating data    & The code to conclude that a SNP has a significant association   \\
     Phenotype & How an organism looks like in the broadest sense      & The concentration of IL6RA in the blood                         \\
+    Primary data & Data that is worked with in a research             & The genotype of individuals   \\
     Metadata  & Data that provides information about other data       & The article that describes an experiment                        \\
+    Raw data  & Data directly from the real world, that is not yet ready to be primary data & The raw results of getting the genotypes of individuals   \\
     Trait     & A phenotype                                           & The concentration of IL6RA in the blood                         
   \end{tabular}
 \end{table}
@@ -46,60 +48,94 @@ genetic epidemiology
 % to focus the contents of my paragraphs.
 % In the final version of this manuscript, these will be removed.
 
-% \paragraph{Universities produce knowledge}
+% \paragraph{Simple example}
 
-The currency that universities generate is knowledge, which in turn is distributed
-in mostly lectures and academic papers.
-Academic papers contain knowledge, either as the
-report of measurements or the outcome of an experiment.
-These reports are described in English, the current lingua franca of science.
+Two different researchers write two different papers,
+that are both accepted. One researcher does not supply the
+computer code that was used to generate the results.
+The experiment of the other researcher can be re-done easily
+and you can verify that, indeed, the results are the same
+as in the paper.
+Do you trust the conclusion of their papers equally?
 
-% \paragraph{A paper contains data and should be FAIR data}
+% \paragraph{Definition of paradata}
 
-A paper contains and/or describes data, where we define
-data as 'individual facts, statistics, or items of information, often 
-numeric' \cite{glossary2003oecd}.
-To ensure unhampered knowledge growth, this data should [TODO: Why? Reference!] 
-follow the FAIR 
-principles.
-The FAIR principles \cite{wilkinson2016fair} are that data should be 
-[TODO: there are probably better examples]
-Findable (e.g. found by web),
-Accessible (e.g. DataDryad and or Zenodo), 
-Interoperable (e.g. plain-text file format, such as comma-separated files) 
-and Reusable (e.g. work on all operating systems)
+In this paper, paradata is defined as information about how data was generated,
+as shown schematically in the left panel of Figure \ref{fig:figure_1}.
+Paradata does not have a clear definition yet, with common elements
+such as that paradata is usually not the primary data, that it describes
+a process, that it describes the way of collecting primary data, or that it
+describes the way the primary data is generating.
 
-% \paragraph{A paper is data and should be FAIR data}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{figure_1.png}
+  \caption{
+    Left: general relations between data, paradata and metadata.
+    Middle and right: examples of these types of data
+  }
+  \label{fig:figure_1}
+\end{figure}
 
-A paper in itself is data, as it is a collection of text and
-figures that we itself can do measurements upon.
-Also here, a paper should be FAIR, 
-[TODO: there are probably better examples]
-i.e.
-Findable (e.g. having a DOI)
-Accessible (e.g. open access publications, i.e. published in a public access
-repository), 
-Interoperable (e.g. written in English (i.e. the current lingua franca of sciece))
-and Reusable (e.g. it is valid to cite and build upon earlier academic papers, 
-it is peer-reviewed (i.e. satifies a minimal requirement of quality)).
-This paper itself will later specify the standpoint that a paper
-is metadata (i.e. data about data), instead of paradata (i.e.
-data that describes the collection of data)
+% \paragraph{Simple example of paradata}
+
+A simple example would be the data at eBird (\url{https://ebird.org/}),
+where people can submit wher a bird of a certain species was spotted.
+The name of the person that spotted that bird is paradata, 
+as it is that person that generated the data and determined of
+which species the bird was, 
+as shown schematically in the middle panel of Figure \ref{fig:figure_1}.
+
+% \paragraph{Relevance of paradata}
+
+Paradata is relevant, as it allows primary data to be re-used.
+In the eBird example, it helps assess the trustworthiness of the 
+data, as beginner birdwatchers make more mistakes in identifying
+the correct bird species, as compared to experts.
+By using the name and/or experience of the birder as a covariate,
+we can re-use the dataset in other contexts as well.
+
+% \paragraph{This paper is about computer code}
+
+This paper is about paradata in the context of a computational
+experiment in general and using an example from genetic epidemiology.
+A computational experiment is run by computer code
+and usually collects primary data first, then runs an analysis,
+which results in the generation of results.
+This paper takes the standpoint that it is the computer code 
+that describes this generation of results, hence computer code is paradata,
+as shown schematically in the right panel of Figure \ref{fig:figure_1}.
+Reading the computer code allows one to assess the trustworthiness 
+of the experiment, similar to knowing the name or expertise of a bird spotter.
+Having the code allows one to re-use it, in the same or other contexts,
+providing for reproducible research.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Genetic epidemiology}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \paragraph{Introduction}
+
+This paper uses genetic epidemiology as a specific example,
+to illustrate that the computer code is paradata,
+that this paradata is relevant, as it helps 
+to assess the correctness of the results,
+where the correctness of the results is relevant for healthcare.
 
 % \paragraph{For some fields, the experiment is actually run by code}
 
-This paper focusses on research fields that uses computation
-to do experiments and uses genetic epidemiology as an example.
 Genetic epidemiology is a field within biology that, among 
 others, measures the spread (hence 'epidemiology') 
-of heritable (i.e. genetic) traits, as well as the relation
-between having a certain genetic makeup and a certain trait,
+of heritable (i.e. genetic) traits (i.e. a genotype), 
+as well as the relation between having a certain genetic makeup 
+and a certain trait (i.e. a phenotype),
 where the trait can be any human property, such as weight, height,
 the amount of metabolites and having a disease yes/no.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Example study}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Genetic epidemiologists look for associations between genotype
+and phenotype. These associations are subsequently used to 
+create so-called gene panels, where the gene causing 
+an association is measured specifically, to, among others,
+detect people at risk for a phenotype.
 
 \begin{figure}[!htbp]
   \centering
@@ -113,16 +149,16 @@ the amount of metabolites and having a disease yes/no.
   \label{fig:karesuando_church}
 \end{figure}
 
-As an example, we'll use a pseudorandomly selected paper
-from \cite{ahsan2017relative}. The data used by that paper is
+The example study followed is a pseudorandomly selected paper
+from \cite{ahsan2017relative}. The primary data used by that paper is
 from a population study called the Northern Swedish Population
-Health Study (NSPHS) that started in 2010 \cite{igl2010northern}. 
+Health Study (NSPHS) that started in 2010 (\cite{igl2010northern}). 
 The approximately 1000 participants were initially mostly surveyed
-about lifestyle \cite{igl2010northern} and follow-up studies
+about lifestyle (\cite{igl2010northern}) and follow-up studies
 provided the type of data relevant for this paper, 
-which are (1) the genetic data \cite{johansson2013identification},
-(2) the concentration of certain proteins in the 
-blood \cite{enroth2014strong,enroth2015effect}.
+which are (1) the genotypes (\cite{johansson2013identification}),
+(2) the phenotypes, which are protein concentrations, as measured
+from blood (\cite{enroth2014strong,enroth2015effect}).
 
 \begin{figure}[!htbp]
   \centering
@@ -138,17 +174,16 @@ blood \cite{enroth2014strong,enroth2015effect}.
   \label{fig:eukakyote_dna}
 \end{figure}
 
-The first type of data, the (final form of the) genetic data,
-consists out of single nucleotide polymorphisms (SNPs).
-SNPs consist out of a name, a position and a nucleotide. 
+The first type of primary data, the genotypes, 
+consists out of single nucleotide polymorphisms (SNPs, pronounced as 'snips').
+A SNP has a name and a location on the DNA, at which there is a certain nucleotide.
 DNA (organized into chromosomes and present in every (nucleated) cell, 
-see figure \ref{fig:eukakyote_dna}) consists out of many nucleotides, of which there are four types,
+see figure \ref{fig:eukakyote_dna}) 
+consists out of many nucleotides, of which there are four types,
 called adenosine, cytosine, guanine and thyrosine, all commonly abreviated
 as A, C, G and T respectively.
 One SNP example is \verb|rs12133641|, which is a SNP located at position 
-154,428,283,
-where some people have a certain nucleotide. In this case, 
-67 percent of the people within this study have an A,
+154,428,283, where 67 percent of the people within this study have an A,
 and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
 
 \begin{figure}[!htbp]
@@ -167,19 +202,21 @@ and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
   \label{fig:dna_to_protein}
 \end{figure}
 
-The second type of data are concentrations of certain proteins in the 
-blood. DNA contains the code for building proteins (see Figure 
+The second type of data, the phenotypes, 
+are concentrations of certain proteins as obtained from blood. 
+DNA contains the code for building proteins (see Figure 
 \ref{fig:dna_to_protein}), 
 as well as the rate
 at which a protein is created. Some proteins end up in the blood and
 their presence can be used to assess the health of an individual.
-IL6RA is a protein [TODO: more info]
+IL6RA is one such protein.
 
 The field of genetic epidemiology looks -among others- for
 correlations between genetic data and biological traits.
-For example, figure \ref{fig:ahsan2017relative_table_2_sub} (from \cite{ahsan2017relative}) shows that
-SNP \verb|rs12133641| is highly correlated (p value is 3.0 * 10e-73, 
-961 individuals) with protein IL6RA. What this results does
+For example, figure \ref{fig:ahsan2017relative_table_2_sub} 
+(from \cite{ahsan2017relative}) shows that
+SNP \verb|rs12133641| is highly correlated (p-value is $3.0^{-73}$, 
+for $n$ = 961 individuals) with protein IL6RA. What this results does
 not yet teach us, is how this correlation works, yet
 figure \ref{fig:ahsan2017relative_s6} shows us the direction of the association:
 the X axis shows the possible genetic make-ups (aka the genotype) of the individuals,
@@ -194,7 +231,7 @@ the higher concentration of IL6RA can be found in a human's blood.
 
 The amount of variance that can be explained by an association (i.e.
 the R squared value) is rarely 100 percent, which means that a trait (in
-this case, IL6RA concentrations) cannot be perfectly explained
+this case, the concentration of IL6RA) cannot be perfectly explained
 from the genotype alone. As we can see in figure \ref{fig:ahsan2017relative_s6}, 
 43 percent of the variance can be attributed to an individuals'
 genotype and additional factors, 
@@ -232,6 +269,18 @@ are needed to explain the variation between individuals better.
   \label{fig:ahsan2017relative_s6}
 \end{figure}
 
+These conclusions may end up in the clinic.
+Imagine that the level of IL6RA is associated with a disease,
+we can create a gene panel that specifically measures
+SNP \verb|rs12133641|. In this simple example, it will be easier
+to measure the level of IL6RA in the blood, than using a gene panel.
+However, there are associations published for many diseases,
+in which multiple SNPs contribute to being more likely 
+to develope a disease in the future. Here, the phenotype (having 
+a disease in the future) is impossible to detect at the present
+and associations found in earlier studies are used to create a gene panel.
+As creating a gene panel is costly, those associations better be correct.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Code is more important than the (English) paper}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -244,7 +293,7 @@ after which the code does the work. A genetic epidemiologist that
 looks for associations between genotype and phenotype,
 one does not need a lab.
 
-To \emph{obtain} the genetic data, yes, there may be fieldwork and/or lab-work
+To \emph{obtain} the raw genetic data, yes, there may be fieldwork and/or lab-work
 involved. For example, a researcher needs to go into the field to take
 samples (e.g. blood) of humans or other species. To analyse these samples,
 a researcher needs a lab. Depending on the technique being used on
@@ -257,15 +306,14 @@ the ground truth of how the raw data is collected into useful genetic data.
 
 % \paragraph{The code is the paradata for the results of an experiment}
 
-Programming code is paradata, as it is data that describes how data is collected,
-which is the definition of paradata [TODO: REF].
+Programming code is paradata, 
+as it is data that describes how data is generated.
 Programming code is data that is usually in the form of text, 
 spread over one or more files, that describes the experiment.
 The experiment collects the data.
 The data collected is the data we call the results of an experiment.
 
-The article is metadata, as it is data that describes other
-data, which is the definition of metadata [TODO: REF]:
+The article is metadata, as it is data that describes other data:
 an article describes the
 experiment and hence the programming
 code in English. However, it is not the best
@@ -924,4 +972,50 @@ This article and its metadata can be found at
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This chapter has not been supported by funding.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \paragraph{A paper contains data and should be FAIR data}
+
+A paper contains and/or describes data, where we define
+data as 'individual facts, statistics, or items of information, often 
+numeric' \cite{glossary2003oecd}.
+To ensure unhampered knowledge growth, this data should [TODO: Why? Reference!] 
+follow the FAIR 
+principles.
+The FAIR principles \cite{wilkinson2016fair} are that data should be 
+[TODO: there are probably better examples]
+Findable (e.g. found by web),
+Accessible (e.g. DataDryad and or Zenodo), 
+Interoperable (e.g. plain-text file format, such as comma-separated files) 
+and Reusable (e.g. work on all operating systems)
+
+% \paragraph{A paper is data and should be FAIR data}
+
+A paper in itself is data, as it is a collection of text and
+figures that we itself can do measurements upon.
+Also here, a paper should be FAIR, 
+[TODO: there are probably better examples]
+i.e.
+Findable (e.g. having a DOI)
+Accessible (e.g. open access publications, i.e. published in a public access
+repository), 
+Interoperable (e.g. written in English (i.e. the current lingua franca of sciece))
+and Reusable (e.g. it is valid to cite and build upon earlier academic papers, 
+it is peer-reviewed (i.e. satifies a minimal requirement of quality)).
+This paper itself will later specify the standpoint that a paper
+is metadata (i.e. data about data), instead of paradata (i.e.
+data that describes the collection of data)
 
