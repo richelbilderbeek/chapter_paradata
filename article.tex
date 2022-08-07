@@ -10,7 +10,7 @@ of an analysis (e.g. predicting a person having a disease),
 as done by computer code.
 In such context, one could argue incorrectly that
 it is the scientific paper describes what the computer code does.
-However, this has the unrealtistic 
+However, this has the unrealistic 
 assumption that there is a perfect match between the paper and the code.
 In this chapter it is argued that the source code should should be supplied,
 as this is the true paradata: if the paper and code disagree, it is the
@@ -64,12 +64,14 @@ Do you trust the conclusion of their papers equally?
 
 % \paragraph{Definition of paradata}
 
-In this paper, paradata is defined as information about how data was generated,
+In this paper, the definition of paradata
+is 'information about how data was generated',
 as shown schematically in the left panel of Figure \ref{fig:figure_1}.
-Paradata does not have a clear definition yet, with common elements
-such as that paradata is usually not the primary data, that it describes
-a process, that it describes the way of collecting primary data, or that it
-describes the way the primary data is generating.
+Paradata does not have a clear definition yet (hence this book). 
+Common elements in the definitions of paradata are 
+(1) paradata are usually not the primary data, (2) paradata describe
+a process, (3) paradata describe the way of collecting primary data, or 
+(4) paradata describe the way the primary data is generated.
 
 \begin{figure}[!htbp]
   \centering
@@ -97,17 +99,26 @@ In the eBird example, it helps assess the trustworthiness of the
 data, as beginner birdwatchers make more mistakes in identifying
 the correct bird species, as compared to experts.
 By using the name and/or experience of the birder as a covariate,
-we can re-use the dataset in other contexts as well.
+we can re-use the dataset in other contexts as well,
+as now this example can be generalized to
+a classification problem of unlabeled
+data for learning agents with different amounts 
+of supervised and unsupervised learning.
 
 % \paragraph{This paper is about computer code}
 
 This paper is about paradata in the context of a computational
-experiment in general and using an example from genetic epidemiology.
-A computational experiment is run by computer code
-and usually collects primary data first, then runs an analysis,
-which results in the generation of results.
+experiment in general and uses an example from genetic 
+epidemiology in particular.
+We'll postpone the introduction to genetic epidemiology now
+and focus on 'computational experiment' first.
+A computational experiment is an experiment run by computer code.
+In chronologic order, it usually collects primary data first, 
+then runs an analysis, which finally results in the generation of results.
+
 This paper takes the standpoint that it is the computer code 
-that describes this generation of results, hence computer code is paradata,
+that describes this generation of results, 
+hence it is the computer code that is paradata (i.e. not the description of the experiment),
 as shown schematically in the right panel of Figure \ref{fig:figure_1}.
 Reading the computer code allows one to assess the trustworthiness 
 of the experiment, similar to knowing the name or expertise of a bird spotter.
@@ -124,22 +135,30 @@ This paper uses genetic epidemiology as a specific example,
 to illustrate that the computer code is paradata,
 that this paradata is relevant, as it helps 
 to assess the correctness of the results,
-where the correctness of the results is relevant for healthcare.
+where the correctness of the results is relevant for 
+science in general and healthcare in particular.
 
 % \paragraph{For some fields, the experiment is actually run by code}
 
 Genetic epidemiology is a field within biology that, among 
-others, measures the spread (hence 'epidemiology') 
-of heritable (i.e. genetic) traits (i.e. a genotype), 
-as well as the relation between having a certain genetic makeup 
-and a certain trait (i.e. a phenotype),
-where the trait can be any human property, such as weight, height,
-the amount of metabolites and having a disease yes/no.
-Genetic epidemiologists look for associations between genotype
-and phenotype. These associations are subsequently used to 
-create so-called gene panels, where the gene causing 
+others, measures the spread of heritable traits,
+as well as how these come to be.
+For example, we know that lactose intolerance is, among others,
+caused by producing too few lactose-degrading enzymes,
+and is most commonly found in south-east asia.
+The trait is caused by the genetic make-up, or genotype, of a person.
+The trait, also called phenotype, in this example is lactose intolerance,
+but any human property, such as weight or height can be studied.
+Genetic epidemiology studies the spread of genotypes and phenotypes,
+as well as the relation between those two.
+When an association between genotype and phenotype is found,
+these associations are subsequently used to 
+create gene panels, where the gene causing 
 an association is measured specifically, to, among others,
 detect people at risk for a phenotype.
+
+The rest of this section describes a genetic epidemiology study 
+in more detail, with special focus on the computational experiment.
 
 \begin{figure}[!htbp]
   \centering
@@ -161,8 +180,8 @@ The approximately 1000 participants were initially mostly surveyed
 about lifestyle (\cite{igl2010northern}) and follow-up studies
 provided the type of data relevant for this paper, 
 which are (1) the genotypes (\cite{johansson2013identification}),
-(2) the phenotypes, which are protein concentrations, as measured
-from blood (\cite{enroth2014strong,enroth2015effect}).
+(2) the phenotypes, which are the concentrations of certain proteins
+in the blood (\cite{enroth2014strong,enroth2015effect}).
 
 \begin{figure}[!htbp]
   \centering
@@ -183,7 +202,8 @@ consists out of single nucleotide polymorphisms (SNPs, pronounced as 'snips').
 A SNP has a name and a location on the DNA, at which there is a certain nucleotide.
 DNA (organized into chromosomes and present in every (nucleated) cell, 
 see figure \ref{fig:eukakyote_dna}) 
-consists out of many nucleotides, of which there are four types,
+consists out of billions of nucleotides.
+There are four types of nucleotides, 
 called adenosine, cytosine, guanine and thyrosine, all commonly abreviated
 as A, C, G and T respectively.
 One SNP example is \verb|rs12133641|, which is a SNP located at position 
@@ -207,13 +227,14 @@ and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
 \end{figure}
 
 The second type of data, the phenotypes, 
-are concentrations of certain proteins as obtained from blood. 
+are concentrations of proteins in the blood. 
 DNA contains the code for building proteins (see Figure 
 \ref{fig:dna_to_protein}), 
 as well as the rate
 at which a protein is created. Some proteins end up in the blood and
 their presence can be used to assess the health of an individual.
-IL6RA is one such protein.
+IL6RA is one such protein and, spoiler alert, its concentration
+is associated with the SNP mentioned earlier.
 
 The field of genetic epidemiology looks -among others- for
 correlations between genetic data and biological traits.
@@ -230,7 +251,7 @@ from his/here mother and one adenosine from his/her father),
 1.0 denotes AG (one A is inherited from one parent, 
 where the G is inherited from the other parent) and 2.0 denotes GG.
 From Figure \ref{fig:ahsan2017relative_s6} we can conclude that, on average,
-the more guanines are inherited at that SNPs location,
+the more guanines are present at that SNPs location,
 the higher concentration of IL6RA can be found in a human's blood.
 
 The amount of variance that can be explained by an association (i.e.
@@ -238,11 +259,12 @@ the R squared value) is rarely 100 percent, which means that a trait (in
 this case, the concentration of IL6RA) cannot be perfectly explained
 from the genotype alone. As we can see in figure \ref{fig:ahsan2017relative_s6}, 
 43 percent of the variance can be attributed to an individuals'
-genotype and additional factors, 
+genotype. 
+Additional factors, 
 such as the effect
 of the environment (e.g. geographic location, time of day), 
 lifestyle (e.g. smoking yes/no) or having a disease (e.g. diabetes) 
-are needed to explain the variation between individuals better.
+are needed to explain the additional variation.
 
 \begin{figure}[!htbp]
   \centering
@@ -274,9 +296,17 @@ are needed to explain the variation between individuals better.
 \end{figure}
 
 These conclusions may end up in the clinic.
-Imagine that the level of IL6RA is associated with a disease,
-we can create a gene panel that specifically measures
-SNP \verb|rs12133641|. In this simple example, it will be easier
+For the sake of having a clear example,
+let's assume that a high level of IL6RA 
+is associated with a disease that develops later in life,
+yet is preventable by lifestyle changes.
+Would this be the case, we can create a gene panel that specifically measures
+SNP \verb|rs12133641|. 
+If the gene panel shows an individual has two guanines, 
+we know that this person is likelier to develop higher levels of
+IL6RA and is likelier to benefit from the lifestyle changes.
+
+In this simple example, it will be easier
 to measure the level of IL6RA in the blood, than using a gene panel.
 However, there are associations published for many diseases,
 in which multiple SNPs contribute to being more likely 
@@ -291,11 +321,16 @@ As creating a gene panel is costly, those associations better be correct.
 
 % \paragraph{The experiments within genetic epidemology works are done by code}
 
-The experiment described above is run by code. There is no fieldwork,
-nor lab-work involved. It is the researcher that writes the code,
-after which the code does the work. A genetic epidemiologist that
-looks for associations between genotype and phenotype,
-one does not need a lab.
+The experiment described above is run by code. 
+It was code that detected the relationship between the genotype
+(in this case, SNP \verb|rs12133641|) 
+and the phenotype (in this case,the concentration of IL6RA).
+To detect this association, 
+there was no fieldwork, nor lab-work involved.
+For this experiment, 
+it has been the researcher that has written the code,
+after which that code does the actual work. 
+A genetic epidemiologist does not need a lab, but computational power instead.
 
 To \emph{obtain} the raw genetic data, yes, there may be fieldwork and/or lab-work
 involved. For example, a researcher needs to go into the field to take
@@ -310,20 +345,21 @@ the ground truth of how the raw data is collected into useful genetic data.
 
 % \paragraph{The code is the paradata for the results of an experiment}
 
-Programming code is paradata, 
+Programming code (from now on: 'code') is paradata, 
 as it is data that describes how data is generated.
-Programming code is data that is usually in the form of text, 
+Code is data that is usually in the form of text, 
 spread over one or more files, that describes the experiment.
-The experiment collects the data.
-The data collected is the data we call the results of an experiment.
+The computational experiment (from now on: 'experiment') collects the data
+and then looks for patterns.
+Those patterns (again, a type of data) are the results of an experiment.
 
-The article is metadata, as it is data that describes other data:
+The (scientific) article is metadata, as it is data that describes other data:
 an article describes the
 experiment and hence the programming
 code in English. However, it is not the best
 candidate to describe how the data is collected,
 as it has a loose connection with collecting the data.
-Again, if the code and article of an experiment disagree,
+If the code and article of an experiment disagree,
 it is the code that actually let the data be collected.  
 Instead, an article is metadata about a research.
 
@@ -358,12 +394,12 @@ The code of a computational experiment must be published
 for an experiment to reproducible.
 It is however (too) common that the original data
 and/or code are unavailable (\cite{peng2021reproducible}).
-One sad example is described in \cite{haibe2020importance}, where
+One saddening example is described in \cite{haibe2020importance}, where
 an algorithm that detects breast cancer better than a human expert,
 was irreproducible.
 In the case of genetic epidemiology, it is a given that the original
 data cannot be published as this data is sensitive.
-The code of a computational experiment, however, can be
+The code of a computational experiment, however, \emph{can} be
 distributed without such problems.
 It is, however, not code that is published, but an English
 description of what that code does instead.
@@ -408,13 +444,13 @@ The line of code is simplified (as the result of the T test is never stored),
 but the code is correct:
 \verb|t.test| is indeed the name of an R function to do a T-test
 and it is reasonable to assume that this code, when found in the code
-of an article, is assumed to be correct.
+of an article, is correct.
 
 Here, however, we see a mismatch between the English description and the code:
 by default, the R function \verb|t.test| does a \textbf{two}-tailed T-test.
 A consequence of this fictional example is that the published p-values are
 higher than needed, resulting in less significant findings, which
-results in less conclusions drawn from a paper.
+results in (needlessly) less conclusions drawn from a paper.
 
 \begin{figure}[!htbp]
   \centering
