@@ -470,6 +470,12 @@ results in (needlessly) less conclusions drawn from a paper.
   \label{fig:baggerly2009deriving}
 \end{figure}
 
+One pseudorandom example of a mismatch between code and article
+was found by me in \cite{labrecque2019interpretation}.
+After the corresponding author of that paper was contacted,
+the code was updated and confirmed to have the same
+results as published in the paper.
+
 It is the paper that accompanies the code,
 as it is the code that generates the results.
 When humans are fallible and code gets bigger, the likelihood of
@@ -487,9 +493,24 @@ it is the code that is the ground truth.
 \section{There are multiple way to publish code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+As it is the code that is the most important actor in an the experiment,
+it should be treated as equally or more important than the scientific
+paper describing what is does.
+Regardless of this, most academic journals, 
+when concerning computational experiments
+only review the (usually) English description of the code
+and make the review of code optional.
+One notable exception is rOpenSci (\cite{ram2018community}),
+which is an organisation that does peer-review academic code 
+and facilitates the optional publication of a paper.
+Although both code and paper are peer-reviewed,
+most effort is spent on reviewing the code,
+as can be seen in, for example, 
+the \verb|mcbette| R package (\cite{bilderbeek2020mcbette}).
+
 There are multiple ways of publishing code,
-that are increasingly hard to do, yet result
-in more reproducible experiments:
+that require increasingly more knowledge to do and result
+in increasingly more reproducible experiments:
 (1) publishing the code as text only, e.g. by printing
 it in a Supplementary Materials, (2) publishing
 the code on a hosted website, e.g on GitHub, with
@@ -541,11 +562,9 @@ The cyclomatic complexity correlates with code complexity,
 where more complex code is likelier to contain bugs.
 
 A feature that deserves more attention
-is that code can actively teach what it does.
-A mechanism to do so, which is present in most programming
-languages, is error handling: errors are the mechanism
-by which a programmer can teach the user what to do/expect.
-One example is when calculating the variance of a distribution.
+is that 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
+Error handling is one of the mechanisms to do so.
+For example, let is when calculating the variance of a distribution.
 To calculate the variance of a distribution, at least two values
 are required. When the variance of only one value is requested,
 an error message can helpfully indicate that one needs at least two values.
@@ -564,7 +583,7 @@ pasting raw code, using a website to host that code (see below).
 Publishing raw code is already better than not publishing code at all,
 as that raw code can be assumed to have run successfully at least once.
 To reproduce an experiment from raw code can be painful, 
-yet way better than rewriting the same code from scratch.
+yet it is usually better than rewriting the same code from scratch.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Publishing hosted code}
@@ -574,6 +593,11 @@ Code is sometimes published alongside a paper,
 in the form of a hosted website.
 This way of publishing code gives additional options,
 both for the authors of that code, as well as its users.
+This practice has increased,
+with the abstracts from articles in the academic journal
+'Bioinformatics' referring to such a hosted website
+has increased tenfold, going from below 5 percent in 2009 
+to around 50 percent in 2017 (\cite{russell2018large}).
 
 % \paragraph{Example of hosted code}
 
@@ -582,11 +606,11 @@ GitLab and SourceForge being the most well-known.
 Of these, GitHub is the most popular website to host code in general,
 with millions of users.
 GitHub users can create dedicated websites (called 'repositories')
-to upload code. GitHub hosts that uploaded by and provides
-a user interface for every visiter of such a website.
-The use of code hosting websites, such as GitHub,
+to upload code. Code hosts, such as GitHub, 
+store that uploaded code and provide ways 
+for visiters to download the code and/or interact with it.
+The use of such code hosting websites
 accommodates collaboration (\cite{perez2016ten}).
-\begin{sloppypar}\url{https://github.com/richelbilderbeek/babette},\end{sloppypar}
 and improves transparency (\cite{gorgolewski2016practical}).
 An example from the author is the website \cite{bbbqarticleissue157},
 that hosts part of the code for the paper \cite{bilderbeek2022transmembrane},
@@ -611,6 +635,10 @@ as shown in Figure \ref{fig:bbbqarticleissue157}.
 Hosted code has many additional features, such as
 a version-controlled history, continuous integration scripts
 and automatically generated metrics.
+A code hosting website produces and shares this metadata.
+This metadata can help to determine the
+reproducibility, correctness and quality of code
+of computational experiments.
 
 % \paragraph{Hosted code has a commit history}
 
@@ -619,6 +647,8 @@ uses a version control system called \verb|git| (hence its name).
 In practice, this means that when a change is made to the code,
 a new version is created. In the case that the change was harmful,
 one can go back to an earlier version and continue again from there.
+It is a general recommendation to put version control
+on all human-produced data (\cite{wilson2014best}).
 
 % \paragraph{A commit history helps assess honest reporting}
 
@@ -632,8 +662,9 @@ posted, which means all historical information is lost.
 From a code history, it can be observed, for example, 
 how much statistical tests have really/actually been done 
 and see if all are reported:
-not reporting a statistical tests is considered a Dubious Research Practice 
-\richel{REF}, as this allows dishonest reporting of p-value hacking.
+failing to reporting a (usually non-significant) statistical tests is 
+one of the many degrees of freedom 
+in p-value hacking (\cite{wicherts2016degrees}).
 
 % \paragraph{Continuous integration helps assess code quality}
 
