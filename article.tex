@@ -559,15 +559,22 @@ For example, code that has only one \verb|if| statement
 has a cyclomatic complexity of 2, as the condition within the \verb|if|
 statement can be true or false.
 The cyclomatic complexity correlates with code complexity,
-where more complex code is likelier to contain bugs.
+where more complex code is likelier to contain or give rise to bugs 
+(\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting})
 
 A feature that deserves more attention
-is that 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
+is that 'code must act as a teacher for future developers' (\cite{sadowski2018modern}).
 Error handling is one of the mechanisms to do so.
-For example, let is when calculating the variance of a distribution.
-To calculate the variance of a distribution, at least two values
-are required. When the variance of only one value is requested,
-an error message can helpfully indicate that one needs at least two values.
+A simple example is when one (e.g. a BSc student) 
+needs to calculate the variance of a distribution.
+Commonly one needs to call a function to do so, 
+e.g. \verb|var| in R, that needs the values of the distribution
+as input.
+However, to calculate the variance of a distribution, at least two values
+are required. 
+When the variance of (zero or) only one value is requested,
+an error message can helpfully indicate that the function 
+needs at least two values.
 
 % \paragraph{The problems with raw code}
 
@@ -583,7 +590,7 @@ pasting raw code, using a website to host that code (see below).
 Publishing raw code is already better than not publishing code at all,
 as that raw code can be assumed to have run successfully at least once.
 To reproduce an experiment from raw code can be painful, 
-yet it is usually better than rewriting the same code from scratch.
+yet it is usually better than writing the same code from scratch.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Publishing hosted code}
@@ -603,7 +610,7 @@ to around 50 percent in 2017 (\cite{russell2018large}).
 
 There are multiple websites for hosting code, with BitBucket, GitHub,
 GitLab and SourceForge being the most well-known.
-Of these, GitHub is the most popular website to host code in general,
+GitHub is currenly the most popular website to host code in general,
 with millions of users.
 GitHub users can create dedicated websites (called 'repositories')
 to upload code. Code hosts, such as GitHub, 
@@ -696,16 +703,21 @@ could be built.
 
 % \paragraph{Code coverage helps assess code quality}
 
-A more sophisticated check for the code's correctness is
-to run units tests and determine the percentage of code that has been
-tested, which is called the code coverage. Code coverage
-correlates with code quality (\cite{horgan1994,del1995correlation}). 
-The non-profit organisation rOpenSci, which peer-reviews code,
+Testing, in general, is an important mechanism to ensure
+the correctness of code (an interesting example is \cite{rahman2020exploratory}
+showing bugs in scientific software on the COVID-19 pandemic. 
+It recommends more testing).
+The percentage of (lines of) code tested is called the code coverage.
+Code coverage correlates with code quality (\cite{horgan1994,del1995correlation}). 
+The non-profit organisation rOpenSci (\cite{ram2018community}),
+which peer-reviews code,
 has made it a prerequisite to have a code coverage of 100\%.
 Also here, CI opens up the possibility to informally annotate the
 code coverage. For example, Figure \ref{fig:badge_codecov} shows a 
 build badge that indicates that certain R package's code 
 has a 100\% code coverage.
+Hence, code coverage is important metadata, that can automatically
+be acquired when using code hosting website.
 
 \begin{figure}[!htbp]
   \centering
@@ -731,6 +743,9 @@ In that way, authors involved in the writing of the software
 are honestly acknowledged. Figure \ref{fig:daisie_contributors}
 shows the number of commits the authors of DAISIE (\cite{etienne2020daisie})
 have made to its code.
+The distribution of contributed code per author 
+is useful metadata, that can automatically
+be acquired when using code hosting website.
 
 \begin{figure}[!htbp]
   \centering
@@ -749,6 +764,13 @@ A feature that gets too few attention is that code hosts
 allow users to post bug reports and/or ask questions.
 This allows other researchers to assess the health
 of the code.
+A healthy project has few open bug reports
+and these bug reports should be closed within reasonable time.
+When bug reports start to accumulate, this
+signals either that the code contained many bugs or that
+the developers lost interest in maintaining that code.
+The amount of bug reports is useful metadata, 
+especially when deciding to use (and depend) on a piece of software.
 
 \begin{figure}[!htbp]
   \centering
@@ -765,13 +787,16 @@ of the code.
 
 % \paragraph{The problems with hosted code}
 
-Albeith hosted code is vastly superior over raw code
+Albeit hosted code is vastly superior over raw code
 in case of reproduciblity and correctness,
 there are some problems with hosted code as well.
 The most important one is that hosted code needs maintanance:
 the libraries that are used by an experiment
 will change over time, inevitably causing the experiment to fail
 over time. This process is called bit rot and is a fundamental
+
+HIERO
+
 problem \richel{ref}. A solution that has more 
 longevity is to publishing the code installed in a virtual environment,
 as described below.
