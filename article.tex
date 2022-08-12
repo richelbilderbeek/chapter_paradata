@@ -160,6 +160,7 @@ detect people at risk for a phenotype.
 The rest of this section describes a genetic epidemiology study 
 in more detail, with special focus on the computational experiment.
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{Karesuando_church.jpg}
@@ -171,6 +172,7 @@ in more detail, with special focus on the computational experiment.
   }
   \label{fig:karesuando_church}
 \end{figure}
+\fi
 
 The example study followed is a pseudorandomly selected paper
 from \cite{ahsan2017relative}. The primary data used by that paper is
@@ -183,6 +185,7 @@ which are (1) the genotypes (\cite{johansson2013identification}),
 (2) the phenotypes, which are the concentrations of certain proteins
 in the blood (\cite{enroth2014strong,enroth2015effect}).
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{1189px-Eukaryote_DNA-en.png}
@@ -196,6 +199,7 @@ in the blood (\cite{enroth2014strong,enroth2015effect}).
   }
   \label{fig:eukakyote_dna}
 \end{figure}
+\fi
 
 The first type of primary data, the genotypes, 
 consists out of single nucleotide polymorphisms (SNPs, pronounced as 'snips').
@@ -210,6 +214,7 @@ One SNP example is \verb|rs12133641|, which is a SNP located at position
 154,428,283, where 67 percent of the people within this study have an A,
 and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{DNA_to_protein.png}
@@ -225,6 +230,7 @@ and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
   }
   \label{fig:dna_to_protein}
 \end{figure}
+\fi
 
 The second type of data, the phenotypes, 
 are concentrations of proteins in the blood. 
@@ -266,6 +272,7 @@ of the environment (e.g. geographic location, time of day),
 lifestyle (e.g. smoking yes/no) or having a disease (e.g. diabetes) 
 are needed to explain the additional variation.
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{ahsan2017relative_table_2_sub.png}
@@ -278,8 +285,9 @@ are needed to explain the additional variation.
   }
   \label{fig:ahsan2017relative_table_2_sub}
 \end{figure}
+\fi
 
-
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{ahsan2017relative_s6.png}
@@ -294,6 +302,7 @@ are needed to explain the additional variation.
   }
   \label{fig:ahsan2017relative_s6}
 \end{figure}
+\fi
 
 These conclusions may end up in the clinic.
 For the sake of having a clear example,
@@ -381,6 +390,7 @@ publication (\cite{peng2011reproducible}).
 
 % \paragraph{Code should be published}
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{peng2011reproducible_fig_1.png}
@@ -389,6 +399,7 @@ publication (\cite{peng2011reproducible}).
   }
   \label{fig:peng2011reproducible}
 \end{figure}
+\fi
 
 The code of a computational experiment must be published
 for an experiment to reproducible.
@@ -452,6 +463,7 @@ A consequence of this fictional example is that the published p-values are
 higher than needed, resulting in less significant findings, which
 results in (needlessly) less conclusions drawn from a paper.
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{baggerly2009deriving_fig_1a.png}
@@ -469,6 +481,7 @@ results in (needlessly) less conclusions drawn from a paper.
   }
   \label{fig:baggerly2009deriving}
 \end{figure}
+\fi
 
 One pseudorandom example of a mismatch between code and article
 was found by me in \cite{labrecque2019interpretation}.
@@ -623,6 +636,7 @@ An example from the author is the website \cite{bbbqarticleissue157},
 that hosts part of the code for the paper \cite{bilderbeek2022transmembrane},
 as shown in Figure \ref{fig:bbbqarticleissue157}.
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{bbbq_article_issue_157.png}
@@ -636,6 +650,7 @@ as shown in Figure \ref{fig:bbbqarticleissue157}.
   }
   \label{fig:bbbqarticleissue157}
 \end{figure}
+\fi
 
 % \paragraph{Hosted code has important metadata}
 
@@ -690,6 +705,7 @@ a repository. For example, Figure \ref{fig:build_badge} shows a
 build badge that indicates that a LaTeX document (i.e. this paper)
 could be built.
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{build_badge.png}
@@ -700,6 +716,7 @@ could be built.
   }
   \label{fig:build_badge}
 \end{figure}
+\fi
 
 % \paragraph{Code coverage helps assess code quality}
 
@@ -719,6 +736,7 @@ has a 100\% code coverage.
 Hence, code coverage is important metadata, that can automatically
 be acquired when using code hosting website.
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[]{badge_codecov.png}
@@ -733,6 +751,7 @@ be acquired when using code hosting website.
   }
   \label{fig:badge_codecov}
 \end{figure}
+\fi
 
 % \paragraph{Metrics help assess the honest division of labour}
 
@@ -747,6 +766,7 @@ The distribution of contributed code per author
 is useful metadata, that can automatically
 be acquired when using code hosting website.
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{daisie_contributors.png}
@@ -756,7 +776,7 @@ be acquired when using code hosting website.
   }
   \label{fig:daisie_contributors}
 \end{figure}
-
+\fi
 
 % \paragraph{A reader can contact the author}
 
@@ -772,6 +792,7 @@ the developers lost interest in maintaining that code.
 The amount of bug reports is useful metadata, 
 especially when deciding to use (and depend) on a piece of software.
 
+\iffalse
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{issue_ldpred2.png}
@@ -784,6 +805,7 @@ especially when deciding to use (and depend) on a piece of software.
   }
   \label{fig:issue_ldpred2}
 \end{figure}
+\fi
 
 % \paragraph{The problems with hosted code}
 
