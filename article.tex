@@ -913,8 +913,13 @@ done yet by journals.
 \section{Conclusions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Code is paradata, as it is describes how the results are generated.
+The part of a scholarly article that describes the experiment is metadata, 
+as it describes what the code is thought to do.
 The code that does the work in a computational experiment should
-always be published together with a scholarly article.
+always be published together with a scholarly article,
+as, if the paper and code differ, it is the code that generated the results.
+
 For research to be reproducible, one ideally has access to
 both the data used and the code.
 In some fields, such as genetic epidemiology, the data is
@@ -932,10 +937,10 @@ part in writing code.
 The amount of unit tests is an honest signal 
 for code correctness (i.e. it does what it is supposed to do, as opposed
 to 'it does something').
-In academia, to uncover the truth, code correctness is essential.
-To make a comparison with cell biologists, where working
-sterile is essential to have the correct results,
-unit tests allow a computational biologist to achieve the same.
+In academia, to uncover the truth, code correctness is essential,
+similar to cell biologists working sterile to not contaminate their
+cell cultures.
+Unit tests are a vital practice for a computational biologist.
 
 Code is harder to preserve than an English text.
 
