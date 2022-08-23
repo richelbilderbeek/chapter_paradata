@@ -141,16 +141,19 @@ For example, we know that lactose intolerance is, among others,
 caused by producing too few lactose-degrading enzymes,
 and is most commonly found in south-east asia.
 The trait is caused by the genetic make-up, 
-or genotype (see Table \ref{tab:definitions}), of a person.
-The trait, also called phenotype, in this example is lactose intolerance,
-but any human property, such as weight or height can be studied.
+or genotype 
+(see Table \ref{tab:definitions} for the definitions of terms used in this paper), 
+of a person.
+The trait, also called phenotype (again, see Table \ref{tab:definitions}), 
+in this example is lactose intolerance,
+yet any human property, such as weight or height can be studied.
 Genetic epidemiology studies the spread of genotypes and phenotypes,
 as well as the relation between those two.
 When an association between genotype and phenotype is found,
 these associations are subsequently used to 
 create gene panels, where the gene causing 
 an association is measured specifically, to, among others,
-detect people at risk for a phenotype.
+detect people at risk for the associated phenotype.
 
 The rest of this section describes a genetic epidemiology study 
 in more detail, with special focus on the computational experiment.
@@ -172,13 +175,13 @@ in more detail, with special focus on the computational experiment.
 The example study followed is a pseudorandomly selected paper
 from \cite{ahsan2017relative}. The primary data used by that paper is
 from a population study called the Northern Swedish Population
-Health Study (NSPHS) that started in 2010 (\cite{igl2010northern}). 
+Health Study (NSPHS) that started in 2010 \cite{igl2010northern}. 
 The approximately 1000 participants were initially mostly surveyed
-about lifestyle (\cite{igl2010northern}) and follow-up studies
+about lifestyle \cite{igl2010northern} and follow-up studies
 provided the type of data relevant for this paper, 
-which are (1) the genotypes (\cite{johansson2013identification}),
+which are (1) the genotypes \cite{johansson2013identification},
 (2) the phenotypes, which are the concentrations of certain proteins
-in the blood (\cite{enroth2014strong,enroth2015effect}).
+in the blood \cite{enroth2014strong,enroth2015effect}.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -374,7 +377,7 @@ A scientific claim must be reproducible before it is accepted
 by the scientific community.
 Reproducibility (i.e. to reproduce the same results) 
 and replicability (i.e. to reconclude a conclusion)
-are fundamental characteristics of scientific studies (\cite{patil2019visual}).
+are fundamental characteristics of scientific studies \cite{patil2019visual}.
 For computational science, it is relatively easy to 
 reproduce an experiment, as all it takes is a computer, electricity,
 an optional internet connection, the code and the data.
@@ -382,7 +385,7 @@ In computational science, however, it appears that
 culture to reproduce results has been lost 
 and to counter this, it has been suggested to make
 reproducible research a minimal requirement for 
-publication (\cite{peng2011reproducible}).
+publication \cite{peng2011reproducible}.
 
 % \paragraph{Code should be published}
 
@@ -400,7 +403,7 @@ publication (\cite{peng2011reproducible}).
 The code of a computational experiment must be published
 for an experiment to reproducible.
 It is however (too) common that the original data
-and/or code are unavailable (\cite{peng2021reproducible}).
+and/or code are unavailable \cite{peng2021reproducible}.
 One saddening example is described in \cite{haibe2020importance}, where
 an algorithm that detects breast cancer better than a human expert,
 was irreproducible.
@@ -491,7 +494,7 @@ When humans are fallible and code gets bigger, the likelihood of
 a mismatch between the English paper and the code increases.
 We know that the most common errors are 
 simple (and may legitimately fear that those simple errors are common) 
-(\cite{baggerly2009deriving}),
+\cite{baggerly2009deriving},
 and this example is not too far off from the
 examples given in that paper.
 
@@ -509,13 +512,13 @@ Regardless of this, most academic journals,
 when concerning computational experiments
 only review the (usually) English description of the code
 and make the review of code optional.
-One notable exception is rOpenSci (\cite{ram2018community}),
+One notable exception is rOpenSci \cite{ram2018community},
 which is an organisation that does peer-review academic code 
 and facilitates the optional publication of a paper.
 Although both code and paper are peer-reviewed,
 most effort is spent on reviewing the code,
 as can be seen in, for example, 
-the \verb|mcbette| R package (\cite{bilderbeek2020mcbette}).
+the \verb|mcbette| R package \cite{bilderbeek2020mcbette}.
 
 There are multiple ways of publishing code,
 that require increasingly more knowledge to do and result
@@ -559,7 +562,7 @@ the amount of (single) lines of code (SLOC).
 Code that has a lower SLOC count, i.e. it is more concise,
 is usually regarded as having a lower chance of containing bugs.
 Additionally, following a style guide (e.g. \cite{style_guide}), 
-improves software quality (\cite{fang2001}).
+improves software quality \cite{fang2001}.
 
 A more interesting metric is the cyclomatic complexity of the code.
 The cyclomatic complexity is defined as the number of ways that
@@ -569,10 +572,10 @@ has a cyclomatic complexity of 2, as the condition within the \verb|if|
 statement can be true or false.
 The cyclomatic complexity correlates with code complexity,
 where more complex code is likelier to contain or give rise to bugs 
-(\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting})
+\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}
 
 A feature that deserves more attention
-is that 'code must act as a teacher for future developers' (\cite{sadowski2018modern}).
+is that 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
 Error handling is one of the mechanisms to do so.
 A simple example is when one (e.g. a BSc student) 
 needs to calculate the variance of a distribution.
@@ -613,7 +616,7 @@ This practice has increased,
 with the abstracts from articles in the academic journal
 'Bioinformatics' referring to such a hosted website
 has increased tenfold, going from below 5 percent in 2009 
-to around 50 percent in 2017 (\cite{russell2018large}).
+to around 50 percent in 2017 \cite{russell2018large}.
 
 % \paragraph{Example of hosted code}
 
@@ -626,8 +629,8 @@ to upload code. Code hosts, such as GitHub,
 store that uploaded code and provide ways 
 for visiters to download the code and/or interact with it.
 The use of such code hosting websites
-accommodates collaboration (\cite{perez2016ten}).
-and improves transparency (\cite{gorgolewski2016practical}).
+accommodates collaboration \cite{perez2016ten}.
+and improves transparency \cite{gorgolewski2016practical}.
 An example from the author is the website \cite{bbbqarticleissue157},
 that hosts part of the code for the paper \cite{bilderbeek2022transmembrane},
 as shown in Figure \ref{fig:bbbqarticleissue157}.
@@ -637,7 +640,7 @@ as shown in Figure \ref{fig:bbbqarticleissue157}.
   \centering
   \includegraphics[width=\linewidth]{bbbq_article_issue_157.png}
   \caption{
-    A typical GitHub repository (\cite{bbbqarticleissue157}), 
+    A typical GitHub repository \cite{bbbqarticleissue157}, 
     hosting the code for a
     computational experiment, 
     as published with \cite{bilderbeek2022transmembrane}.
@@ -666,11 +669,11 @@ In practice, this means that when a change is made to the code,
 a new version is created. In the case that the change was harmful,
 one can go back to an earlier version and continue again from there.
 It is a general recommendation to put version control
-on all human-produced data (\cite{wilson2014best}).
+on all human-produced data \cite{wilson2014best}.
 
 % \paragraph{A commit history helps assess honest reporting}
 
-Hosted code improves transparency (\cite{gorgolewski2016practical}).
+Hosted code improves transparency \cite{gorgolewski2016practical}.
 The history of changes, called the commit history, 
 helps to assess the honesty in the reporting of the code. 
 Ideally, the full version history of the code 
@@ -682,7 +685,7 @@ how much statistical tests have really/actually been done
 and see if all are reported:
 failing to reporting a (usually non-significant) statistical tests is 
 one of the many degrees of freedom 
-in p-value hacking (\cite{wicherts2016degrees}).
+in p-value hacking \cite{wicherts2016degrees}.
 
 % \paragraph{Continuous integration helps assess code quality}
 
@@ -694,8 +697,8 @@ If the functionality of the code is lost, the researcher
 can immediatly see which small change was the cause of this.
 A formalized version of this workflow is called continuous integration (CI).
 Using a CI service (such as GitHub Actions), is known to significantly 
-increase the number of bugs exposed (\cite{vasilescu2015}) and increases
-the speed at which new features are added (\cite{vasilescu2015}).
+increase the number of bugs exposed \cite{vasilescu2015} and increases
+the speed at which new features are added \cite{vasilescu2015}.
 Using CI opens up the possibility to informally annotate features of
 a repository. For example, Figure \ref{fig:build_badge} shows a 
 build badge that indicates that a LaTeX document (i.e. this paper)
@@ -721,8 +724,8 @@ the correctness of code (an interesting example is \cite{rahman2020exploratory}
 showing bugs in scientific software on the COVID-19 pandemic. 
 It recommends more testing).
 The percentage of (lines of) code tested is called the code coverage.
-Code coverage correlates with code quality (\cite{horgan1994,del1995correlation}). 
-The non-profit organisation rOpenSci (\cite{ram2018community}),
+Code coverage correlates with code quality \cite{horgan1994,del1995correlation}. 
+The non-profit organisation rOpenSci \cite{ram2018community},
 which peer-reviews code,
 has made it a prerequisite to have a code coverage of 100\%.
 Also here, CI opens up the possibility to informally annotate the
@@ -756,7 +759,7 @@ automatically keep track of certain metrics.
 One such metric is the amount of code each contributor has made.
 In that way, authors involved in the writing of the software
 are honestly acknowledged. Figure \ref{fig:daisie_contributors}
-shows the number of commits the authors of DAISIE (\cite{etienne2020daisie})
+shows the number of commits the authors of DAISIE \cite{etienne2020daisie}
 have made to its code.
 The distribution of contributed code per author 
 is useful metadata, that can automatically
@@ -768,7 +771,7 @@ be acquired when using code hosting website.
   \includegraphics[width=\linewidth]{daisie_contributors.png}
   \caption{
     An overview of the commits that multiple contributors have
-    made, in this case, to the code of DAISIE (\cite{etienne2020daisie})
+    made, in this case, to the code of DAISIE \cite{etienne2020daisie}
   }
   \label{fig:daisie_contributors}
 \end{figure}
@@ -794,7 +797,7 @@ especially when deciding to use (and depend) on a piece of software.
   \includegraphics[width=\linewidth]{issue_ldpred2.png}
   \caption{
     An overview of the issues for the code for
-    LDpred2 (\cite{prive2020ldpred2}). Of the 310 issues, 300 have been closed.
+    LDpred2 \cite{prive2020ldpred2}. Of the 310 issues, 300 have been closed.
     The first four issues have been replied to, as indicated by the
     talk balloon. The fifth issues has a label with the text 'feature request'
     to signal the issue type.
@@ -815,11 +818,11 @@ over time.
 The degradation of software is a known feature for nearly 
 four decades (see the definition of 'bit rot' at \cite{steele1983hacker}),
 here I will use the more modern (and in this context superior)
-definition of software collapse (\cite{hinsen2019dealing}),
+definition of software collapse \cite{hinsen2019dealing},
 in which software fails due to dependencies on other 
 software.
 Where this paper recommends using older software foundations 
-with multiple implementations (\cite{hinsen2019dealing}),
+with multiple implementations \cite{hinsen2019dealing},
 there is a modern solution that potentially has more longevity:
 to publish the code installed in a virtual environment
 (including the dependencies used at that time), as described below.
@@ -943,7 +946,7 @@ both the data used and the code.
 In some fields, such as genetic epidemiology, the data is
 sensitive, hence cannot be released,
 yet there are methods being devised to run code on sensitive
-data with assured privacy (\cite{zhang2016review,azencott2018machine}).
+data with assured privacy \cite{zhang2016review,azencott2018machine}.
 
 Code has additional useful information, similar to confidence intervals,
 that allow a reader to gauge how much he/she trusts the results.
