@@ -9,7 +9,8 @@ In genetic epidemiology, the data generated is mostly the results
 of an analysis (e.g. predicting a person having a disease),
 as done by computer code.
 In such context, one could argue incorrectly that
-it is the scientific paper describes what the computer code does.
+it is the scientific paper describes which computation steps 
+have taken place.
 However, this has the unrealistic 
 assumption that there is a perfect match between the paper and the code.
 In this chapter it is argued that the source code should should be supplied,
@@ -25,28 +26,14 @@ FAIR data, computational research, Open Science, best practices,
 genetic epidemiology
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Definitions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{table}[h]
-  \begin{tabular}{lp{5cm}p{5cm}}
-    Term      & Definition                                            & Example                                                         \\
-    \hline
-    Code      & Body of text to be run by a computer                  & The scripts run by a computational experiment                   \\
-    Data      & Individual facts, statistics, or items of information & A SNP that has a significant association                        \\
-    Genotype  & The DNA allele at a certain location                  & AA, AC, CG, GT, ...                                             \\
-    Paradata  & Data that describes the process of generating data    & The code to conclude that a SNP has a significant association   \\
-    Phenotype & How an organism looks like in the broadest sense      & The concentration of IL6RA in the blood                         \\
-    Primary data & Data that is worked with in a research             & The genotype of individuals   \\
-    Metadata  & Data that provides information about other data       & The article that describes an experiment                        \\
-    Raw data  & Data directly from the real world, that is not yet ready to be primary data & The raw results of getting the genotypes of individuals   \\
-    Trait     & A phenotype                                           & The concentration of IL6RA in the blood                         
-  \end{tabular}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\epigraph{
+  Talk is cheap. Show me the code. \\
+  \\
+  Linus Torvalds, 2000-08-25. Message to linux-kernel mailing list
+}
 
 % This section has paragraph headers. This helps me, the author,
 % to focus the contents of my paragraphs.
@@ -1108,49 +1095,22 @@ This article and its metadata can be found at
 
 This chapter has not been supported by funding.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Definitions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-% \paragraph{A paper contains data and should be FAIR data}
-
-A paper contains and/or describes data, where we define
-data as 'individual facts, statistics, or items of information, often 
-numeric' \cite{glossary2003oecd}.
-To ensure unhampered knowledge growth, this data should [TODO: Why? Reference!] 
-follow the FAIR 
-principles.
-The FAIR principles \cite{wilkinson2016fair} are that data should be 
-[TODO: there are probably better examples]
-Findable (e.g. found by web),
-Accessible (e.g. DataDryad and or Zenodo), 
-Interoperable (e.g. plain-text file format, such as comma-separated files) 
-and Reusable (e.g. work on all operating systems)
-
-% \paragraph{A paper is data and should be FAIR data}
-
-A paper in itself is data, as it is a collection of text and
-figures that we itself can do measurements upon.
-Also here, a paper should be FAIR, 
-[TODO: there are probably better examples]
-i.e.
-Findable (e.g. having a DOI)
-Accessible (e.g. open access publications, i.e. published in a public access
-repository), 
-Interoperable (e.g. written in English (i.e. the current lingua franca of sciece))
-and Reusable (e.g. it is valid to cite and build upon earlier academic papers, 
-it is peer-reviewed (i.e. satifies a minimal requirement of quality)).
-This paper itself will later specify the standpoint that a paper
-is metadata (i.e. data about data), instead of paradata (i.e.
-data that describes the collection of data)
-
+\begin{table}[h]
+  \begin{tabular}{lp{5cm}p{5cm}}
+    Term      & Definition                                            & Example                                                         \\
+    \hline
+    Code      & Body of text to be run by a computer                  & The scripts run by a computational experiment                   \\
+    Data      & Individual facts, statistics, or items of information & A SNP that has a significant association                        \\
+    Genotype  & The DNA allele at a certain location                  & AA, AC, CG, GT, ...                                             \\
+    Paradata  & Data that describes the process of generating data    & The code to conclude that a SNP has a significant association   \\
+    Phenotype & How an organism looks like in the broadest sense      & The concentration of IL6RA in the blood                         \\
+    Primary data & Data that is worked with in a research             & The genotype of individuals   \\
+    Metadata  & Data that provides information about other data       & The article that describes an experiment                        \\
+    Raw data  & Data directly from the real world, that is not yet ready to be primary data & The raw results of getting the genotypes of individuals   \\
+    Trait     & A phenotype                                           & The concentration of IL6RA in the blood                         
+  \end{tabular}
+\end{table}
