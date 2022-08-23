@@ -9,7 +9,7 @@ In genetic epidemiology, the data generated is mostly the results
 of an analysis (e.g. predicting a person having a disease),
 as done by computer code.
 In such context, one could argue incorrectly that
-it is the scientific paper describes which computation steps 
+it is the -usually English- scientific paper that best describes which computation steps 
 have taken place.
 However, this has the unrealistic 
 assumption that there is a perfect match between the paper and the code.
@@ -64,8 +64,9 @@ a process, (3) paradata describe the way of collecting primary data, or
   \centering
   \includegraphics[width=\linewidth]{figure_1.png}
   \caption{
-    Left: general relations between data, paradata and metadata.
-    Middle and right: examples of these types of data
+    Left: general relation between data, paradata and metadata.
+    Middle: the same relations specified for eBird.
+    Right: the same relations specified for genetic epidemiology.
   }
   \label{fig:figure_1}
 \end{figure}
@@ -83,14 +84,14 @@ as shown schematically in the middle panel of Figure \ref{fig:figure_1}.
 
 Paradata is relevant, as it allows primary data to be re-used.
 In the eBird example, it helps assess the trustworthiness of the 
-data, as beginner birdwatchers make more mistakes in identifying
+data, as beginner birdwatchers tend to make more mistakes in identifying
 the correct bird species, as compared to experts.
 By using the name and/or experience of the birder as a covariate,
 we can re-use the dataset in other contexts as well,
 as now this example can be generalized to
 a classification problem of unlabeled
 data for learning agents with different amounts 
-of supervised and unsupervised learning.
+of experience.
 
 % \paragraph{This paper is about computer code}
 
@@ -105,12 +106,16 @@ then runs an analysis, which finally results in the generation of results.
 
 This paper takes the standpoint that it is the computer code 
 that describes this generation of results, 
-hence it is the computer code that is paradata (i.e. not the description of the experiment),
+hence it is the computer code that is paradata 
+(i.e. not the description of the experiment as done in a natural language),
 as shown schematically in the right panel of Figure \ref{fig:figure_1}.
 Reading the computer code allows one to assess the trustworthiness 
 of the experiment, similar to knowing the name or expertise of a bird spotter.
-Having the code allows one to re-use it, in the same or other contexts,
-providing for reproducible research.
+Having the code allows one to 
+verify, re-use and extend the experiment, 
+in the same or other contexts, providing for reproducible research.
+Additionnally, this paper suggests some best practices on how to make 
+an experiment FAIR data (findability, accessibility, interoperability, and reusability) \cite{wilkinson2016fair} better.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Genetic epidemiology}
@@ -124,6 +129,8 @@ that this paradata is relevant, as it helps
 to assess the correctness of the results,
 where the correctness of the results is relevant for 
 science in general and healthcare in particular.
+However, any field that uses computation in its experiments
+could be used as an example.
 
 % \paragraph{For some fields, the experiment is actually run by code}
 
@@ -133,7 +140,8 @@ as well as how these come to be.
 For example, we know that lactose intolerance is, among others,
 caused by producing too few lactose-degrading enzymes,
 and is most commonly found in south-east asia.
-The trait is caused by the genetic make-up, or genotype, of a person.
+The trait is caused by the genetic make-up, 
+or genotype (see Table \ref{tab:definitions}), of a person.
 The trait, also called phenotype, in this example is lactose intolerance,
 but any human property, such as weight or height can be studied.
 Genetic epidemiology studies the spread of genotypes and phenotypes,
@@ -312,7 +320,7 @@ and associations found in earlier studies are used to create a gene panel.
 As creating a gene panel is costly, those associations better be correct.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Code is more important than the (English) paper}
+\section{Code is more important than the paper}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \paragraph{The experiments within genetic epidemology works are done by code}
@@ -351,8 +359,9 @@ Those patterns (again, a type of data) are the results of an experiment.
 
 The (scientific) article is metadata, as it is data that describes other data:
 an article describes the
-experiment and hence the programming
-code in English. However, it is not the best
+experiment (and hence the programming
+code) in a natural language, which is usually English (at this point in time). 
+However, a natural language is not the best
 candidate to describe how the data is collected,
 as it has a loose connection with collecting the data.
 If the code and article of an experiment disagree,
@@ -1113,4 +1122,6 @@ This chapter has not been supported by funding.
     Raw data  & Data directly from the real world, that is not yet ready to be primary data & The raw results of getting the genotypes of individuals   \\
     Trait     & A phenotype                                           & The concentration of IL6RA in the blood                         
   \end{tabular}
+  \caption{Terms used in this paper, and their definitions}
+  \label{tab:definitions}
 \end{table}
