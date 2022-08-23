@@ -180,8 +180,7 @@ The approximately 1000 participants were initially mostly surveyed
 about lifestyle \cite{igl2010northern} and follow-up studies
 provided the type of data relevant for this paper, 
 which are (1) the genotypes \cite{johansson2013identification},
-(2) the phenotypes, which are the concentrations of certain proteins
-in the blood \cite{enroth2014strong,enroth2015effect}.
+(2) the phenotypes, in this case, concentrations of certain proteins in the blood \cite{enroth2014strong,enroth2015effect}.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -203,7 +202,9 @@ The first type of primary data, the genotypes,
 consists out of single nucleotide polymorphisms (SNPs, pronounced as 'snips').
 A SNP has a name and a location on the DNA, at which there is a certain nucleotide.
 DNA (organized into chromosomes and present in every (nucleated) cell, 
-see figure \ref{fig:eukakyote_dna}) 
+\iffalse
+(see figure \ref{fig:eukakyote_dna}))
+\fi
 consists out of billions of nucleotides.
 There are four types of nucleotides, 
 called adenosine, cytosine, guanine and thyrosine, all commonly abreviated
@@ -232,9 +233,11 @@ and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
 
 The second type of data, the phenotypes, 
 are concentrations of proteins in the blood. 
-DNA contains the code for building proteins (see Figure 
-\ref{fig:dna_to_protein}), 
-as well as the rate
+DNA contains the code for building proteins
+\iffalse
+(see Figure \ref{fig:dna_to_protein})
+\fi
+, as well as the rate
 at which a protein is created. Some proteins end up in the blood and
 their presence can be used to assess the health of an individual.
 IL6RA is one such protein and, spoiler alert, its concentration
@@ -242,29 +245,29 @@ is associated with the SNP mentioned earlier.
 
 The field of genetic epidemiology looks -among others- for
 correlations between genetic data and biological traits.
-For example, figure \ref{fig:ahsan2017relative_table_2_sub} 
-(from \cite{ahsan2017relative}) shows that
-SNP \verb|rs12133641| is highly correlated (p-value is $3.0^{-73}$, 
-for $n$ = 961 individuals) with protein IL6RA. What this results does
-not yet teach us, is how this correlation works, yet
-figure \ref{fig:ahsan2017relative_s6} shows us the direction of the association:
-the X axis shows the possible genetic make-ups (aka the genotype) of the individuals,
-where 0 denotes the individuals with genotype
-AA (the individual inherited one adenosine 
-from his/here mother and one adenosine from his/her father), 
-1.0 denotes AG (one A is inherited from one parent, 
-where the G is inherited from the other parent) and 2.0 denotes GG.
-From Figure \ref{fig:ahsan2017relative_s6} we can conclude that, on average,
-the more guanines are present at that SNPs location,
-the higher concentration of IL6RA can be found in a human's blood.
-
-The amount of variance that can be explained by an association (i.e.
+For example, \cite{ahsan2017relative} shows that
+SNP \verb|rs12133641| is highly correlated (p-value is $3.0^{-73}$
+\iffalse
+(see figure \ref{fig:ahsan2017relative_table_2_sub})
+\fi
+,
+for $n$ = 961 individuals) with protein IL6RA.
+The direction of the association is also concluded:
+the more guanines (as opposited to adenines) are present at that SNPs location,
+the higher concentration of IL6RA can be found in a human's blood
+\iffalse
+(see figure \ref{fig:ahsan2017relative_table_2_sub})
+\fi
+. The amount of variance that can be explained by an association (i.e.
 the R squared value) is rarely 100 percent, which means that a trait (in
 this case, the concentration of IL6RA) cannot be perfectly explained
-from the genotype alone. As we can see in figure \ref{fig:ahsan2017relative_s6}, 
-43 percent of the variance can be attributed to an individuals'
-genotype. 
-Additional factors, 
+from the genotype (in this case, SNP \verb|rs12133641|) alone. 
+In this example, 43 percent of the variance 
+can be attributed to an individuals' genotype
+\iffalse
+(see figure \ref{fig:ahsan2017relative_table_2_sub})
+\fi
+. Additional factors, 
 such as the effect
 of the environment (e.g. geographic location, time of day), 
 lifestyle (e.g. smoking yes/no) or having a disease (e.g. diabetes) 
@@ -302,8 +305,9 @@ are needed to explain the additional variation.
 \end{figure}
 \fi
 
-These conclusions may end up in the clinic.
-For the sake of having a clear example,
+The conclusions drawn from this paper,
+may end up in the clinic.
+For the sake of having a clear (yet fictuous) example,
 let's assume that a high level of IL6RA 
 is associated with a disease that develops later in life,
 yet is preventable by lifestyle changes.
@@ -313,7 +317,7 @@ If the gene panel shows an individual has two guanines,
 we know that this person is likelier to develop higher levels of
 IL6RA and is likelier to benefit from the lifestyle changes.
 
-In this simple example, it will be easier
+From this simple example, it will be easier
 to measure the level of IL6RA in the blood, than using a gene panel.
 However, there are associations published for many diseases,
 in which multiple SNPs contribute to being more likely 
