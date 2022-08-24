@@ -890,8 +890,9 @@ and work on something new instead
 However, upon the find of a new bug, the question is:
 does all the research that use that software still 
 result in the same conclusions?
-A code hosting website usually has a place to report bugs
-that offer transparency in the handling of bug reports.
+To prevent authors chosing to hide bug reports, 
+a code hosting website usually has a public place to report bugs,
+to increase transparency in the handling of bug reports.
 
 % \paragraph{Suggestions for knowledge management}
 
@@ -914,16 +915,21 @@ nor are there standards for what 'success' entails.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The most reproducible way of submitting the code of an experiment,
-is by providing the code with its dependencies installed in a virtual container.
+is by providing the code with all the (software) dependencies 
+it needs installed in a virtual container.
 This is close to the golden standard suggested by 
-\cite{peng2011reproducible} (see also Figure \ref{fig:peng2011reproducible}),
-however, that was before virtualization existed.
+\cite{peng2011reproducible} 
+\iffalse
+(see also Figure \ref{fig:peng2011reproducible})
+\fi
+,
+however, that article was written before virtualization existed.
 Virtualization allows one to provide a standard environment,
 that can be used on any other computer.
-The best known examples of container software are Docker and Singularity,
-where the latter is the only viable option to be able to run
-an experiment on a high performance computing (HPC) environment,
-such as a computer cluster.
+The best known examples of container software are Docker and Singularity.
+Due to access rights, Singularity is the only viable option to run
+an experiment on a 
+high performance computing (HPC) environment (e.g. a computer cluster).
 
 % \paragraph{Containers allow for runnable code, for longer periods of time}
 
