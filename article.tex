@@ -353,27 +353,27 @@ a researcher needs a lab.
 Depending on the analysis, there may be a big bioinformatics step
 to aggregate the measurements into usable data. 
 Although this paper does not focus on the code run to 
-aggragate the raw data into useful genetic data, the same arguments
+aggragate raw and noisy measurements into usable data, the same arguments
 can be made for that code as in the example: that code is 
-the ground truth of how the raw data is collected into useful genetic data.
+the ground truth of how the raw data is converted into useful genetic data.
 
 % \paragraph{The code is the paradata for the results of an experiment}
 
 Programming code (from now on: 'code') is paradata, 
 as it is data that describes how data is generated.
 Code is data that is usually in the form of text, 
-spread over one or more files, that describes the experiment.
+spread over one or more files, that describes an experiment/annalysis.
 The computational experiment (from now on: 'experiment') collects the data
 and then looks for patterns.
 Those patterns (again, a type of data) are the results of an experiment.
 
 The (scientific) article is metadata, as it is data that describes other data:
 an article describes the
-experiment (and hence the programming
-code) in a natural language, which is usually English (at this point in time). 
-However, a natural language is not the best
+experiment; an article describes what the code does in a natural 
+language, such as English (which I'll use from now on).
+However, English (or any other natural language) is not the best
 candidate to describe how the data is collected,
-as it has a loose connection with collecting the data.
+as it only has a loose connection with collecting the data.
 If the code and article of an experiment disagree,
 it is the code that actually let the data be collected.  
 Instead, an article is metadata about a research.
@@ -385,13 +385,14 @@ by the scientific community.
 Reproducibility (i.e. to reproduce the same results) 
 and replicability (i.e. to reconclude a conclusion)
 are fundamental characteristics of scientific studies \cite{patil2019visual}.
-For computational science, it is relatively easy to 
+For computational science, theoretically, it should be relatively easy to 
 reproduce an experiment, as all it takes is a computer, electricity,
 an optional internet connection, the code and the data.
-In computational science, however, it appears that 
-culture to reproduce results has been lost 
-and to counter this, it has been suggested to make
-reproducible research a minimal requirement for 
+In practice, however, it appears that 
+the academic culture to reproduce results 
+has been lost over time \cite{peng2011reproducible}.
+That same study recommended, as a solution to counter this, 
+to make reproducible research a minimal requirement for 
 publication \cite{peng2011reproducible}.
 
 % \paragraph{Code should be published}
@@ -412,26 +413,29 @@ for an experiment to reproducible.
 It is however (too) common that the original data
 and/or code are unavailable \cite{peng2021reproducible}.
 One saddening example is described in \cite{haibe2020importance}, where
-an algorithm that detects breast cancer better than a human expert,
+an algorithm that detects breast cancer from images better than a human expert,
 was irreproducible.
-In the case of genetic epidemiology, it is a given that the original
-data cannot be published as this data is sensitive.
+In the case of genetic epidemiology, 
+the original data usually cannot be published, 
+due to the guaranteed privacy of the people having shared their characteristics.
 The code of a computational experiment, however, \emph{can} be
 distributed without such problems.
-It is, however, not code that is published, but an English
-description of what that code does instead.
+In academic journals, however, its is not code that is published, 
+but an English description of what it does instead.
+
 From a knowledge management's perspective,
+it is the code that must be archived 
 to conserve an experiment,
-it is the code that must be archived and not the
+and not the
 English description of what it does:
 it is the code does the actual work.
-Hence, from a knowledge management perspective, emphasis should be
+Hence, from that perspective, emphasis should be
 put more on the preservation of code, as it is the most important actor
 in an experiment.
 
 % \paragraph{Example of code being the ground truth}
 
-Code should be published, as it holds the
+From a broader perspective, code should be published, as it holds the
 ground truth of an experiment; it does the actual work.
 The more complex the computation pipeline is, the easier it is
 to have a mismatch between the article (that describes what the
@@ -440,8 +444,8 @@ It is easy (tempting?) to overlook how easy it is to have a mismatch
 between paper and code.
 
 To illustrate how easy it is to get a mismatch between a paper
-and the code, consider this fictional example
-of a text in a paper:
+and the code, consider this example
+of a text in a fictional paper:
 
 \begin{verbatim}
 We compared the values of x and y using a one-tailed Student's T-test,
