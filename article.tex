@@ -464,14 +464,14 @@ t.test(x, y)
 The line of code is simplified (as the result of the T test is never stored),
 but the code is correct:
 \verb|t.test| is indeed the name of an R function to do a T-test
-and it is reasonable to assume that this code, when found in the code
+and it is reasonable to assume that this code, when glancing over the code
 of an article, is correct.
 
 Here, however, we see a mismatch between the English description and the code:
 by default, the R function \verb|t.test| does a \textbf{two}-tailed T-test.
 A consequence of this fictional example is that the published p-values are
 higher than needed, resulting in less significant findings, which
-results in (needlessly) less conclusions drawn from a paper.
+results in (needlessly) less conclusions drawn in this fictional paper.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -498,6 +498,8 @@ was found by me in \cite{labrecque2019interpretation}.
 After the corresponding author of that paper was contacted,
 the code was updated and confirmed to have the same
 results as published in the paper.
+This sequence of events could only have happened, 
+because the authors chose to publish their code.
 
 It is the paper that accompanies the code,
 as it is the code that generates the results.
@@ -510,7 +512,9 @@ and this example is not too far off from the
 examples given in that paper.
 
 But regardless of the size of the code, 
-it is the code that is the ground truth.
+it is the code that is the ground truth
+and should be treated as a first-class citizen
+in a computational experiment.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{There are multiple way to publish code}
@@ -540,7 +544,9 @@ the code on a hosted website, e.g on GitHub, with
 added features (3) publishing 
 the installed code within a virtual environment,
 for example, using a Singularity container.
-Here I will go into details of each of these ways.
+Here I will go into details of each of these ways,
+by describing some advantages, disadvantages, as well as how to
+make the code more FAIR data \cite{wilkinson2016fair}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Publishing raw code}
@@ -558,9 +564,7 @@ The raw code of a computational experiment is
 more important to preserve than the article describing
 the experiment, even when both describe the experiment identically,
 correctly and reproducibly, 
-as it has/should been that code that generated the results of an experiment.
-Again: if the paper and code differ, it is the code that did
-the actual work with the actual/true results.
+as it the code that can reproduce the results.
 
 % \paragraph{Raw code is an indicator of quality}
 
@@ -572,15 +576,20 @@ The simplest metric to assess the quality of code is
 the amount of (single) lines of code (SLOC). 
 Code that has a lower SLOC count, i.e. it is more concise,
 is usually regarded as having a lower chance of containing bugs.
-Additionally, following a style guide (e.g. \cite{style_guide}), 
+Additionally, following a style guide 
+(e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
+or PEP 8 \cite{van2001pep} for Python), 
 improves software quality \cite{fang2001}.
 
 A more interesting metric is the cyclomatic complexity of the code.
-The cyclomatic complexity is defined as the number of ways that
+The cyclomatic complexity is approximately defined 
+as the number of independent paths that
 the code can be executed. 
 For example, code that has only one \verb|if| statement
 has a cyclomatic complexity of 2, as the condition within the \verb|if|
-statement can be true or false.
+statement can be true or false,
+resulting in the body of the \verb|if| statement being either
+exectuted or ignored.
 The cyclomatic complexity correlates with code complexity,
 where more complex code is likelier to contain or give rise to bugs 
 \cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}
@@ -594,10 +603,10 @@ Commonly one needs to call a function to do so,
 e.g. \verb|var| in R, that needs the values of the distribution
 as input.
 However, to calculate the variance of a distribution, at least two values
-are required. 
+are required (else a division by zero occurs in the calcation of the variance). 
 When the variance of (zero or) only one value is requested,
 an error message can helpfully indicate that the function 
-needs at least two values.
+needs at least two values to work as expected.
 
 % \paragraph{The problems with raw code}
 
@@ -611,16 +620,29 @@ pasting raw code, using a website to host that code (see below).
 % \paragraph{Raw code is already better than no code}
 
 Publishing raw code is already better than not publishing code at all,
-as that raw code can be assumed to have run successfully at least once.
+as that raw code can reasonably be assumed to have run successfully at least once.
 To reproduce an experiment from raw code can be painful, 
 yet it is usually better than writing the same code from scratch.
+In general, it appears that sharing code is rare \cite{stodden2011trust,read2015sizing}.
+
+% \paragraph{Raw code can be FAIR data}
+
+It is hard to make raw code be FAIR data. It is hard for computers to find
+copy-pasted code in a Supplementary Materials. 
+That code is usually only accessible
+if the paper has been published under an open access license.
+When code can be found and accessed, it is an open question if the
+code can \emph{still} interoperate with current datasets, software
+and hardware. Raw code usually lacks the metadata to describe its needs.
+I would say that raw code, albeit better than no code, fits
+FAIR data only poorly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Publishing hosted code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Code is sometimes published alongside a paper, 
-in the form of a hosted website.
+in the form of a code hosting website.
 This way of publishing code gives additional options,
 both for the authors of that code, as well as its users.
 This practice has increased,
@@ -634,7 +656,7 @@ to around 50 percent in 2017 \cite{russell2018large}.
 There are multiple websites for hosting code, with BitBucket, GitHub,
 GitLab and SourceForge being the most well-known.
 GitHub is currenly the most popular website to host code in general,
-with millions of users.
+with millions of users (a simple user search can confirm this).
 GitHub users can create dedicated websites (called 'repositories')
 to upload code. Code hosts, such as GitHub, 
 store that uploaded code and provide ways 
@@ -643,8 +665,11 @@ The use of such code hosting websites
 accommodates collaboration \cite{perez2016ten}.
 and improves transparency \cite{gorgolewski2016practical}.
 An example from the author is the website \cite{bbbqarticleissue157},
-that hosts part of the code for the paper \cite{bilderbeek2022transmembrane},
-as shown in Figure \ref{fig:bbbqarticleissue157}.
+that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}
+\iffalse
+, as shown in Figure \ref{fig:bbbqarticleissue157}
+\fi
+.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -671,6 +696,7 @@ A code hosting website produces and shares this metadata.
 This metadata can help to determine the
 reproducibility, correctness and quality of code
 of computational experiments.
+Here, I discuss those features and why these are important.
 
 % \paragraph{Hosted code has a commit history}
 
@@ -684,15 +710,17 @@ on all human-produced data \cite{wilson2014best}.
 
 % \paragraph{A commit history helps assess honest reporting}
 
-Hosted code improves transparency \cite{gorgolewski2016practical}.
-The history of changes, called the commit history, 
+Hosted code improves transparency \cite{gorgolewski2016practical},
+as, among others, the history of changes (i.e. the git commit history), 
 helps to assess the honesty in the reporting of the code. 
 Ideally, the full version history of the code 
-has been generated, by hosting the code directly at its inception.
+has been generated, by hosting the code directly at its inception,
+so that the ontology of the experiment can be viewed.
 However, in some repositories, only the final version of the code has been
 posted, which means all historical information is lost.
-From a code history, it can be observed, for example, 
-how much statistical tests have really/actually been done 
+The code history has many important properties,
+as, for example, 
+it can be observed how much statistical tests have really/actually been done 
 and see if all are reported:
 failing to reporting a (usually non-significant) statistical tests is 
 one of the many degrees of freedom 
@@ -701,18 +729,20 @@ in p-value hacking \cite{wicherts2016degrees}.
 % \paragraph{Continuous integration helps assess code quality}
 
 Some code hosts, among others, GitHub, 
-allows the researcher to start software scripts when uploading a new version.
-To determine the reproducibility of the code, one such script should
-run the code (on trivial data) to verify if the code works at all.
+allow the researcher/user to start software scripts upon uploading a change.
+This is useful to determine the reproducibility of the code: 
+one such script should run the code (on trivial data) 
+to verify if the code works at all.
 If the functionality of the code is lost, the researcher
 can immediatly see which small change was the cause of this.
 A formalized version of this workflow is called continuous integration (CI).
-Using a CI service (such as GitHub Actions), is known to significantly 
+Using a CI service (such as GitHub Actions for GitHub), 
+is known to significantly 
 increase the number of bugs exposed \cite{vasilescu2015} and increases
 the speed at which new features are added \cite{vasilescu2015}.
 Using CI opens up the possibility to informally annotate features of
 a repository. For example, Figure \ref{fig:build_badge} shows a 
-build badge that indicates that a LaTeX document (i.e. this paper)
+build badge that indicates that a \LaTeX document (i.e. this paper)
 could be built.
 
 \iffalse
@@ -732,17 +762,22 @@ could be built.
 
 Testing, in general, is an important mechanism to ensure
 the correctness of code (an interesting example is \cite{rahman2020exploratory}
-showing bugs in scientific software on the COVID-19 pandemic. 
-It recommends more testing).
+showing bugs in scientific software on the COVID-19 pandemic:
+it recommends more testing).
 The percentage of (lines of) code tested is called the code coverage.
 Code coverage correlates with code quality \cite{horgan1994,del1995correlation}. 
 The non-profit organisation rOpenSci \cite{ram2018community},
 which peer-reviews code,
 has made it a prerequisite to have a code coverage of 100\%.
 Also here, CI opens up the possibility to informally annotate the
-code coverage. For example, Figure \ref{fig:badge_codecov} shows a 
-build badge that indicates that certain R package's code 
-has a 100\% code coverage.
+code coverage. 
+For example, build badges
+\iffalse
+(e.g. as shown in Figure \ref{fig:badge_codecov})
+\fi
+are visual indications on a website that can, among others,
+show a certain R package's code has a 100\% code coverage.
+
 Hence, code coverage is important metadata, that can automatically
 be acquired when using code hosting website.
 
@@ -769,9 +804,12 @@ Most code hosts, among others, GitHub and GitLab,
 automatically keep track of certain metrics.
 One such metric is the amount of code each contributor has made.
 In that way, authors involved in the writing of the software
-are honestly acknowledged. Figure \ref{fig:daisie_contributors}
+are honestly acknowledged. 
+\iffalse
+Figure \ref{fig:daisie_contributors}
 shows the number of commits the authors of DAISIE \cite{etienne2020daisie}
 have made to its code.
+\fi
 The distribution of contributed code per author 
 is useful metadata, that can automatically
 be acquired when using code hosting website.
@@ -832,14 +870,15 @@ here I will use the more modern (and in this context superior)
 definition of software collapse \cite{hinsen2019dealing},
 in which software fails due to dependencies on other 
 software.
-Where this paper recommends using older software foundations 
+Where that paper recommends using older software foundations 
 with multiple implementations \cite{hinsen2019dealing},
-there is a modern solution that potentially has more longevity:
+this paper recommends a modern solution that potentially has more longevity:
 to publish the code installed in a virtual environment
 (including the dependencies used at that time), as described below.
 
 There is another problem that authors of academic code face,
-which is that they will be contacted with a user sending in a bug report.
+which is that they may be contacted with a user sending in a bug report.
+HIERO
 One solution for the author is to ignore such emails
 and it can be argued that no energy should be wasted on published code
 and work on something new instead.
