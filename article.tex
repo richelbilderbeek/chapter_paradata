@@ -1031,42 +1031,47 @@ The code that does the work in a computational experiment should
 always be published together with a scholarly article,
 as, if the paper and code differ, it is the code that generated the results.
 
+Code has additional useful information, similar to confidence intervals,
+that allow a reader to gauge how much he/she trusts the results.
+The more of the best practices are followed, 
+the more trustworthy are the results.
+The most important best practices discussed in this paper are
+automatic testing, having a high code coverage and code
+of low (cyclomatic) complexity.
+In academia, to uncover the truth, code correctness is essential,
+similar to cell biologists working sterile to not contaminate their
+cell cultures.
+These best practices are vital for a computational biologist.
+
 For research to be reproducible, one ideally has access to
 both the data used and the code.
 In some fields, such as genetic epidemiology, the data is
 sensitive, hence cannot be released,
 yet there are methods being devised to run code on sensitive
 data with assured privacy \cite{zhang2016review,azencott2018machine}.
-Additionally, to ensure that 
-
-Code has additional useful information, similar to confidence intervals,
-that allow a reader to gauge how much he/she trusts the results.
-The most important way to determine the quality of code
-is the amount of unit tests.
-When following a set of best practices, such as DevOps, TDD, Agile,
-writing unit tests is an essential 
-part in writing code.
-The amount of unit tests is an honest signal 
-for code correctness (i.e. it does what it is supposed to do, as opposed
-to 'it does something').
-In academia, to uncover the truth, code correctness is essential,
-similar to cell biologists working sterile to not contaminate their
-cell cultures.
-Unit tests are a vital practice for a computational biologist.
+Additionally, it follows software development's best practices 
+(especially the practice to test code automatically) 
+to release a simulated/public dataset, with
+the additional benefit that this dataset can be used for comparisons.
 
 Code is harder to preserve than an English text
 and preserving code is rarely done \cite{barnes2010publish}.
-
 Although code is the primary actor in computational experiments,
 there is no incentive to submit code alongside a publication.
 Most academic journal do not require authors to submit their code,
-nor it the submitted code peer reviewed.
+nor is the submitted code peer reviewed, 
+rOpenSci \cite{ram2018community} being the pleasant exception.
 
-Although the code of computation experiments can be archived well, 
-there is no incentive to do so.
-
-Although a runnable version of a computation experiment can be archived well, 
-there is no incentive to do so.
+Code used in academic research complies badly with FAIR principles,
+where unpublished code is the worst offender.
+However, any idealistic researcher does not have the
+tools to following FAIR principles in an exemplary way:
+there are no standards in how a scholarly article
+refers to academic code (i.e. in a machine-friendly way).
+Creating a (Singularity) container is the best a researcher
+can do to ensure his/her code is reusable,
+yet, there are no incentives to make code accessible, interoperable
+or re-usable, with standarized metadata attributes being absent.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
@@ -1077,27 +1082,31 @@ there is no incentive to do so.
 Code may or may not be paradata, depending on how the definition
 is interpreted.
 Here we repeat the definition of 'paradata' and discuss 
-its (numbered) constituents.
-This paper defined paradata as 'data (1) about the collecting (2) of the data (3)',
-where (1) code must be seen as data, (2) downloading raw data
-and doing calculations must be seen as collecting, and (3) the
-results of an experiment must be seen as data.
-This paper argues, that (1) code is data in the form of text spread
-over one or more files, that has useful measurable properties, 
-(2) downloading raw datas and doing calculations, such as a T-test,
-does describe how the bits and pieces of an end result is collected,
-and (3) an experimental results is data, as it can be measured and
-used as the raw data of a next experiment.
+its constituents.
+This paper defined paradata as 'data about the collecting of the data'.
+This implies that (1) code must be seen as data.
+This paper argues, that code is data in the form of text spread
+over one or more files with useful measurable properties.
+(2) downloading raw data and doing calculations must be seen as collecting.
+This paper argues that downloading raw datas and doing calculations, 
+such as a T-test,
+does describe how the bits and pieces of an end result are collected.
+(3) the results of an experiment must be seen as data.
+This paper argues that an experimental results is data, 
+as it can be measured and can be used as the raw data of a next experiment.
 
 % \paragraph{The drawbacks of publishing code}
 
 Publishing code may be disadvantageous for an author.
-For science, yes, as this allows reproducible research.
+For science, code should be published, 
+this allows reproducible research 
+(again, see \cite{haibe2020importance} for a tragic example).
 For an author, publishing code alongside an experiment opens up
 the possibily to receive questions regarding that code.
-Note, however, that not publishing code will always thwart
-the reproduction of incorrect code, at the cost of a scientific
-career \cite{baggerly2009deriving}.
+Note, however, that not publishing code may put 
+oneself in the focus of attention
+and -after much effect by others reproducing an incorrect result-
+at the cost of a scientific career \cite{baggerly2009deriving}.
 
 % \paragraph{The drawbacks of publishing version-controlled code}
 
@@ -1105,7 +1114,8 @@ Is it worth it to publish version-controlled code?
 For an author, 
 there is additional training involved, and also here,
 publishing code alongside an experiment opens up
-the possibily to receive questions regarding that code.
+the possibily to receive questions regarding that code,
+as well as other interactions, including helpful contributions.
 
 % \paragraph{The drawbacks of publishing a running version of code}
 
@@ -1160,7 +1170,7 @@ container, so these are as well following the FAIR principles.
 The world of science would be a more open, humble, trustworthy, truthful
 and helpful would the code that accompanies a scientific paper
 be treated like a first class citizen. As doing so in an exemplary way
-in yet to be rewarded, hence it has to be the idealististic scientists
+is yet to be rewarded, hence it has to be the idealististic scientists
 to wage this battle. I feel the truth and science are worth fighting for
 and I hope this paper helps others to join.
 
