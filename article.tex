@@ -988,16 +988,45 @@ or not metadata at all (Syslabs).
 
 When research truly needs to be reproducible, putting the code 
 of an experiment into a container is a good solution, as it 
-can stand the test of time well. Rewarding this, however, is not
-done yet by journals.
+can stand the test of time better.
+Creating such a container, however, requires more skill
+that -as of today- is not rewarded,
+partly as containers follow FAIR data principles only poorly.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sensitive data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For a computational experiment to be reproducible,
+an independent person should be able to
+reproduce the same results.
+The reproduce the same results, one needs the same
+input data and the same code (and the same 
+dependencies and environment).
+When the input data is sensitive, however, and thus cannot be shared with
+an independent researcher, he/she thus cannot reproduce the
+experiment.
+
+The solution for this problem is simple:
+supply a simulated dataset with the code.
+In the case of genetic epidemiology this would mean
+simulated genotypes and associated phenotypes,
+as can be done with the \verb|plinkr| R package \cite{plinkr}.
+This solution, however, is known to all developer that follow
+good practices when writing code, as public (i.e. simulated) 
+datasets are needed for automatic testing of code.
+One extra benefit of simulated data is that these can be used
+as a benchmark, as slightly different analyses should give 
+similar conclusions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Code is paradata, as it is describes how the results are generated.
-The part of a scholarly article that describes the experiment is metadata, 
-as it describes what the code is thought to do.
+Code is paradata, as it directly describes how the results are generated.
+The part of a scholarly article 
+that describes the experiment in a natural language is metadata, 
+as it describes indirectly what the code does (or should be doing).
 The code that does the work in a computational experiment should
 always be published together with a scholarly article,
 as, if the paper and code differ, it is the code that generated the results.
@@ -1008,6 +1037,7 @@ In some fields, such as genetic epidemiology, the data is
 sensitive, hence cannot be released,
 yet there are methods being devised to run code on sensitive
 data with assured privacy \cite{zhang2016review,azencott2018machine}.
+Additionally, to ensure that 
 
 Code has additional useful information, similar to confidence intervals,
 that allow a reader to gauge how much he/she trusts the results.
