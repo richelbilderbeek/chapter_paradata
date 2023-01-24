@@ -1,11 +1,7 @@
-%
-% 'Data are ...', i.e. use plural
-%
-
 \begin{abstract}
 
-Here we define paradata as the data that describes the process of generating data.
-In genetic epidemiology, the data generated is mostly the results 
+Here we define paradata as the data that describe the process of generating data.
+In genetic epidemiology, the data generated are mostly the results 
 of an analysis (e.g. predicting a person having a disease),
 as done by computer code.
 In such context, one could argue incorrectly that
@@ -14,7 +10,7 @@ have taken place.
 However, this has the unrealistic 
 assumption that there is a perfect match between the paper and the code.
 In this chapter it is argued that the source code should should be supplied,
-as this is the true paradata: if the paper and code disagree, it is the
+as these are the true paradata: if the paper and code disagree, it is the
 code that has generated the results.
 The chapter concludes by some rules how to better code to serve as paradata,
 and hence allowing computational research to be truly reproducible.
@@ -52,13 +48,13 @@ Do you trust the conclusion of their papers equally?
 % \paragraph{Definition of paradata}
 
 In this paper, the definition of paradata
-is 'information about how data was generated',
+is 'information about how data were generated',
 as shown schematically in the left panel of Figure \ref{fig:figure_1}.
-Paradata does not have a clear definition yet (hence this book). 
+The term 'paradata' does not have a clear definition yet (hence this book). 
 Common elements in the definitions of paradata are 
-(1) paradata is usually not the primary data, (2) paradata describes
-a process, (3) paradata describes the way of collecting primary data, or 
-(4) paradata describes the way the primary data is generated.
+(1) paradata are usually not the primary data, (2) paradata describe
+a process, (3) paradata describe the way of collecting primary data, or 
+(4) paradata describe the way the primary data are generated.
 
 \begin{figure}[!htbp]
   \centering
@@ -73,7 +69,7 @@ a process, (3) paradata describes the way of collecting primary data, or
 
 % \paragraph{Simple example of paradata}
 
-A simple example would be the data at eBird (\url{https://ebird.org/}),
+A simple example would be data at eBird (\url{https://ebird.org/}),
 where people can submit wher a bird of a certain species was spotted.
 The name of the person that spotted that bird is paradata, 
 as it is that person that generated the data and determined of
@@ -82,7 +78,7 @@ as shown schematically in the middle panel of Figure \ref{fig:figure_1}.
 
 % \paragraph{Relevance of paradata}
 
-Paradata is relevant, as it allows primary data to be re-used.
+Paradata are relevant, as it allows primary data to be re-used.
 In the eBird example, it helps assess the trustworthiness of the 
 data, as beginner birdwatchers tend to make more mistakes in identifying
 the correct bird species, as compared to experts.
@@ -125,7 +121,7 @@ an experiment FAIR data (findability, accessibility, interoperability, and reusa
 
 This paper uses genetic epidemiology as a specific example,
 to illustrate that the computer code is paradata,
-that this paradata is relevant, as it helps 
+that this type of paradata is relevant, as it helps 
 to assess the correctness of the results,
 where the correctness of the results is relevant for 
 science in general and healthcare in particular.
@@ -355,12 +351,12 @@ to aggregate the measurements into usable data.
 Although this paper does not focus on the code run to 
 aggragate raw and noisy measurements into usable data, the same arguments
 can be made for that code as in the example: that code is 
-the ground truth of how the raw data is converted into useful genetic data.
+the ground truth of how the raw data are converted into useful genetic data.
 
 % \paragraph{The code is the paradata for the results of an experiment}
 
 Programming code (from now on: 'code') is paradata, 
-as it is data that describes how data is generated.
+as it is data that describes how data are generated.
 Code is data that is usually in the form of text, 
 spread over one or more files, that describes an experiment/annalysis.
 The computational experiment (from now on: 'experiment') collects the data
@@ -372,7 +368,7 @@ an article describes the
 experiment; an article describes what the code does in a natural 
 language, such as English.
 However, English (or any other natural language) is not the best
-candidate to describe how the data is collected,
+candidate to describe how the data are collected,
 as it only has a loose connection with collecting the data.
 If the code and article of an experiment disagree,
 it is the code that actually let the data be collected.  
@@ -694,8 +690,8 @@ that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}
 Hosted code has many additional features, such as
 a version-controlled history, continuous integration scripts
 and automatically generated metrics.
-A code hosting website produces and shares this metadata.
-This metadata can help to determine the
+A code hosting website produces and shares these metadata.
+These metadata can help to determine the
 reproducibility, correctness and quality of code
 of computational experiments.
 Below, those features and why these are important are discussed.
@@ -951,7 +947,7 @@ given the same data, an experiment put into a container will give
 the same results on different platforms, at least in theory.
 In practice, differences may be observed when peripheral factors
 are different, such as the random numbers as generated by an operating
-system, or data that is downloaded from additional online sources.
+system, or data that are downloaded from additional online sources.
 
 % \paragraph{Runnable code allows others to re-use an experiment}
 
@@ -981,7 +977,7 @@ Having containers uploaded at the existing websites ensures they are
 accessible, interoperable and reusable.
 One could argue however, that the scientific community need its own,
 similar website to upload containers, as the metadata for these
-sites is limited to free-text comments and tags (DockerHub)
+sites are limited to free-text comments and tags (DockerHub)
 or not metadata at all (Syslabs).
 
 % \paragraph{Runnable code is the pinnacle of reproducible research}
@@ -1003,8 +999,8 @@ reproduce the same results.
 The reproduce the same results, one needs the same
 input data and the same code (and the same 
 dependencies and environment).
-When the input data is sensitive, however, and thus cannot be shared with
-an independent researcher, he/she thus cannot reproduce the
+When the input data are sensitive, however, and thus cannot be shared with
+an independent researcher, one thus cannot reproduce the
 experiment.
 
 The solution for this problem is simple:
@@ -1045,7 +1041,7 @@ These best practices are vital for a computational biologist.
 
 For research to be reproducible, one ideally has access to
 both the data used and the code.
-In some fields, such as genetic epidemiology, the data is
+In some fields, such as genetic epidemiology, the data are
 sensitive, hence cannot be released,
 yet there are methods being devised to run code on sensitive
 data with assured privacy \cite{zhang2016review,azencott2018machine}.
@@ -1220,11 +1216,11 @@ This chapter has not been supported by funding.
     Code      & Body of text to be run by a computer                  & The scripts run by a computational experiment                   \\
     Data      & Individual facts, statistics, or items of information & A SNP that has a significant association                        \\
     Genotype  & The DNA allele at a certain location                  & AA, AC, CG, GT, ...                                             \\
-    Paradata  & Data that describes the process of generating data    & The code to conclude that a SNP has a significant association   \\
+    Paradata  & Data that describe the process of generating data     & The code to conclude that a SNP has a significant association   \\
     Phenotype & How an organism looks like in the broadest sense      & The concentration of IL6RA in the blood                         \\
-    Primary data & Data that is worked with in a research             & The genotype of individuals   \\
-    Metadata  & Data that provides information about other data       & The article that describes an experiment                        \\
-    Raw data  & Data directly from the real world, that is not yet ready to be primary data & The raw results of getting the genotypes of individuals   \\
+    Primary data & Data that are worked with in a research            & The genotype of individuals   \\
+    Metadata  & Data that provide information about other data        & The article that describes an experiment                        \\
+    Raw data  & Data directly from the real world, that are not yet ready to be primary data & The raw results of getting the genotypes of individuals   \\
     Trait     & A phenotype                                           & The concentration of IL6RA in the blood                         
   \end{tabular}
   \caption{Terms used in this paper, and their definitions}
