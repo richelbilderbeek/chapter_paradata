@@ -48,3 +48,9 @@ header.toc
 *.odt
 header.thm
 svmult.cls
+author/
+editor/
+guideline/
+history.txt
+readme.txt
+styles/
