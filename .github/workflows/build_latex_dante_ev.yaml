@@ -22,9 +22,6 @@ jobs:
       - name: Unzip Springer zip
         run: unzip style/contributed-books.zip
 
-      - name: Copy Springer document class 'svmult.cls' to root folder
-        run: cp style/svmult.cls .
-
       - name: Count number of words
         run: texcount article.tex
 
