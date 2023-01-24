@@ -46,3 +46,5 @@ vignettes/*.pdf
 *.pdf
 header.toc
 *.odt
+header.thm
+svmult.cls
