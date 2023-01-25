@@ -1,99 +1,63 @@
-
-% From Springer
-\documentclass[graybox]{svmult}
-
-%\documentclass{article}
-% Above: default style
-% New fancy style
-% \documentclass[fleqn,10pt]{SelfArx} % Document font size and equations flushed left
-% \usepackage[english]{babel} % Specify a different language here - english by default
-
 % This is the header of this article.
 % It contains the higher-level things, such as packages.
 % The actual text is in 'article.tex'
 
-\usepackage{mathpazo}
-\usepackage[scaled]{couriers,helvet}
+% By Springer
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox]{svmult}
+%\usepackage{showframe}
+% choose options for [] as required from the list
+% in the Reference Guide
 
-% Cannot use: clashes with svmult
-% \usepackage[table]{xcolor}
+
+\usepackage{type1cm}        % activate if the above 3 fonts are
+                            % not available on your system
+%
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+
+\usepackage{newtxtext}       %
+\usepackage[varvw]{newtxmath}       % selects Times Roman as basic font
+
+\usepackage{hyperref}
+\usepackage{cprotect}
+\def\ttdefault{cmtt}
+
+\pagestyle{plain}
+
+% see the list of further useful packages
+% in the Reference Guide
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optional Springer things
+\parindent=0pt%
+\parskip=1em%
+\raggedbottom%
+
+\def\thechapter{\vspace*{-2pc}}
+\def\chaptername{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Springer things
 
 % Just try to parse, do not ask for input
 \nonstopmode
 
-% Bibliography
-% For Vancounter style:
-\usepackage[numbers]{natbib}
-% For regular style:
-% \usepackage{natbib}
-
-% No idea what this is, I just removed it
-% SelfArx.cls
-
-%\bibpunct{(}{)}{;}{a}{}{;}
-
-% Use 'It was found that A is B (Name 1234)' style
-%\setcitestyle{authoryear,open={},close={}}
-
-% Affiliations
-\usepackage{authblk}
 \title{
   Research code is as vital paradata as the article itself
 }
-\author[1]{Richèl J.C. Bilderbeek}
-% \affil[1]{Department of Immunology, Genetics and Pathology, Science for Life Laboratory, Uppsala University, Uppsala, Sweden}
+\author{Richèl J.C. Bilderbeek}
 
 % Use double spacing
 \usepackage{setspace}
 \doublespacing
-
-% For 'align'
-\usepackage{amsmath}
-
-\usepackage{listings}
-\usepackage{hyperref}
-\usepackage{todonotes}
-\usepackage{verbatim}
-\usepackage{pgf}
-\usepackage{bm}
-\usepackage{multirow}
-\usepackage{amsfonts}
-\usepackage{array}
-\usepackage{booktabs}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-\usepackage{longtable}
-
-% sidewaysfigure
-\usepackage{rotating}
-
-% Style of listings
-% From http://r.789695.n4.nabble.com/
-%   How-to-nicely-display-R-code-with-the-LaTeX-package-listings-tp4648110.html
-\usepackage{fancyvrb} 
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolor}{rgb}{0.95,0.95,0.92}
-\lstdefinestyle{mystyle}{
-  language=R,% set programming language
-  basicstyle=\ttfamily\small,% basic font style
-  commentstyle=\color{gray},% comment style
-  numberstyle=\scriptsize,% use small line numbers
-  numbersep=10pt,% space between line numbers and code
-  tabsize=2,% sizes of tabs
-  showstringspaces=false,
-  captionpos=b,% positioning of the caption below
-  breaklines=true,% automatic line breaking
-  escapeinside={(*}{*)},% escaping to LaTeX
-  fancyvrb=true,% verbatim code is typset by listings
-  extendedchars=false,% prohibit extended chars (chars of codes 128--255)
-  alsoletter={.<-},% becomes a letter
-  alsoother={$},% becomes other
-  otherkeywords={!=, ~, $, \&, \%/\%, \%*\%, \%\%, <-, <<-, /},
-  deletekeywords={c}% remove keywords 
-}
-\lstset{style=mystyle}
 
 % Allow 'epigraph' for quotes
 \usepackage{epigraph}
@@ -102,22 +66,16 @@
 \usepackage{lineno}
 \linenumbers
 
-% Subfigures
-\usepackage{subcaption}
 
-% Subfigure numbers use uppercase, 
-% from https://tex.stackexchange.com/a/278140
-\renewcommand{\thesubfigure}{\Alph{subfigure}}
-
-%comments
-\newcommand{\richel}[1]{\textcolor{orange}{\textbf{[RB: #1]}}}
-
+% This is the header of this article.
+% It contains the higher-level things, such as packages.
+% The actual text is in 'article.tex'
 \begin{document}
 
 \maketitle
 
-\setcounter{tocdepth}{4} % Show paragraphs
-
 \include{article}
+
+
 
 \end{document}
