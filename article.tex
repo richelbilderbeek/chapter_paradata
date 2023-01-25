@@ -1,3 +1,6 @@
+\setcounter{chapter}{7}
+\chapter{Research code is as vital paradata as the article itself}
+
 \abstract{
 
 Here we define paradata as the data that describe the process of generating data.
@@ -59,57 +62,38 @@ genetic epidemiology
 
 % \paragraph{Simple example}
 
-Two different researchers write two different papers,
-that are both accepted. One researcher does not supply the
-computer code that was used to generate the results.
-The experiment of the other researcher can be re-done easily
-and you can verify that, indeed, the results are the same
-as in the paper.
-Do you trust the conclusion of their papers equally?
+Two different researchers in genetic epideomology (more on that field later), 
+write two equally good manuscripts
+that involve computation.
+Both manuscripts are accepted by an equally prestigous journal after peer view. 
+One researcher, however, does not supply the
+computer code that was used to generate the results,
+where the other does.
+Are the conclusion of these papers to be trusted equally?
+Is this difference relevant and worth the effort?
+This chapter discusses the effect of supplying the computer 
+code (from now on: 'code') 
+and claims that code is paradata and that this paradata 
+is just as important as the paper itself.
 
-% \paragraph{Definition of paradata}
+% \paragraph{The earliest definition of paradata}
 
-In this paper, the definition of paradata
-is 'information about how data were generated',
-as shown schematically in the left panel of Figure \ref{fig:figure_1}.
-The term 'paradata' does not have a clear definition yet (hence this book). 
-Common elements in the definitions of paradata are 
-(1) paradata are usually not the primary data, (2) paradata describe
-a process, (3) paradata describe the way of collecting primary data, or 
-(4) paradata describe the way the primary data are generated.
+Paradata are data about the data collection process \cite{choumert2019using}.
+The concept of paradata (although not named as such yet) 
+was introduced by \cite{couper1998measuring},
+who developed a computer-assisted interview program
+that, among others, records all key strokes,
+measures the time used to answer each question 
+and even the time the monitor is turned off.
+The goal in that context was to assess and improve survey quality.
 
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=\linewidth]{figure_1.png}
-  \caption{
-    Left: general relation between data, paradata and metadata.
-    Middle: the same relations specified for eBird.
-    Right: the same relations specified for genetic epidemiology.
-  }
-  \label{fig:figure_1}
-\end{figure}
+% \paragraph{Modern forms of paradata}
 
-% \paragraph{Simple example of paradata}
-
-A simple example would be data at eBird (\url{https://ebird.org/}),
-where people can submit wher a bird of a certain species was spotted.
-The name of the person that spotted that bird is paradata, 
-as it is that person that generated the data and determined of
-which species the bird was, 
-as shown schematically in the middle panel of Figure \ref{fig:figure_1}.
-
-% \paragraph{Relevance of paradata}
-
-Paradata are relevant, as it allows primary data to be re-used.
-In the eBird example, it helps assess the trustworthiness of the 
-data, as beginner birdwatchers tend to make more mistakes in identifying
-the correct bird species, as compared to experts.
-By using the name and/or experience of the birder as a covariate,
-we can re-use the dataset in other contexts as well,
-as now this example can be generalized to
-a classification problem of unlabeled
-data for learning agents with different amounts 
-of experience.
+Nowadays, the lack of paradata can be seen as 'a drastic constraint'
+in data use \cite{huvila2022improving}.
+Given the stance that code to do a computational experiment is paradata, 
+the effect of its absence is 
+that a computational experiment cannot be redone easily.
 
 % \paragraph{This paper is about computer code}
 
@@ -117,7 +101,7 @@ This paper is about paradata in the context of a computational
 experiment in general and uses an example from genetic 
 epidemiology in particular.
 The introduction to genetic epidemiology will be postponed for now,
-insteaf focussing on 'computational experiment' first.
+instead focussing on 'computational experiment' first.
 A computational experiment is an experiment run by computer code.
 In chronologic order, it usually collects primary data first, 
 then runs an analysis, which finally results in the generation of results.
@@ -134,6 +118,18 @@ verify, re-use and extend the experiment,
 in the same or other contexts, providing for reproducible research.
 Additionnally, this paper suggests some best practices on how to make 
 an experiment FAIR data (findability, accessibility, interoperability, and reusability) \cite{wilkinson2016fair} better.
+
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{figure_1.png}
+  \caption{
+    Left: general relation between data, paradata and metadata.
+    Middle: the same relations specified for eBird.
+    Right: the same relations specified for genetic epidemiology.
+  }
+  \label{fig:figure_1}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Genetic epidemiology}
