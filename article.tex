@@ -62,6 +62,7 @@ genetic epidemiology
 
 % \paragraph{Simple example}
 
+% Alexa and Blake?
 Two different researchers in genetic epideomology (more on that field later), 
 write two equally good manuscripts
 that involve computation.
@@ -76,9 +77,8 @@ code (from now on: 'code')
 and claims that code is paradata and that this paradata 
 is just as important as the paper itself.
 
-% \paragraph{The earliest definition of paradata}
+% \paragraph{The first definition paradata}
 
-Paradata are data about the data collection process \cite{choumert2019using}.
 The concept of paradata (although not named as such yet) 
 was introduced by \cite{couper1998measuring},
 who developed a computer-assisted interview program
@@ -87,38 +87,39 @@ measures the time used to answer each question
 and even the time the monitor is turned off.
 The goal in that context was to assess and improve survey quality.
 
+% \paragraph{Definition of paradata}
+
+This paper defines paradata as 'data about the data collection 
+process' \cite{choumert2019using}.
+This definition is chosen for its simplicity, 
+yet there are multiple related and/or more nuanced 
+definitions of paradata (see \cite{huvila2022improving} for an overview).
+
+% Code is paradata
+
+The code used in experiments is just that, 'data about the data collection 
+process', as it commonly downloads data, selects relevant subsets in those
+downloaded data and performs statistical tests to generate results.
+Code, hence, is paradata and this chapter explores and illustrates the
+consequence of that premise.
+
 % \paragraph{Modern forms of paradata}
 
 Nowadays, the lack of paradata can be seen as 'a drastic constraint'
 in data use \cite{huvila2022improving}.
-Given the stance that code to do a computational experiment is paradata, 
-the effect of its absence is 
+Computer code, being paradata, the effect of its absence is, most obviously,
 that a computational experiment cannot be redone easily.
+yet there are wider implications as well.
 
 % \paragraph{This paper is about computer code}
 
 This paper is about paradata in the context of a computational
 experiment in general and uses an example from genetic 
 epidemiology in particular.
-The introduction to genetic epidemiology will be postponed for now,
-instead focussing on 'computational experiment' first.
-A computational experiment is an experiment run by computer code.
-In chronologic order, it usually collects primary data first, 
-then runs an analysis, which finally results in the generation of results.
-
-This paper takes the standpoint that it is the computer code 
-that describes this generation of results, 
-hence it is the computer code that is paradata 
-(i.e. not the description of the experiment as done in a natural language),
-as shown schematically in the right panel of Figure \ref{fig:figure_1}.
-Reading the computer code allows one to assess the trustworthiness 
-of the experiment, similar to knowing the name or expertise of a bird spotter.
-Having the code allows one to 
-verify, re-use and extend the experiment, 
-in the same or other contexts, providing for reproducible research.
-Additionnally, this paper suggests some best practices on how to make 
-an experiment FAIR data (findability, accessibility, interoperability, and reusability) \cite{wilkinson2016fair} better.
-
+It is argued that code, being paradata, is as vital as the academic
+paper itself, illustrated by the two scientists at the start of 
+this chapter. After that, the implications and recommendations
+follow.
 
 \begin{figure}[!htbp]
   \centering
@@ -145,6 +146,19 @@ where the correctness of the results is relevant for
 science in general and healthcare in particular.
 However, any field that uses computation in its experiments
 could be used as an example.
+
+% \paragraph{Publication of code}
+
+Going back to the example scientists in the introduction,
+where one does and the other does not publish the code,
+it is not common to publish the code of an experiment or analysis.
+For example, in computer graphics, 
+a field intimately familiar with computer code,
+only 192 of 454 SIGGRAPH papers supply computer code \cite{bonneel2020code}.
+Another study analysed the reproducibility of registered reports
+in the field of psychology, 
+where still only 37 out of 62 studies supplied the code 
+to redo the analysis \cite{obels2020analysis}.
 
 % \paragraph{For some fields, the experiment is actually run by code}
 
@@ -1222,6 +1236,17 @@ This article and its metadata can be found at
 \renewcommand{\thetable}{S\arabic{table}}
 \setcounter{table}{0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{This paper}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This paper has been produced following all recommendations in it:
+it's \latex code is hosted on GitHub 
+at \url{https://github.com/richelbilderbeek/chapter_paradata}.
+Due this, one can, among others, see the complete version history of this paper.
+This alone could allow research to be done on, for example,
+the effect of reviewers' feedback on a first manuscript.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Funding}
