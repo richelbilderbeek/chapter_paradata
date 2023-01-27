@@ -477,12 +477,16 @@ It is easy (tempting?) to overlook how easy it is to have a mismatch
 between paper and code.
 
 To illustrate how easy it is to get a mismatch between a paper
-and the code, consider this example
-of a text in a fictional paper:
+and the code, 
+consider this example of a possible text in the fictional 
+genetic epidemiology paper:
 
 \begin{verbatim}
-We compared the values of x and y using an unpaired one-tailed Student's T-test,
-as we expect the average value of x to be less than the average value of y.
+We compared the in-blood concentrations of IL6RA 
+between subjects having AA versus subjects having GG at SNP rs12133641,
+using an unpaired one-tailed T-test,
+as we expect the average concentration of IL6RA for those with AA 
+to be less than the average concentration in those with GG.
 \end{verbatim}
 
 We ignore the choices of words and style of this sentence: what is
@@ -491,7 +495,7 @@ Taking a look at the (in this case, the programming language R) code,
 we find the following line:
 
 \begin{verbatim}
-t.test(x, y)
+t.test(subjects_with_aa, subjects_with_gg)
 \end{verbatim}
 
 The line of code is simplified (as the result of the T test is never stored),
@@ -506,9 +510,9 @@ A consequence of this fictional example is that the published p-values are
 higher than needed, resulting in less significant findings, which
 results in (needlessly) less conclusions drawn in this fictional paper.
 
-To approach the same problem from a different angle:
+Note that there is another side of this same coin:
 correctly reporting the T-test in a reproducable ways
-is already a problem, with only 80 out of a selected 179 papers
+is known to be a problem, with only 80 out of a selected 179 papers
 fully reporting the parity of T-test (i.e. paired or unpaired) 
 \cite{weissgerber2018we}.
 In those unresolved 99 papers, 
