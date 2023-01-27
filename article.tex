@@ -3,16 +3,16 @@
 
 \abstract{
 
-Here we define paradata as the data that describe the process of generating data.
+Here we define paradata as data about the data collection process.
 In genetic epidemiology, the data generated are mostly the results 
 of an analysis (e.g. predicting a person having a disease),
 as done by computer code.
 In such context, one could argue incorrectly that
-it is the -usually English- scientific paper that best describes which computation steps 
+it is the scientific paper that best describes which computation steps 
 have taken place.
 However, this has the unrealistic 
 assumption that there is a perfect match between the paper and the code.
-In this chapter it is argued that the source code should should be supplied,
+In this chapter it is argued that the source code should be supplied,
 as these are the true paradata: if the paper and code disagree, it is the
 code that has generated the results.
 The chapter concludes by some rules how to better code to serve as paradata,
@@ -62,7 +62,7 @@ genetic epidemiology
 
 % \paragraph{Simple example}
 
-% Alexa and Blake?
+% Alex and Blake?
 Two different researchers in genetic epideomology (more on that field later), 
 write two equally good manuscripts
 that involve computation.
@@ -481,12 +481,12 @@ and the code, consider this example
 of a text in a fictional paper:
 
 \begin{verbatim}
-We compared the values of x and y using a one-tailed Student's T-test,
+We compared the values of x and y using an unpaired one-tailed Student's T-test,
 as we expect the average value of x to be less than the average value of y.
 \end{verbatim}
 
 We ignore the choices of words and style of this sentence: what is
-important is the content: a one-tailed T test is performed.
+important is the content: an unpaired one-tailed T test is performed.
 Taking a look at the (in this case, the programming language R) code, 
 we find the following line:
 
@@ -496,7 +496,7 @@ t.test(x, y)
 
 The line of code is simplified (as the result of the T test is never stored),
 but the code is correct:
-\verb|t.test| is indeed the name of an R function to do a T-test
+\verb|t.test| is indeed the name of an R function to do an unpaired T-test
 and it is reasonable to assume that this code, when glancing over the code
 of an article, is correct.
 
@@ -505,6 +505,14 @@ by default, the R function \verb|t.test| does a \textbf{two}-tailed T-test.
 A consequence of this fictional example is that the published p-values are
 higher than needed, resulting in less significant findings, which
 results in (needlessly) less conclusions drawn in this fictional paper.
+
+To approach the same problem from a different angle:
+correctly reporting the T-test in a reproducable ways
+is already a problem, with only 80 out of a selected 179 papers
+fully reporting the parity of T-test (i.e. paired or unpaired) 
+\cite{weissgerber2018we}.
+In those unresolved 99 papers, 
+the code (if published) would clarify this.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -1258,3 +1266,25 @@ the effect of reviewers' feedback on a first manuscript.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This chapter has not been supported by funding.
+
+% Duran et al., grounds for trust
+% [A] process is epistemically opaque relative to a cognitive agent X at time t
+% just in case X does not know at t all of the epistemically relevant elements of
+% the process (Humphreys 2009, 618)
+% 
+% On Computational reliability
+% 
+% (CR) if S’s believing p at t results from m, then S’s belief in p at t is justified.
+% where S is a cognitive agent, p is any truth-valued proposition related to the
+% results of a computer simulation, t is any given time, and m is a reliable com‑
+% puter simulation.
+%
+%
+% 4 Sources for Computational Reliabilism
+%
+% 1. Verification and validation methods
+% 2. Robustness analysis for computer simulations
+% 3. A history of (un)successful implementations
+% 4. Expert knowledge
+
+
