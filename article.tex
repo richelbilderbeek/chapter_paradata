@@ -110,13 +110,13 @@ A recent paper explores the use of paradata to increase the impact of data,
 stating that lack of paradata can be seen as 'a drastic constraint'
 in the use of data and offer some suggestions to 
 make paradata useful for data re(use):
-paradata should be comprehensive, comprehensively documentated
-and be friendly to computers \cite{huvila2022improving}.
+paradata should be comprehensive, comprehensively documented
+and friendly to computers \cite{huvila2022improving}.
 These suggestions appear to work with code as well,
 where these suggestions show up as best practices (such
 as \cite{stodden2013best}), some of which
 described below.
-The lack of computer code is just as much a drastic constraint
+The lack of computer code is just as much 'a drastic constraint'
 in the use of a scientific experiment.
 The clearest effect of its absence is, most obviously,
 that a computational experiment cannot be redone 
@@ -219,7 +219,8 @@ The approximately 1000 participants were initially mostly surveyed
 about lifestyle \cite{igl2010northern} and follow-up studies
 provided the type of data relevant for this paper, 
 which are (1) the genotypes \cite{johansson2013identification},
-(2) the phenotypes, in this case, concentrations of certain proteins in the blood \cite{enroth2014strong,enroth2015effect}.
+(2) the phenotypes, in this case, concentrations of certain proteins in the 
+blood \cite{enroth2014strong,enroth2015effect}.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -368,7 +369,7 @@ and associations found in earlier studies are used to create a gene panel.
 As creating a gene panel is costly, those associations better be correct.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Code is more important than the paper}
+\section{Code is just as important as the paper}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \paragraph{The experiments within genetic epidemology works are done by code}
@@ -377,45 +378,25 @@ The experiment described above is run by code.
 It was code that detected the relationship between the genotype
 (in this case, SNP \verb|rs12133641|) 
 and the phenotype (in this case, the concentration of IL6RA).
-To detect this association, 
-there was no fieldwork nor lab-work involved.
-For this experiment, 
-it has been the researcher that has written the code,
-after which that code does the actual work. 
-A genetic epidemiologist does not need a lab, but computational power instead.
 
-To \emph{obtain} the raw genetic data, there may have been fieldwork and/or lab-work
-involved. For example, a researcher needs to go into the field to take
-samples (e.g. blood) of humans or other species. 
-To analyse these samples,
-a researcher needs a lab. 
-Depending on the analysis, there may be a big bioinformatics step
-to aggregate the measurements into usable data. 
-Although this paper does not focus on the code run to 
-aggragate raw and noisy measurements into usable data, the same arguments
-can be made for that code as in the example: that code is 
-the ground truth of how the raw data are converted into useful genetic data.
-
-% \paragraph{The code is the paradata for the results of an experiment}
-
-Programming code (from now on: 'code') is paradata, 
-as it is data that describes how data are generated.
-Code is data that is usually in the form of text, 
-spread over one or more files, that describes an experiment/annalysis.
-The computational experiment (from now on: 'experiment') collects the data
-and then looks for patterns.
-Those patterns (again, a type of data) are the results of an experiment.
-
-The (scientific) article is metadata, as it is data that describes other data:
-an article describes the
-experiment; an article describes what the code does in a natural 
-language, such as English.
-However, English (or any other natural language) is not the best
-candidate to describe how the data are collected,
-as it only has a loose connection with collecting the data.
-If the code and article of an experiment disagree,
-it is the code that actually let the data be collected.  
-Instead, an article is metadata about a research.
+The code for this experiment is vital paradata.
+Like all paradata, its omission would be a constraint in the
+use of the conclusion reached by it:
+we can use it to assess the trustworthiness of the finding,
+for example, by running the code again.
+Ideally, the code is comprehensive, comprehensively documented
+and be friendly to computers \cite{huvila2022improving}.
+Code being friendly to computer seems like an obvious 'yes',
+yet this is naive, as commonly it is hard to run code in practice. 
+% TODO: Link to correct paragraphs
+For code to be called computer-friendly, it must be run on an independent entity, 
+as is discussed in the paragraphs about hosting code and/or putting the code in a container.
+% TODO: Link to correct paragraphs
+Also note that there is a problem due to the sensitivity of the data,
+which is discussed in paragraph.
+Lastly, note that the researcher used data that was itself generated by code:
+complex bioinformatics pipelines are used to obtain reliable DNA sequences 
+from the biological sample.
 
 % \paragraph{Science should be reproducible}
 
@@ -547,14 +528,6 @@ the code (if published) would clarify this.
 \end{figure}
 \fi
 
-One pseudorandom example of a mismatch between code and article
-was found by me in \cite{labrecque2019interpretation}.
-After the corresponding author of that paper was contacted,
-the code was updated and confirmed to have the same
-results as published in the paper.
-This sequence of events could only have happened, 
-because the authors chose to publish their code.
-
 It is the paper that accompanies the code,
 as it is the code that generates the results.
 When humans are fallible and code gets bigger, the likelihood of
@@ -571,9 +544,22 @@ and should be treated as a first-class citizen
 in a computational experiment.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{There are multiple way to publish code}
+\subsection{Making code useful paradata}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Again, paradata should be comprehensive, comprehensively documented
+and friendly to computers \cite{huvila2022improving}.
+In this section, these ideal properties of paradata are applied to code.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Code must be extensively documented}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Code must be extensive}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Code must be reviewed
 As it is the code that is the most important actor in an the experiment,
 it should be treated as equally or more important than the scientific
 paper describing what is does.
@@ -589,37 +575,7 @@ most effort is spent on reviewing the code,
 as can be seen in, for example, 
 the \verb|mcbette| R package \cite{bilderbeek2020mcbette}.
 
-There are multiple ways of publishing code,
-that require increasingly more knowledge to do and result
-in increasingly more reproducible experiments:
-(1) publishing the code as text only, e.g. by printing
-it in a Supplementary Materials, (2) publishing
-the code on a hosted website, e.g on GitHub, with
-added features (3) publishing 
-the installed code within a virtual environment,
-for example, using a Singularity container.
-In this chapter, details of each of these ways will be described,
-including advantages, disadvantages, as well as how to
-make the code more FAIR data \cite{wilkinson2016fair}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Publishing raw code}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Code is commonly published alongside of a 
-paper, pasted as text in the Supplementary Materials 
-(for example, in \cite{labrecque2019interpretation}).
-This is the rawest form of publishing code,
-as it is just text.
-
-% \paragraph{Raw code is important}
-
-The raw code of a computational experiment is
-more important to preserve than the article describing
-the experiment, even when both describe the experiment identically,
-correctly and reproducibly, 
-as it the code that can reproduce the results.
-
+% Code must be clean
 % \paragraph{Raw code is an indicator of quality}
 
 Raw code gives an indication of the quality 
@@ -662,14 +618,27 @@ When the variance of (zero or) only one value is requested,
 an error message can helpfully indicate that the function 
 needs at least two values to work as expected.
 
-% \paragraph{The problems with raw code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Code must be computer friendly}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-There are multiple problems with publishing raw code.
-First, there is no guarantee that that code \emph{can} actually
-run, for example, due to a typo added after the code was pasted.
-Secondly, there is no way to determine if code that worked yesterday
-works today. These problems can be prevented by, instead of
-pasting raw code, using a website to host that code (see below).
+There are multiple ways of publishing code,
+that require increasingly more knowledge to do and result
+in increasingly more reproducible experiments:
+(1) publishing the code as text only, e.g. by printing
+it in a Supplementary Materials, (2) publishing
+the code on a hosted website, e.g on GitHub, with
+added features (3) publishing 
+the installed code within a virtual environment,
+for example, using a Singularity container.
+In this chapter, details of each of these ways will be described,
+including advantages, disadvantages, as well as how to
+make the code more FAIR data \cite{wilkinson2016fair}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Publishing raw code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \paragraph{Raw code is already better than no code}
 
@@ -693,10 +662,7 @@ and hardware. Raw code usually lacks the metadata to describe its needs.
 One could say that raw code, albeit better than no code, fits
 FAIR data only poorly.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Publishing hosted code}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% \paragraph{Code must be hosted to be moderately computer-friendly}
 Code is sometimes published alongside a paper, 
 in the form of a code hosting website.
 This way of publishing code gives additional options,
@@ -1076,59 +1042,6 @@ One extra benefit of simulated data is that these can be used
 as a benchmark, as slightly different analyses should give 
 similar conclusions.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Code is paradata, as it directly describes how the results are generated.
-The part of a scholarly article 
-that describes the experiment in a natural language is metadata, 
-as it describes indirectly what the code does (or should be doing).
-The code that does the work in a computational experiment should
-always be published together with a scholarly article,
-as, if the paper and code differ, it is the code that generated the results.
-
-Code has additional useful information, similar to confidence intervals,
-that allow a reader to gauge how much one trusts the results.
-The more of the best practices are followed, 
-the more trustworthy are the results.
-The most important best practices discussed in this paper are
-automatic testing, having a high code coverage and code
-of low (cyclomatic) complexity.
-In academia, to uncover the truth, code correctness is essential,
-similar to cell biologists working sterile to not contaminate their
-cell cultures.
-These best practices are vital for a computational biologist.
-
-For research to be reproducible, one ideally has access to
-both the data used and the code.
-In some fields, such as genetic epidemiology, the data are
-sensitive, hence cannot be released,
-yet there are methods being devised to run code on sensitive
-data with assured privacy \cite{zhang2016review,azencott2018machine}.
-Additionally, it follows software development's best practices 
-(especially the practice to test code automatically) 
-to release a simulated/public dataset, with
-the additional benefit that this dataset can be used for comparisons.
-
-Code is harder to preserve than an English text
-and preserving code is rarely done \cite{barnes2010publish}.
-Although code is the primary actor in computational experiments,
-there is no incentive to submit code alongside a publication.
-Most academic journal do not require authors to submit their code,
-nor is the submitted code peer reviewed, 
-rOpenSci \cite{ram2018community} being the pleasant exception.
-
-Code used in academic research complies badly with FAIR principles,
-where unpublished code is the worst offender.
-However, any idealistic researcher does not have the
-tools to following FAIR principles in an exemplary way:
-there are no standards in how a scholarly article
-refers to academic code (i.e. in a machine-friendly way).
-Creating a (Singularity) container is the best a researcher
-can do to ensure his/her code is reusable,
-yet, there are no incentives to make code accessible, interoperable
-or re-usable, with standarized metadata attributes being absent.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
@@ -1224,6 +1137,60 @@ container, so these are as well following the FAIR principles.
   \label{tab:recommendations}
 \end{table}
 \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Code is paradata, as it directly describes how the results are generated.
+The part of a scholarly article 
+that describes the experiment in a natural language is metadata, 
+as it describes indirectly what the code does (or should be doing).
+The code that does the work in a computational experiment should
+always be published together with a scholarly article,
+as, if the paper and code differ, it is the code that generated the results.
+
+Code has additional useful information, similar to confidence intervals,
+that allow a reader to gauge how much one trusts the results.
+The more of the best practices are followed, 
+the more trustworthy are the results.
+The most important best practices discussed in this paper are
+automatic testing, having a high code coverage and code
+of low (cyclomatic) complexity.
+In academia, to uncover the truth, code correctness is essential,
+similar to cell biologists working sterile to not contaminate their
+cell cultures.
+These best practices are vital for a computational biologist.
+
+For research to be reproducible, one ideally has access to
+both the data used and the code.
+In some fields, such as genetic epidemiology, the data are
+sensitive, hence cannot be released,
+yet there are methods being devised to run code on sensitive
+data with assured privacy \cite{zhang2016review,azencott2018machine}.
+Additionally, it follows software development's best practices 
+(especially the practice to test code automatically) 
+to release a simulated/public dataset, with
+the additional benefit that this dataset can be used for comparisons.
+
+Code is harder to preserve than an English text
+and preserving code is rarely done \cite{barnes2010publish}.
+Although code is the primary actor in computational experiments,
+there is no incentive to submit code alongside a publication.
+Most academic journal do not require authors to submit their code,
+nor is the submitted code peer reviewed, 
+rOpenSci \cite{ram2018community} being the pleasant exception.
+
+Code used in academic research complies badly with FAIR principles,
+where unpublished code is the worst offender.
+However, any idealistic researcher does not have the
+tools to following FAIR principles in an exemplary way:
+there are no standards in how a scholarly article
+refers to academic code (i.e. in a machine-friendly way).
+Creating a (Singularity) container is the best a researcher
+can do to ensure his/her code is reusable,
+yet, there are no incentives to make code accessible, interoperable
+or re-usable, with standarized metadata attributes being absent.
 
 % \paragraph{Final word}
 
