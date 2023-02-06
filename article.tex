@@ -588,26 +588,13 @@ code reviews are recommended as well \cite{wilson2014best}
 For code to be ideal paradata, it must be extensive.
 As code has many properties, there are many recommendations on this aspect.
 
-\begin{itemize}
-  \item Code must be clean
-  \item Code must be hosted
-  \begin{itemize}
-    \item Hosted code generated important metadata
-    \item Code must be tested
-    \item ...
-  \end{itemize}
-  \item Code must be tested
-  \begin{itemize}
-    \item ...
-  \end{itemize}
-\end{itemize}
-
-
 \subsubsection{Code must be clean}
 
-Raw code gives an indication of the quality 
+Code gives an indication of the quality 
 of a computational experiment and several metrics are
 devised to get an idea of the quality of code.
+
+\paragraph{SLOC}
 
 The simplest metric to assess the quality of code is 
 the amount of (single) lines of code (SLOC). 
@@ -617,6 +604,8 @@ Additionally, following a style guide
 (e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
 or PEP 8 \cite{van2001pep} for Python), 
 improves software quality \cite{fang2001}.
+
+\paragraph{Cyclomatic complexity}
 
 A more interesting metric is the cyclomatic complexity of the code.
 The cyclomatic complexity is approximately defined 
@@ -630,6 +619,8 @@ exectuted or ignored.
 The cyclomatic complexity correlates with code complexity,
 where more complex code is likelier to contain or give rise to bugs 
 \cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}
+
+\paragraph{Error handling}
 
 A feature that deserves more attention
 is that 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
@@ -647,18 +638,19 @@ needs at least two values to work as expected.
 
 \subsubsection{Code must be hosted}
 
-% \paragraph{Code must be hosted to be moderately computer-friendly}
-Code is sometimes published alongside a paper, 
-in the form of a code hosting website.
-This way of publishing code gives additional options,
-both for the authors of that code, as well as its users.
-This practice has increased,
+There exist website that are dedicated to host code.
+Such so-called code hosting websites have many advantages,
+both for the authors and users of the code,
+over copy-pasting code in the supplementary materials in a paper.
+
+
+The practice of using a code hosting websote has increased,
 with the abstracts from articles in the academic journal
 'Bioinformatics' referring to such a hosted website
 has increased tenfold, going from below 5 percent in 2009 
 to around 50 percent in 2017 \cite{russell2018large}.
 
-\paragraph{Example of hosted code}
+\paragraph{Example of code hosting website}
 
 There are multiple websites for hosting code, with BitBucket, GitHub,
 GitLab and SourceForge being the most well-known.
@@ -1191,7 +1183,9 @@ can do to ensure his/her code is reusable,
 yet, there are no incentives to make code accessible, interoperable
 or re-usable, with standarized metadata attributes being absent.
 
-% \paragraph{Runnable code is the pinnacle of reproducible research}
+\paragraph{First step: publish code alongside papers}
+
+\paragraph{Final goal: runnable code}
 
 When research truly needs to be reproducible, putting the code 
 of an experiment into a container is a good solution, as it 
@@ -1199,6 +1193,7 @@ can stand the test of time better.
 Creating such a container, however, requires more skill
 that -as of today- is not rewarded,
 partly as containers follow FAIR data principles only poorly.
+Runnable code is the pinnacle of reproducible research.
 
 % \paragraph{Final word}
 
