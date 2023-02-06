@@ -562,7 +562,7 @@ that it becomes self-explanatory \cite{wilson2014best}.
 What is left to document are the reasons behind the code, 
 its design and its purpose \cite{wilson2014best}.
 
-\paragraph{Code must be reviewed}
+\paragraph{Code must be reviewed to ensure the correct amount of documentation}
 
 As it is the code that is the most important actor in an the experiment,
 it should be treated as equally or more important than the scientific
@@ -603,7 +603,7 @@ As code has many properties, there are many recommendations on this aspect.
 \end{itemize}
 
 
-\paragraph{Code must be clean}
+\subsubsection{Code must be clean}
 
 Raw code gives an indication of the quality 
 of a computational experiment and several metrics are
@@ -645,7 +645,7 @@ When the variance of (zero or) only one value is requested,
 an error message can helpfully indicate that the function 
 needs at least two values to work as expected.
 
-\paragraph{Code must be hosted}
+\subsubsection{Code must be hosted}
 
 % \paragraph{Code must be hosted to be moderately computer-friendly}
 Code is sometimes published alongside a paper, 
@@ -733,7 +733,9 @@ failing to reporting a (usually non-significant) statistical tests is
 one of the many degrees of freedom 
 in p-value hacking \cite{wicherts2016degrees}.
 
-\paragraph{Code must be tested}
+\subsubsection{Code must be tested}
+
+
 
 \paragraph{Continuous integration helps assess code quality}
 
@@ -885,68 +887,7 @@ In this chapter, details of each of these ways will be described,
 including advantages, disadvantages, as well as how to
 make the code more FAIR data \cite{wilkinson2016fair}.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Publishing raw code}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% \paragraph{The problems with hosted code}
-
-Albeit hosted code is vastly superior over raw code
-in case of reproduciblity and correctness,
-there are some problems with hosted code as well.
-The most important one is that hosted code needs maintanance:
-the libraries that are used by an experiment
-will change over time, inevitably causing the experiment to fail
-over time. 
-The degradation of software is a known feature for nearly 
-four decades (see the definition of 'bit rot' at \cite{steele1983hacker}),
-here a more modern (and in this context superior)
-definition is used: software collapse \cite{hinsen2019dealing},
-in which software fails due to dependencies on other 
-software.
-Where that paper recommends using older software foundations 
-with multiple implementations \cite{hinsen2019dealing},
-this paper recommends a modern solution that potentially has more longevity:
-to publish the code installed in a virtual environment
-(including the dependencies used at that time), as described below.
-
-There is another problem that authors of academic code face,
-which is that they may be contacted with a user 
-asking for technical report 
-(against which a 'no' is just fine \cite{barnes2010publish})
-or -more relevant to the research- sending in a bug report.
-One solution for the author is to ignore such emails
-and it can be argued that no energy should be wasted on published code
-and work on something new instead 
-(see \cite{barnes2010publish} for a better way to deal with the problem).
-However, upon the find of a new bug, the question is:
-does all the research that use that software still 
-result in the same conclusions?
-To prevent authors chosing to hide bug reports, 
-a code hosting website usually has a public place to report bugs,
-to increase transparency in the handling of bug reports.
-
-% \paragraph{Suggestions for knowledge management}
-
-Here are multiple suggestions to make hosted code FAIR.
-To make the hosted code findable, commonly a paper refers to its URL.
-At the homepage of hosted code (e.g. a GitHub repository), 
-there is no standardized metadata, to,
-for example, link to the paper.
-Using a popular code host ensures the code is easily accessible.
-There is some interoperabily supplied by a version control manager,
-such as in obtaining the history of the code.
-The reusability of code is reasonably easy to assess, 
-by using so-called build badges.
-However, there is no guarantee that a build badge that claimes success,
-actually is an honest signal (i.e. that code may not actually build),
-nor are there standards for what 'success' entails.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Publishing a virtual environment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Publishing a virtual environment}
 
 The most reproducible way of submitting the code of an experiment,
 is by providing the code with all the (software) dependencies 
@@ -965,7 +906,7 @@ Due to access rights, Singularity is the only viable option to run
 an experiment on a 
 high performance computing (HPC) environment (e.g. a computer cluster).
 
-% \paragraph{Containers allow for runnable code, for longer periods of time}
+\paragraph{Containers allow for runnable code, for longer periods of time}
 
 Unlike English, code is fragile in standing the test of time.
 Containers can alleviate this, as these can be created at a point
@@ -978,7 +919,7 @@ if one refrains from updating (or only does so when there are there problems wit
 Ideally, to re-do an experiment, one would need a one-liner to a container,
 for example, \verb|singularity run my_experiment.sif run|.
 
-% \paragraph{Runnable code can precisely reproduce an experiment}
+\paragraph{Runnable code can precisely reproduce an experiment}
 
 Containers allow a computation experiment to be highly reproducible:
 given the same data, an experiment put into a container will give
@@ -987,23 +928,16 @@ In practice, differences may be observed when peripheral factors
 are different, such as the random numbers as generated by an operating
 system, or data that are downloaded from additional online sources.
 
-% \paragraph{Runnable code allows others to re-use an experiment}
+\paragraph{Runnable code allows others to re-use an experiment}
 
 Containers allow a computation experiment to be highly re-usable,
 as any scientist can work with it and tweak code.
 
-% \paragraph{The problems with runnable code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Making code FAIR data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-There are some problems with providing a container with a runnable container.
-First, a container is several gigabytes and need to be stored somewhere
-online. 
-Ideally, for Singularity, this would be at the main container hosting
-site called Syslabs. Using Syslabs is free upon registration, 
-yet there is a limit of 15 Gb. Also, Sylabs does not allow much metadata to
-be entered, such as the URL of the article, nor the URL of hosted code.
-Also, journals do not request hosted code, nor runnable code.
-
-% \paragraph{Suggestions for knowledge management}
+\paragraph{Suggestions for knowledge management}
 
 Here are multiple suggestions to make containers with runnable code FAIR.
 To make such containers findable, the most common 
@@ -1017,15 +951,6 @@ One could argue however, that the scientific community need its own,
 similar website to upload containers, as the metadata for these
 sites are limited to free-text comments and tags (DockerHub)
 or not metadata at all (Syslabs).
-
-% \paragraph{Runnable code is the pinnacle of reproducible research}
-
-When research truly needs to be reproducible, putting the code 
-of an experiment into a container is a good solution, as it 
-can stand the test of time better.
-Creating such a container, however, requires more skill
-that -as of today- is not rewarded,
-partly as containers follow FAIR data principles only poorly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sensitive data}
@@ -1053,10 +978,67 @@ One extra benefit of simulated data is that these can be used
 as a benchmark, as slightly different analyses should give 
 similar conclusions.
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In a perfect world, all code has the characteristis of ideal paradata
+and is written from software development best practices.
+This section discusses the problems that arise by doing so.
+
+\paragraph{Need more training}
+
+
+
+\paragraph{Code needs maintanance}
+
+Code needs maintanance:
+the libraries that are used by an experiment
+will change over time, inevitably causing the experiment to fail
+over time. 
+The degradation of software is a known feature for nearly 
+four decades (see the definition of 'bit rot' at \cite{steele1983hacker}),
+here a more modern (and in this context superior)
+definition is used: software collapse \cite{hinsen2019dealing},
+in which software fails due to dependencies on other 
+software.
+Where that paper recommends using older software foundations 
+with multiple implementations \cite{hinsen2019dealing},
+this paper recommends a modern solution that potentially has more longevity:
+to publish the code installed in a virtual environment
+(including the dependencies used at that time), as described below.
+
+\paragraph{Authors can be contacted}
+
+There is another problem that authors of academic code face,
+which is that they may be contacted with a user 
+asking for technical report 
+(against which a 'no' is just fine \cite{barnes2010publish})
+or -more relevant to the research- sending in a bug report.
+One solution for the author is to ignore such emails
+and it can be argued that no energy should be wasted on published code
+and work on something new instead 
+(see \cite{barnes2010publish} for a better way to deal with the problem).
+
+\paragraph{How to handle bugs?}
+
+However, upon the find of a new bug, the question is:
+does all the research that use that software still 
+result in the same conclusions?
+To prevent authors chosing to hide bug reports, 
+a code hosting website usually has a public place to report bugs,
+to increase transparency in the handling of bug reports.
+
+\paragraph{The problems with runnable code}
+
+There are some problems with providing a container with a runnable container.
+First, a container is several gigabytes and need to be stored somewhere
+online. 
+Ideally, for Singularity, this would be at the main container hosting
+site called Syslabs. Using Syslabs is free upon registration, 
+yet there is a limit of 15 Gb. Also, Sylabs does not allow much metadata to
+be entered, such as the URL of the article, nor the URL of hosted code.
+Also, journals do not request hosted code, nor runnable code.
 
 % \paragraph{Definition of paradata}
 
@@ -1208,6 +1190,15 @@ Creating a (Singularity) container is the best a researcher
 can do to ensure his/her code is reusable,
 yet, there are no incentives to make code accessible, interoperable
 or re-usable, with standarized metadata attributes being absent.
+
+% \paragraph{Runnable code is the pinnacle of reproducible research}
+
+When research truly needs to be reproducible, putting the code 
+of an experiment into a container is a good solution, as it 
+can stand the test of time better.
+Creating such a container, however, requires more skill
+that -as of today- is not rewarded,
+partly as containers follow FAIR data principles only poorly.
 
 % \paragraph{Final word}
 
