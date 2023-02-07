@@ -643,8 +643,7 @@ Such so-called code hosting websites have many advantages,
 both for the authors and users of the code,
 over copy-pasting code in the supplementary materials in a paper.
 
-
-The practice of using a code hosting websote has increased,
+The practice of using a code hosting website has increased,
 with the abstracts from articles in the academic journal
 'Bioinformatics' referring to such a hosted website
 has increased tenfold, going from below 5 percent in 2009 
@@ -705,7 +704,8 @@ In practice, this means that when a change is made to the code,
 a new version is created. In the case that the change was harmful,
 one can go back to an earlier version and continue again from there.
 It is a general recommendation to put version control
-on all human-produced data \cite{wilson2014best}.
+on all human-produced data \cite{wilson2014best},
+as well as openly working on the code from the start \cite{jimenez2017four}.
 
 \paragraph{A commit history helps assess honest reporting}
 
@@ -832,19 +832,11 @@ be acquired when using code hosting website.
 \end{figure}
 \fi
 
-% \paragraph{A reader can contact the author}
+\paragraph{Adding a license}
 
-A feature that gets too few attention is that code hosts
-allow users to post bug reports and/or ask questions.
-This allows other researchers to assess the health
-of the code.
-A healthy project has few open bug reports
-and these bug reports should be closed within reasonable time.
-When bug reports start to accumulate, this
-signals either that the code contained many bugs or that
-the developers lost interest in maintaining that code.
-The amount of bug reports is useful metadata, 
-especially when deciding to use (and depend) on a piece of software.
+Code hosting websites such as GitHub help developers to follow
+best practices. One of these is to add a software license \cite{jimenez2017four},
+so that it is clear that the software can be reused.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -926,7 +918,7 @@ Containers allow a computation experiment to be highly re-usable,
 as any scientist can work with it and tweak code.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Making code FAIR data}
+\section{Preserving code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Suggestions for knowledge management}
@@ -943,6 +935,25 @@ One could argue however, that the scientific community need its own,
 similar website to upload containers, as the metadata for these
 sites are limited to free-text comments and tags (DockerHub)
 or not metadata at all (Syslabs).
+
+Code is harder to preserve than an English text
+and preserving code is rarely done \cite{barnes2010publish}.
+Although code is the primary actor in computational experiments,
+there is no incentive to submit code alongside a publication.
+Most academic journal do not require authors to submit their code,
+nor is the submitted code peer reviewed, 
+rOpenSci \cite{ram2018community} being the pleasant exception.
+
+Code used in academic research complies badly with FAIR principles,
+where unpublished code is the worst offender.
+However, any idealistic researcher does not have the
+tools to following FAIR principles in an exemplary way:
+there are no standards in how a scholarly article
+refers to academic code (i.e. in a machine-friendly way).
+Creating a (Singularity) container is the best a researcher
+can do to ensure his/her code is reusable,
+yet, there are no incentives to make code accessible, interoperable
+or re-usable, with standarized metadata attributes being absent.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sensitive data}
@@ -969,6 +980,17 @@ datasets are needed for automatic testing of code.
 One extra benefit of simulated data is that these can be used
 as a benchmark, as slightly different analyses should give 
 similar conclusions.
+
+For research to be reproducible, one ideally has access to
+both the data used and the code.
+In some fields, such as genetic epidemiology, the data are
+sensitive, hence cannot be released,
+yet there are methods being devised to run code on sensitive
+data with assured privacy \cite{zhang2016review,azencott2018machine}.
+Additionally, it follows software development's best practices 
+(especially the practice to test code automatically) 
+to release a simulated/public dataset, with
+the additional benefit that this dataset can be used for comparisons.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
@@ -1031,25 +1053,6 @@ site called Syslabs. Using Syslabs is free upon registration,
 yet there is a limit of 15 Gb. Also, Sylabs does not allow much metadata to
 be entered, such as the URL of the article, nor the URL of hosted code.
 Also, journals do not request hosted code, nor runnable code.
-
-% \paragraph{Definition of paradata}
-
-% Reviewer 1: this section starts with a sentence that appears to undercut the whole theme of this chapter!
-Code may or may not be paradata, depending on how the definition
-is interpreted.
-Here we repeat the definition of 'paradata' and discuss 
-its constituents.
-This paper defined paradata as 'data about the collecting of the data'.
-This implies that (1) code must be seen as data.
-This paper argues, that code is data in the form of text spread
-over one or more files with useful measurable properties.
-(2) downloading raw data and doing calculations must be seen as collecting.
-This paper argues that downloading raw datas and doing calculations, 
-such as a T-test,
-does describe how the bits and pieces of an end result are collected.
-(3) the results of an experiment must be seen as data.
-This paper argues that an experimental results is data, 
-as it can be measured and can be used as the raw data of a next experiment.
 
 % \paragraph{The drawbacks of publishing code}
 
@@ -1140,51 +1143,6 @@ software development literature. To be computer friendly,
 code should be able to run on at least one independent entity,
 such as a GitHub Actions server or from a Singularity container.
 
-
-Code has additional useful information, similar to confidence intervals,
-that allow a reader to gauge how much one trusts the results.
-The more of the best practices are followed, 
-the more trustworthy are the results.
-The most important best practices discussed in this paper are
-automatic testing, having a high code coverage and code
-of low (cyclomatic) complexity.
-In academia, to uncover the truth, code correctness is essential,
-similar to cell biologists working sterile to not contaminate their
-cell cultures.
-These best practices are vital for a computational biologist.
-
-For research to be reproducible, one ideally has access to
-both the data used and the code.
-In some fields, such as genetic epidemiology, the data are
-sensitive, hence cannot be released,
-yet there are methods being devised to run code on sensitive
-data with assured privacy \cite{zhang2016review,azencott2018machine}.
-Additionally, it follows software development's best practices 
-(especially the practice to test code automatically) 
-to release a simulated/public dataset, with
-the additional benefit that this dataset can be used for comparisons.
-
-Code is harder to preserve than an English text
-and preserving code is rarely done \cite{barnes2010publish}.
-Although code is the primary actor in computational experiments,
-there is no incentive to submit code alongside a publication.
-Most academic journal do not require authors to submit their code,
-nor is the submitted code peer reviewed, 
-rOpenSci \cite{ram2018community} being the pleasant exception.
-
-Code used in academic research complies badly with FAIR principles,
-where unpublished code is the worst offender.
-However, any idealistic researcher does not have the
-tools to following FAIR principles in an exemplary way:
-there are no standards in how a scholarly article
-refers to academic code (i.e. in a machine-friendly way).
-Creating a (Singularity) container is the best a researcher
-can do to ensure his/her code is reusable,
-yet, there are no incentives to make code accessible, interoperable
-or re-usable, with standarized metadata attributes being absent.
-
-\paragraph{First step: publish code alongside papers}
-
 \paragraph{Final goal: runnable code}
 
 When research truly needs to be reproducible, putting the code 
@@ -1194,6 +1152,11 @@ Creating such a container, however, requires more skill
 that -as of today- is not rewarded,
 partly as containers follow FAIR data principles only poorly.
 Runnable code is the pinnacle of reproducible research.
+
+\paragraph{First step: publish code alongside papers}
+
+
+
 
 % \paragraph{Final word}
 
