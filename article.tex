@@ -524,11 +524,11 @@ used in a published research,
 (3) to extend an experiment, by changing the code.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Code must be extensively documented}
+\subsection{Code must be usefully documented}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For code to be ideal paradata, it must be extensively documented.
-This extend is determined by its intended use: 
+For code to be ideal paradata, it must be usefully documented.
+What is useful is determined by its intended use: 
 to reproduce, replicate or extend \ref{sec:making-code-useful-paradata}.
 The amount of documentation is, however, also determined
 by the recommended practices for writing code in general. 
@@ -541,7 +541,8 @@ When an independent researcher reproduces an experiment,
 it is possible that no code is read at all.
 Due to this, one could argue that no documentation is needed.
 However, all code should be documented 'adequately' \cite{peng2006reproducible},
-ideally writing code in such a way that it becomes self-explanatory \cite{wilson2014best}
+ideally writing code in such a way that it becomes 
+self-explanatory \cite{wilson2014best}
 and for the remaining code to document the reasons behind it, 
 its design and its purpose \cite{wilson2014best}.
 
@@ -549,17 +550,18 @@ its design and its purpose \cite{wilson2014best}.
 
 \subsubsection{... for extending}
 
-
+There exists a clear relationship between the popularity 
+and the documentation effort \cite{cosentino2017systematic,hata2015characteristics}.
 
 \paragraph{Code must be reviewed to ensure the correct amount of documentation}
 
-As it is the code that is the most important actor in an the experiment,
-it should be treated as equally or more important than the scientific
-paper describing what is does.
-Regardless of this, most academic journals, 
-when concerning computational experiments
-only review the (usually) English description of the code
-and make the review of code optional.
+More than half of all scientists have their code 
+rarely or never reviewed \cite{vable2021code},
+although code reviews are known to
+accelerate learning of the developers,
+improve the quality of the code
+and resulting to an experiment that is likelier to be reproducible
+\cite{vable2021code}.
 One notable exception is rOpenSci \cite{ram2018community},
 which is an organisation that does peer-review academic code 
 and facilitates the optional publication of a paper.
@@ -569,13 +571,6 @@ as can be seen in, for example,
 the \verb|mcbette| R package \cite{bilderbeek2020mcbette}.
 Within software development best-practices, 
 code reviews are recommended as well \cite{wilson2014best} 
-
-
-% d: Documentation as a Factor for Project Popularity
-%
-% There exists a clear relationship between the popularity and the documentation effort [62], [64], [65]. 
-% cosentino2017systematic
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Code must be extensive}
@@ -700,6 +695,14 @@ one of the many degrees of freedom
 in p-value hacking \cite{wicherts2016degrees}.
 
 \subsubsection{Code must be tested}
+
+Coding errors are extremely common and contribute to the reproducibility crisis in science \cite{vable2021code}
+
+%.
+%. How to make more published research true
+%. NIH plans to enhance reproducibility
+%. The replication crisis in epidemiology: snowball, snow job, or winter solstice?
+%. The harm done to reproducibility by the culture of null hypothesis significance testing
 
 
 
@@ -972,9 +975,14 @@ In a perfect world, all code has the characteristis of ideal paradata
 and is written from software development best practices.
 This section discusses the problems that arise by doing so.
 
-\paragraph{Need more training}
+\paragraph{Invest in training}
 
-
+One needs to be trained to know the best practices,
+before these can be applied. 
+Articles that suggest these best practices, however, claim that this initial
+investment pays off.
+Code reviews are a good way to accelerate the 
+learning of team members \cite{vable2021code}.
 
 \paragraph{Code needs maintanance}
 
