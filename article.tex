@@ -539,6 +539,13 @@ In this section, these ideal properties of paradata are applied to code.
 The resulting recommendations are compared with
 existing best practices in writing code.
 
+Code as paradata has multiple uses:
+(1) to reproduce an experiment, by running the unchanged code on the same data as
+used in a published research,
+(2) to replicate an experiment, by running the unchanged code on different data as
+used in a published research,
+(3) to extend an experiment, by changing the code.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Code must be extensively documented}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -588,26 +595,15 @@ code reviews are recommended as well \cite{wilson2014best}
 For code to be ideal paradata, it must be extensive.
 As code has many properties, there are many recommendations on this aspect.
 
-\subsubsection{Code must be clean}
+\paragraph{Coding style}
 
-Code gives an indication of the quality 
-of a computational experiment and several metrics are
-devised to get an idea of the quality of code.
-
-\paragraph{SLOC}
-
-The simplest metric to assess the quality of code is 
-the amount of (single) lines of code (SLOC). 
-Code that has a lower SLOC count, i.e. it is more concise,
-is usually regarded as having a lower chance of containing bugs.
-Additionally, following a style guide 
+Code is just 'another kind of data' and should be designed 
+as such, for example, by using tools to work on it \cite{wilson2022twelve}.
+A first example is to use a tool to enforce a coding style 
 (e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
-or PEP 8 \cite{van2001pep} for Python), 
-improves software quality \cite{fang2001}.
-
-\paragraph{Cyclomatic complexity}
-
-A more interesting metric is the cyclomatic complexity of the code.
+or PEP 8 \cite{van2001pep} for Python).
+Following a consistent coding style improves software quality \cite{fang2001}.
+A second example is to use a tool to enforce a low cyclomatic complexity.
 The cyclomatic complexity is approximately defined 
 as the number of independent paths that
 the code can be executed. 
