@@ -530,7 +530,7 @@ and this example is not too far off from the
 examples given in that paper.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Making code useful paradata}
+\section{Making code useful paradata}\label{sec:making-code-useful-paradata}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Again, paradata should be comprehensive, comprehensively documented
@@ -539,7 +539,13 @@ In this section, these ideal properties of paradata are applied to code.
 The resulting recommendations are compared with
 existing best practices in writing code.
 
-Code as paradata has multiple uses:
+Code as paradata has multiple uses: to reproduce, to replicate and to 
+extend \cite{benureau2018re}.
+
+To reproduce an experiment is to obtain the same publish result,
+by using the same code and data as used for that publication 
+\cite{peng2006reproducible}.
+
 (1) to reproduce an experiment, by running the unchanged code on the same data as
 used in a published research,
 (2) to replicate an experiment, by running the unchanged code on different data as
@@ -550,24 +556,29 @@ used in a published research,
 \subsection{Code must be extensively documented}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For code to be ideal paradata, it must be documented.
-However, code does explain itself to some extent,
-for example, the function name \verb|t.test| as used above.
+For code to be ideal paradata, it must be extensively documented.
+This extend is determined by its intended use: 
+to reproduce, replicate or extend \ref{sec:making-code-useful-paradata}.
+The amount of documentation is, however, also determined
+by the recommended practices for writing code in general. 
 
-\begin{itemize}
-  \item Code must be documented to the right amount
-  \item Code must be reviewed
-\end{itemize}
+\subsubsection{... for reproducing}
 
-\paragraph{Code must be documented to the right amount}
-
-Code should be documented to the right amount:
-too little documentation is unhelpful, where too much is a needless burden
-on the programmer.
-The first recommended practice is to write the code in such a way 
-that it becomes self-explanatory \cite{wilson2014best}.
-What is left to document are the reasons behind the code, 
+For reproducing purposes, the minimal amount of documentation
+is determined by software development best practices.
+When an independent researcher reproduces an experiment, 
+it is possible that no code is read at all.
+Due to this, one could argue that no documentation is needed.
+However, all code should be documented 'adequately' \cite{peng2006reproducible},
+ideally writing code in such a way that it becomes self-explanatory \cite{wilson2014best}
+and for the remaining code to document the reasons behind it, 
 its design and its purpose \cite{wilson2014best}.
+
+\subsubsection{... for replication}
+
+\subsubsection{... for extending}
+
+
 
 \paragraph{Code must be reviewed to ensure the correct amount of documentation}
 
@@ -634,36 +645,23 @@ needs at least two values to work as expected.
 
 \subsubsection{Code must be hosted}
 
-There exist website that are dedicated to host code.
-Such so-called code hosting websites have many advantages,
-both for the authors and users of the code,
-over copy-pasting code in the supplementary materials in a paper.
-
-The practice of using a code hosting website has increased,
-with the abstracts from articles in the academic journal
-'Bioinformatics' referring to such a hosted website
-has increased tenfold, going from below 5 percent in 2009 
-to around 50 percent in 2017 \cite{russell2018large}.
-
-\paragraph{Example of code hosting website}
-
-There are multiple websites for hosting code, with BitBucket, GitHub,
-GitLab and SourceForge being the most well-known.
-GitHub is currenly the most popular website to host code in general,
-with millions of users (a simple user search can confirm this).
-GitHub users can create dedicated websites (called 'repositories')
-to upload code. Code hosts, such as GitHub, 
-store that uploaded code and provide ways 
-for visiters to download the code and/or interact with it.
+Code should be distributed in standard ways \cite{peng2006reproducible}.
+The standard way to publish code is to use a code hosting website.
+There are multiple code hosting websites, 
+with GitHub being the most popular one \cite{cosentino2017systematic}.
+GitHub is a website where users can create dedicated pages (called 'repositories')
+to upload code and interact with it.
 The use of such code hosting websites
-accommodates collaboration \cite{perez2016ten}.
+has increased strongly \cite{russell2018large},
+accommodates collaboration \cite{perez2016ten}
 and improves transparency \cite{gorgolewski2016practical}.
-An example from the author is the website \cite{bbbqarticleissue157},
-that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}
+
+
 \iffalse
-, as shown in Figure \ref{fig:bbbqarticleissue157}
+An example from the author is the website \cite{bbbqarticleissue157},
+that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}, 
+as shown in Figure \ref{fig:bbbqarticleissue157}.
 \fi
-.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -955,18 +953,15 @@ or re-usable, with standarized metadata attributes being absent.
 \section{Sensitive data}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For a computational experiment to be reproducible,
-an independent person should be able to
-reproduce the same results.
-The reproduce the same results, one needs the same
-input data and the same code (and the same 
-dependencies and environment).
+Next to the code, it is the data used in an experiment 
+that must be made available for an experiment to be called 'reproducible' \cite{peng2006reproducible}.
 When the input data are sensitive, however, and thus cannot be shared with
 an independent researcher, one thus cannot reproduce the
 experiment.
 
 The solution for this problem is simple:
-supply a simulated dataset with the code.
+supply a simulated (also called 'analytical' \cite{peng2006reproducible}) dataset
+together with the code.
 In the case of genetic epidemiology this would mean
 simulated genotypes and associated phenotypes,
 as can be done with the \verb|plinkr| R package \cite{plinkr}.
@@ -1014,9 +1009,12 @@ in which software fails due to dependencies on other
 software.
 Where that paper recommends using older software foundations 
 with multiple implementations \cite{hinsen2019dealing},
-this paper recommends a modern solution that potentially has more longevity:
+this paper recommends a modern solution that potentially has more 
+longevity:
 to publish the code installed in a virtual environment
 (including the dependencies used at that time), as described below.
+Write code that will stand the test of time perfectly
+is deemed 'impossible' \cite{benureau2018re}.
 
 \paragraph{Authors can be contacted}
 
