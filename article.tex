@@ -96,7 +96,8 @@ and \cite{skold2022interrogating}).
 
 \paragraph{Code is paradata}
 
-The code used in experiments is just that, 'data about the data collection 
+The code used in computational experiments is just that, 
+'data about the data collection 
 process', as it commonly downloads data, selects relevant subsets in those
 downloaded data and performs statistical tests to generate results.
 Code, hence, is paradata and this chapter explores and illustrates the
@@ -115,12 +116,16 @@ and will be discussed in detail below.
 
 \paragraph{The goal of good paradata}
 
-The reasons why useful paradata matters,
-are data reuse, research reproducibility, 
-contextual understanding of disciplinary differences,
-Open Science and insights into 
-(scientific) knowledge production \cite{huvila2022improving}.
-This chapter discusses these reasons below.
+There are multiple reasons why useful paradata matter. 
+Most obvious is that having useful paradata gives an understanding how
+data is produced.
+This insight helps researchers from different fields to understand each other
+and collaborate.
+Additionally, useful open data is needed for Open Science to convincingly show
+its benefits.
+Finally, in computational fields, 
+it can help understand how scholarly knowledge is produced
+\cite{huvila2022improving}.
 
 \begin{figure}[!htbp]
   \centering
@@ -140,10 +145,7 @@ This chapter discusses these reasons below.
 
 This paper uses genetic epidemiology as a specific example,
 to illustrate that the code is paradata,
-that this type of paradata is relevant, as it helps 
-to assess the correctness of the results,
-where the correctness of the results is relevant for 
-science in general and healthcare in particular.
+and that this type of paradata is relevant.
 However, any field that uses computation in its experiments
 could be used as an example.
 
@@ -163,31 +165,28 @@ where still only 37 out of 62 studies supplied the code
 to redo the analysis \cite{obels2020analysis}.
 Unpublished code has been the cause of some saddening examples,
 such as an algorithm that detects breast cancer from images 
-better than a human expert \cite{haibe2020importance}.
+better than a human expert, 
+yet failed to ever be reproduced \cite{haibe2020importance}.
 
 \paragraph{For some fields, the experiment is actually run by code}
 
-Genetic epidemiology is a field within biology that, among 
-others, measures the spread of heritable traits,
-as well as how these come to be.
+Genetic epidemiology is a field within biology that
+tries to determine the mechanism and spread of heritable traits.
 For example, we know that lactose intolerance in adults is
 caused by a decline in the production of lactose-degrading enzymes,
 and is most commonly found in south-east asia and south africa \cite{storhaug2017country}.
-The trait is caused by the genetic make-up, 
-or genotype 
+The trait is caused by the genetic make-up, or 'genotype'
 (see Table \ref{tab:definitions} for the definitions of terms used in this paper), 
 of a person.
-The trait, also called phenotype (again, see Table \ref{tab:definitions}), 
+The trait, also called 'phenotype' (again, see Table \ref{tab:definitions}), 
 in this example is lactose intolerance at adult age,
 yet any human property, such as weight or height can be studied.
-Genetic epidemiology studies the spread of genotypes and phenotypes,
-as well as the relation between those two.
 When an association between genotype and phenotype is found,
 these associations are subsequently used to 
-create gene panels, where the gene causing 
+create so-called 'gene panels', 
+where the gene causing 
 an association is measured specifically, to, among others,
 detect people at risk for the associated phenotype.
-
 The rest of this section describes a genetic epidemiology study 
 in more detail, with special focus on the computational experiment.
 
@@ -373,6 +372,15 @@ The experiment described above is run by code.
 It was code that detected the relationship between the genotype
 (in this case, SNP \verb|rs12133641|) 
 and the phenotype (in this case, the concentration of IL6RA).
+To be more precise, it was code that read the data,
+subsetted the data, removed outliers, 
+performed the statistics and generated the plots.
+All these steps are described in the paper, 
+but the code itself is unpublished
+and the paper does not mention any way to obtain it.
+The reponse rate of correnspondence authors with a request for data is around 50\% 
+\cite{manca2018non, teunis2015corresponding} 
+(note that for the field of emergency medicine, these rates are 73\% \cite{o2003email}).
 
 \paragraph{Code is vital}
 
