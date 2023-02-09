@@ -54,26 +54,22 @@ genetic epidemiology
   Linus Torvalds, 2000-08-25
 }
 
-% This section has paragraph headers. This helps me, the author,
-% to focus the contents of my paragraphs.
-% In the final version of this manuscript, these will be removed.
-
 \paragraph{Simple example}
 
 % Alex and Blake?
 Two different researchers in genetic epideomology (more on that field later), 
 write two equally good manuscripts
-that involve computation.
+that describe an experiment with computational steps.
 Both manuscripts are accepted by an equally prestigous journal after peer view. 
 One researcher, however, does not supply the
 computer code (from now on: 'code') that was used to generate the results,
 where the other does.
 Are the conclusion of these papers to be trusted equally?
 Is this difference relevant and worth the effort?
-This chapter discusses the effect of supplying the computer 
-code  
-and claims that code is paradata and that this paradata 
-is just as important as the paper itself.
+This chapter discusses why code, a type of paradata, 
+should be supplied
+and how it should be supplied,
+and claims that code is just as important as the paper itself.
 
 \paragraph{The first use of paradata}
 
@@ -109,8 +105,9 @@ A recent paper explores the use of paradata to increase the impact of data,
 stating that lack of paradata can be seen as 'a drastic constraint'
 in the use of data and offer some suggestions to 
 make paradata useful for data re(use):
-paradata should be comprehensive, documented in a useful 
-way (and shaped by the data) and be friendly to computers \cite{huvila2022improving}.
+paradata should be comprehensive, documented in a useful way, 
+the documention and data should have co-evolved, 
+and the paradata should be good to computers \cite{huvila2022improving}.
 These suggestions appear to work well for code too
 and will be discussed in detail below.
 
@@ -146,7 +143,8 @@ it can help understand how scholarly knowledge is produced
 This paper uses genetic epidemiology as a specific example,
 to illustrate that the code is paradata,
 and that this type of paradata is relevant.
-However, any field that uses computation in its experiments
+However, any field that uses computation 
+on sensitive data in its experiments,
 could be used as an example.
 
 \paragraph{How commonly code is published}\label{para:how-commonly-code-is-published}
@@ -158,10 +156,10 @@ it is not common to publish the code of an experiment or analysis
 being \cite{conesa2019making}).
 For example, in computer graphics, 
 a field intimately familiar with computer code,
-only 192 of 454 SIGGRAPH papers supply computer code \cite{bonneel2020code}.
+192 of 454 SIGGRAPH papers supply computer code \cite{bonneel2020code}.
 Another study analysed the reproducibility of registered reports
 in the field of psychology, 
-where still only 37 out of 62 studies supplied the code 
+where 37 out of 62 studies supplied the code 
 to redo the analysis \cite{obels2020analysis}.
 Unpublished code has been the cause of some saddening examples,
 such as an algorithm that detects breast cancer from images 
@@ -171,7 +169,8 @@ yet failed to ever be reproduced \cite{haibe2020importance}.
 \paragraph{For some fields, the experiment is actually run by code}
 
 Genetic epidemiology is a field within biology that
-tries to determine the mechanism and spread of heritable traits.
+tries to determine the spread of heritable traits 
+and their underlying biological mechanism.
 For example, we know that lactose intolerance in adults is
 caused by a decline in the production of lactose-degrading enzymes,
 and is most commonly found in south-east asia and south africa \cite{storhaug2017country}.
@@ -232,7 +231,7 @@ blood \cite{enroth2014strong,enroth2015effect}.
 \fi
 
 The first type of primary data, the genotypes, 
-consists out of single nucleotide polymorphisms (SNPs, pronounced as 'snips').
+consists out of single nucleotide polymorphisms (SNPs, pronounced 'snips').
 A SNP has a name and a location on the DNA, at which there is a certain nucleotide.
 DNA (organized into chromosomes and present in every (nucleated) cell, 
 \iffalse
@@ -273,8 +272,8 @@ DNA contains the code for building proteins
 , as well as the rate
 at which a protein is created. Some proteins end up in the blood and
 their presence can be used to assess the health of an individual.
-IL6RA is one such protein and, spoiler alert, its concentration
-is associated with the SNP mentioned earlier.
+IL6RA is one such protein and its concentration may (and will, see below)
+be associated with the SNP mentioned earlier.
 
 The field of genetic epidemiology looks -among others- for
 correlations between genetic data and biological traits.
@@ -343,7 +342,8 @@ may end up in the clinic.
 For the sake of having a clear (yet fictitious) example,
 let's assume that a high level of IL6RA 
 is associated with a disease that develops later in life,
-yet is preventable by lifestyle changes.
+yet is preventable by lifestyle 
+changes (see \cite{pope2003will} for an example in Alzheimer's disease).
 Would this be the case, we can create a tailored 
 experiment, called a gene panel, that specifically measures
 SNP \verb|rs12133641|. 
@@ -355,8 +355,8 @@ From this simple example, it will be easier
 to measure the level of IL6RA in the blood, than using a gene panel,
 as blood tests are easier and cheaper.
 However, there are associations published for many diseases,
-in which one (e.g. phenylketonuria) or many (e.g. \cite{bruce2009metabolic}) 
-SNPs contribute to being more likely to develope a disease in the future. 
+in which one SNP (e.g. phenylketonuria) or many SNPs (e.g. \cite{bruce2009metabolic}) 
+contribute to being more likely to develope a disease in the future. 
 Here, the phenotype (having a disease in the future) 
 is impossible to detect at the present
 and associations found in earlier studies are used to create a gene panel.
@@ -375,13 +375,14 @@ and the phenotype (in this case, the concentration of IL6RA).
 To be more precise, it was code that read the data,
 subsetted the data, removed outliers, 
 performed the statistics and generated the plots.
-All these steps are described in the paper, 
+All these steps are described in the paper (\cite{ahsan2017relative}), 
 but the code itself is unpublished
 and the paper does not mention any way to obtain it.
-The reponse rate of correnspondence authors with a request for data is around 50\% 
+One could send an email to the correspending,
+yet it is known that the reponse rate of correnspondence authors 
+with a request for data in related fields is around 50\% 
 \cite{manca2018non, teunis2015corresponding} 
-(note that for the field of emergency medicine, 
-these rates are 73\% \cite{o2003email}).
+(for the field of emergency medicine, these rates are 73\% \cite{o2003email}).
 
 \paragraph{The goal of useful paradata is reproducible science}
 
@@ -404,8 +405,8 @@ a minimal requirement for publication \cite{peng2011reproducible}.
 
 \paragraph{Sensitive data}
 
-A genetic epidemiology works with sensitive data as well:
-the genetic sequences of participants are private.
+A genetic epidemiologist works with sensitive data as well:
+the genetic sequences of participants are private (\cite{clayton2019law}).
 For research to be reproducible one needs both the code and the data
 to reproduce the (hopefully) same results.
 This problem is discussed in section \ref{sec:sensitive-data}.
@@ -507,41 +508,32 @@ examples given in that paper.
 \section{Making code useful paradata}\label{sec:making-code-useful-paradata}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Again, paradata should be comprehensive, documented in a useful way
-and friendly to computers \cite{huvila2022improving}.
+Again, useful paradata should be comprehensive, 
+documented appropriately, the documentation should co-evolve with the data,
+and the data should be friendly to computers \cite{huvila2022improving}.
 In this section, these ideal properties of paradata are applied to code.
-The resulting recommendations are compared with
-existing best practices in writing code.
-
-Code as paradata has multiple uses: to reproduce, to replicate and to 
-extend \cite{benureau2018re}.
-
-To reproduce an experiment is to obtain the same publish result,
-by using the same code and data as used for that publication 
-\cite{peng2006reproducible}.
-
-(1) to reproduce an experiment, by running the unchanged code on the same data as
-used in a published research,
-(2) to replicate an experiment, by running the unchanged code on different data as
-used in a published research,
-(3) to extend an experiment, by changing the code.
+Code as paradata, however, has multiple uses as well,
+which are to reproduce, to replicate and to 
+extend a computational experiment \cite{benureau2018re}.
+In this section, the recommendations how to make paradata useful
+is applied to code and compared to existing best practices in software 
+development, for the intended use of the code.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Code must be usefully documented}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For code to be ideal paradata, it must be usefully documented.
-What is useful is determined by its intended use: 
+For code to be ideal paradata, it must be usefully documented \cite{huvila2022improving}.
+What is 'useful' is determined by its intended use: 
 to reproduce, replicate or extend \ref{sec:making-code-useful-paradata}.
 The amount of documentation is, however, also determined
 by the recommended practices for writing code in general. 
 
-\subsubsection{... for reproducing}
-
-For reproducing purposes, the minimal amount of documentation
+For purposes of reproducing (same code, same data) or replicating (same code,
+different data) a study, the minimal amount of documentation
 is determined by software development best practices.
-When an independent researcher reproduces an experiment, 
-it is possible that no code is read at all.
+When an independent researcher reproduces or replicates an experiment, 
+it is possible (even ideal!) that no code is read at all.
 Due to this, one could argue that no documentation is needed.
 However, all code should be documented 'adequately' \cite{peng2006reproducible},
 ideally writing code in such a way that it becomes 
@@ -549,31 +541,37 @@ self-explanatory \cite{wilson2014best}
 and for the remaining code to document the reasons behind it, 
 its design and its purpose \cite{wilson2014best}.
 
-\subsubsection{... for replication}
+For purposes of extending a study and its code, 
+documentation becomes even more important,
+as the code will be read and modified.
+The extent of investing time in documenting code is recommended
+to be proportional to the intended reuse \cite{pianosi2020successfully}
+and there exists a clear relationship between the reuse 
+of code and its documentation 
+effort \cite{cosentino2017systematic,hata2015characteristics}.
 
-\subsubsection{... for extending}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Code and documentation must align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-There exists a clear relationship between the popularity 
-and the documentation effort \cite{cosentino2017systematic,hata2015characteristics}.
+For code to be ideal paradata, 
+its creation and documentation need to match, 
+'not least because they shape each other' \cite{huvila2022improving}.
+This quote resonates strongly with the idea of 
+literate programming \cite{knuth1984literate},
+in which documentation and code is developed hand-in-hand.
+rOpenSci, a community that, among others, reviews programming
+code (\cite{ram2013ropensci,ram2018community}), is 
+one example of where literate programming is enforced:
+code must have extensive runnable examples
+as part of the documentation \cite{ropensci_2021_6619350}.
+Developing code and documentation at the same time 
+leads to both better code and documentation \cite{reenskaug1989environment}.
+In general, when developing software, 
+it is recommended to 
+to write documentation while writing software,
+as well as to include many examples \cite{lee2018ten}.
 
-\paragraph{Code must be reviewed to ensure the correct amount of documentation}
-
-More than half of all scientists have their code 
-rarely or never reviewed \cite{vable2021code},
-although code reviews are known to
-accelerate learning of the developers,
-improve the quality of the code
-and resulting to an experiment that is likelier to be reproducible
-\cite{vable2021code}.
-One notable exception is rOpenSci \cite{ram2018community},
-which is an organisation that does peer-review academic code 
-and facilitates the optional publication of a paper.
-Although both code and paper are peer-reviewed,
-most effort is spent on reviewing the code,
-as can be seen in, for example, 
-the \verb|mcbette| R package \cite{bilderbeek2020mcbette}.
-Within software development best-practices, 
-code reviews are recommended as well \cite{wilson2014best} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Code must be extensive}
@@ -582,46 +580,12 @@ code reviews are recommended as well \cite{wilson2014best}
 For code to be ideal paradata, it must be extensive.
 As code has many properties, there are many recommendations on this aspect.
 
-\paragraph{Coding style}
+\subsubsection{... to reproduce an experiment}
 
-Code is just 'another kind of data' and should be designed 
-as such, for example, by using tools to work on it \cite{wilson2022twelve}.
-A first example is to use a tool to enforce a coding style 
-(e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
-or PEP 8 \cite{van2001pep} for Python).
-Following a consistent coding style improves software quality \cite{fang2001}.
-A second example is to use a tool to enforce a low cyclomatic complexity.
-The cyclomatic complexity is approximately defined 
-as the number of independent paths that
-the code can be executed. 
-For example, code that has only one \verb|if| statement
-has a cyclomatic complexity of 2, as the condition within the \verb|if|
-statement can be true or false,
-resulting in the body of the \verb|if| statement being either
-exectuted or ignored.
-The cyclomatic complexity correlates with code complexity,
-where more complex code is likelier to contain or give rise to bugs 
-\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}
+\paragraph{Code should be hosted}
 
-\paragraph{Error handling}
-
-A feature that deserves more attention
-is that 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
-Error handling is one of the mechanisms to do so.
-A simple example is when one (e.g. a BSc student) 
-needs to calculate the variance of a distribution.
-Commonly one needs to call a function to do so, 
-e.g. \verb|var| in R, that needs the values of the distribution
-as input.
-However, to calculate the variance of a distribution, at least two values
-are required (else a division by zero occurs in the calcation of the variance). 
-When the variance of (zero or) only one value is requested,
-an error message can helpfully indicate that the function 
-needs at least two values to work as expected.
-
-\subsubsection{Code must be hosted}
-
-Code should be distributed in standard ways \cite{peng2006reproducible}.
+For code to be extensive enough to reproduce an existing experiment,
+it should be distributed in standard ways \cite{peng2006reproducible}.
 The standard way to publish code is to use a code hosting website.
 There are multiple code hosting websites, 
 with GitHub being the most popular one \cite{cosentino2017systematic}.
@@ -633,7 +597,6 @@ accommodates collaboration \cite{perez2016ten}
 and improves transparency \cite{gorgolewski2016practical}.
 See \cite{cosentino2017systematic} for an extensive overview of
 research conducted on GitHub.
-
 
 \iffalse
 An example from the author is the website \cite{bbbqarticleissue157},
@@ -657,57 +620,75 @@ as shown in Figure \ref{fig:bbbqarticleissue157}.
 \end{figure}
 \fi
 
-\paragraph{Hosted code has important metadata}
 
-Hosted code has many additional features, such as
-a version-controlled history, continuous integration scripts
-and automatically generated metrics.
-A code hosting website produces and shares these metadata.
-These metadata can help to determine the
-reproducibility, correctness and quality of code
-of computational experiments.
-Below, those features and why these are important are discussed.
+\subsubsection{... to replicate an experiment}
 
-\paragraph{Hosted code keeps a history of changes}
+\paragraph{Code must have extensive error handling}
 
-Hosted code commonly has a commit history. For example, GitHub
-uses a version control system called \verb|git| (hence its name).
-In practice, this means that when a change is made to the code,
-a new version is created. In the case that the change was harmful,
-one can go back to an earlier version and continue again from there.
-It is a general recommendation to put version control
-on all human-produced data \cite{wilson2014best},
-as well as openly working on the code from the start \cite{jimenez2017four}.
+Code must be more extensive when it is (intended to be) 
+used on different data,
+as then 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
+Error handling is one of the mechanisms to do so.
+A simple example is when one (e.g. a BSc student) 
+needs to calculate the variance of a distribution.
+Commonly one needs to call a function to do so, 
+e.g. \verb|var| in R, that needs the values of the distribution
+as input.
+However, to calculate the variance of a distribution, at least two values
+are required (else a division by zero occurs in the calcation of the variance). 
+When the variance of (zero or) only one value is requested,
+an error message can helpfully indicate that the function 
+needs at least two values to work as expected.
 
-\paragraph{A commit history helps assess honest reporting}
+\subsubsection{... to extend an experiment}
 
-Hosted code improves transparency \cite{gorgolewski2016practical},
-as, among others, the history of changes (i.e. the git commit history), 
-helps to assess the honesty in the reporting of the code. 
-Ideally, the full version history of the code 
-has been generated, by hosting the code directly at its inception,
-so that the ontology of the experiment can be viewed.
-However, in some repositories, only the final version of the code has been
-posted, which means all historical information is lost.
-The code history has many important properties,
-as, for example, 
-it can be observed how much statistical tests have really/actually been done 
-and see if all are reported:
-failing to reporting a (usually non-significant) statistical tests is 
-one of the many degrees of freedom 
-in p-value hacking \cite{wicherts2016degrees}.
+In software development, 
+changes are common and should be embraced \cite{beck2000extreme}.
+When a scientist intends to reuse code by extending its functionality,
+first the code will be assessed,
+after which the code may be actually extended.
 
-\subsubsection{Code must be tested}
 
-Coding errors are extremely common and contribute to the reproducibility crisis in science \cite{vable2021code}
+\subsubsubsection{Assessment of code}
+
+\subsubsubsection{Extending code}
+
+Code is just 'another kind of data' and should be designed 
+as such, for example, by using tools to work on it \cite{wilson2022twelve}.
+
+\paragraph{Using a tool for coding style}
+
+
+A first example is to use a tool to enforce a coding style 
+(e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
+or PEP 8 \cite{van2001pep} for Python).
+Following a consistent coding style improves software quality \cite{fang2001}.
+
+\paragraph{Using a tool for complexity}
+
+A second example is to use a tool to enforce a low cyclomatic complexity.
+The cyclomatic complexity is approximately defined 
+as the number of independent paths that
+the code can be executed. 
+For example, code that has only one \verb|if| statement
+has a cyclomatic complexity of 2, as the condition within the \verb|if|
+statement can be true or false,
+resulting in the body of the \verb|if| statement being either
+exectuted or ignored.
+The cyclomatic complexity correlates with code complexity,
+where more complex code is likelier to contain or give rise to bugs 
+\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}
+
+\paragraph{Code must be tested}
+
+Coding errors are extremely common 
+and contribute to the reproducibility crisis in science \cite{vable2021code}.
 
 %.
 %. How to make more published research true
 %. NIH plans to enhance reproducibility
 %. The replication crisis in epidemiology: snowball, snow job, or winter solstice?
 %. The harm done to reproducibility by the culture of null hypothesis significance testing
-
-
 
 \paragraph{Continuous integration helps assess code quality}
 
@@ -744,7 +725,7 @@ could be built.
 \end{figure}
 \fi
 
-% \paragraph{Code coverage helps assess code quality}
+\paragraph{Code coverage helps assess code quality}
 
 Testing, in general, is an important mechanism to ensure
 the correctness of code (an interesting example is \cite{rahman2020exploratory}
@@ -784,34 +765,6 @@ be acquired when using code hosting website.
 \end{figure}
 \fi
 
-% \paragraph{Metrics help assess the honest division of labour}
-
-Most code hosts, among others, GitHub and GitLab,
-automatically keep track of certain metrics.
-One such metric is the amount of code each contributor has made.
-In that way, authors involved in the writing of the software
-are honestly acknowledged. 
-\iffalse
-Figure \ref{fig:daisie_contributors}
-shows the number of commits the authors of DAISIE \cite{etienne2020daisie}
-have made to its code.
-\fi
-The distribution of contributed code per author 
-is useful metadata, that can automatically
-be acquired when using code hosting website.
-
-\iffalse
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=\linewidth]{daisie_contributors.png}
-  \caption{
-    An overview of the commits that multiple contributors have
-    made, in this case, to the code of DAISIE \cite{etienne2020daisie}
-  }
-  \label{fig:daisie_contributors}
-\end{figure}
-\fi
-
 \paragraph{Adding a license}
 
 Code hosting websites such as GitHub help developers to follow
@@ -832,6 +785,23 @@ so that it is clear that the software can be reused.
   \label{fig:issue_ldpred2}
 \end{figure}
 \fi
+
+\paragraph{Test-driven development}
+
+TDD improves code quality \cite{alkaoud2018quality,janzen2006test}
+and writing comment and documentation mixes well \cite{shmerlin2015document}.
+
+\paragraph{Code must be reviewed to ensure the correct amount of documentation}
+
+More than half of all scientists have their code 
+rarely or never reviewed \cite{vable2021code},
+although code reviews are known to
+accelerate learning of the developers,
+improve the quality of the code
+and resulting to an experiment that is likelier to be reproducible
+\cite{vable2021code}.
+Within software development best-practices, 
+code reviews are recommended as well \cite{wilson2014best} 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -900,6 +870,77 @@ as any scientist can work with it and tweak code.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preserving code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Preserving code by uploading it to a code hosting webite
+has many advantages.
+
+\paragraph{Hosted code has important metadata}
+
+Hosted code has many additional features, such as
+a version-controlled history, continuous integration scripts
+and automatically generated metrics.
+A code hosting website produces and shares these metadata.
+These metadata can help to determine the
+reproducibility, correctness and quality of code
+of computational experiments.
+Below, those features and why these are important are discussed.
+
+\paragraph{Hosted code keeps a history of changes}
+
+Hosted code commonly has a commit history. For example, GitHub
+uses a version control system called \verb|git| (hence its name).
+In practice, this means that when a change is made to the code,
+a new version is created. In the case that the change was harmful,
+one can go back to an earlier version and continue again from there.
+It is a general recommendation to put version control
+on all human-produced data \cite{wilson2014best},
+as well as openly working on the code from the start \cite{jimenez2017four}.
+
+\paragraph{A commit history helps assess honest reporting}
+
+Hosted code improves transparency \cite{gorgolewski2016practical},
+as, among others, the history of changes (i.e. the git commit history), 
+helps to assess the honesty in the reporting of the code. 
+Ideally, the full version history of the code 
+has been generated, by hosting the code directly at its inception,
+so that the ontology of the experiment can be viewed.
+However, in some repositories, only the final version of the code has been
+posted, which means all historical information is lost.
+The code history has many important properties,
+as, for example, 
+it can be observed how much statistical tests have really/actually been done 
+and see if all are reported:
+failing to reporting a (usually non-significant) statistical tests is 
+one of the many degrees of freedom 
+in p-value hacking \cite{wicherts2016degrees}.
+
+\paragraph{Metrics help assess the honest division of labour}
+
+Most code hosts, among others, GitHub and GitLab,
+automatically keep track of certain metrics.
+One such metric is the amount of code each contributor has made.
+In that way, authors involved in the writing of the software
+are honestly acknowledged. 
+\iffalse
+Figure \ref{fig:daisie_contributors}
+shows the number of commits the authors of DAISIE \cite{etienne2020daisie}
+have made to its code.
+\fi
+The distribution of contributed code per author 
+is useful metadata, that can automatically
+be acquired when using code hosting website.
+
+\iffalse
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{daisie_contributors.png}
+  \caption{
+    An overview of the commits that multiple contributors have
+    made, in this case, to the code of DAISIE \cite{etienne2020daisie}
+  }
+  \label{fig:daisie_contributors}
+\end{figure}
+\fi
 
 \paragraph{Suggestions for knowledge management}
 
