@@ -27,6 +27,9 @@ jobs:
         with:
           files: "svmult.cls"
 
+      - name: Doublecheck the existence of svmult.cls
+        run: ls *.cls
+
       - name: Count number of words
         run: texcount article.tex
 
