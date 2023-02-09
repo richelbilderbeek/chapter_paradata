@@ -34,13 +34,27 @@ jobs:
       - name: Triplecheck the existence of svmult.cls
         run: cat svmult.cls
 
+      # (2) a subdirectory "styles" with
+      #- the Springer MakeIndex style file "svind.ist"
+      #- the Springer MakeIndex style file "svindd.ist" - german version
+      #- the Springer BibTeX styles "spbasic.bst", "spmpsci.bst", "spphys.bst"
+      - name: Check file existence of svind.ist
+        uses: andstor/file-existence-action@v2
+        with:
+          files: svind.ist
+          fail: true
+
+
       - name: Count number of words
         run: texcount article.tex
 
+      # From Springer: please use the style svind.ist with your makeindex program
+      # No idea how to do that
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@latest
         with:
           root_file: header.tex
+
 
       - name: Upload PDF to the workflow tab
         uses: actions/upload-artifact@v2
