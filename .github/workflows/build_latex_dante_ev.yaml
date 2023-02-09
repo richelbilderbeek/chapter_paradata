@@ -25,7 +25,8 @@ jobs:
       - name: Check file existence
         uses: andstor/file-existence-action@v2
         with:
-          files: "svmult.cls"
+          files: svmult.cls
+          fail: true
 
       - name: Doublecheck the existence of svmult.cls
         run: ls *.cls
