@@ -522,7 +522,7 @@ examples given in that paper.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Again, useful paradata should be comprehensive, 
-documented appropriately, the documentation should co-evolve with the data,
+documented appropriately and in co-evolvution with the data,
 and the data should be friendly to computers \cite{huvila2022improving}.
 In this section, these ideal properties of paradata are applied to code.
 Code as paradata, however, has multiple uses as well,
@@ -536,24 +536,22 @@ development, for the intended use of the code.
 \subsection{Code must be usefully documented}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For code to be ideal paradata, it must be usefully documented \cite{huvila2022improving}.
+For code to be ideal paradata, it must be usefully 
+documented \cite{huvila2022improving}.
 What is 'useful' is determined by its intended use: 
 to reproduce, replicate or extend \ref{sec:making-code-useful-paradata}.
 The amount of documentation is, however, also determined
 by the recommended practices for writing code in general. 
 
-For purposes of reproducing (same code, same data) or replicating (same code,
-different data) a study, the minimal amount of documentation
-is determined by software development best practices.
-When an independent researcher reproduces or replicates an experiment, 
+For purposes of reproducing (same code, same data) code,
+it should at least be documented how the code is run.
+However, 57\% out of 56 Science magazine corresponding authors 
+that shared their code has documented their code well enough to run it 
+and to be understood what it ought to do \cite{stodden2018empirical}.
+
+However, when an independent researcher can redo an experiment, 
 it is possible (even ideal!) that no code is read at all.
-However, the use of the code should be documented,
-as 57\% out of 56 Science magazine corresponding authors 
-that shared their code
-has documented their code well enough to run it 
-and understand what it ought to do \cite{stodden2018empirical}.
-When one is able to run the code, it could argued 
-that no further documentation is needed.
+Within that context, it could argued that no further documentation is needed.
 However, all code in general should be documented 
 'adequately' \cite{peng2006reproducible},
 ideally writing code in such a way that it becomes 
@@ -575,11 +573,18 @@ effort \cite{cosentino2017systematic,hata2015characteristics}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 For code to be ideal paradata, 
-its creation and documentation need to match, 
-'not least because they shape each other' \cite{huvila2022improving}.
-This quote resonates strongly with the idea of 
+its creation and documentation need to align, 
+\emph{not least because they shape each other} \cite{huvila2022improving}.
+This emphasized part of the quote resonates strongly with the idea of 
 literate programming \cite{knuth1984literate},
 in which documentation and code is developed hand-in-hand.
+It is the practice of writing a document mixed with code that 
+will be run.
+Contemporary examples of this idea are, among others, 
+vignettes \cite{wickham2015r} (for the R programming language \cite{r}) 
+and Jupyter notebooks \cite{wang2020assessing} 
+(for the Julia \cite{Julia-2017}, Python \cite{van1995python} and R \cite{r}
+programming languages).
 rOpenSci, a community that, among others, reviews programming
 code (\cite{ram2013ropensci,ram2018community}), is 
 one example of where literate programming is enforced:
@@ -591,7 +596,6 @@ In general, when developing software,
 it is recommended to 
 to write documentation while writing software,
 as well as to include many examples \cite{lee2018ten}.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Code must be extensive}
