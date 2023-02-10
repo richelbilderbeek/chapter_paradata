@@ -609,7 +609,9 @@ As code has many properties, there are many recommendations on this aspect.
 % \paragraph{Code should be hosted}
 
 For code to be extensive enough to reproduce an existing experiment,
-it should be distributed in standard ways \cite{peng2006reproducible}.
+it should be distributed in standard ways \cite{peng2006reproducible}
+(see section \ref{sec:code-availability}
+for the general availability of code).
 The standard way to publish code is to use a code hosting website.
 There are multiple code hosting websites, 
 with GitHub being the most popular one \cite{cosentino2017systematic}.
@@ -668,45 +670,51 @@ needs at least two values to work as expected.
 
 In software development, 
 changes are common and should be embraced \cite{beck2000extreme}.
-When a scientist intends to reuse code by extending its functionality,
-first the code will be assessed,
-after which the code may be actually extended.
 
-Code is just 'another kind of data' and should be designed 
-as such, for example, by using tools to work on it \cite{wilson2022twelve}.
-
-% \paragraph{Using a tool for coding style}
-
-A first example is to use a tool to enforce a coding style 
-(e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
-or PEP 8 \cite{van2001pep} for Python).
-Following a consistent coding style improves software quality \cite{fang2001}.
-
-% \paragraph{Using a tool for complexity}
-
-A second example is to use a tool to enforce a low cyclomatic complexity.
-The cyclomatic complexity is approximately defined 
-as the number of independent paths that
-the code can be executed. 
-For example, code that has only one \verb|if| statement
-has a cyclomatic complexity of 2, as the condition within the \verb|if|
-statement can be true or false,
-resulting in the body of the \verb|if| statement being either
-exectuted or ignored.
-The cyclomatic complexity correlates with code complexity,
-where more complex code is likelier to contain or give rise to bugs 
-\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}
 
 % \paragraph{Code must be tested}
 
 Coding errors are extremely common 
 and contribute to the reproducibility crisis in science \cite{vable2021code}.
+Testing, in general, is an important mechanism to ensure
+the correctness of code (an interesting example is \cite{rahman2020exploratory}
+showing bugs in scientific software on the COVID-19 pandemic).
 
-%.
-%. How to make more published research true
-%. NIH plans to enhance reproducibility
-%. The replication crisis in epidemiology: snowball, snow job, or winter solstice?
-%. The harm done to reproducibility by the culture of null hypothesis significance testing
+% \paragraph{Code coverage helps assess code quality}
+
+The percentage of (lines of) code tested is called the code coverage.
+Code coverage correlates with code quality \cite{horgan1994,del1995correlation}. 
+The non-profit organisation rOpenSci \cite{ram2018community},
+which peer-reviews code,
+has made it a prerequisite to have a code coverage of 100\%.
+Also here, CI opens up the possibility to informally annotate the
+code coverage. 
+For example, build badges
+\iffalse
+(e.g. as shown in Figure \ref{fig:badge_codecov})
+\fi
+are visual indications on a website that can, among others,
+show a certain R package's code has a 100\% code coverage.
+
+Hence, code coverage is important metadata, that can automatically
+be acquired when using code hosting website.
+
+\iffalse
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[]{badge_codecov.png}
+  \caption{
+    A build badge for the code coverage of an R 
+    package (\url{https://github.com/ropensci/beautier}).
+    The umbrella signals that the code coverage is hosted by
+    CodeCov (\url{https://codecov.io/}). 
+    The text indicates which process it is that the badge
+    signals, which in this case, is that the code is fully covered
+    by tests.
+  }
+  \label{fig:badge_codecov}
+\end{figure}
+\fi
 
 % \paragraph{Continuous integration helps assess code quality}
 
@@ -743,54 +751,13 @@ could be built.
 \end{figure}
 \fi
 
-% \paragraph{Code coverage helps assess code quality}
-
-Testing, in general, is an important mechanism to ensure
-the correctness of code (an interesting example is \cite{rahman2020exploratory}
-showing bugs in scientific software on the COVID-19 pandemic:
-it recommends more testing).
-The percentage of (lines of) code tested is called the code coverage.
-Code coverage correlates with code quality \cite{horgan1994,del1995correlation}. 
-The non-profit organisation rOpenSci \cite{ram2018community},
-which peer-reviews code,
-has made it a prerequisite to have a code coverage of 100\%.
-Also here, CI opens up the possibility to informally annotate the
-code coverage. 
-For example, build badges
-\iffalse
-(e.g. as shown in Figure \ref{fig:badge_codecov})
-\fi
-are visual indications on a website that can, among others,
-show a certain R package's code has a 100\% code coverage.
-
-Hence, code coverage is important metadata, that can automatically
-be acquired when using code hosting website.
-
-\iffalse
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[]{badge_codecov.png}
-  \caption{
-    A build badge for the code coverage of an R 
-    package (\url{https://github.com/ropensci/beautier}).
-    The umbrella signals that the code coverage is hosted by
-    CodeCov (\url{https://codecov.io/}). 
-    The text indicates which process it is that the badge
-    signals, which in this case, is that the code is fully covered
-    by tests.
-  }
-  \label{fig:badge_codecov}
-\end{figure}
-\fi
-
 % \paragraph{Adding a license}
 
 Code hosting websites such as GitHub help developers to follow
 best practices. One of these is to add a software license \cite{jimenez2017four},
 so that it is clear that the software can be reused.
-About one in three of 56 Science magazine corresponding authors 
-that shared their code via a URL or email
-do not supply a software license \cite{stodden2018empirical}.
+About two-thirds of 56 Science magazine corresponding authors 
+that shared their code supply a software license \cite{stodden2018empirical}.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -893,12 +860,53 @@ that supplied code and that code was estimated to be
 reproducible, one in three had the results reproduced with 
 minimal or no effort \cite{stodden2018empirical}.
 
+% \paragraph{Ideal paradata}
+
+For paradata to be useful, it has to be computer-friendly, yet 
+'the best paradata does not necessarily look like 'data' at all for its
+human users' \cite{huvila2022improving}.
+There are features of code that humans find useful,
+without directly being able to measure these.
+In the end, code is just 'another kind of data' and should be designed 
+as such, for example, by using tools to work on it \cite{wilson2022twelve}.
+
+% \paragraph{Using a tool for coding style}
+
+A first example is to use a tool to enforce a coding style 
+(e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
+or PEP 8 \cite{van2001pep} for Python),
+as following a consistent coding style improves software quality \cite{fang2001}.
+
+% \paragraph{Using a tool for complexity}
+
+A second example is to use a tool to enforce a low cyclomatic complexity.
+The cyclomatic complexity is approximately defined 
+as the number of independent paths that
+the code can be executed. 
+For example, code that has only one \verb|if| statement
+has a cyclomatic complexity of 2, as the condition within the \verb|if|
+statement can be true or false,
+resulting in the body of the \verb|if| statement being either
+executed or ignored.
+The cyclomatic complexity correlates with code complexity,
+where more complex code is likelier to contain or give rise to bugs 
+\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}.
+
+Such tools combine great with CI services.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preserving code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Preserving code by uploading it to a code hosting webite
 has many advantages.
+Code is harder to preserve than an English text
+and preserving code is rarely done \cite{barnes2010publish}.
+Although code is the primary actor in computational experiments,
+there is no incentive to submit code alongside a publication.
+Most academic journal do not require authors to submit their code,
+nor is the submitted code peer reviewed, 
+rOpenSci \cite{ram2018community} being the pleasant exception.
 
 % \paragraph{Hosted code has important metadata}
 
@@ -987,14 +995,6 @@ One could argue however, that the scientific community need its own,
 similar website to upload containers, as the metadata for these
 sites are limited to free-text comments and tags (DockerHub)
 or not metadata at all (Syslabs).
-
-Code is harder to preserve than an English text
-and preserving code is rarely done \cite{barnes2010publish}.
-Although code is the primary actor in computational experiments,
-there is no incentive to submit code alongside a publication.
-Most academic journal do not require authors to submit their code,
-nor is the submitted code peer reviewed, 
-rOpenSci \cite{ram2018community} being the pleasant exception.
 
 Code used in academic research complies badly with FAIR principles,
 where unpublished code is the worst offender.

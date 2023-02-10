@@ -34,6 +34,9 @@ jobs:
       - name: Triplecheck the existence of svmult.cls
         run: cat svmult.cls
 
+      - name: Copy author/svind.ist from unzipped Springer zip
+        run: cp author/svind.ist svind.ist
+
       # (2) a subdirectory "styles" with
       #- the Springer MakeIndex style file "svind.ist"
       #- the Springer MakeIndex style file "svindd.ist" - german version
@@ -43,7 +46,6 @@ jobs:
         with:
           files: svind.ist
           fail: true
-
 
       - name: Count number of words
         run: texcount article.tex
