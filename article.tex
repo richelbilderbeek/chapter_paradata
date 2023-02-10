@@ -150,7 +150,7 @@ Another study analysed the reproducibility of registered reports
 in the field of psychology, 
 where 37 out of 62 studies supplied the code 
 to redo the analysis \cite{obels2020analysis}.
-For arcticles in Science magazine (years 2011-2012), 24 out of 204
+For articles in Science magazine (years 2011-2012), 24 out of 204
 studies published the code \cite{stodden2018empirical}.
 Unpublished code has been the cause of some saddening examples,
 such as an algorithm that detects breast cancer from images 
@@ -393,11 +393,10 @@ and the phenotype (in this case, the concentration of IL6RA).
 To be more precise, it was code that read the data,
 subsetted the data, removed outliers, 
 performed the statistics and generated the plots.
-All these steps are described in the paper (\cite{ahsan2017relative}), 
-but the code itself is unpublished
-and the paper does not mention any way to obtain it.
-Sending an email is known to be unlikely to work 
-(see section \ref{sec:code-availability}).
+For the rest of the discussion, we assume that the
+code is available to us (note that it is not
+published with the paper, see section \ref{sec:code-availability} 
+for a glum estimate of the chance of obtaining the code).
 
 % \paragraph{The goal of useful paradata is reproducible science}
 
@@ -406,7 +405,7 @@ to assure reproducible research \cite{huvila2022improving}.
 Reproducibility (i.e. to reproduce the same results) 
 and replicability (i.e. to reconclude a conclusion)
 are fundamental characteristics of scientific studies \cite{patil2019visual}.
-For computational science, theoretically, it should be relatively easy to 
+For computational science, it seems to be relatively easy to 
 reproduce an experiment, as all it takes is a computer, electricity,
 an optional internet connection, the code and the data.
 In practice, however, it appears that 
@@ -414,9 +413,8 @@ the academic culture to reproduce results
 has been lost over time in general \cite{peng2011reproducible},
 with labs that embrace reproducibility (for example, \cite{barba2016hard})
 are the exception.
-To counter the lack of published code, 
-it has been suggested to make the reproduction of research 
-a minimal requirement for publication \cite{peng2011reproducible}.
+One suggested way forward is to make the reproduction of 
+research a minimal requirement for publication \cite{peng2011reproducible}.
 
 % \paragraph{Sensitive data}
 
@@ -549,8 +547,15 @@ different data) a study, the minimal amount of documentation
 is determined by software development best practices.
 When an independent researcher reproduces or replicates an experiment, 
 it is possible (even ideal!) that no code is read at all.
-Due to this, one could argue that no documentation is needed.
-However, all code should be documented 'adequately' \cite{peng2006reproducible},
+However, the use of the code should be documented,
+as 57\% out of 56 Science magazine corresponding authors 
+that shared their code
+has documented their code well enough to run it 
+and understand what it ought to do \cite{stodden2018empirical}.
+When one is able to run the code, it could argued 
+that no further documentation is needed.
+However, all code in general should be documented 
+'adequately' \cite{peng2006reproducible},
 ideally writing code in such a way that it becomes 
 self-explanatory \cite{wilson2014best}
 and for the remaining code to document the reasons behind it, 
@@ -779,6 +784,9 @@ be acquired when using code hosting website.
 Code hosting websites such as GitHub help developers to follow
 best practices. One of these is to add a software license \cite{jimenez2017four},
 so that it is clear that the software can be reused.
+About one in three of 56 Science magazine corresponding authors 
+that shared their code via a URL or email
+do not supply a software license \cite{stodden2018empirical}.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -876,6 +884,11 @@ system, or data that are downloaded from additional online sources.
 Containers allow a computation experiment to be highly re-usable,
 as any scientist can work with it and tweak code.
 
+For those 22 (out of 180) Science magazine corresponding authors 
+that supplied code and that code was estimated to be 
+reproducible, one in three had the results reproduced with 
+minimal or no effort \cite{stodden2018empirical}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preserving code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -896,7 +909,10 @@ Below, those features and why these are important are discussed.
 
 % \paragraph{Hosted code keeps a history of changes}
 
-Hosted code commonly has a commit history. For example, GitHub
+Hosted code commonly has a commit history,
+where a commit is the description of the change, 
+as well as the changes in one or more file.
+For example, GitHub
 uses a version control system called \verb|git| (hence its name).
 In practice, this means that when a change is made to the code,
 a new version is created. In the case that the change was harmful,
@@ -904,6 +920,8 @@ one can go back to an earlier version and continue again from there.
 It is a general recommendation to put version control
 on all human-produced data \cite{wilson2014best},
 as well as openly working on the code from the start \cite{jimenez2017four}.
+However, half of 56 Science magazine corresponding authors 
+does not have such a version control mechanism \cite{stodden2018empirical}.
 
 % \paragraph{A commit history helps assess honest reporting}
 
@@ -1071,6 +1089,8 @@ it can be argued that no energy should be wasted on published code
 and work on something new instead 
 (see \cite{barnes2010publish} for a better way to deal with the problem).
 
+
+
 % \paragraph{How to handle bugs?}
 
 However, upon the find of a new bug, the question is:
@@ -1096,7 +1116,7 @@ Also, journals do not request hosted code, nor runnable code.
 Publishing code may be disadvantageous for an author.
 For science, code should be published, 
 this allows reproducible research 
-(again, see \cite{haibe2020importance} for a tragic example).
+(see \cite{haibe2020importance} for a tragic example).
 For an author, publishing code alongside an experiment opens up
 the possibily to receive questions regarding that code.
 Note, however, that not publishing code may put 
@@ -1136,6 +1156,7 @@ metascience regarding computational experiments.
 Knowledge managers should create the infrastructure for the preservation
 of runnable experiments, to allow scientist to upload a Singularity
 container, so these are as well following the FAIR principles.
+
 
 \iffalse
 \rowcolors{2}{gray!10}{gray!40}
