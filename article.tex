@@ -52,13 +52,13 @@ genetic epidemiology
   Linus Torvalds, 2000-08-25
 }
 
-\paragraph{Simple example}
+% \paragraph{Simple example}
 
 % Alex and Blake?
 Two different researchers in genetic epideomology (more on that field later), 
 write two equally good manuscripts
 that describe an experiment with computational steps.
-Both manuscripts are accepted by an equally prestigous journal after peer view. 
+Both manuscripts are accepted by an equally prestigious journal after peer review. 
 One researcher, however, does not supply the
 computer code (from now on: 'code') that was used to generate the results,
 where the other does.
@@ -69,7 +69,7 @@ should be supplied
 and how it should be supplied,
 and claims that code is just as important as the paper itself.
 
-\paragraph{The first use of paradata}
+% \paragraph{The first use of paradata}
 
 The concept of paradata (although not named as such yet) 
 was introduced by \cite{couper1998measuring},
@@ -79,7 +79,7 @@ measures the time used to answer each question
 and even the time the monitor is turned off.
 The goal in that context was to assess and improve survey quality.
 
-\paragraph{Definition of paradata}
+% \paragraph{Definition of paradata}
 
 This paper defines paradata as 'data about the data collection 
 process' \cite{choumert2019using}.
@@ -88,16 +88,19 @@ yet there are multiple related and/or more nuanced
 definitions of paradata (see for example \cite{huvila2022improving} 
 and \cite{skold2022interrogating}).
 
-\paragraph{Code is paradata}
+% \paragraph{Code is paradata}
 
 The code used in computational experiments is just that, 
 'data about the data collection 
-process', as it commonly downloads data, selects relevant subsets in those
-downloaded data and performs statistical tests to generate results.
+process', as it commonly downloads data,
+selects relevant subsets in those data,
+performs statistical tests and generates figures.
+In each case, code answers the question: 
+'Where is it (i.e. the result) coming from?'.
 Code, hence, is paradata and this chapter explores and illustrates the
 consequence of that premise.
 
-\paragraph{Making paradata useful}
+% \paragraph{Making paradata useful}
 
 A recent paper explores the use of paradata to increase the impact of data,
 stating that lack of paradata can be seen as 'a drastic constraint'
@@ -105,11 +108,11 @@ in the use of data and offer some suggestions to
 make paradata useful for data re(use):
 paradata should be comprehensive, documented in a useful way, 
 the documention and data should have co-evolved, 
-and the paradata should be good to computers \cite{huvila2022improving}.
-These suggestions appear to work well for code too
+and the paradata should be computer-friendly \cite{huvila2022improving}.
+At first glance, these suggestions appear to work well for code too
 and will be discussed in detail below.
 
-\paragraph{The goal of good paradata}
+% \paragraph{The goal of good paradata}
 
 There are multiple reasons why useful paradata matter. 
 Most obvious is that having useful paradata gives an understanding how
@@ -133,23 +136,11 @@ it can help understand how scholarly knowledge is produced
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Genetic epidemiology}
+\section{Code availability}\label{sec:code-availability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Introduction}
-
-This paper uses genetic epidemiology as a specific example,
-to illustrate that the code is paradata,
-and that this type of paradata is relevant.
-However, any field that uses computation 
-on sensitive data in its experiments,
-could be used as an example.
-
-\paragraph{How commonly code is published}\label{para:how-commonly-code-is-published}
-
-Going back to the example scientists in the introduction,
-where one does and the other does not publish the code,
-it is not common to publish the code of an experiment or analysis 
+To determine how useful code is, it needs to be available.
+However, it is not common to publish the code of an experiment or analysis 
 \cite{stodden2011trust,read2015sizing} (with a pleasant exception 
 being \cite{conesa2019making}).
 For example, in computer graphics, 
@@ -159,12 +150,41 @@ Another study analysed the reproducibility of registered reports
 in the field of psychology, 
 where 37 out of 62 studies supplied the code 
 to redo the analysis \cite{obels2020analysis}.
+For arcticles in Science magazine (years 2011-2012), 24 out of 204
+studies published the code \cite{stodden2018empirical}.
 Unpublished code has been the cause of some saddening examples,
 such as an algorithm that detects breast cancer from images 
 better than a human expert, 
 yet failed to ever be reproduced \cite{haibe2020importance}.
 
-\paragraph{For some fields, the experiment is actually run by code}
+% \paragraph{Obtaining code by email}
+
+When code of an academic paper is not published, 
+one can contact the correspending author and request it.
+However, the reponse rate of correnspondence authors 
+with a request for data in computational fields is around 50\% 
+\cite{manca2018non, stodden2018empirical, teunis2015corresponding} 
+(for the field of emergency medicine, these rates are 73\% \cite{o2003email}).
+When getting an answer of the corresponding author, 
+half (65 out of 134) will actually share the code \cite{stodden2018empirical}.
+The responses of unwilling authors (see \cite{stodden2018empirical} for 
+some real examples) can come across as so caustic, 
+that one is excused from not contacting an a corresponding author.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Genetic epidemiology}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \paragraph{Introduction}
+
+This paper uses genetic epidemiology as a specific example,
+to illustrate that the code is paradata,
+and that this type of paradata is relevant.
+However, any field that uses computation 
+and sensitive data in its experiments,
+could be used as an example.
+
+% \paragraph{For some fields, the experiment is actually run by code}
 
 Genetic epidemiology is a field within biology that
 tries to determine the spread of heritable traits 
@@ -364,7 +384,7 @@ As creating a gene panel is costly, those associations better be correct.
 \section{Code is just as important as the paper}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{The experiments within genetic epidemology works are done by code}
+% \paragraph{The experiments within genetic epidemology works are done by code}
 
 The experiment described above is run by code. 
 It was code that detected the relationship between the genotype
@@ -376,13 +396,10 @@ performed the statistics and generated the plots.
 All these steps are described in the paper (\cite{ahsan2017relative}), 
 but the code itself is unpublished
 and the paper does not mention any way to obtain it.
-One could send an email to the correspending,
-yet it is known that the reponse rate of correnspondence authors 
-with a request for data in related fields is around 50\% 
-\cite{manca2018non, teunis2015corresponding} 
-(for the field of emergency medicine, these rates are 73\% \cite{o2003email}).
+Sending an email is known to be unlikely to work 
+(see section \ref{sec:code-availability}).
 
-\paragraph{The goal of useful paradata is reproducible science}
+% \paragraph{The goal of useful paradata is reproducible science}
 
 The reason behind paradata is, among others,
 to assure reproducible research \cite{huvila2022improving}.
@@ -401,7 +418,7 @@ To counter the lack of published code,
 it has been suggested to make the reproduction of research 
 a minimal requirement for publication \cite{peng2011reproducible}.
 
-\paragraph{Sensitive data}
+% \paragraph{Sensitive data}
 
 A genetic epidemiologist works with sensitive data as well:
 the genetic sequences of participants are private (\cite{clayton2019law}).
@@ -409,7 +426,7 @@ For research to be reproducible one needs both the code and the data
 to reproduce the (hopefully) same results.
 This problem is discussed in section \ref{sec:sensitive-data}.
 
-\paragraph{Code holds the ground truth}
+% \paragraph{Code holds the ground truth}
 
 \iffalse
 \begin{figure}[!htbp]
@@ -580,7 +597,7 @@ As code has many properties, there are many recommendations on this aspect.
 
 \subsubsection{... to reproduce an experiment}
 
-\paragraph{Code should be hosted}
+% \paragraph{Code should be hosted}
 
 For code to be extensive enough to reproduce an existing experiment,
 it should be distributed in standard ways \cite{peng2006reproducible}.
@@ -621,7 +638,7 @@ as shown in Figure \ref{fig:bbbqarticleissue157}.
 
 \subsubsection{... to replicate an experiment}
 
-\paragraph{Code must have extensive error handling}
+% \paragraph{Code must have extensive error handling}
 
 Code must be more extensive when it is (intended to be) 
 used on different data,
@@ -649,14 +666,14 @@ after which the code may be actually extended.
 Code is just 'another kind of data' and should be designed 
 as such, for example, by using tools to work on it \cite{wilson2022twelve}.
 
-\paragraph{Using a tool for coding style}
+% \paragraph{Using a tool for coding style}
 
 A first example is to use a tool to enforce a coding style 
 (e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
 or PEP 8 \cite{van2001pep} for Python).
 Following a consistent coding style improves software quality \cite{fang2001}.
 
-\paragraph{Using a tool for complexity}
+% \paragraph{Using a tool for complexity}
 
 A second example is to use a tool to enforce a low cyclomatic complexity.
 The cyclomatic complexity is approximately defined 
@@ -671,7 +688,7 @@ The cyclomatic complexity correlates with code complexity,
 where more complex code is likelier to contain or give rise to bugs 
 \cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}
 
-\paragraph{Code must be tested}
+% \paragraph{Code must be tested}
 
 Coding errors are extremely common 
 and contribute to the reproducibility crisis in science \cite{vable2021code}.
@@ -682,7 +699,7 @@ and contribute to the reproducibility crisis in science \cite{vable2021code}.
 %. The replication crisis in epidemiology: snowball, snow job, or winter solstice?
 %. The harm done to reproducibility by the culture of null hypothesis significance testing
 
-\paragraph{Continuous integration helps assess code quality}
+% \paragraph{Continuous integration helps assess code quality}
 
 Some code hosts, among others, GitHub, 
 allow the researcher/user to start software scripts upon uploading a change.
@@ -717,7 +734,7 @@ could be built.
 \end{figure}
 \fi
 
-\paragraph{Code coverage helps assess code quality}
+% \paragraph{Code coverage helps assess code quality}
 
 Testing, in general, is an important mechanism to ensure
 the correctness of code (an interesting example is \cite{rahman2020exploratory}
@@ -757,7 +774,7 @@ be acquired when using code hosting website.
 \end{figure}
 \fi
 
-\paragraph{Adding a license}
+% \paragraph{Adding a license}
 
 Code hosting websites such as GitHub help developers to follow
 best practices. One of these is to add a software license \cite{jimenez2017four},
@@ -778,12 +795,12 @@ so that it is clear that the software can be reused.
 \end{figure}
 \fi
 
-\paragraph{Test-driven development}
+% \paragraph{Test-driven development}
 
 TDD improves code quality \cite{alkaoud2018quality,janzen2006test}
 and writing comment and documentation mixes well \cite{shmerlin2015document}.
 
-\paragraph{Code must be reviewed to ensure the correct amount of documentation}
+% \paragraph{Code must be reviewed to ensure the correct amount of documentation}
 
 More than half of all scientists have their code 
 rarely or never reviewed \cite{vable2021code},
@@ -813,7 +830,7 @@ In this chapter, details of each of these ways will be described,
 including advantages, disadvantages, as well as how to
 make the code more FAIR data \cite{wilkinson2016fair}.
 
-\paragraph{Publishing a virtual environment}
+% \paragraph{Publishing a virtual environment}
 
 The most reproducible way of submitting the code of an experiment,
 is by providing the code with all the (software) dependencies 
@@ -832,7 +849,7 @@ Due to access rights, Singularity is the only viable option to run
 an experiment on a 
 high performance computing (HPC) environment (e.g. a computer cluster).
 
-\paragraph{Containers allow for runnable code, for longer periods of time}
+% \paragraph{Containers allow for runnable code, for longer periods of time}
 
 Unlike English, code is fragile in standing the test of time.
 Containers can alleviate this, as these can be created at a point
@@ -845,7 +862,7 @@ if one refrains from updating (or only does so when there are there problems wit
 Ideally, to re-do an experiment, one would need a one-liner to a container,
 for example, \verb|singularity run my_experiment.sif run|.
 
-\paragraph{Runnable code can precisely reproduce an experiment}
+% \paragraph{Runnable code can precisely reproduce an experiment}
 
 Containers allow a computation experiment to be highly reproducible:
 given the same data, an experiment put into a container will give
@@ -854,7 +871,7 @@ In practice, differences may be observed when peripheral factors
 are different, such as the random numbers as generated by an operating
 system, or data that are downloaded from additional online sources.
 
-\paragraph{Runnable code allows others to re-use an experiment}
+% \paragraph{Runnable code allows others to re-use an experiment}
 
 Containers allow a computation experiment to be highly re-usable,
 as any scientist can work with it and tweak code.
@@ -866,7 +883,7 @@ as any scientist can work with it and tweak code.
 Preserving code by uploading it to a code hosting webite
 has many advantages.
 
-\paragraph{Hosted code has important metadata}
+% \paragraph{Hosted code has important metadata}
 
 Hosted code has many additional features, such as
 a version-controlled history, continuous integration scripts
@@ -877,7 +894,7 @@ reproducibility, correctness and quality of code
 of computational experiments.
 Below, those features and why these are important are discussed.
 
-\paragraph{Hosted code keeps a history of changes}
+% \paragraph{Hosted code keeps a history of changes}
 
 Hosted code commonly has a commit history. For example, GitHub
 uses a version control system called \verb|git| (hence its name).
@@ -888,7 +905,7 @@ It is a general recommendation to put version control
 on all human-produced data \cite{wilson2014best},
 as well as openly working on the code from the start \cite{jimenez2017four}.
 
-\paragraph{A commit history helps assess honest reporting}
+% \paragraph{A commit history helps assess honest reporting}
 
 Hosted code improves transparency \cite{gorgolewski2016practical},
 as, among others, the history of changes (i.e. the git commit history), 
@@ -906,7 +923,7 @@ failing to reporting a (usually non-significant) statistical tests is
 one of the many degrees of freedom 
 in p-value hacking \cite{wicherts2016degrees}.
 
-\paragraph{Metrics help assess the honest division of labour}
+% \paragraph{Metrics help assess the honest division of labour}
 
 Most code hosts, among others, GitHub and GitLab,
 automatically keep track of certain metrics.
@@ -934,7 +951,7 @@ be acquired when using code hosting website.
 \end{figure}
 \fi
 
-\paragraph{Suggestions for knowledge management}
+% \paragraph{Suggestions for knowledge management}
 
 Here are multiple suggestions to make containers with runnable code FAIR.
 To make such containers findable, the most common 
@@ -1011,7 +1028,7 @@ In a perfect world, all code has the characteristis of ideal paradata
 and is written from software development best practices.
 This section discusses the problems that arise by doing so.
 
-\paragraph{Invest in training}
+% \paragraph{Invest in training}
 
 One needs to be trained to know the best practices,
 before these can be applied. 
@@ -1020,7 +1037,7 @@ investment pays off.
 Code reviews are a good way to accelerate the 
 learning of team members \cite{vable2021code}.
 
-\paragraph{Code needs maintanance}
+% \paragraph{Code needs maintanance}
 
 Code needs maintanance:
 the libraries that are used by an experiment
@@ -1041,7 +1058,7 @@ to publish the code installed in a virtual environment
 Write code that will stand the test of time perfectly
 is deemed 'impossible' \cite{benureau2018re}.
 
-\paragraph{Authors can be contacted}
+% \paragraph{Authors can be contacted}
 
 There is another problem that authors of academic code face,
 which is that they may be contacted with a user 
@@ -1054,7 +1071,7 @@ it can be argued that no energy should be wasted on published code
 and work on something new instead 
 (see \cite{barnes2010publish} for a better way to deal with the problem).
 
-\paragraph{How to handle bugs?}
+% \paragraph{How to handle bugs?}
 
 However, upon the find of a new bug, the question is:
 does all the research that use that software still 
@@ -1063,7 +1080,7 @@ To prevent authors chosing to hide bug reports,
 a code hosting website usually has a public place to report bugs,
 to increase transparency in the handling of bug reports.
 
-\paragraph{The problems with runnable code}
+% \paragraph{The problems with runnable code}
 
 There are some problems with providing a container with a runnable container.
 First, a container is several gigabytes and need to be stored somewhere
@@ -1074,7 +1091,7 @@ yet there is a limit of 15 Gb. Also, Sylabs does not allow much metadata to
 be entered, such as the URL of the article, nor the URL of hosted code.
 Also, journals do not request hosted code, nor runnable code.
 
-\paragraph{The drawbacks of publishing code}
+% \paragraph{The drawbacks of publishing code}
 
 Publishing code may be disadvantageous for an author.
 For science, code should be published, 
@@ -1087,7 +1104,7 @@ oneself in the focus of attention
 and -after much effect by others reproducing an incorrect result-
 at the cost of a scientific career \cite{baggerly2009deriving}.
 
-\paragraph{The drawbacks of publishing version-controlled code}
+% \paragraph{The drawbacks of publishing version-controlled code}
 
 Is it worth it to publish version-controlled code?
 For an author, 
@@ -1096,16 +1113,16 @@ publishing code alongside an experiment opens up
 the possibily to receive questions regarding that code,
 as well as other interactions, including helpful contributions.
 
-\paragraph{The drawbacks of publishing a running version of code}
+% \paragraph{The drawbacks of publishing a running version of code}
 
 Is it worth it to archive running versions of code?
 For an author, 
 there is additional training involved.
 There is no FAIR infrastructure for Singularity containers.
 
-% \paragraph{Still need the same data to do a reproducible experiment}
+% % \paragraph{Still need the same data to do a reproducible experiment}
 
-% \paragraph{Recommendations}
+% % \paragraph{Recommendations}
 
 Being able to re-do an experiment is a core principle of the scientific method.
 Publishing only a paper about a computational experiment is not enough,
@@ -1163,7 +1180,7 @@ software development literature. To be computer friendly,
 code should be able to run on at least one independent entity,
 such as a GitHub Actions server or from a Singularity container.
 
-\paragraph{Final goal: runnable code}
+% \paragraph{Final goal: runnable code}
 
 When research truly needs to be reproducible, putting the code 
 of an experiment into a container is a good solution, as it 
@@ -1173,14 +1190,14 @@ that -as of today- is not rewarded,
 partly as containers follow FAIR data principles only poorly.
 Runnable code is the pinnacle of reproducible research.
 
-\paragraph{First step: publish code alongside papers}
+% \paragraph{First step: publish code alongside papers}
 
 The simplest and most impactful step to make code more useful paradata
 is, however, to publish it on a code hosting website 
 along a publication. From then on, the next steps can be taken 
 gradually as the skills of the author(s) progress.
 
-\paragraph{Final word}
+% \paragraph{Final word}
 
 The world of science would be a more open, humble, trustworthy, truthful
 and helpful would the code that accompanies a scientific paper
