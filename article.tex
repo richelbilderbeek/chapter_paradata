@@ -518,16 +518,147 @@ and this example is not too far off from the
 examples given in that paper.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preserving code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Preserving code in a reliable way is rare \cite{barnes2010publish}.
+In general, within software development, 
+changes at all levels are common
+and instead of ignoring that, it should be embraced \cite{beck2000extreme}.
+This section discusses the preservation of code for a short, medium
+and long term.
+
+\subsection{Code hosting}
+
+To preserve code for a short term, 
+a code hosting website is a good first step.
+A code hosting website is a website where 
+its users can create dedicated pages (called 'repositories')
+for a project, upload code and interact with that code.
+There are multiple code hosting websites, 
+with GitHub being the most popular one \cite{cosentino2017systematic}.
+The \LaTeX code of this chapter is hosted on GitHub 
+as well, at \url{https://github.com/richelbilderbeek/chapter_paradata}.
+The use of code hosting websites
+has increased strongly \cite{russell2018large},
+accommodates collaboration \cite{perez2016ten}
+and improves transparency \cite{gorgolewski2016practical}.
+See \cite{cosentino2017systematic} for an extensive overview of
+research conducted on GitHub.
+
+\iffalse
+An example from the author is the website \cite{bbbqarticleissue157},
+that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}, 
+as shown in Figure \ref{fig:bbbqarticleissue157}.
+\fi
+
+\iffalse
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{bbbq_article_issue_157.png}
+  \caption{
+    A typical GitHub repository \cite{bbbqarticleissue157}, 
+    hosting the code for a
+    computational experiment, 
+    as published with \cite{bilderbeek2022transmembrane}.
+    Note that this repository has 72 commits, where a commit is a change
+    to the code.
+  }
+  \label{fig:bbbqarticleissue157}
+\end{figure}
+\fi
+
+However, if the code breaks tomorrow, it will go unnoticed.
+
+\subsection{Continuous integration}
+
+To preserve code for a longer timespan, 
+continuous integration allows one to 
+verify if code still works and, if not, to be notified on the need for an update.
+
+% \paragraph{Continuous integration helps assess code quality}
+
+Some code hosts, among others, GitHub, 
+allow the researcher/user to start software scripts upon uploading a change.
+This is useful to determine the reproducibility of the code: 
+one such script should run the code (on trivial data) 
+to verify if the code works at all.
+If the functionality of the code is lost, the researcher
+can immediatly see which small change was the cause of this.
+A formalized version of this workflow is called continuous integration (CI).
+Using a CI service (such as GitHub Actions for GitHub), 
+is known to significantly 
+increase the number of bugs exposed \cite{vasilescu2015} and increases
+the speed at which new features are added \cite{vasilescu2015}.
+Using CI opens up the possibility to informally annotate features of
+a repository. 
+\iffalse
+For example, Figure \ref{fig:build_badge} shows a 
+build badge that indicates that a \LaTeX document (i.e. this paper)
+could be built.
+\fi
+
+\iffalse
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{build_badge.png}
+  \caption{
+    A build badge for the GitHub repository of this article.
+    The description indicates which process it is that the badge
+    signals success (as in this case) or failure of. 
+  }
+  \label{fig:build_badge}
+\end{figure}
+\fi
+
+However, for code to work longer, one can put the code and its dependencies in
+a container, that should be best in standing the test of time.
+
+\subsection{Containerization}
+
+To preserve code for the longest time, 
+both code and its dependencies are put into a so-called container.
+
+The most reproducible way of submitting the code of an experiment,
+is by providing the code with all the (software) dependencies 
+it needs installed in a virtual container.
+This is close to the golden standard suggested by 
+\cite{peng2011reproducible} 
+\iffalse
+(see also Figure \ref{fig:peng2011reproducible})
+\fi
+,
+however, that article was written before virtualization existed.
+Virtualization allows one to provide a standard environment,
+that can be used on any other computer.
+The best known examples of container software are Docker and Singularity.
+Due to access rights, Singularity is the only viable option to run
+an experiment on a 
+high performance computing (HPC) environment (e.g. a computer cluster).
+
+% \paragraph{Containers allow for runnable code, for longer periods of time}
+
+Unlike English, code is fragile in standing the test of time.
+Containers can alleviate this, as these can be created at a point
+in time and then run later. Because the container is stand-alone,
+all software that the code depends on remain in their current/old state.
+As with hosted code, an experiment may not run with newer versions
+of libraries anymore, but a containerized experiment can run regardless, 
+if one refrains from updating (or only does so when there are there problems with fixing).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Making code useful paradata}\label{sec:making-code-useful-paradata}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Again, useful paradata should be comprehensive, 
-documented appropriately and in co-evolvution with the data,
+To repeat features of useful paradata: paradata should be comprehensive, 
+documented appropriately, documented in co-evolution with the data,
 and the data should be friendly to computers \cite{huvila2022improving}.
 In this section, these ideal properties of paradata are applied to code.
-Code as paradata, however, has multiple uses as well,
-which are to reproduce, to replicate and to 
-extend a computational experiment \cite{benureau2018re}.
+However, code has multiple uses, which have different requirements
+for being usesful paradata.
+Code can be used to reproduce, to replicate and to 
+extend a computational experiment \cite{benureau2018re},
+each of these uses has different requirements for the code to be useful paradata.
 In this section, the recommendations how to make paradata useful
 is applied to code and compared to existing best practices in software 
 development, for the intended use of the code.
@@ -608,43 +739,15 @@ As code has many properties, there are many recommendations on this aspect.
 
 % \paragraph{Code should be hosted}
 
+Code should be hosted.
+
+
 For code to be extensive enough to reproduce an existing experiment,
 it should be distributed in standard ways \cite{peng2006reproducible}
 (see section \ref{sec:code-availability}
 for the general availability of code).
 The standard way to publish code is to use a code hosting website.
-There are multiple code hosting websites, 
-with GitHub being the most popular one \cite{cosentino2017systematic}.
-GitHub is a website where users can create dedicated pages (called 'repositories')
-to upload code and interact with it.
-The use of such code hosting websites
-has increased strongly \cite{russell2018large},
-accommodates collaboration \cite{perez2016ten}
-and improves transparency \cite{gorgolewski2016practical}.
-See \cite{cosentino2017systematic} for an extensive overview of
-research conducted on GitHub.
 
-\iffalse
-An example from the author is the website \cite{bbbqarticleissue157},
-that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}, 
-as shown in Figure \ref{fig:bbbqarticleissue157}.
-\fi
-
-\iffalse
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=\linewidth]{bbbq_article_issue_157.png}
-  \caption{
-    A typical GitHub repository \cite{bbbqarticleissue157}, 
-    hosting the code for a
-    computational experiment, 
-    as published with \cite{bilderbeek2022transmembrane}.
-    Note that this repository has 72 commits, where a commit is a change
-    to the code.
-  }
-  \label{fig:bbbqarticleissue157}
-\end{figure}
-\fi
 
 
 \subsubsection{... to replicate an experiment}
@@ -668,8 +771,6 @@ needs at least two values to work as expected.
 
 \subsubsection{... to extend an experiment}
 
-In software development, 
-changes are common and should be embraced \cite{beck2000extreme}.
 
 
 % \paragraph{Code must be tested}
@@ -716,40 +817,7 @@ be acquired when using code hosting website.
 \end{figure}
 \fi
 
-% \paragraph{Continuous integration helps assess code quality}
 
-Some code hosts, among others, GitHub, 
-allow the researcher/user to start software scripts upon uploading a change.
-This is useful to determine the reproducibility of the code: 
-one such script should run the code (on trivial data) 
-to verify if the code works at all.
-If the functionality of the code is lost, the researcher
-can immediatly see which small change was the cause of this.
-A formalized version of this workflow is called continuous integration (CI).
-Using a CI service (such as GitHub Actions for GitHub), 
-is known to significantly 
-increase the number of bugs exposed \cite{vasilescu2015} and increases
-the speed at which new features are added \cite{vasilescu2015}.
-Using CI opens up the possibility to informally annotate features of
-a repository. 
-\iffalse
-For example, Figure \ref{fig:build_badge} shows a 
-build badge that indicates that a \LaTeX document (i.e. this paper)
-could be built.
-\fi
-
-\iffalse
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=\linewidth]{build_badge.png}
-  \caption{
-    A build badge for the GitHub repository of this article.
-    The description indicates which process it is that the badge
-    signals success (as in this case) or failure of. 
-  }
-  \label{fig:build_badge}
-\end{figure}
-\fi
 
 % \paragraph{Adding a license}
 
@@ -814,29 +882,6 @@ make the code more FAIR data \cite{wilkinson2016fair}.
 The most reproducible way of submitting the code of an experiment,
 is by providing the code with all the (software) dependencies 
 it needs installed in a virtual container.
-This is close to the golden standard suggested by 
-\cite{peng2011reproducible} 
-\iffalse
-(see also Figure \ref{fig:peng2011reproducible})
-\fi
-,
-however, that article was written before virtualization existed.
-Virtualization allows one to provide a standard environment,
-that can be used on any other computer.
-The best known examples of container software are Docker and Singularity.
-Due to access rights, Singularity is the only viable option to run
-an experiment on a 
-high performance computing (HPC) environment (e.g. a computer cluster).
-
-% \paragraph{Containers allow for runnable code, for longer periods of time}
-
-Unlike English, code is fragile in standing the test of time.
-Containers can alleviate this, as these can be created at a point
-in time and then run later. Because the container is stand-alone,
-all software that the code depends on remain in their current/old state.
-As with hosted code, an experiment may not run with newer versions
-of libraries anymore, but a containerized experiment can run regardless, 
-if one refrains from updating (or only does so when there are there problems with fixing).
 
 Ideally, to re-do an experiment, one would need a one-liner to a container,
 for example, \verb|singularity run my_experiment.sif run|.
@@ -854,6 +899,7 @@ system, or data that are downloaded from additional online sources.
 
 Containers allow a computation experiment to be highly re-usable,
 as any scientist can work with it and tweak code.
+
 
 For those 22 (out of 180) Science magazine corresponding authors 
 that supplied code and that code was estimated to be 
@@ -897,16 +943,6 @@ Such tools combine great with CI services.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preserving code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Preserving code by uploading it to a code hosting webite
-has many advantages.
-Code is harder to preserve than an English text
-and preserving code is rarely done \cite{barnes2010publish}.
-Although code is the primary actor in computational experiments,
-there is no incentive to submit code alongside a publication.
-Most academic journal do not require authors to submit their code,
-nor is the submitted code peer reviewed, 
-rOpenSci \cite{ram2018community} being the pleasant exception.
 
 % \paragraph{Hosted code has important metadata}
 
