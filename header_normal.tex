@@ -32,7 +32,7 @@
 % Affiliations
 \usepackage{authblk}
 \title{
-  The computer code of computational research is vital paradata, the academic paper optional metadata
+  Making research code useful paradata
 }
 \author[1]{Richèl J.C. Bilderbeek}
 % \affil[1]{Department of Immunology, Genetics and Pathology, Science for Life Laboratory, Uppsala University, Uppsala, Sweden}
@@ -58,8 +58,6 @@
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{longtable}
 
-% sidewaysfigure
-\usepackage{rotating}
 
 % Style of listings
 % From http://r.789695.n4.nabble.com/
@@ -103,14 +101,11 @@
 % from https://tex.stackexchange.com/a/278140
 \renewcommand{\thesubfigure}{\Alph{subfigure}}
 
-%comments
-\newcommand{\richel}[1]{\textcolor{orange}{\textbf{[RB: #1]}}}
-
 \begin{document}
 
 \maketitle
 
-\setcounter{tocdepth}{4} % Show paragraphs
+% \setcounter{tocdepth}{4} % Show paragraphs
 \tableofcontents
 
 \include{article}
