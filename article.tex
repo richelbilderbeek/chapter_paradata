@@ -13,7 +13,7 @@ This study applies those recommendations to computer code,
 using the field of genetic epidemiology
 as an example.
 The chapter concludes by some rules how to better code to serve as paradata,
-and hence allowing computational research to be truly reproducible.
+and hence allowing computational research to be more reproducible.
 } % abstract
 
 {\bf Keywords:} paradata, reproducible research, code, software,
@@ -26,17 +26,18 @@ genetic epidemiology
 
 \begin{table}[h]
   \begin{tabular}{lp{5cm}p{5cm}}
-    Term      & Definition                                            & Example                                                         \\
+    Term         & Definition                                                                   & Example                                                         \\
     \hline
-    Code      & Body of text to be run by a computer                  & The scripts run by a computational experiment                   \\
-    Data      & Individual facts, statistics, or items of information & A SNP that has a significant association                        \\
-    Genotype  & The DNA allele at a certain location                  & AA, AC, CG, GT, ...                                             \\
-    Paradata  & Data that describe the process of generating data     & The code to conclude that a SNP has a significant association   \\
-    Phenotype & How an organism looks like in the broadest sense      & The concentration of IL6RA in the blood                         \\
-    Primary data & Data that are worked with in a research            & The genotype of individuals   \\
-    Metadata  & Data that provide information about other data        & The article that describes an experiment                        \\
-    Raw data  & Data directly from the real world, that are not yet ready to be primary data & The raw results of getting the genotypes of individuals   \\
-    Trait     & A phenotype                                           & The concentration of IL6RA in the blood                         
+    Code         & Body of text to be run by a computer                                         & The scripts run by a computational experiment                   \\
+    Data         & Individual facts, statistics, or items of information                        & The name of a SNP known to have a significant association       \\
+    Genotype     & The DNA allele at a certain location                                         & AA, AC, CG, GT, ...                                             \\
+    Paradata     & Data that describe the process of generating data                            & The code to conclude that a SNP has a significant association   \\
+    Phenotype    & How an organism looks like in the broadest sense                             & The concentration of IL6RA in the blood                         \\
+    Primary data & Data that is the foundation of an experiment                                 & The genotype of individuals                                     \\
+    Metadata     & Data that provide information about other data                               & The article that describes an experiment                        \\
+    Raw data     & Data directly from the real world, that are not yet ready to be primary data & The raw results of getting the genotypes of individuals         \\
+    SNP          & A named location within a genome                                             & \verb|rs12133641|                                               \\
+    Trait        & A phenotype                                                                  & The concentration of IL6RA in the blood                         
   \end{tabular}
   \caption{Terms used in this paper, and their definitions}
   \label{tab:definitions}
@@ -64,10 +65,10 @@ computer code (from now on: 'code') that was used to generate the results,
 where the other does.
 Are the conclusion of these papers to be trusted equally?
 Is this difference relevant and worth the effort?
+How common is it to share code, and, if shared, how can it be preserved?
 This chapter discusses why code, a type of paradata, 
-should be supplied
-and how it should be supplied,
-and claims that code is just as important as the paper itself.
+should be supplied and what features it needs to have
+for it to be useful.
 
 % \paragraph{The first use of paradata}
 
@@ -109,7 +110,7 @@ make paradata useful for data re(use):
 paradata should be comprehensive, documented in a useful way, 
 the documention and data should have co-evolved, 
 and the paradata should be computer-friendly \cite{huvila2022improving}.
-At first glance, these suggestions appear to work well for code too
+At first glance, these suggestions appear to work well for code
 and will be discussed in detail below.
 
 % \paragraph{The goal of good paradata}
@@ -117,7 +118,7 @@ and will be discussed in detail below.
 There are multiple reasons why useful paradata matter. 
 Most obvious is that having useful paradata gives an understanding how
 data is produced.
-This insight helps researchers from different fields to understand each other
+This knowledge helps researchers from different fields to understand each other
 and collaborate.
 Additionally, useful open data is needed for Open Science to convincingly show
 its benefits.
@@ -145,12 +146,12 @@ However, it is not common to publish the code of an experiment or analysis
 being \cite{conesa2019making}).
 For example, in computer graphics, 
 a field intimately familiar with computer code,
-192 of 454 SIGGRAPH papers supply computer code \cite{bonneel2020code}.
+42\% of 454 SIGGRAPH papers supply computer code \cite{bonneel2020code}.
 Another study analysed the reproducibility of registered reports
 in the field of psychology, 
-where 37 out of 62 studies supplied the code 
+where 60\% of 62 studies supplied the code 
 to redo the analysis \cite{obels2020analysis}.
-For articles in Science magazine (years 2011-2012), 24 out of 204
+For articles in Science magazine (years 2011-2012), 12\% of 204
 studies published the code \cite{stodden2018empirical}.
 Unpublished code has been the cause of some saddening examples,
 such as an algorithm that detects breast cancer from images 
@@ -160,13 +161,15 @@ yet failed to ever be reproduced \cite{haibe2020importance}.
 % \paragraph{Obtaining code by email}
 
 When code of an academic paper is not published, 
-one can contact the correspending author and request it.
+one could contact the correspending author and request it.
 However, the reponse rate of correnspondence authors 
 with a request for data in computational fields is around 50\% 
 \cite{manca2018non, stodden2018empirical, teunis2015corresponding} 
-(for the field of emergency medicine, these rates are 73\% \cite{o2003email}).
+(the field of emergency medicine seems to be a pleasant outlier, 
+with 73\% of 118 emails being replied \cite{o2003email}).
 When getting an answer of the corresponding author, 
-half (65 out of 134) will actually share the code \cite{stodden2018empirical}.
+48\% out of 134 replied emails will actually result 
+in a sharing of the code \cite{stodden2018empirical}.
 The responses of unwilling authors (see \cite{stodden2018empirical} for 
 some real examples) can come across as so caustic, 
 that one is excused from not contacting an a corresponding author.
@@ -178,8 +181,8 @@ that one is excused from not contacting an a corresponding author.
 % \paragraph{Introduction}
 
 This paper uses genetic epidemiology as a specific example,
-to illustrate that the code is paradata,
-and that this type of paradata is relevant.
+to illustrate in which way code is paradata,
+and why this type of paradata is relevant.
 However, any field that uses computation 
 and sensitive data in its experiments,
 could be used as an example.
@@ -201,9 +204,9 @@ yet any human property, such as weight or height can be studied.
 When an association between genotype and phenotype is found,
 these associations are subsequently used to 
 create so-called 'gene panels', 
-where the gene causing 
-an association is measured specifically, to, among others,
-detect people at risk for the associated phenotype.
+where the location of the gene causing 
+an association is measured specifically, 
+to detect people at risk for the associated phenotype.
 The rest of this section describes a genetic epidemiology study 
 in more detail, with special focus on the computational experiment.
 
@@ -250,18 +253,26 @@ blood \cite{enroth2014strong,enroth2015effect}.
 
 The first type of primary data, the genotypes, 
 consists out of single nucleotide polymorphisms (SNPs, pronounced 'snips').
-A SNP has a name and a location on the DNA, at which there is a certain nucleotide.
-DNA (organized into chromosomes and present in every (nucleated) cell, 
+A SNP has a name and a location within the genome.
+At the SNP's location in the DNA, there will be two nucleotides.
+One of these nucleotides is inherited from the mother, 
+the other from the father.
+The DNA consists out of billions of nucleotides.
+There are four types of nucleotides,
+called adenosine, cytosine, guanine and thyrosine, 
+commonly abreviated as A, C, G and T respectively
 \iffalse
 (see figure \ref{fig:eukakyote_dna}))
 \fi
-consists out of billions of nucleotides.
-There are four types of nucleotides, 
-called adenosine, cytosine, guanine and thyrosine, all commonly abreviated
-as A, C, G and T respectively.
+.
+
 One SNP example is \verb|rs12133641|, which is a SNP located at position 
-154,428,283, where 67 percent of the people within this study have an A,
+154,428,283 (it is at the 154 millionth position, which happens to be located
+on the first chromosome), 
+where 67 percent of the people within this study have an A,
 and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
+From this it follow (assuming the nucleotides act independently)
+that 45\% of subjects have the genotype AA, 44\% have AG and 11\% have GG.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -283,12 +294,15 @@ and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
 
 The second type of data, the phenotypes, 
 are concentrations of proteins in the blood. 
-DNA contains the code for building proteins
+The nucleotides of the DNA contain the code for building proteins
 \iffalse
 (see Figure \ref{fig:dna_to_protein})
 \fi
-, as well as the rate
-at which a protein is created. Some proteins end up in the blood and
+,
+as well as the rate at which a protein is created (for 
+sake of simplicity it is assumed that such a rate is constant,
+in practice there are complex regulation mechanisms).
+Some proteins end up in the blood and
 their presence can be used to assess the health of an individual.
 IL6RA is one such protein and its concentration may (and will, see below)
 be associated with the SNP mentioned earlier.
@@ -309,18 +323,18 @@ the higher concentration of IL6RA can be found in a human's blood
 (see figure \ref{fig:ahsan2017relative_table_2_sub})
 \fi
 . The amount of variance that can be explained by an association (i.e.
-the R squared value) is rarely 100 percent, which means that a trait (in
+the \begin{math}R^2\end{math}) is rarely 100\%, which means that a trait (in
 this case, the concentration of IL6RA) cannot be perfectly explained
 from the genotype (in this case, SNP \verb|rs12133641|) alone. 
-In this example, 43 percent of the variance 
+In this example, as much as 43\% of the variance 
 can be attributed to an individuals' genotype
 \iffalse
 (see figure \ref{fig:ahsan2017relative_table_2_sub})
 \fi
 . Additional factors, 
 such as the effect
-of the environment (e.g. geographic location, time of day), 
-lifestyle (e.g. smoking yes/no) or having a disease (e.g. diabetes) 
+of the environment (e.g. geographic location, time of day the measurement 
+was done), lifestyle (e.g. smoking yes/no) or having a disease (e.g. diabetes) 
 are needed to explain the additional variation.
 
 \iffalse
@@ -380,8 +394,22 @@ is impossible to detect at the present
 and associations found in earlier studies are used to create a gene panel.
 As creating a gene panel is costly, those associations better be correct.
 
+Additionally, there is an interdependency of scholarly findings here:
+the SNP has received its name based on a computational experiment.
+The experiment that concluded the usefulness of that SNP, 
+as well as this experiment, are based on DNA sequences.
+DNA sequences, however, are (nowadays) not simply read, 
+yet are the result of a complex computational analysis,
+with its own dedicated field of research.
+Both studies assumed a correct inference of DNA.
+This means that if the DNA sequence analysis contained a software bug, 
+this study may be invalidated. 
+Additionally, the result of this study may be used in follow-up studies,
+that assume the result to be correctly calculated: one paper's conclusion
+is the next paper's assumption.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Code is just as important as the paper}
+\section{Why code is useful paradata}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \paragraph{The experiments within genetic epidemology works are done by code}
