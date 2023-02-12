@@ -73,11 +73,11 @@ for it to be useful.
 % \paragraph{The first use of paradata}
 
 The concept of paradata (although not named as such yet) 
-was introduced by \cite{couper1998measuring},
+was introduced by Couper and colleagues,
 who developed a computer-assisted interview program
 that, among others, records all key strokes,
 measures the time used to answer each question 
-and even the time the monitor is turned off.
+and even the time the monitor is turned off \cite{couper1998measuring}.
 The goal in that context was to assess and improve survey quality.
 
 % \paragraph{Definition of paradata}
@@ -125,6 +125,7 @@ its benefits.
 Finally, in computational fields, 
 it can help understand how scholarly knowledge is produced
 \cite{huvila2022improving}.
+This paper discusses these general reasons applied to code.
 
 \begin{figure}[!htbp]
   \centering
@@ -151,8 +152,9 @@ Another study analysed the reproducibility of registered reports
 in the field of psychology, 
 where 60\% of 62 studies supplied the code 
 to redo the analysis \cite{obels2020analysis}.
-For articles in Science magazine (years 2011-2012), 12\% of 204
-studies published the code \cite{stodden2018empirical}.
+For articles in Science magazine, 12\% of 204
+studies published the code \cite{stodden2018empirical} 
+(note that these were years 2011-2012).
 Unpublished code has been the cause of some saddening examples,
 such as an algorithm that detects breast cancer from images 
 better than a human expert, 
@@ -172,7 +174,7 @@ When getting an answer of the corresponding author,
 in a sharing of the code \cite{stodden2018empirical}.
 The responses of unwilling authors (see \cite{stodden2018empirical} for 
 some real examples) can come across as so caustic, 
-that one is excused from not contacting an a corresponding author.
+that one may be excused from not contacting an a corresponding author.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Genetic epidemiology}
@@ -194,7 +196,7 @@ tries to determine the spread of heritable traits
 and their underlying biological mechanism.
 For example, we know that lactose intolerance in adults is
 caused by a decline in the production of lactose-degrading enzymes,
-and is most commonly found in south-east asia and south africa \cite{storhaug2017country}.
+and is most commonly found in south-east Asia and south Africa \cite{storhaug2017country}.
 The trait is caused by the genetic make-up, or 'genotype'
 (see Table \ref{tab:definitions} for the definitions of terms used in this paper), 
 of a person.
@@ -202,7 +204,7 @@ The trait, also called 'phenotype' (again, see Table \ref{tab:definitions}),
 in this example is lactose intolerance at adult age,
 yet any human property, such as weight or height can be studied.
 When an association between genotype and phenotype is found,
-these associations are subsequently used to 
+these associations, when relevant enough, are used to 
 create so-called 'gene panels', 
 where the location of the gene causing 
 an association is measured specifically, 
@@ -260,18 +262,18 @@ the other from the father.
 The DNA consists out of billions of nucleotides.
 There are four types of nucleotides,
 called adenosine, cytosine, guanine and thyrosine, 
-commonly abreviated as A, C, G and T respectively
+commonly abreviated as A, C, G and T 
 \iffalse
 (see figure \ref{fig:eukakyote_dna}))
 \fi
-.
+respectively.
+
 
 One SNP example is \verb|rs12133641|, which is a SNP located at position 
-154,428,283 (it is at the 154 millionth position, which happens to be located
-on the first chromosome), 
+154,428,283 (that is, at the 154 millionth nucleotide), 
 where 67 percent of the people within this study have an A,
 and 33 percent have a G (also from \cite{ahsan2017relative}, Table S3).
-From this it follow (assuming the nucleotides act independently)
+From this it follow (assuming the nucleotides are inherited independently)
 that 45\% of subjects have the genotype AA, 44\% have AG and 11\% have GG.
 
 \iffalse
@@ -301,7 +303,7 @@ The nucleotides of the DNA contain the code for building proteins
 ,
 as well as the rate at which a protein is created (for 
 sake of simplicity it is assumed that such a rate is constant,
-in practice there are complex regulation mechanisms).
+yet, in practice there are complex regulation mechanisms).
 Some proteins end up in the blood and
 their presence can be used to assess the health of an individual.
 IL6RA is one such protein and its concentration may (and will, see below)
@@ -309,15 +311,15 @@ be associated with the SNP mentioned earlier.
 
 The field of genetic epidemiology looks -among others- for
 correlations between genetic data and biological traits.
-For example, \cite{ahsan2017relative} shows that
+For example, Ahsan and colleagues show that
 SNP \verb|rs12133641| is highly correlated (p-value is $3.0^{-73}$
 \iffalse
 (see figure \ref{fig:ahsan2017relative_table_2_sub})
 \fi
 ,
-for $n$ = 961 individuals) with protein IL6RA.
+for $n$ = 961 individuals) with protein IL6RA \cite{ahsan2017relative}.
 The direction of the association is also concluded:
-the more guanines (as opposited to adenines) are present at that SNPs location,
+the more guanines are present at that SNPs location,
 the higher concentration of IL6RA can be found in a human's blood
 \iffalse
 (see figure \ref{fig:ahsan2017relative_table_2_sub})
@@ -401,7 +403,7 @@ as well as this experiment, are based on DNA sequences.
 DNA sequences, however, are (nowadays) not simply read, 
 yet are the result of a complex computational analysis,
 with its own dedicated field of research.
-Both studies assumed a correct inference of DNA.
+Both studies assumed a correctly calculated DNA sequence.
 This means that if the DNA sequence analysis contained a software bug, 
 this study may be invalidated. 
 Additionally, the result of this study may be used in follow-up studies,
@@ -450,14 +452,14 @@ To some, it appears that
 the academic culture to reproduce results 
 has been lost over time \cite{peng2011reproducible},
 with labs that embrace reproducibility (for example, \cite{barba2016hard})
-are the exception.
+being the exception.
 One suggested way forward is to make the reproduction of 
 research a minimal requirement for publication \cite{peng2011reproducible}.
 
 % \paragraph{Sensitive data}
 
 A genetic epidemiologist works with sensitive data as well:
-the genetic sequences of participants are private (\cite{clayton2019law}).
+the genetic sequences of participants are private \cite{clayton2019law}.
 For research to be reproducible one needs both the code and the data
 to reproduce the (hopefully) same results.
 This problem is discussed in section \ref{sec:sensitive-data}.
@@ -497,7 +499,7 @@ to be less than the average concentration in those with GG.
 
 We ignore the choices of words and style of this sentence: what is
 important is the content: an unpaired one-tailed T test is performed.
-Taking a look at the (in this case, the programming language R) code, 
+Taking a look at the (in this case, the programming language R \cite{r}) code, 
 we find the following line:
 
 \begin{verbatim}
@@ -517,9 +519,9 @@ higher than needed, resulting in less significant findings, which
 results in (needlessly) less conclusions drawn in this fictional paper.
 
 Note that there is another side of this same coin:
-correctly reporting the T-test in a reproducable ways
+correctly reporting the t-test in a reproducable ways
 is known to be a problem, with only 80 out of a selected 179 papers
-fully reporting the parity of T-test (i.e. paired or unpaired) 
+fully reporting the parity of t-test (i.e. paired or unpaired) 
 \cite{weissgerber2018we}.
 In those unresolved 99 papers, 
 the code (if published) would clarify this.
@@ -546,7 +548,7 @@ the code (if published) would clarify this.
 
 It is the paper that accompanies the code,
 as it is the code that generates the results.
-When humans are fallible and code gets bigger, the likelihood of
+As humans are fallible and code gets bigger, the likelihood of
 a mismatch between the English paper and the code increases.
 We know that the most common errors are 
 simple (and may legitimately fear that those simple errors are common) 
@@ -558,15 +560,13 @@ examples given in that paper.
 \section{Preserving code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Preserving code in a reliable way is rare \cite{barnes2010publish}.
-In general, within software development, 
-changes at all levels are common
-and embracing those changes is recommended \cite{beck2000extreme}
-and useful code does so.
+
+Code is rarely preserved \cite{barnes2010publish}.
+If it is, keeping it running is even more rare.
 This section discusses the preservation of code for a short, medium
 and long term.
 
-\subsection{Code hosting}
+\subsection{Code hosting}\label{subsec:code-hosting}
 
 To preserve code for a short term, 
 a code hosting website is a good first step.
@@ -575,8 +575,8 @@ its users can create dedicated pages (called 'repositories')
 for a project, upload code and interact with that code.
 There are multiple code hosting websites, 
 with GitHub being the most popular one \cite{cosentino2017systematic}.
-The \LaTeX code of this chapter is hosted on GitHub 
-as well, at \url{https://github.com/richelbilderbeek/chapter_paradata}.
+For example, the \LaTeX code of this chapter is hosted on GitHub 
+as well, at \begin{sloppypar}\url{https://github.com/richelbilderbeek/chapter_paradata}\end{sloppypar}.
 The use of code hosting websites
 has increased strongly \cite{russell2018large},
 accommodates collaboration \cite{perez2016ten}
@@ -609,9 +609,10 @@ as shown in Figure \ref{fig:bbbqarticleissue157}.
 
 % \paragraph{Hosted code keeps a history of changes}
 
-Hosted code commonly has a commit history,
+Hosted code commonly keeps a history of file changes,
+a so-called commit history,
 where a commit is the description of the change, 
-as well as the changes in one or more file.
+as well as the changes in one or more files.
 For example, GitHub
 uses a version control system called \verb|git| (hence its name).
 In practice, this means that when a change is made to the code,
@@ -620,26 +621,8 @@ one can go back to an earlier version and continue again from there.
 It is a general recommendation to put version control
 on all human-produced data \cite{wilson2014best},
 as well as openly working on the code from the start \cite{jimenez2017four}.
-However, half of 56 Science magazine corresponding authors 
-does not have such a version control mechanism \cite{stodden2018empirical}.
-
-% \paragraph{A commit history helps assess honest reporting}
-
-Hosted code improves transparency \cite{gorgolewski2016practical},
-as, among others, the history of changes (i.e. the git commit history), 
-helps to assess the honesty in the reporting of the code. 
-Ideally, the full version history of the code 
-has been generated, by hosting the code directly at its inception,
-so that the ontology of the experiment can be viewed.
-However, in some repositories, only the final version of the code has been
-posted, which means all historical information is lost.
-The code history has many important properties,
-as, for example, 
-it can be observed how much statistical tests have really/actually been done 
-and see if all are reported:
-failing to reporting a (usually non-significant) statistical tests is 
-one of the many degrees of freedom 
-in p-value hacking \cite{wicherts2016degrees}.
+Half of 56 Science magazine corresponding authors 
+have such a version control mechanism \cite{stodden2018empirical}.
 
 % \paragraph{Metrics help assess the honest division of labour}
 
@@ -669,15 +652,18 @@ be acquired when using code hosting website.
 \end{figure}
 \fi
 
-However, if the code breaks tomorrow, it will go unnoticed.
-
-
+A code host, however, will not actively preserve the uploaded code:
+if the code breaks tomorrow, it will go unnoticed.
 
 \subsection{Continuous integration}
 
 To preserve code for a longer timespan, 
-continuous integration allows one to 
+continuous integration ('CI') allows one to 
 verify if code still works and, if not, to be notified on the need for an update.
+Things change: from operating systems, to libraries that code uses,
+to the code itself. 
+Embracing those changes is recommended \cite{beck2000extreme} 
+and useful code does so.
 
 % \paragraph{Continuous integration helps assess code quality}
 
@@ -688,7 +674,6 @@ one such script should run the code (on trivial data)
 to verify if the code works at all.
 If the functionality of the code is lost, the researcher
 can immediatly see which small change was the cause of this.
-A formalized version of this workflow is called continuous integration (CI).
 Using a CI service (such as GitHub Actions for GitHub), 
 is known to significantly 
 increase the number of bugs exposed \cite{vasilescu2015} and increases
@@ -713,22 +698,6 @@ could be built.
   \label{fig:build_badge}
 \end{figure}
 \fi
-
-However, for code to work longer, one can put the code and its dependencies in
-a container, that should be best in standing the test of time,
-as the degradation of software is a known feature for nearly 
-four decades (see the definition of 'bit rot' at \cite{steele1983hacker}),
-here a more modern (and in this context superior)
-definition is used: software collapse \cite{hinsen2019dealing},
-in which software fails due to dependencies on other 
-software.
-Where that paper recommends using older software foundations 
-with multiple implementations \cite{hinsen2019dealing},
-this paper recommends a modern solution that potentially has more 
-longevity:
-to publish the code installed in a virtual environment
-(including the dependencies used at that time), as described below.
-
 
 % \paragraph{Ideal paradata}
 
@@ -762,7 +731,25 @@ The cyclomatic complexity correlates with code complexity,
 where more complex code is likelier to contain or give rise to bugs 
 \cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}.
 
+However, for code to work longer, one can put the code and its dependencies in
+a container, that should be best in standing the test of time,
+as the degradation of software is a known feature for nearly 
+four decades (see the definition of 'bit rot' at \cite{steele1983hacker}),
+here a more modern (and in this context superior)
+definition is used: software collapse \cite{hinsen2019dealing},
+in which software fails due to dependencies on other 
+software.
+Where that paper recommends using older software foundations 
+with multiple implementations \cite{hinsen2019dealing},
+this paper recommends a modern solution that potentially has more 
+longevity:
+to publish the code installed in a virtual environment
+(including the dependencies used at that time), as described below.
+
 Such tools combine great with CI services.
+
+Using CI does not prevent code from breaking. Instead,
+it allows one to be the first to know if code breaks.
 
 \subsection{Containerization}
 
@@ -777,8 +764,7 @@ This is close to the golden standard suggested by
 \iffalse
 (see also Figure \ref{fig:peng2011reproducible})
 \fi
-,
-however, that article was written before virtualization existed.
+(however, that article was written before virtualization existed).
 Virtualization allows one to provide a standard environment,
 that can be used on any other computer.
 The best known examples of container software are Docker and Singularity.
@@ -786,16 +772,6 @@ Due to access rights, Singularity is the only viable option to run
 an experiment on a 
 high performance computing (HPC) environment (e.g. a computer cluster),
 as are commonly needed in the field of genetic epidemiology experiments.
-
-% \paragraph{Containers allow for runnable code, for longer periods of time}
-
-Unlike English, code is fragile in standing the test of time.
-Containers can alleviate this, as these can be created at a point
-in time and then run later. Because the container is stand-alone,
-all software that the code depends on remain in their current/old state.
-As with hosted code, an experiment may not run with newer versions
-of libraries anymore, but a containerized experiment can run regardless, 
-if one refrains from updating (or only does so when there are there problems with fixing).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Making code useful paradata}\label{sec:making-code-useful-paradata}
@@ -806,9 +782,10 @@ documented appropriately, documented in co-evolution with the data,
 and the data should be friendly to computers \cite{huvila2022improving}.
 In this section, these ideal properties of paradata are applied to code.
 However, code has multiple uses, which have different requirements
-for being usesful paradata.
+for being useful paradata.
+
 Code can be used to reproduce, to replicate and to 
-extend a computational experiment \cite{benureau2018re},
+extend a computational experiment \cite{benureau2018re} and
 each of these uses has different requirements for the code to be useful paradata.
 In this section, the recommendations how to make paradata useful
 is applied to code and compared to existing best practices in software 
@@ -886,22 +863,11 @@ as well as to include many examples \cite{lee2018ten}.
 For code to be ideal paradata, it must be extensive.
 As code has many properties, there are many recommendations on this aspect.
 
-\subsubsection{... to reproduce an experiment}
-
-% \paragraph{Code should be hosted}
-
-Code should be hosted.
-
-
-For code to be extensive enough to reproduce an existing experiment,
-it should be distributed in standard ways \cite{peng2006reproducible}
+Code should be distributed in standard ways \cite{peng2006reproducible}
 (see section \ref{sec:code-availability}
 for the general availability of code).
-The standard way to publish code is to use a code hosting website.
-
-
-
-\subsubsection{... to replicate an experiment}
+The standard way to publish code is to use a code hosting website
+(see subsection \ref{subsec:code-hosting}).
 
 % \paragraph{Code must have extensive error handling}
 
@@ -909,7 +875,7 @@ Code must be more extensive when it is (intended to be)
 used on different data,
 as then 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
 Error handling is one of the mechanisms to do so.
-One example is, again, when doing a t-test:
+One example is when doing a t-test:
 to compare the means of two distributions, each distribution
 must have at least two values
 and, if not, the programming language should signal the error clearly.
@@ -917,10 +883,6 @@ In genetic epidemiology, it is common to have incomplete or missing data,
 so analyses should take into account that there are not always enough
 observations to do a t-test.
 The analytical code should clearly signal this problem.
-
-\subsubsection{... to extend an experiment}
-
-
 
 % \paragraph{Code must be tested}
 
@@ -945,6 +907,16 @@ For example, build badges
 \fi
 are visual indications on a website that can, among others,
 show a certain R package's code has a 100\% code coverage.
+
+% \paragraph{Test-driven development}
+
+Having a 100\% code coverage is not uncommon,
+as there is a common software development practice that 
+strives for this, called test-driven development ('TDD'). 
+TDD is a software development strategy in which tests are written
+before new 'real' code is written.
+TDD improves code quality \cite{alkaoud2018quality,janzen2006test}
+and writing comment and documentation mixes well \cite{shmerlin2015document}.
 
 \iffalse
 \begin{figure}[!htbp]
@@ -986,11 +958,6 @@ that shared their code supply a software license \cite{stodden2018empirical}.
 \end{figure}
 \fi
 
-% \paragraph{Test-driven development}
-
-TDD improves code quality \cite{alkaoud2018quality,janzen2006test}
-and writing comment and documentation mixes well \cite{shmerlin2015document}.
-
 % \paragraph{Code must be reviewed to ensure the correct amount of documentation}
 
 In an informal Twitter poll,
@@ -1022,7 +989,7 @@ given the same data, an experiment put into a container will give
 the same results on different platforms, at least in theory.
 In practice, differences may be observed when peripheral factors
 are different, such as the random numbers as generated by an operating
-system, or data that are downloaded from online (and hence, changing) sources.
+system, or data that are downloaded from online (and hence, probably changing) sources.
 
 % \paragraph{Runnable code allows others to re-use an experiment}
 
@@ -1059,39 +1026,12 @@ together with the code.
 In the case of genetic epidemiology this would mean
 simulated genotypes and associated phenotypes,
 as can be done with the \verb|plinkr| R package \cite{plinkr}.
-This solution, however, is known to all developer that follow
+This solution, however, is known to all developers that follow
 good practices when writing code, as public (i.e. simulated) 
-datasets are needed for automatic testing of code.
+datasets are needed for automatic CI testing of code.
 One extra benefit of simulated data is that these can be used
 as a benchmark, as slightly different analyses should give 
 similar conclusions.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Suggestions for knowledge management}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Making code FAIR.
-
-\subsection{Hosted code}
-
-\subsection{CI code}
-
-\subsection{Code in container}
-
-Here are multiple suggestions to make containers with runnable code FAIR.
-To make such containers findable, the most common 
-environments (Syslabs and DockerHub) to upload containers must be indexed.
-Uploading a container to those environments is, however, limited by
-a restricted amount of free storage, with the possible consequence that
-those containers are uploaded somewhere where they escape proper indexing.
-Having containers uploaded at the existing websites ensures they are
-accessible, interoperable and reusable.
-One could argue however, that the scientific community need its own,
-similar website to upload containers, as the metadata for these
-sites are limited to free-text comments and tags (DockerHub)
-or not metadata at all (Syslabs).
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
@@ -1116,7 +1056,7 @@ Code needs maintanance:
 the libraries that are used by an experiment
 will change over time, inevitably causing the experiment to fail
 over time. 
-Write code that will stand the test of time perfectly
+Code that will stand the test of time perfectly 
 is deemed 'impossible' \cite{benureau2018re}.
 
 % \paragraph{Authors can be contacted}
@@ -1153,7 +1093,22 @@ Ideally, for Singularity, this would be at the main container hosting
 site called Syslabs. Using Syslabs is free upon registration, 
 yet there is a limit of 15 Gb. Also, Sylabs does not allow much metadata to
 be entered, such as the URL of the article, nor the URL of hosted code.
-Also, journals do not request hosted code, nor runnable code.
+
+% \paragraph{Code in container}
+
+Here are multiple suggestions to make containers with runnable code FAIR.
+To make such containers findable, the most common 
+environments (Syslabs and DockerHub) to upload containers must be indexed.
+Uploading a container to those environments is, however, limited by
+a restricted amount of free storage, with the possible consequence that
+those containers are uploaded somewhere where they escape proper indexing.
+Having containers uploaded at the existing websites ensures they are
+accessible, interoperable and reusable.
+One could argue however, that the scientific community need its own,
+similar website to upload containers, as the metadata for these
+sites are limited to free-text comments and tags (DockerHub)
+or not metadata at all (Syslabs).
+
 
 % \paragraph{The drawbacks of publishing code}
 
