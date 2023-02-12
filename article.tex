@@ -422,23 +422,33 @@ To be more precise, it was code that read the data,
 subsetted the data, removed outliers, 
 performed the statistics and generated the plots.
 For the rest of the discussion, we assume that the
-code is available to us (note that it is not
-published with the paper, see section \ref{sec:code-availability} 
+code is available to us (if not, see section \ref{sec:code-availability} 
 for a glum estimate of the chance of obtaining the code).
+
+% \paragraph{Why useful code}
+
+There are multiple reasons why (useful) code matters,
+and these are the same reasons as why useful paradata matters:
+code gives an understanding how the raw results 
+and the subsequent scholarly knowledge is obtained from an experiment.
+Additionally, code helps researchers from different fields 
+to understand each other and collaborate.
+Additionally, code helps Open Science reach its goals of openness and
+transparency.
+The core of these reasons it to achieve reproducible science:
+that any person in any field can redo a computational experiment
+and see exactly what happened.
 
 % \paragraph{The goal of useful paradata is reproducible science}
 
-The reason behind paradata is, among others,
-to assure reproducible research \cite{huvila2022improving}.
-Reproducibility (i.e. to reproduce the same results) 
-and replicability (i.e. to reconclude a conclusion)
-are fundamental characteristics of scientific studies \cite{patil2019visual}.
-For computational science, it seems to be relatively easy to 
+For computational science, it may appear to be relatively easy to 
 reproduce an experiment, as all it takes is a computer, electricity,
 an optional internet connection, the code and the data.
-In practice, however, it appears that 
+In practice, however, 
+only 18\% of 180 studies are easily reproducible \cite{stodden2018empirical}.
+To some, it appears that 
 the academic culture to reproduce results 
-has been lost over time in general \cite{peng2011reproducible},
+has been lost over time \cite{peng2011reproducible},
 with labs that embrace reproducibility (for example, \cite{barba2016hard})
 are the exception.
 One suggested way forward is to make the reproduction of 
@@ -465,8 +475,7 @@ This problem is discussed in section \ref{sec:sensitive-data}.
 \end{figure}
 \fi
 
-From a broader perspective, code should be published, as it holds the
-ground truth of an experiment; it does the actual work.
+Code holds the ground truth of an experiment; it does the actual work.
 The more complex the computation pipeline is, the easier it is
 to have a mismatch between the article (that describes what the
 code does) and the code (that actually does the work).
@@ -541,7 +550,7 @@ When humans are fallible and code gets bigger, the likelihood of
 a mismatch between the English paper and the code increases.
 We know that the most common errors are 
 simple (and may legitimately fear that those simple errors are common) 
-\cite{baggerly2009deriving},
+\cite{baggerly2009deriving, vable2021code},
 and this example is not too far off from the
 examples given in that paper.
 
@@ -552,7 +561,8 @@ examples given in that paper.
 Preserving code in a reliable way is rare \cite{barnes2010publish}.
 In general, within software development, 
 changes at all levels are common
-and instead of ignoring that, it should be embraced \cite{beck2000extreme}.
+and embracing those changes is recommended \cite{beck2000extreme}
+and useful code does so.
 This section discusses the preservation of code for a short, medium
 and long term.
 
@@ -570,7 +580,8 @@ as well, at \url{https://github.com/richelbilderbeek/chapter_paradata}.
 The use of code hosting websites
 has increased strongly \cite{russell2018large},
 accommodates collaboration \cite{perez2016ten}
-and improves transparency \cite{gorgolewski2016practical}.
+and improves transparency \cite{gorgolewski2016practical},
+due to its inherent computer-friendliness.
 See \cite{cosentino2017systematic} for an extensive overview of
 research conducted on GitHub.
 
@@ -595,393 +606,6 @@ as shown in Figure \ref{fig:bbbqarticleissue157}.
   \label{fig:bbbqarticleissue157}
 \end{figure}
 \fi
-
-However, if the code breaks tomorrow, it will go unnoticed.
-
-\subsection{Continuous integration}
-
-To preserve code for a longer timespan, 
-continuous integration allows one to 
-verify if code still works and, if not, to be notified on the need for an update.
-
-% \paragraph{Continuous integration helps assess code quality}
-
-Some code hosts, among others, GitHub, 
-allow the researcher/user to start software scripts upon uploading a change.
-This is useful to determine the reproducibility of the code: 
-one such script should run the code (on trivial data) 
-to verify if the code works at all.
-If the functionality of the code is lost, the researcher
-can immediatly see which small change was the cause of this.
-A formalized version of this workflow is called continuous integration (CI).
-Using a CI service (such as GitHub Actions for GitHub), 
-is known to significantly 
-increase the number of bugs exposed \cite{vasilescu2015} and increases
-the speed at which new features are added \cite{vasilescu2015}.
-Using CI opens up the possibility to informally annotate features of
-a repository. 
-\iffalse
-For example, Figure \ref{fig:build_badge} shows a 
-build badge that indicates that a \LaTeX document (i.e. this paper)
-could be built.
-\fi
-
-\iffalse
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=\linewidth]{build_badge.png}
-  \caption{
-    A build badge for the GitHub repository of this article.
-    The description indicates which process it is that the badge
-    signals success (as in this case) or failure of. 
-  }
-  \label{fig:build_badge}
-\end{figure}
-\fi
-
-However, for code to work longer, one can put the code and its dependencies in
-a container, that should be best in standing the test of time.
-
-\subsection{Containerization}
-
-To preserve code for the longest time, 
-both code and its dependencies are put into a so-called container.
-
-The most reproducible way of submitting the code of an experiment,
-is by providing the code with all the (software) dependencies 
-it needs installed in a virtual container.
-This is close to the golden standard suggested by 
-\cite{peng2011reproducible} 
-\iffalse
-(see also Figure \ref{fig:peng2011reproducible})
-\fi
-,
-however, that article was written before virtualization existed.
-Virtualization allows one to provide a standard environment,
-that can be used on any other computer.
-The best known examples of container software are Docker and Singularity.
-Due to access rights, Singularity is the only viable option to run
-an experiment on a 
-high performance computing (HPC) environment (e.g. a computer cluster).
-
-% \paragraph{Containers allow for runnable code, for longer periods of time}
-
-Unlike English, code is fragile in standing the test of time.
-Containers can alleviate this, as these can be created at a point
-in time and then run later. Because the container is stand-alone,
-all software that the code depends on remain in their current/old state.
-As with hosted code, an experiment may not run with newer versions
-of libraries anymore, but a containerized experiment can run regardless, 
-if one refrains from updating (or only does so when there are there problems with fixing).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Making code useful paradata}\label{sec:making-code-useful-paradata}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-To repeat features of useful paradata: paradata should be comprehensive, 
-documented appropriately, documented in co-evolution with the data,
-and the data should be friendly to computers \cite{huvila2022improving}.
-In this section, these ideal properties of paradata are applied to code.
-However, code has multiple uses, which have different requirements
-for being usesful paradata.
-Code can be used to reproduce, to replicate and to 
-extend a computational experiment \cite{benureau2018re},
-each of these uses has different requirements for the code to be useful paradata.
-In this section, the recommendations how to make paradata useful
-is applied to code and compared to existing best practices in software 
-development, for the intended use of the code.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Code must be usefully documented}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-For code to be ideal paradata, it must be usefully 
-documented \cite{huvila2022improving}.
-What is 'useful' is determined by its intended use: 
-to reproduce, replicate or extend \ref{sec:making-code-useful-paradata}.
-The amount of documentation is, however, also determined
-by the recommended practices for writing code in general. 
-
-For purposes of reproducing (same code, same data) code,
-it should at least be documented how the code is run.
-However, 57\% out of 56 Science magazine corresponding authors 
-that shared their code has documented their code well enough to run it 
-and to be understood what it ought to do \cite{stodden2018empirical}.
-
-However, when an independent researcher can redo an experiment, 
-it is possible (even ideal!) that no code is read at all.
-Within that context, it could argued that no further documentation is needed.
-However, all code in general should be documented 
-'adequately' \cite{peng2006reproducible},
-ideally writing code in such a way that it becomes 
-self-explanatory \cite{wilson2014best}
-and for the remaining code to document the reasons behind it, 
-its design and its purpose \cite{wilson2014best}.
-
-For purposes of extending a study and its code, 
-documentation becomes even more important,
-as the code will be read and modified.
-The extent of investing time in documenting code is recommended
-to be proportional to the intended reuse \cite{pianosi2020successfully}
-and there exists a clear relationship between the reuse 
-of code and its documentation 
-effort \cite{cosentino2017systematic,hata2015characteristics}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Code and documentation must align}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-For code to be ideal paradata, 
-its creation and documentation need to align, 
-\emph{not least because they shape each other} \cite{huvila2022improving}.
-This emphasized part of the quote resonates strongly with the idea of 
-literate programming \cite{knuth1984literate},
-in which documentation and code is developed hand-in-hand.
-It is the practice of writing a document mixed with code that 
-will be run.
-Contemporary examples of this idea are, among others, 
-vignettes \cite{wickham2015r} (for the R programming language \cite{r}) 
-and Jupyter notebooks \cite{wang2020assessing} 
-(for the Julia \cite{Julia-2017}, Python \cite{van1995python} and R \cite{r}
-programming languages).
-rOpenSci, a community that, among others, reviews programming
-code (\cite{ram2013ropensci,ram2018community}), is 
-one example of where literate programming is enforced:
-code must have extensive runnable examples
-as part of the documentation \cite{ropensci_2021_6619350}.
-Developing code and documentation at the same time 
-leads to both better code and documentation \cite{reenskaug1989environment}.
-In general, when developing software, 
-it is recommended to 
-to write documentation while writing software,
-as well as to include many examples \cite{lee2018ten}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Code must be extensive}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-For code to be ideal paradata, it must be extensive.
-As code has many properties, there are many recommendations on this aspect.
-
-\subsubsection{... to reproduce an experiment}
-
-% \paragraph{Code should be hosted}
-
-Code should be hosted.
-
-
-For code to be extensive enough to reproduce an existing experiment,
-it should be distributed in standard ways \cite{peng2006reproducible}
-(see section \ref{sec:code-availability}
-for the general availability of code).
-The standard way to publish code is to use a code hosting website.
-
-
-
-\subsubsection{... to replicate an experiment}
-
-% \paragraph{Code must have extensive error handling}
-
-Code must be more extensive when it is (intended to be) 
-used on different data,
-as then 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
-Error handling is one of the mechanisms to do so.
-A simple example is when one (e.g. a BSc student) 
-needs to calculate the variance of a distribution.
-Commonly one needs to call a function to do so, 
-e.g. \verb|var| in R, that needs the values of the distribution
-as input.
-However, to calculate the variance of a distribution, at least two values
-are required (else a division by zero occurs in the calcation of the variance). 
-When the variance of (zero or) only one value is requested,
-an error message can helpfully indicate that the function 
-needs at least two values to work as expected.
-
-\subsubsection{... to extend an experiment}
-
-
-
-% \paragraph{Code must be tested}
-
-Coding errors are extremely common 
-and contribute to the reproducibility crisis in science \cite{vable2021code}.
-Testing, in general, is an important mechanism to ensure
-the correctness of code (an interesting example is \cite{rahman2020exploratory}
-showing bugs in scientific software on the COVID-19 pandemic).
-
-% \paragraph{Code coverage helps assess code quality}
-
-The percentage of (lines of) code tested is called the code coverage.
-Code coverage correlates with code quality \cite{horgan1994,del1995correlation}. 
-The non-profit organisation rOpenSci \cite{ram2018community},
-which peer-reviews code,
-has made it a prerequisite to have a code coverage of 100\%.
-Also here, CI opens up the possibility to informally annotate the
-code coverage. 
-For example, build badges
-\iffalse
-(e.g. as shown in Figure \ref{fig:badge_codecov})
-\fi
-are visual indications on a website that can, among others,
-show a certain R package's code has a 100\% code coverage.
-
-Hence, code coverage is important metadata, that can automatically
-be acquired when using code hosting website.
-
-\iffalse
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[]{badge_codecov.png}
-  \caption{
-    A build badge for the code coverage of an R 
-    package (\url{https://github.com/ropensci/beautier}).
-    The umbrella signals that the code coverage is hosted by
-    CodeCov (\url{https://codecov.io/}). 
-    The text indicates which process it is that the badge
-    signals, which in this case, is that the code is fully covered
-    by tests.
-  }
-  \label{fig:badge_codecov}
-\end{figure}
-\fi
-
-
-
-% \paragraph{Adding a license}
-
-Code hosting websites such as GitHub help developers to follow
-best practices. One of these is to add a software license \cite{jimenez2017four},
-so that it is clear that the software can be reused.
-About two-thirds of 56 Science magazine corresponding authors 
-that shared their code supply a software license \cite{stodden2018empirical}.
-
-\iffalse
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=\linewidth]{issue_ldpred2.png}
-  \caption{
-    An overview of the issues for the code for
-    LDpred2 \cite{prive2020ldpred2}. Of the 310 issues, 300 have been closed.
-    The first four issues have been replied to, as indicated by the
-    talk balloon. The fifth issues has a label with the text 'feature request'
-    to signal the issue type.
-  }
-  \label{fig:issue_ldpred2}
-\end{figure}
-\fi
-
-% \paragraph{Test-driven development}
-
-TDD improves code quality \cite{alkaoud2018quality,janzen2006test}
-and writing comment and documentation mixes well \cite{shmerlin2015document}.
-
-% \paragraph{Code must be reviewed to ensure the correct amount of documentation}
-
-More than half of all scientists have their code 
-rarely or never reviewed \cite{vable2021code},
-although code reviews are known to
-accelerate learning of the developers,
-improve the quality of the code
-and resulting to an experiment that is likelier to be reproducible
-\cite{vable2021code}.
-Within software development best-practices, 
-code reviews are recommended as well \cite{wilson2014best} 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Code must be computer friendly}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-There are multiple ways of publishing code,
-that require increasingly more knowledge to do and result
-in increasingly more reproducible experiments:
-(1) publishing the code as text only, e.g. by printing
-it in a Supplementary Materials, (2) publishing
-the code on a hosted website, e.g on GitHub, with
-added features (3) publishing 
-the installed code within a virtual environment,
-for example, using a Singularity container.
-In this chapter, details of each of these ways will be described,
-including advantages, disadvantages, as well as how to
-make the code more FAIR data \cite{wilkinson2016fair}.
-
-% \paragraph{Publishing a virtual environment}
-
-The most reproducible way of submitting the code of an experiment,
-is by providing the code with all the (software) dependencies 
-it needs installed in a virtual container.
-
-Ideally, to re-do an experiment, one would need a one-liner to a container,
-for example, \verb|singularity run my_experiment.sif run|.
-
-% \paragraph{Runnable code can precisely reproduce an experiment}
-
-Containers allow a computation experiment to be highly reproducible:
-given the same data, an experiment put into a container will give
-the same results on different platforms, at least in theory.
-In practice, differences may be observed when peripheral factors
-are different, such as the random numbers as generated by an operating
-system, or data that are downloaded from additional online sources.
-
-% \paragraph{Runnable code allows others to re-use an experiment}
-
-Containers allow a computation experiment to be highly re-usable,
-as any scientist can work with it and tweak code.
-
-
-For those 22 (out of 180) Science magazine corresponding authors 
-that supplied code and that code was estimated to be 
-reproducible, one in three had the results reproduced with 
-minimal or no effort \cite{stodden2018empirical}.
-
-% \paragraph{Ideal paradata}
-
-For paradata to be useful, it has to be computer-friendly, yet 
-'the best paradata does not necessarily look like 'data' at all for its
-human users' \cite{huvila2022improving}.
-There are features of code that humans find useful,
-without directly being able to measure these.
-In the end, code is just 'another kind of data' and should be designed 
-as such, for example, by using tools to work on it \cite{wilson2022twelve}.
-
-% \paragraph{Using a tool for coding style}
-
-A first example is to use a tool to enforce a coding style 
-(e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
-or PEP 8 \cite{van2001pep} for Python),
-as following a consistent coding style improves software quality \cite{fang2001}.
-
-% \paragraph{Using a tool for complexity}
-
-A second example is to use a tool to enforce a low cyclomatic complexity.
-The cyclomatic complexity is approximately defined 
-as the number of independent paths that
-the code can be executed. 
-For example, code that has only one \verb|if| statement
-has a cyclomatic complexity of 2, as the condition within the \verb|if|
-statement can be true or false,
-resulting in the body of the \verb|if| statement being either
-executed or ignored.
-The cyclomatic complexity correlates with code complexity,
-where more complex code is likelier to contain or give rise to bugs 
-\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}.
-
-Such tools combine great with CI services.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Preserving code}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \paragraph{Hosted code has important metadata}
-
-Hosted code has many additional features, such as
-a version-controlled history, continuous integration scripts
-and automatically generated metrics.
-A code hosting website produces and shares these metadata.
-These metadata can help to determine the
-reproducibility, correctness and quality of code
-of computational experiments.
-Below, those features and why these are important are discussed.
 
 % \paragraph{Hosted code keeps a history of changes}
 
@@ -1045,7 +669,383 @@ be acquired when using code hosting website.
 \end{figure}
 \fi
 
-% \paragraph{Suggestions for knowledge management}
+However, if the code breaks tomorrow, it will go unnoticed.
+
+
+
+\subsection{Continuous integration}
+
+To preserve code for a longer timespan, 
+continuous integration allows one to 
+verify if code still works and, if not, to be notified on the need for an update.
+
+% \paragraph{Continuous integration helps assess code quality}
+
+Some code hosts, among others, GitHub, 
+allow the researcher/user to start software scripts upon uploading a change.
+This is useful to determine the reproducibility of the code: 
+one such script should run the code (on trivial data) 
+to verify if the code works at all.
+If the functionality of the code is lost, the researcher
+can immediatly see which small change was the cause of this.
+A formalized version of this workflow is called continuous integration (CI).
+Using a CI service (such as GitHub Actions for GitHub), 
+is known to significantly 
+increase the number of bugs exposed \cite{vasilescu2015} and increases
+the speed at which new features are added \cite{vasilescu2015}.
+Using CI opens up the possibility to informally annotate features of
+a repository. 
+\iffalse
+For example, Figure \ref{fig:build_badge} shows a 
+build badge that indicates that a \LaTeX document (i.e. this paper)
+could be built.
+\fi
+
+\iffalse
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{build_badge.png}
+  \caption{
+    A build badge for the GitHub repository of this article.
+    The description indicates which process it is that the badge
+    signals success (as in this case) or failure of. 
+  }
+  \label{fig:build_badge}
+\end{figure}
+\fi
+
+However, for code to work longer, one can put the code and its dependencies in
+a container, that should be best in standing the test of time,
+as the degradation of software is a known feature for nearly 
+four decades (see the definition of 'bit rot' at \cite{steele1983hacker}),
+here a more modern (and in this context superior)
+definition is used: software collapse \cite{hinsen2019dealing},
+in which software fails due to dependencies on other 
+software.
+Where that paper recommends using older software foundations 
+with multiple implementations \cite{hinsen2019dealing},
+this paper recommends a modern solution that potentially has more 
+longevity:
+to publish the code installed in a virtual environment
+(including the dependencies used at that time), as described below.
+
+
+% \paragraph{Ideal paradata}
+
+For paradata to be useful, it has to be computer-friendly, yet 
+'the best paradata does not necessarily look like 'data' at all for its
+human users' \cite{huvila2022improving}.
+There are features of code that humans find useful,
+without directly being able to measure these.
+In the end, code is just 'another kind of data' and should be designed 
+as such, for example, by using tools to work on it \cite{wilson2022twelve}.
+
+% \paragraph{Using a tool for coding style}
+
+A first example is to use a tool to enforce a coding style 
+(e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
+or PEP 8 \cite{van2001pep} for Python),
+as following a consistent coding style improves software quality \cite{fang2001}.
+
+% \paragraph{Using a tool for complexity}
+
+A second example is to use a tool to enforce a low cyclomatic complexity.
+The cyclomatic complexity is approximately defined 
+as the number of independent paths that
+the code can be executed. 
+For example, code that has only one \verb|if| statement
+has a cyclomatic complexity of 2, as the condition within the \verb|if|
+statement can be true or false,
+resulting in the body of the \verb|if| statement being either
+executed or ignored.
+The cyclomatic complexity correlates with code complexity,
+where more complex code is likelier to contain or give rise to bugs 
+\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}.
+
+Such tools combine great with CI services.
+
+\subsection{Containerization}
+
+To preserve code for the longest time, 
+both code and its dependencies are put into a so-called container.
+
+The most reproducible way of submitting the code of an experiment,
+is by providing the code with all the (software) dependencies 
+it needs installed in a virtual container.
+This is close to the golden standard suggested by 
+\cite{peng2011reproducible} 
+\iffalse
+(see also Figure \ref{fig:peng2011reproducible})
+\fi
+,
+however, that article was written before virtualization existed.
+Virtualization allows one to provide a standard environment,
+that can be used on any other computer.
+The best known examples of container software are Docker and Singularity.
+Due to access rights, Singularity is the only viable option to run
+an experiment on a 
+high performance computing (HPC) environment (e.g. a computer cluster),
+as are commonly needed in the field of genetic epidemiology experiments.
+
+% \paragraph{Containers allow for runnable code, for longer periods of time}
+
+Unlike English, code is fragile in standing the test of time.
+Containers can alleviate this, as these can be created at a point
+in time and then run later. Because the container is stand-alone,
+all software that the code depends on remain in their current/old state.
+As with hosted code, an experiment may not run with newer versions
+of libraries anymore, but a containerized experiment can run regardless, 
+if one refrains from updating (or only does so when there are there problems with fixing).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Making code useful paradata}\label{sec:making-code-useful-paradata}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To repeat features of useful paradata: paradata should be comprehensive, 
+documented appropriately, documented in co-evolution with the data,
+and the data should be friendly to computers \cite{huvila2022improving}.
+In this section, these ideal properties of paradata are applied to code.
+However, code has multiple uses, which have different requirements
+for being usesful paradata.
+Code can be used to reproduce, to replicate and to 
+extend a computational experiment \cite{benureau2018re},
+each of these uses has different requirements for the code to be useful paradata.
+In this section, the recommendations how to make paradata useful
+is applied to code and compared to existing best practices in software 
+development, for the intended use of the code.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Code must be usefully documented}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For code to be ideal paradata, it must be usefully 
+documented \cite{huvila2022improving}.
+What is 'useful' is determined by its intended use: 
+to reproduce, replicate or extend (see section \ref{sec:making-code-useful-paradata}).
+The amount of documentation is, however, also determined
+by the recommended practices for writing code in general. 
+
+For purposes of reproducing (same code, same data) code,
+it should at least be documented how the code is run.
+However, 57\% out of 56 Science papers with obtainable code (in 
+total there were 180 papers) have documented their code well enough to run it 
+and to be understood what it ought to do \cite{stodden2018empirical}.
+
+However, when an independent researcher can redo an experiment, 
+it is possible (even ideal!) that no code is read at all.
+Within that context, it could argued that no further documentation is needed.
+However, all code in general should be documented 
+'adequately' \cite{peng2006reproducible},
+ideally writing code in such a way that it becomes 
+self-explanatory \cite{wilson2014best}
+and for the remaining code to document the reasons behind it, 
+its design and its purpose \cite{wilson2014best}.
+
+For purposes of extending a study and its code, 
+documentation becomes even more important,
+as the code will be read and modified.
+The extent of investing time in documenting code is recommended
+to be proportional to the intended reuse \cite{pianosi2020successfully}
+and there exists a clear relationship between the reuse 
+of code and its documentation 
+effort \cite{cosentino2017systematic,hata2015characteristics}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Code and documentation must align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For code to be ideal paradata, 
+its creation and documentation need to align, 
+\emph{not least because they shape each other} \cite{huvila2022improving}.
+This emphasized part of the quote resonates strongly with the idea of 
+literate programming \cite{knuth1984literate},
+in which documentation and code is developed hand-in-hand.
+Literate programming is the practice of writing a document mixed with code that 
+will be run.
+Contemporary examples of this idea are, among others, 
+vignettes \cite{wickham2015r} (for the R programming language \cite{r}) 
+and Jupyter notebooks \cite{wang2020assessing} 
+(for the Julia \cite{Julia-2017}, Python \cite{van1995python} and R \cite{r}
+programming languages).
+rOpenSci, a community that, among others, reviews programming
+code (\cite{ram2013ropensci,ram2018community}), is 
+one example of where literate programming is enforced:
+code must have extensive runnable examples
+as part of the documentation \cite{ropensci_2021_6619350}.
+Developing code and documentation at the same time 
+leads to both better code and documentation \cite{reenskaug1989environment}.
+In general, when developing software, 
+it is recommended to 
+to write documentation while writing software,
+as well as to include many examples \cite{lee2018ten}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Code must be extensive}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For code to be ideal paradata, it must be extensive.
+As code has many properties, there are many recommendations on this aspect.
+
+\subsubsection{... to reproduce an experiment}
+
+% \paragraph{Code should be hosted}
+
+Code should be hosted.
+
+
+For code to be extensive enough to reproduce an existing experiment,
+it should be distributed in standard ways \cite{peng2006reproducible}
+(see section \ref{sec:code-availability}
+for the general availability of code).
+The standard way to publish code is to use a code hosting website.
+
+
+
+\subsubsection{... to replicate an experiment}
+
+% \paragraph{Code must have extensive error handling}
+
+Code must be more extensive when it is (intended to be) 
+used on different data,
+as then 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
+Error handling is one of the mechanisms to do so.
+One example is, again, when doing a t-test:
+to compare the means of two distributions, each distribution
+must have at least two values
+and, if not, the programming language should signal the error clearly.
+In genetic epidemiology, it is common to have incomplete or missing data,
+so analyses should take into account that there are not always enough
+observations to do a t-test.
+The analytical code should clearly signal this problem.
+
+\subsubsection{... to extend an experiment}
+
+
+
+% \paragraph{Code must be tested}
+
+Coding errors are extremely common 
+and contribute to the reproducibility crisis in science \cite{vable2021code}.
+Testing, in general, is an important mechanism to ensure
+the correctness of code (an interesting example is \cite{rahman2020exploratory}
+showing bugs in scientific software on the COVID-19 pandemic).
+
+% \paragraph{Code coverage helps assess code quality}
+
+The percentage of (lines of) code tested is called the code coverage.
+Code coverage correlates with code quality \cite{horgan1994,del1995correlation}. 
+The non-profit organisation rOpenSci \cite{ram2018community},
+which peer-reviews code,
+has made it a prerequisite to have a code coverage of 100\%.
+CI opens up the possibility to informally annotate the
+code coverage. 
+For example, build badges
+\iffalse
+(e.g. as shown in Figure \ref{fig:badge_codecov})
+\fi
+are visual indications on a website that can, among others,
+show a certain R package's code has a 100\% code coverage.
+
+\iffalse
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[]{badge_codecov.png}
+  \caption{
+    A build badge for the code coverage of an R 
+    package (\url{https://github.com/ropensci/beautier}).
+    The umbrella signals that the code coverage is hosted by
+    CodeCov (\url{https://codecov.io/}). 
+    The text indicates which process it is that the badge
+    signals, which in this case, is that the code is fully covered
+    by tests.
+  }
+  \label{fig:badge_codecov}
+\end{figure}
+\fi
+
+% \paragraph{Adding a license}
+
+It is considered good practice
+to add a software license \cite{jimenez2017four},
+so that it is clear that the software can be reused.
+About two-thirds of 56 Science magazine corresponding authors 
+that shared their code supply a software license \cite{stodden2018empirical}.
+
+\iffalse
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{issue_ldpred2.png}
+  \caption{
+    An overview of the issues for the code for
+    LDpred2 \cite{prive2020ldpred2}. Of the 310 issues, 300 have been closed.
+    The first four issues have been replied to, as indicated by the
+    talk balloon. The fifth issues has a label with the text 'feature request'
+    to signal the issue type.
+  }
+  \label{fig:issue_ldpred2}
+\end{figure}
+\fi
+
+% \paragraph{Test-driven development}
+
+TDD improves code quality \cite{alkaoud2018quality,janzen2006test}
+and writing comment and documentation mixes well \cite{shmerlin2015document}.
+
+% \paragraph{Code must be reviewed to ensure the correct amount of documentation}
+
+In an informal Twitter poll,
+more than half of all 315 responding scientists 
+have their code rarely or never reviewed \cite{vable2021code},
+although code reviews are known to
+accelerate learning of the developers,
+improve the quality of the code
+and resulting to an experiment that is likelier to be reproducible
+\cite{vable2021code}.
+Within software development best-practices, 
+code reviews are recommended as well \cite{wilson2014best} 
+The observation that code is reviewed, makes it likelier to be correct.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Code must be computer friendly}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \paragraph{Publishing a virtual environment}
+
+The most reproducible way of submitting the code of an experiment,
+is by providing the code with all the (software) dependencies 
+it needs installed in a virtual container.
+
+% \paragraph{Runnable code can precisely reproduce an experiment}
+
+Containers allow a computation experiment to be highly reproducible:
+given the same data, an experiment put into a container will give
+the same results on different platforms, at least in theory.
+In practice, differences may be observed when peripheral factors
+are different, such as the random numbers as generated by an operating
+system, or data that are downloaded from online (and hence, changing) sources.
+
+% \paragraph{Runnable code allows others to re-use an experiment}
+
+Containers allow a computation experiment to be highly re-usable,
+as any scientist can work with it and tweak code.
+
+
+For those 22 (out of 180) Science magazine corresponding authors 
+that supplied code and that code was estimated to be 
+reproducible, one in three had the results reproduced with 
+minimal or no effort \cite{stodden2018empirical}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Suggestions for knowledge management}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Making code FAIR.
+
+\subsection{Hosted code}
+
+\subsection{CI code}
+
+\subsection{Code in container}
 
 Here are multiple suggestions to make containers with runnable code FAIR.
 To make such containers findable, the most common 
@@ -1060,20 +1060,16 @@ similar website to upload containers, as the metadata for these
 sites are limited to free-text comments and tags (DockerHub)
 or not metadata at all (Syslabs).
 
-Code used in academic research complies badly with FAIR principles,
-where unpublished code is the worst offender.
-However, any idealistic researcher does not have the
-tools to following FAIR principles in an exemplary way:
-there are no standards in how a scholarly article
-refers to academic code (i.e. in a machine-friendly way).
-Creating a (Singularity) container is the best a researcher
-can do to ensure his/her code is reusable,
-yet, there are no incentives to make code accessible, interoperable
-or re-usable, with standarized metadata attributes being absent.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sensitive data}\label{sec:sensitive-data}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For research to be reproducible, one ideally has access to
+both the data used and the code.
+In some fields, such as genetic epidemiology, the data are
+sensitive, hence cannot be released,
+yet there are methods being devised to run code on sensitive
+data with assured privacy \cite{zhang2016review,azencott2018machine}.
 
 Next to the code, it is the data used in an experiment 
 that must be made available for an experiment 
@@ -1094,17 +1090,6 @@ datasets are needed for automatic testing of code.
 One extra benefit of simulated data is that these can be used
 as a benchmark, as slightly different analyses should give 
 similar conclusions.
-
-For research to be reproducible, one ideally has access to
-both the data used and the code.
-In some fields, such as genetic epidemiology, the data are
-sensitive, hence cannot be released,
-yet there are methods being devised to run code on sensitive
-data with assured privacy \cite{zhang2016review,azencott2018machine}.
-Additionally, it follows software development's best practices 
-(especially the practice to test code automatically) 
-to release a simulated/public dataset, with
-the additional benefit that this dataset can be used for comparisons.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
@@ -1129,18 +1114,6 @@ Code needs maintanance:
 the libraries that are used by an experiment
 will change over time, inevitably causing the experiment to fail
 over time. 
-The degradation of software is a known feature for nearly 
-four decades (see the definition of 'bit rot' at \cite{steele1983hacker}),
-here a more modern (and in this context superior)
-definition is used: software collapse \cite{hinsen2019dealing},
-in which software fails due to dependencies on other 
-software.
-Where that paper recommends using older software foundations 
-with multiple implementations \cite{hinsen2019dealing},
-this paper recommends a modern solution that potentially has more 
-longevity:
-to publish the code installed in a virtual environment
-(including the dependencies used at that time), as described below.
 Write code that will stand the test of time perfectly
 is deemed 'impossible' \cite{benureau2018re}.
 
@@ -1167,6 +1140,7 @@ result in the same conclusions?
 To prevent authors chosing to hide bug reports, 
 a code hosting website usually has a public place to report bugs,
 to increase transparency in the handling of bug reports.
+Should there be a retraction notice on code?
 
 % \paragraph{The problems with runnable code}
 
@@ -1192,38 +1166,6 @@ oneself in the focus of attention
 and -after much effect by others reproducing an incorrect result-
 at the cost of a scientific career \cite{baggerly2009deriving}.
 
-% \paragraph{The drawbacks of publishing version-controlled code}
-
-Is it worth it to publish version-controlled code?
-For an author, 
-there is additional training involved, and also here,
-publishing code alongside an experiment opens up
-the possibily to receive questions regarding that code,
-as well as other interactions, including helpful contributions.
-
-% \paragraph{The drawbacks of publishing a running version of code}
-
-Is it worth it to archive running versions of code?
-For an author, 
-there is additional training involved.
-There is no FAIR infrastructure for Singularity containers.
-
-% % \paragraph{Still need the same data to do a reproducible experiment}
-
-% % \paragraph{Recommendations}
-
-Being able to re-do an experiment is a core principle of the scientific method.
-Publishing only a paper about a computational experiment is not enough,
-as the results are too likely to mismatch that English description.
-Journal should make it mandatory for authors
-to publish their code alongside a computational experiment.
-Authors should follow the FAIR principes for their code as well,
-as can be done using the infrastructure as supplied by, 
-for example, GitHub and GitLab, opening up new angles in
-metascience regarding computational experiments.
-Knowledge managers should create the infrastructure for the preservation
-of runnable experiments, to allow scientist to upload a Singularity
-container, so these are as well following the FAIR principles.
 
 
 \iffalse
@@ -1258,16 +1200,27 @@ container, so these are as well following the FAIR principles.
 
 This paper started with some suggestions to 
 make paradata useful for data re(use):
-paradata should be comprehensive, comprehensively documented
-and friendly to computers \cite{huvila2022improving}.
+paradata should be extensive, comprehensively documented,
+with the creation of documentation and code going hand-in-hand,
+as well as friendly to computers \cite{huvila2022improving}.
+
+Before applying these features, the first step is to publish 
+the code. 
+
 When applying these general recomendations to code, 
 this list can be phrased more precisely:
 code should be comprehensive in supplying 
 automatically generated metadata (such as commit history and code coverage).
 The documentation should be as extensive as recommended by the 
-software development literature. To be computer friendly,
+software development literature and have co-evolved with the
+code following the best practices in literate programming. 
+To be computer friendly,
 code should be able to run on at least one independent entity,
 such as a GitHub Actions server or from a Singularity container.
+
+The second step for code to be useful paradata is to add CI, 
+to stand the test of time better.
+The ultimate step is to publish code in a container.
 
 % \paragraph{Final goal: runnable code}
 
@@ -1277,7 +1230,7 @@ can stand the test of time better.
 Creating such a container, however, requires more skill
 that -as of today- is not rewarded,
 partly as containers follow FAIR data principles only poorly.
-Runnable code is the pinnacle of reproducible research.
+However, such runnable code is the current pinnacle of reproducible research.
 
 % \paragraph{First step: publish code alongside papers}
 
@@ -1285,6 +1238,7 @@ The simplest and most impactful step to make code more useful paradata
 is, however, to publish it on a code hosting website 
 along a publication. From then on, the next steps can be taken 
 gradually as the skills of the author(s) progress.
+To quote \cite{barnes2010publish}: Publish your code, it is good enough.
 
 % \paragraph{Final word}
 
