@@ -99,6 +99,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: article_pdfs
-          path: article_normal.pdf article_springer.pdf
+          path: article*.pdf
           if-no-files-found: error
 
