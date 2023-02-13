@@ -51,13 +51,13 @@ was introduced by Couper and colleagues,
 who developed a computer-assisted interview program
 that, among others, records all key strokes,
 measures the time used to answer each question 
-and even the time the monitor is turned off \cite{couper1998measuring}.
+and even the time the monitor is turned off (\cite{couper1998measuring}).
 The goal in that context was to assess and improve survey quality.
 
 % \paragraph{Definition of paradata}
 
 This paper defines paradata as 'data about the data collection 
-process' \cite{choumert2019using}.
+process' (\cite{choumert2019using}).
 This definition is chosen for its simplicity, 
 yet there are multiple related and/or more nuanced 
 definitions of paradata (see for example \cite{huvila2022improving} 
@@ -83,7 +83,7 @@ in the use of data and offer some suggestions to
 make paradata useful for data re(use):
 paradata should be comprehensive, documented in a useful way, 
 the documentation and data should have co-evolved, 
-and the paradata should be computer-friendly \cite{huvila2022improving}.
+and the paradata should be computer-friendly (\cite{huvila2022improving}).
 At first glance, these suggestions appear to work well for code
 and will be discussed in detail below.
 
@@ -97,8 +97,7 @@ and collaborate.
 Additionally, useful open data is needed for Open Science to convincingly show
 its benefits.
 Finally, in computational fields, 
-it can help understand how scholarly knowledge is produced
-\cite{huvila2022improving}.
+it can help understand how scholarly knowledge is produced (\cite{huvila2022improving}).
 This paper discusses these general reasons applied to code.
 
 \begin{figure}[!htbp]
@@ -122,22 +121,22 @@ This paper discusses these general reasons applied to code.
 
 To determine how useful code is, it needs to be available.
 However, it is not common to publish the code of an experiment or analysis 
-\cite{stodden2011trust,read2015sizing} (with a pleasant exception 
+(\cite{stodden2011trust,read2015sizing}) (with a pleasant exception 
 being \cite{conesa2019making}).
 For example, in computer graphics, 
 a field intimately familiar with computer code,
-42\% of 454 SIGGRAPH papers supply computer code \cite{bonneel2020code}.
+42\% of 454 SIGGRAPH papers supply computer code (\cite{bonneel2020code}).
 Another study analysed the reproducibility of registered reports
 in the field of psychology, 
 where 60\% of 62 studies supplied the code 
-to redo the analysis \cite{obels2020analysis}.
+to redo the analysis (\cite{obels2020analysis}).
 For articles in Science magazine, 12\% of 204
-studies published the code \cite{stodden2018empirical} 
+studies published the code (\cite{stodden2018empirical}) 
 (note that these were years 2011-2012).
 Unpublished code has been the cause of some saddening examples,
 such as an algorithm that detects breast cancer from images 
 better than a human expert, 
-yet failed to ever be reproduced \cite{haibe2020importance}.
+yet failed to ever be reproduced (\cite{haibe2020importance}).
 
 % \paragraph{Obtaining code by email}
 
@@ -145,12 +144,12 @@ When code of an academic paper is not published,
 one could contact the corresponding author and request it.
 However, the response rate of corresponding authors 
 with a request for data in computational fields is around 50\% 
-\cite{manca2018non, stodden2018empirical, teunis2015corresponding} 
+(\cite{manca2018non, stodden2018empirical, teunis2015corresponding}) 
 (the field of emergency medicine seems to be a pleasant outlier, 
-with 73\% of 118 emails being replied \cite{o2003email}).
+with 73\% of 118 emails being replied (\cite{o2003email})).
 When getting an answer of the corresponding author, 
 48\% out of 134 replied emails will actually result 
-in a sharing of the code \cite{stodden2018empirical}.
+in a sharing of the code (\cite{stodden2018empirical}).
 The responses of unwilling authors (see \cite{stodden2018empirical} for 
 some real examples) can come across as so caustic, 
 that one may be excused from not contacting an a corresponding author.
@@ -175,7 +174,8 @@ tries to determine the spread of heritable traits
 and their underlying biological mechanism.
 For example, we know that lactose intolerance in adults is
 caused by a decline in the production of lactose-degrading enzymes,
-and is most commonly found in south-east Asia and south Africa \cite{storhaug2017country}.
+and is most commonly found in south-east Asia and south 
+Africa (\cite{storhaug2017country}).
 The trait is caused by the genetic make-up, or 'genotype'
 \iffalse
 (see Table \ref{tab:definitions} in the Supplementary Materials
@@ -211,13 +211,13 @@ in more detail, with special focus on the computational experiment.
 The example study followed is a pseudorandomly selected paper
 from \cite{ahsan2017relative}. The primary data used by that paper is
 from a population study called the Northern Swedish Population
-Health Study (NSPHS) that started in 2010 \cite{igl2010northern}. 
+Health Study (NSPHS) that started in 2010 (\cite{igl2010northern}). 
 The approximately 1000 participants were initially mostly surveyed
-about lifestyle \cite{igl2010northern} and follow-up studies
+about lifestyle (\cite{igl2010northern}) and follow-up studies
 provided the type of data relevant for this paper, 
-which are (1) the genotypes \cite{johansson2013identification},
+which are (1) the genotypes (\cite{johansson2013identification}),
 (2) the phenotypes, in this case, concentrations of certain proteins in the 
-blood \cite{enroth2014strong,enroth2015effect}.
+blood (\cite{enroth2014strong,enroth2015effect}).
 
 \iffalse
 \begin{figure}[!htbp]
@@ -299,7 +299,7 @@ SNP \verb|rs12133641| is highly correlated (p-value is $3.0^{-73}$
 (see figure \ref{fig:ahsan2017relative_table_2_sub})
 \fi
 ,
-for $n$ = 961 individuals) with protein IL6RA \cite{ahsan2017relative}.
+for $n$ = 961 individuals) with protein IL6RA (\cite{ahsan2017relative}).
 The direction of the association is also concluded:
 the more guanines are present at that SNPs location,
 the higher concentration of IL6RA can be found in a human's blood
@@ -436,12 +436,12 @@ has been lost over time \cite{peng2011reproducible},
 with labs that embrace reproducibility (for example, \cite{barba2016hard})
 being the exception.
 One suggested way forward is to make the reproduction of 
-research a minimal requirement for publication \cite{peng2011reproducible}.
+research a minimal requirement for publication (\cite{peng2011reproducible}).
 
 % \paragraph{Sensitive data}
 
 A genetic epidemiologist works with sensitive data as well:
-the genetic sequences of participants are private \cite{clayton2019law}.
+the genetic sequences of participants are private (\cite{clayton2019law}).
 For research to be reproducible one needs both the code and the data
 to reproduce the (hopefully) same results.
 This problem is discussed in section \ref{sec:sensitive-data}.
@@ -482,7 +482,7 @@ to be less than the average concentration in those with GG.
 
 We ignore the choices of words and style of this sentence: what is
 important is the content: an unpaired one-tailed T test is performed.
-Taking a look at the (in this case, the programming language R \cite{r}) code, 
+Taking a look at the (in this case, the programming language R (\cite{r})) code, 
 we find the following line:
 
 \begin{verbatim}
@@ -505,7 +505,7 @@ Note that there is another side of this same coin:
 correctly reporting the t-test in a reproducible ways
 is known to be a problem, with only 80 out of a selected 179 papers
 fully reporting the parity of t-test (i.e. paired or unpaired) 
-\cite{weissgerber2018we}.
+(\cite{weissgerber2018we}).
 In those unresolved 99 papers, 
 the code (if published) would clarify this.
 \fi
@@ -536,7 +536,7 @@ As humans are fallible and code gets bigger, the likelihood of
 a mismatch between the English paper and the code increases.
 We know that the most common errors are 
 simple (and may legitimately fear that those simple errors are common) 
-\cite{baggerly2009deriving, vable2021code},
+(\cite{baggerly2009deriving, vable2021code}),
 and this example is not too far off from the
 examples given in that paper.
 
@@ -545,7 +545,7 @@ examples given in that paper.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Code is rarely preserved \cite{barnes2010publish}.
+Code is rarely preserved (\cite{barnes2010publish}).
 If it is, keeping it running is even more rare.
 This section discusses the preservation of code for a short, medium
 and long term.
@@ -558,19 +558,19 @@ A code hosting website is a website where
 its users can create dedicated pages (called 'repositories')
 for a project, upload code and interact with that code.
 There are multiple code hosting websites, 
-with GitHub being the most popular one \cite{cosentino2017systematic}.
-For example, the \LaTeX code of this chapter is hosted on GitHub 
+with GitHub being the most popular one (\cite{cosentino2017systematic}).
+For example, the \LaTeX \hspace{5mm} code of this chapter is hosted on GitHub 
 as well, at \url{https://github.com/richelbilderbeek/chapter_paradata}.
 The use of code hosting websites
-has increased strongly \cite{russell2018large},
-accommodates collaboration \cite{perez2016ten}
-and improves transparency \cite{gorgolewski2016practical},
+has increased strongly (\cite{russell2018large}),
+accommodates collaboration (\cite{perez2016ten})
+and improves transparency (\cite{gorgolewski2016practical}),
 due to its inherent computer-friendliness.
 See \cite{cosentino2017systematic} for an extensive overview of
 research conducted on GitHub.
 
 \iffalse
-An example from the author is the website \cite{bbbqarticleissue157},
+An example from the author is the website (\cite{bbbqarticleissue157}),
 that hosts part of the code for the paper \cite{bilderbeek2022transmembrane}, 
 as shown in Figure \ref{fig:bbbqarticleissue157}.
 \fi
@@ -603,10 +603,10 @@ In practice, this means that when a change is made to the code,
 a new version is created. In the case that the change was harmful,
 one can go back to an earlier version and continue again from there.
 It is a general recommendation to put version control
-on all human-produced data \cite{wilson2014best},
-as well as openly working on the code from the start \cite{jimenez2017four}.
+on all human-produced data (\cite{wilson2014best}),
+as well as openly working on the code from the start (\cite{jimenez2017four}).
 Half of 56 Science magazine corresponding authors 
-have such a version control mechanism \cite{stodden2018empirical}.
+have such a version control mechanism (\cite{stodden2018empirical}).
 
 % \paragraph{Metrics help assess the honest division of labour}
 
@@ -617,7 +617,7 @@ In that way, authors involved in the writing of the software
 are honestly acknowledged. 
 \iffalse
 Figure \ref{fig:daisie_contributors}
-shows the number of commits the authors of DAISIE \cite{etienne2020daisie}
+shows the number of commits the authors of DAISIE (\cite{etienne2020daisie})
 have made to its code.
 \fi
 The distribution of contributed code per author 
@@ -646,7 +646,7 @@ continuous integration ('CI') allows one to
 verify if code still works and, if not, to be notified on the need for an update.
 Things change: from operating systems, to libraries that code uses,
 to the code itself. 
-Embracing those changes is recommended \cite{beck2000extreme} 
+Embracing those changes is recommended (\cite{beck2000extreme})
 and useful code does so.
 
 % \paragraph{Continuous integration helps assess code quality}
@@ -660,8 +660,8 @@ If the functionality of the code is lost, the researcher
 can immediately see which small change was the cause of this.
 Using a CI service (such as GitHub Actions for GitHub), 
 is known to significantly 
-increase the number of bugs exposed \cite{vasilescu2015} and increases
-the speed at which new features are added \cite{vasilescu2015}.
+increase the number of bugs exposed (\cite{vasilescu2015}) and increases
+the speed at which new features are added (\cite{vasilescu2015}).
 Using CI opens up the possibility to informally annotate features of
 a repository. 
 \iffalse
@@ -691,14 +691,14 @@ human users' \cite{huvila2022improving}.
 There are features of code that humans find useful,
 without directly being able to measure these.
 In the end, code is just 'another kind of data' and should be designed 
-as such, for example, by using tools to work on it \cite{wilson2022twelve}.
+as such, for example, by using tools to work on it (\cite{wilson2022twelve}).
 
 % \paragraph{Using a tool for coding style}
 
 A first example is to use a tool to enforce a coding style 
-(e.g. the Tidyverse style guide \cite{wickham2019advanced} for R,
-or PEP 8 \cite{van2001pep} for Python),
-as following a consistent coding style improves software quality \cite{fang2001}.
+(e.g. the Tidyverse style guide (\cite{wickham2019advanced}) for R,
+or PEP 8 (\cite{van2001pep}) for Python),
+as following a consistent coding style improves software quality (\cite{fang2001}).
 
 % \paragraph{Using a tool for complexity}
 
@@ -706,25 +706,27 @@ A second example is to use a tool to enforce a low cyclomatic complexity.
 The cyclomatic complexity is approximately defined 
 as the number of independent paths that
 the code can be executed. 
+\iffalse
 For example, code that has only one \verb|if| statement
 has a cyclomatic complexity of 2, as the condition within the \verb|if|
 statement can be true or false,
 resulting in the body of the \verb|if| statement being either
 executed or ignored.
+\fi
 The cyclomatic complexity correlates with code complexity,
 where more complex code is likelier to contain or give rise to bugs 
-\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}.
+(\cite{abd2018calculating,chen2019empirical,zimmermann2008predicting}).
 
 However, for code to work longer, one can put the code and its dependencies in
 a container, that should be best in standing the test of time,
 as the degradation of software is a known feature for nearly 
 four decades (see the definition of 'bit rot' at \cite{steele1983hacker}),
 here a more modern (and in this context superior)
-definition is used: software collapse \cite{hinsen2019dealing},
+definition is used: software collapse (\cite{hinsen2019dealing}),
 in which software fails due to dependencies on other 
 software.
 Where that paper recommends using older software foundations 
-with multiple implementations \cite{hinsen2019dealing},
+with multiple implementations (\cite{hinsen2019dealing}),
 this paper recommends a modern solution that potentially has more 
 longevity:
 to publish the code installed in a virtual environment
@@ -763,13 +765,13 @@ as are commonly needed in the field of genetic epidemiology experiments.
 
 To repeat features of useful paradata: paradata should be comprehensive, 
 documented appropriately, documented in co-evolution with the data,
-and the data should be friendly to computers \cite{huvila2022improving}.
+and the data should be friendly to computers (\cite{huvila2022improving}).
 In this section, these ideal properties of paradata are applied to code.
 However, code has multiple uses, which have different requirements
 for being useful paradata.
 
 Code can be used to reproduce, to replicate and to 
-extend a computational experiment \cite{benureau2018re} and
+extend a computational experiment (\cite{benureau2018re}) and
 each of these uses has different requirements for the code to be useful paradata.
 In this section, the recommendations how to make paradata useful
 is applied to code and compared to existing best practices in software 
@@ -780,7 +782,7 @@ development, for the intended use of the code.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 For code to be ideal paradata, it must be usefully 
-documented \cite{huvila2022improving}.
+documented (\cite{huvila2022improving}).
 What is 'useful' is determined by its intended use: 
 to reproduce, replicate or extend (see section \ref{sec:making-code-useful-paradata}).
 The amount of documentation is, however, also determined
@@ -790,26 +792,26 @@ For purposes of reproducing (same code, same data) code,
 it should at least be documented how the code is run.
 However, 57\% out of 56 Science papers with obtainable code (in 
 total there were 180 papers) have documented their code well enough to run it 
-and to be understood what it ought to do \cite{stodden2018empirical}.
+and to be understood what it ought to do (\cite{stodden2018empirical}).
 
 However, when an independent researcher can redo an experiment, 
 it is possible (even ideal!) that no code is read at all.
 Within that context, it could argued that no further documentation is needed.
 However, all code in general should be documented 
-'adequately' \cite{peng2006reproducible},
+'adequately' (\cite{peng2006reproducible}),
 ideally writing code in such a way that it becomes 
-self-explanatory \cite{wilson2014best}
+self-explanatory (\cite{wilson2014best})
 and for the remaining code to document the reasons behind it, 
-its design and its purpose \cite{wilson2014best}.
+its design and its purpose (\cite{wilson2014best}).
 
 For purposes of extending a study and its code, 
 documentation becomes even more important,
 as the code will be read and modified.
 The extent of investing time in documenting code is recommended
-to be proportional to the intended reuse \cite{pianosi2020successfully}
+to be proportional to the intended reuse (\cite{pianosi2020successfully})
 and there exists a clear relationship between the reuse 
 of code and its documentation 
-effort \cite{cosentino2017systematic,hata2015characteristics}.
+effort (\cite{cosentino2017systematic,hata2015characteristics}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Code and documentation must align}
@@ -817,28 +819,28 @@ effort \cite{cosentino2017systematic,hata2015characteristics}.
 
 For code to be ideal paradata, 
 its creation and documentation need to align, 
-\emph{not least because they shape each other} \cite{huvila2022improving}.
+\emph{not least because they shape each other} (\cite{huvila2022improving}).
 This emphasised part of the quote resonates strongly with the idea of 
-literate programming \cite{knuth1984literate},
-in which documentation and code is developed hand-in-hand.
+literate programming (\cite{knuth1984literate}),
+in which documentation and code are developed hand-in-hand.
 Literate programming is the practice of writing a document mixed with code that 
 will be run.
 Contemporary examples of this idea are, among others, 
-vignettes \cite{wickham2015r} (for the R programming language \cite{r}) 
-and Jupyter notebooks \cite{wang2020assessing} 
-(for the Julia \cite{Julia-2017}, Python \cite{van1995python} and R \cite{r}
-programming languages).
+vignettes (\cite{wickham2015r}) for the R programming language (\cite{r}) 
+and Jupyter notebooks (\cite{wang2020assessing})
+for the Julia (\cite{Julia-2017}), Python (\cite{van1995python}) and R (\cite{r})
+programming languages.
 rOpenSci, a community that, among others, reviews programming
 code (\cite{ram2013ropensci,ram2018community}), is 
 one example of where literate programming is enforced:
 code must have extensive runnable examples
-as part of the documentation \cite{ropensci_2021_6619350}.
+as part of the documentation (\cite{ropensci_2021_6619350}).
 Developing code and documentation at the same time 
-leads to both better code and documentation \cite{reenskaug1989environment}.
+leads to both better code and documentation (\cite{reenskaug1989environment}).
 In general, when developing software, 
 it is recommended to 
 to write documentation while writing software,
-as well as to include many examples \cite{lee2018ten}.
+as well as to include many examples (\cite{lee2018ten}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Code must be extensive}
@@ -847,7 +849,7 @@ as well as to include many examples \cite{lee2018ten}.
 For code to be ideal paradata, it must be extensive.
 As code has many properties, there are many recommendations on this aspect.
 
-Code should be distributed in standard ways \cite{peng2006reproducible}
+Code should be distributed in standard ways (\cite{peng2006reproducible})
 (see section \ref{sec:code-availability}
 for the general availability of code).
 The standard way to publish code is to use a code hosting website
@@ -857,7 +859,7 @@ The standard way to publish code is to use a code hosting website
 
 Code must be more extensive when it is (intended to be) 
 used on different data,
-as then 'code must act as a teacher for future developers' \cite{sadowski2018modern}.
+as then 'code must act as a teacher for future developers' (\cite{sadowski2018modern}).
 Error handling is one of the mechanisms to do so.
 One example is when doing a t-test:
 to compare the means of two distributions, each distribution
@@ -871,7 +873,7 @@ The analytical code should clearly signal this problem.
 % \paragraph{Code must be tested}
 
 Coding errors are extremely common 
-and contribute to the reproducibility crisis in science \cite{vable2021code}.
+and contribute to the reproducibility crisis in science (\cite{vable2021code}).
 Testing, in general, is an important mechanism to ensure
 the correctness of code (an interesting example is \cite{rahman2020exploratory}
 showing bugs in scientific software on the COVID-19 pandemic).
@@ -879,8 +881,8 @@ showing bugs in scientific software on the COVID-19 pandemic).
 % \paragraph{Code coverage helps assess code quality}
 
 The percentage of (lines of) code tested is called the code coverage.
-Code coverage correlates with code quality \cite{horgan1994,del1995correlation}. 
-The non-profit organisation rOpenSci \cite{ram2018community},
+Code coverage correlates with code quality (\cite{horgan1994,del1995correlation}). 
+The non-profit organisation rOpenSci (\cite{ram2018community}),
 which peer-reviews code,
 has made it a prerequisite to have a code coverage of 100\%.
 CI opens up the possibility to informally annotate the
@@ -899,8 +901,9 @@ as there is a common software development practice that
 strives for this, called test-driven development ('TDD'). 
 TDD is a software development strategy in which tests are written
 before new 'real' code is written.
-TDD improves code quality \cite{alkaoud2018quality,janzen2006test}
-and writing comment and documentation mixes well \cite{shmerlin2015document}.
+TDD improves code quality (\cite{alkaoud2018quality,janzen2006test})
+and writing comment and documentation as part of the process
+is easy (\cite{shmerlin2015document}).
 
 \iffalse
 \begin{figure}[!htbp]
@@ -922,10 +925,10 @@ and writing comment and documentation mixes well \cite{shmerlin2015document}.
 % \paragraph{Adding a license}
 
 It is considered good practice
-to add a software license \cite{jimenez2017four},
+to add a software license (\cite{jimenez2017four}),
 so that it is clear that the software can be reused.
 About two-thirds of 56 Science magazine corresponding authors 
-that shared their code supply a software license \cite{stodden2018empirical}.
+that shared their code supply a software license (\cite{stodden2018empirical}).
 
 \iffalse
 \begin{figure}[!htbp]
@@ -944,16 +947,15 @@ that shared their code supply a software license \cite{stodden2018empirical}.
 
 % \paragraph{Code must be reviewed to ensure the correct amount of documentation}
 
-In an informal Twitter poll,
-more than half of all 315 responding scientists 
-have their code rarely or never reviewed \cite{vable2021code},
+More than half of 315 scientists 
+have their code rarely or never reviewed (\cite{vable2021code}),
 although code reviews are known to
 accelerate learning of the developers,
 improve the quality of the code
 and resulting to an experiment that is likelier to be reproducible
-\cite{vable2021code}.
+(\cite{vable2021code}).
 Within software development best-practices, 
-code reviews are recommended as well \cite{wilson2014best} 
+code reviews are recommended as well (\cite{wilson2014best}) 
 The observation that code is reviewed, makes it likelier to be correct.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -984,7 +986,7 @@ as any scientist can work with it and tweak code.
 For those 22 (out of 180) Science magazine corresponding authors 
 that supplied code and that code was estimated to be 
 reproducible, one in three had the results reproduced with 
-minimal or no effort \cite{stodden2018empirical}.
+minimal or no effort (\cite{stodden2018empirical}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sensitive data}\label{sec:sensitive-data}
@@ -995,21 +997,21 @@ both the data used and the code.
 In some fields, such as genetic epidemiology, the data are
 sensitive, hence cannot be released,
 yet there are methods being devised to run code on sensitive
-data with assured privacy \cite{zhang2016review,azencott2018machine}.
+data with assured privacy (\cite{zhang2016review,azencott2018machine}).
 
 Next to the code, it is the data used in an experiment 
 that must be made available for an experiment 
-to be called 'reproducible' \cite{peng2006reproducible}.
+to be called 'reproducible' (\cite{peng2006reproducible}).
 When the input data are sensitive, however, and thus cannot be shared with
 an independent researcher, one thus cannot reproduce the
 experiment.
 
 The solution for this problem is simple:
-supply a simulated (also called 'analytical' \cite{peng2006reproducible}) dataset
+supply a simulated (also called 'analytical' (\cite{peng2006reproducible})) dataset
 together with the code.
 In the case of genetic epidemiology this would mean
 simulated genotypes and associated phenotypes,
-as can be done with the \verb|plinkr| R package \cite{plinkr}.
+as can be done with the \verb|plinkr| R package (\cite{plinkr}).
 This solution, however, is known to all developers that follow
 good practices when writing code, as public (i.e. simulated) 
 datasets are needed for automatic CI testing of code.
@@ -1032,7 +1034,7 @@ before these can be applied.
 Articles that suggest these best practices, however, claim that this initial
 investment pays off.
 Code reviews are a good way to accelerate the 
-learning of team members \cite{vable2021code}.
+learning of team members (\cite{vable2021code}).
 
 % \paragraph{Code needs maintanance}
 
@@ -1041,17 +1043,17 @@ the libraries that are used by an experiment
 will change over time, inevitably causing the experiment to fail
 over time. 
 Code that will stand the test of time perfectly 
-is deemed 'impossible' \cite{benureau2018re}.
+is deemed 'impossible' (\cite{benureau2018re}).
 
 % \paragraph{Authors can be contacted}
 
 There is another problem that authors of academic code face,
 which is that they may be contacted with a user 
 asking for technical report 
-(against which a 'no' is just fine \cite{barnes2010publish})
+(against which a 'no' is just fine (\cite{barnes2010publish}))
 or -more relevant to the research- sending in a bug report.
 One solution for the author is to ignore such emails (as is done in a third
-of all cases \cite{teunis2015corresponding}):
+of all cases (\cite{teunis2015corresponding})):
 it can be argued that no energy should be wasted on published code
 and work on something new instead 
 (see \cite{barnes2010publish} for a better way to deal with the problem).
@@ -1104,7 +1106,7 @@ the possibility to receive questions regarding that code.
 Note, however, that not publishing code may put 
 oneself in the focus of attention
 and -after much effect by others reproducing an incorrect result-
-at the cost of a scientific career \cite{baggerly2009deriving}.
+at the cost of a scientific career (\cite{baggerly2009deriving}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
@@ -1114,7 +1116,7 @@ This paper started with some suggestions to
 make paradata useful for data re(use):
 paradata should be extensive, comprehensively documented,
 with the creation of documentation and code going hand-in-hand,
-as well as friendly to computers \cite{huvila2022improving}.
+as well as friendly to computers (\cite{huvila2022improving}).
 
 Before applying these features, the first step is to publish 
 the code. 
@@ -1161,7 +1163,7 @@ The simplest and most impactful step to make code more useful paradata
 is, however, to publish it on a code hosting website 
 along a publication. From then on, the next steps can be taken 
 gradually as the skills of the author(s) progress.
-To quote: Publish your code, it is good enough \cite{barnes2010publish}.
+To quote \cite{barnes2010publish}: Publish your code, it is good enough.
 
 % \paragraph{Final word}
 
