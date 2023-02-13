@@ -24,4 +24,4 @@ jobs:
 
       - name: Count number of words, fail
         run: |
-          n_words=$(texcount article.tex | egrep "Words in text:.*" | cut -d ":" -f 2); if [ "$n_words" -gt 5000 ]; then print "ERROR"; exit 42; fi
+          n_words=$(texcount article.tex | egrep "Words in text:.*" | cut -d ":" -f 2); if [ "$n_words" -gt 500 ]; then print "ERROR: got $n_words words"; exit 42; fi
