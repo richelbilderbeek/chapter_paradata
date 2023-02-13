@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# Create the PDF 'article.pdf'
+# Create the PDF 'article.pdf' using the Springer class.
+# :warning: If there is a PDF present, it will be deleted!
 #
 # It does so by converting the TeX to PDF, 
 # as well as stitching some other PDFs to it
@@ -29,6 +30,8 @@ if [ ! -f "svind.ist" ]; then
   echo "'svind.ist' does not exist."
   exit 43
 fi
+
+rm -f article.pdf
 
 pdflatex header.tex
 bibtex header >/dev/null
