@@ -32,7 +32,7 @@ genetic epidemiology
 % \paragraph{Simple example}
 
 % Alex and Blake?
-Two different researchers in genetic epideomology (more on that field later), 
+Two different researchers in genetic epidemiology (more on that field later), 
 write two equally good manuscripts
 that describe an experiment with computational steps.
 Both manuscripts are accepted by an equally prestigious journal after peer review. 
@@ -84,7 +84,7 @@ stating that lack of paradata can be seen as 'a drastic constraint'
 in the use of data and offer some suggestions to 
 make paradata useful for data re(use):
 paradata should be comprehensive, documented in a useful way, 
-the documention and data should have co-evolved, 
+the documentation and data should have co-evolved, 
 and the paradata should be computer-friendly \cite{huvila2022improving}.
 At first glance, these suggestions appear to work well for code
 and will be discussed in detail below.
@@ -129,7 +129,7 @@ being \cite{conesa2019making}).
 For example, in computer graphics, 
 a field intimately familiar with computer code,
 42\% of 454 SIGGRAPH papers supply computer code \cite{bonneel2020code}.
-Another study analysed the reproducibility of registered reports
+Another study analyzed the reproducibility of registered reports
 in the field of psychology, 
 where 60\% of 62 studies supplied the code 
 to redo the analysis \cite{obels2020analysis}.
@@ -144,8 +144,8 @@ yet failed to ever be reproduced \cite{haibe2020importance}.
 % \paragraph{Obtaining code by email}
 
 When code of an academic paper is not published, 
-one could contact the correspending author and request it.
-However, the reponse rate of correnspondence authors 
+one could contact the corresponding author and request it.
+However, the response rate of corresponding authors 
 with a request for data in computational fields is around 50\% 
 \cite{manca2018non, stodden2018empirical, teunis2015corresponding} 
 (the field of emergency medicine seems to be a pleasant outlier, 
@@ -228,7 +228,7 @@ blood \cite{enroth2014strong,enroth2015effect}.
   \caption{
     A cell has a nucleus that contains chromosomes. 
     Each of these chromosomes (46 in humans) consist out of DNA. 
-    DNA itself conists out of 4 nucleotides, 
+    DNA itself consists out of 4 nucleotides, 
     as depicted by the horizontal sticks 
     with the colors red, yellow, green and blue.
     From \cite{sponk2012}
@@ -246,7 +246,7 @@ the other from the father.
 The DNA consists out of billions of nucleotides.
 There are four types of nucleotides,
 called adenosine, cytosine, guanine and thyrosine, 
-commonly abreviated as A, C, G and T 
+commonly abbreviated as A, C, G and T 
 \iffalse
 (see figure \ref{fig:eukakyote_dna}))
 \fi
@@ -328,7 +328,7 @@ are needed to explain the additional variation.
   \centering
   \includegraphics[width=\linewidth]{ahsan2017relative_table_2_sub.png}
   \caption{
-    An example result of a genetic epideological research.
+    An example result of a genetic epidemiological research.
     It shows that the SNP named rs12133641 (located at position 154,428,283
     of chromosome 1) is highly correlated (p value is 3.0 * 10e-73, 
     961 individuals) to the concentration of the protein IL6RA, as measured
@@ -374,7 +374,7 @@ to measure the level of IL6RA in the blood, than using a gene panel,
 as blood tests are easier and cheaper.
 However, there are associations published for many diseases,
 in which one SNP (e.g. phenylketonuria) or many SNPs (e.g. \cite{bruce2009metabolic}) 
-contribute to being more likely to develope a disease in the future. 
+contribute to being more likely to develop a disease in the future. 
 Here, the phenotype (having a disease in the future) 
 is impossible to detect at the present
 and associations found in earlier studies are used to create a gene panel.
@@ -503,7 +503,7 @@ higher than needed, resulting in less significant findings, which
 results in (needlessly) less conclusions drawn in this fictional paper.
 
 Note that there is another side of this same coin:
-correctly reporting the t-test in a reproducable ways
+correctly reporting the t-test in a reproducible ways
 is known to be a problem, with only 80 out of a selected 179 papers
 fully reporting the parity of t-test (i.e. paired or unpaired) 
 \cite{weissgerber2018we}.
@@ -657,7 +657,7 @@ This is useful to determine the reproducibility of the code:
 one such script should run the code (on trivial data) 
 to verify if the code works at all.
 If the functionality of the code is lost, the researcher
-can immediatly see which small change was the cause of this.
+can immediately see which small change was the cause of this.
 Using a CI service (such as GitHub Actions for GitHub), 
 is known to significantly 
 increase the number of bugs exposed \cite{vasilescu2015} and increases
@@ -880,7 +880,7 @@ showing bugs in scientific software on the COVID-19 pandemic).
 
 The percentage of (lines of) code tested is called the code coverage.
 Code coverage correlates with code quality \cite{horgan1994,del1995correlation}. 
-The non-profit organisation rOpenSci \cite{ram2018community},
+The non-profit organization rOpenSci \cite{ram2018community},
 which peer-reviews code,
 has made it a prerequisite to have a code coverage of 100\%.
 CI opens up the possibility to informally annotate the
@@ -1021,7 +1021,7 @@ similar conclusions.
 \section{Discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In a perfect world, all code has the characteristis of ideal paradata
+In a perfect world, all code has the characteristics of ideal paradata
 and is written from software development best practices.
 This section discusses the problems that arise by doing so.
 
@@ -1036,7 +1036,7 @@ learning of team members \cite{vable2021code}.
 
 % \paragraph{Code needs maintanance}
 
-Code needs maintanance:
+Code needs maintenance:
 the libraries that are used by an experiment
 will change over time, inevitably causing the experiment to fail
 over time. 
@@ -1063,7 +1063,7 @@ and work on something new instead
 However, upon the find of a new bug, the question is:
 does all the research that use that software still 
 result in the same conclusions?
-To prevent authors chosing to hide bug reports, 
+To prevent authors choosing to hide bug reports, 
 a code hosting website usually has a public place to report bugs,
 to increase transparency in the handling of bug reports.
 Should there be a retraction notice on code?
@@ -1100,7 +1100,7 @@ For science, code should be published,
 this allows reproducible research 
 (see \cite{haibe2020importance} for a tragic example).
 For an author, publishing code alongside an experiment opens up
-the possibily to receive questions regarding that code.
+the possibility to receive questions regarding that code.
 Note, however, that not publishing code may put 
 oneself in the focus of attention
 and -after much effect by others reproducing an incorrect result-
@@ -1119,7 +1119,7 @@ as well as friendly to computers \cite{huvila2022improving}.
 Before applying these features, the first step is to publish 
 the code. 
 
-When applying these general recomendations to code, 
+When applying these general recommendations to code, 
 this list can be phrased more precisely:
 
 \begin{enumerate}
@@ -1265,14 +1265,14 @@ This chapter has not been supported by funding.
     \hline
     Raw code      & Don't publish raw code as text, host it on a code hosting website \\
     \hline
-    Hosted code   & Use a standarized badge for build status \\
-                  & Use a standarized badge for code coverage \\
+    Hosted code   & Use a standardized badge for build status \\
+                  & Use a standardized badge for code coverage \\
                   & Standardize to link between paper and code host \\
     \hline
     Runnable code & Allow to upload containers without limits \\
                   & Website to host containers must allow for annotation \\
-                  & Use a standarized badge for the container to be functioning  \\
-                  & Standarize to link between container, paper and code repository \\
+                  & Use a standardized badge for the container to be functioning  \\
+                  & Standardize to link between container, paper and code repository \\
     \hline
   \end{tabular}
   \caption{Recommendations described in this paper}
