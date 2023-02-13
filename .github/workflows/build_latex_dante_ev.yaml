@@ -75,10 +75,8 @@ jobs:
       #############################################
       # Regular TeX
       #############################################
-      - name: Edit text to show table of content and pictures
+      - name: Edit text to show pictures
         run: |
-          sed -i '/^.iffalse$/d' header_normal.tex
-          sed -i '/^.fi$/d' header_normal.tex
           sed -i '/^.iffalse$/d' article.tex
           sed -i '/^.fi$/d' article.tex
 
