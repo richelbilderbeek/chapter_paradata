@@ -16,8 +16,8 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      - name: Install texcount
-        run: sudo apt-get install texlive-extra-utils
+      #- name: Install texcount
+      #  run: sudo apt-get install texlive-extra-utils
 
       - name: Unzip Springer zip
         run: unzip style/contributed-books.zip
@@ -51,8 +51,8 @@ jobs:
           files: svind.ist
           fail: true
 
-      - name: Count number of words
-        run: texcount article.tex
+      #- name: Count number of words
+      #  run: texcount article.tex
 
       #############################################
       # From Springer: please use the style svind.ist with your makeindex program

@@ -1,0 +1,28 @@
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: "0 0 3 * *"
+
+name: Count words
+
+jobs:
+  count_words:
+
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Install texcount
+        run: sudo apt-get install texlive-extra-utils
+
+      - name: Count number of words
+        run: texcount article.tex
+
+      - name: Count number of words, fail
+        run: |
+          n_words=$(texcount article.tex | egrep "Words in text:.*" | cut -d ":" -f 2)
+          if [ "$n_words" -gt 50000 ]; then print "ERROR"; exit 42; fi
