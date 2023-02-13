@@ -52,16 +52,39 @@ jobs:
 
       # From Springer: please use the style svind.ist with your makeindex program
       # No idea how to do that
-      - name: Compile LaTeX document
+      - name: Compile LaTeX document of Springer
         uses: dante-ev/latex-action@latest
         with:
           root_file: header.tex
 
+      - name: Check the created PDF's existence
+        uses: andstor/file-existence-action@v2
+        with:
+          files: header.pdf
+          fail: true
+
+      - name: Rename PDF
+        run: mv header.pdf article_springer.pdf
+
+      # Regular TeX
+      - name: Compile normal LaTeX document
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: header_normal.tex
+
+      - name: Check the created PDF's existence
+        uses: andstor/file-existence-action@v2
+        with:
+          files: header_normal.pdf
+          fail: true
+
+      - name: Rename PDF
+        run: mv header_normal.pdf article_normal.pdf
 
       - name: Upload PDF to the workflow tab
         uses: actions/upload-artifact@v2
         with:
-          name: dante_ev_pdf
-          path: header.pdf
+          name: article_pdfs
+          path: article_normal.pdf article_springer.pdf
           if-no-files-found: error
 
