@@ -8,4 +8,4 @@
 #
 # Solution adapted from https://tex.stackexchange.com/a/19
 
-aspell -c --mode=tex article.tex --lang=en
+aspell -c --mode=tex article.tex --lang=en_GB
