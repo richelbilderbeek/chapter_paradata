@@ -4,10 +4,10 @@ on:
   schedule:
   - cron: "0 0 3 * *"
 
-name: Build LaTeX document using dante-ev's Action
+name: Build PDF
 
 jobs:
-  build_latex:
+  build_pdf:
 
     runs-on: ubuntu-latest
     env:
