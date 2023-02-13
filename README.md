@@ -6,7 +6,8 @@
 
 [![build_pdf](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/build_pdf.yaml/badge.svg)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/build_pdf.yaml)
 [![check_links](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_links.yaml/badge.svg?branch=master)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_links.yaml)
-[![Check spelling](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml/badge.svg?branch=master)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml)
+[![check_spelling](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml/badge.svg?branch=master)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml)
+[![count_words](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/count_words.yaml/badge.svg?branch=master)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/count_words.yaml)
 
 PDFs:
 
