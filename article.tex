@@ -14,7 +14,7 @@ and hence allowing computational research to be more reproducible.
 } % abstract
 
 {\bf Keywords:} paradata, reproducible research, code, software,
-FAIR data, computational research, Open Science, best practices,
+computational research, Open Science, best practices,
 genetic epidemiology
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -966,6 +966,7 @@ CI can help a maintainer to be notified when the code breaks,
 where the use of containers may slow down time,
 as an entire computational environment is preserved.
 
+
 % \paragraph{Uploading code may feel like a risk}
 
 Uploading code, preferably to a code hosting website, 
@@ -998,9 +999,15 @@ These reports could be ignored to work on something new.
 
 % \paragraph{The problems with runnable code}
 
-One problem that containers have, is their size:
-they can be several gigabytes big. 
-This makes the distribution of these containers harder.
+Containers do have problems.
+First, they themselves require software to run,
+with the same software decay being possible.
+Second, one needs to install that software and have the
+computer access rights (i.e. admin rights under Windows, 
+or root rights under Linux) to do so.
+Third, one needs to learn how to build and use containers.
+Lastly, containers can be several gigabytes big files,
+which makes their distribution harder.
 Ideally, containers are stored online and distributed in
 standardised ways.
 Although progress is being made, 
