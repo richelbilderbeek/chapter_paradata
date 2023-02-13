@@ -76,11 +76,7 @@ jobs:
       # Regular TeX
       #############################################
       - name: Edit text to show pictures
-        run: |
-          sed -i '/^.iffalse$/d' article.tex
-          sed -i '/^.fi$/d' article.tex
-          sed -i '/^.iffalse$/d' header.tex
-          sed -i '/^.fi$/d' header.tex
+        run: ./scripts/make_full_article.sh
 
       - name: Compile normal LaTeX document
         uses: dante-ev/latex-action@latest
