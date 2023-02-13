@@ -5,8 +5,8 @@
 [Linus Torvalds, 2000](https://lkml.org/lkml/2000/8/25/132)
 
 [![build_pdf](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/build_latex_dante_ev.yaml/badge.svg)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/build_latex_dante_ev.yaml)
-[![check_links](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_links.yaml/badge.svg?branch=task_3)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_links.yaml)
-[![check_spelling](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml/badge.svg?branch=task_3)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml)
+[![check_links](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_links.yaml/badge.svg?branch=master)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_links.yaml)
+[![Check spelling](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml/badge.svg?branch=master)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml)
 
 PDFs:
 
