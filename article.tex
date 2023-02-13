@@ -1166,28 +1166,39 @@ the code.
 
 When applying these general recomendations to code, 
 this list can be phrased more precisely:
-code should be comprehensive in supplying 
-automatically generated metadata (such as commit history and code coverage).
-The documentation should be as extensive as recommended by the 
-software development literature and have co-evolved with the
-code following the best practices in literate programming. 
-To be computer friendly,
-code should be able to run on at least one independent entity,
-such as a GitHub Actions server or from a Singularity container.
 
-The second step for code to be useful paradata is to add CI, 
-to stand the test of time better.
-The ultimate step is to publish code in a container.
+\begin{enumerate}
+  \item Code should be comprehensive 
+    in supplying automatically generated metadata (such as commit history and code coverage).
+  \item The documentation should be as extensive as recommended by the 
+    software development literature.
+  \item The documentation should have co-evolved with the
+    code following the best practices in literate programming. 
+  \item Code should be made machine-readable by, at least,
+    being uploaded to a code hosting website.
+    Ideally, the code is checked by CI and is put in a container.
+\end{enumerate}
+
+For the preservation of code, these are the recommendations:
+
+\begin{enumerate}
+  \item Uploading code to a code hosting website is better than
+    not publishing code at all.
+  \item Adding CI to code allows one to detect the day when that code 
+    does not run anymore.
+  \item Putting the code in a container is the best way to preserve code.
+\end{enumerate}
 
 % \paragraph{Final goal: runnable code}
 
 When research truly needs to be reproducible, putting the code 
-of an experiment into a container is a good solution, as it 
-can stand the test of time better.
+of an experiment into a container is today's best solution,
+as containers are the best solution to keep code running for the longest 
+amount of time.
 Creating such a container, however, requires more skill
 that -as of today- is not rewarded,
-partly as containers follow FAIR data principles only poorly.
-However, such runnable code is the current pinnacle of reproducible research.
+although an experiment put into a container 
+can be considered the pinnacle of reproducible research.
 
 % \paragraph{First step: publish code alongside papers}
 
@@ -1195,7 +1206,7 @@ The simplest and most impactful step to make code more useful paradata
 is, however, to publish it on a code hosting website 
 along a publication. From then on, the next steps can be taken 
 gradually as the skills of the author(s) progress.
-To quote \cite{barnes2010publish}: Publish your code, it is good enough.
+To quote: Publish your code, it is good enough \cite{barnes2010publish}.
 
 % \paragraph{Final word}
 
