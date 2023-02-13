@@ -9,9 +9,7 @@
 [![check_spelling](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml/badge.svg?branch=master)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/check_spelling.yaml)
 [![count_words](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/count_words.yaml/badge.svg?branch=master)](https://github.com/richelbilderbeek/chapter_paradata/actions/workflows/count_words.yaml)
 
-PDFs:
+## Downloads
 
- * [Full article, with many figures](https://github.com/richelbilderbeek/chapter_paradata/releases/download/v0.4/article_normal.pdf)
- * [Article for book publication, limited to one figure](https://github.com/richelbilderbeek/chapter_paradata/releases/download/v0.4/article_springer.pdf)
-
+ * [PDFs](https://github.com/richelbilderbeek/chapter_paradata/releases/download/v0.5/article_pdfs.zip)
 
