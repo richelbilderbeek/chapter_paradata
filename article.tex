@@ -20,29 +20,6 @@ FAIR data, computational research, Open Science, best practices,
 genetic epidemiology
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Definitions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{table}[h]
-  \begin{tabular}{lp{5cm}p{5cm}}
-    Term         & Definition                                                                   & Example                                                         \\
-    \hline
-    Code         & Body of text to be run by a computer                                         & The scripts run by a computational experiment                   \\
-    Data         & Individual facts, statistics, or items of information                        & The name of a SNP known to have a significant association       \\
-    Genotype     & The DNA allele at a certain location                                         & AA, AC, CG, GT, ...                                             \\
-    Paradata     & Data that describe the process of generating data                            & The code to conclude that a SNP has a significant association   \\
-    Phenotype    & How an organism looks like in the broadest sense                             & The concentration of IL6RA in the blood                         \\
-    Primary data & Data that is the foundation of an experiment                                 & The genotype of individuals                                     \\
-    Metadata     & Data that provide information about other data                               & The article that describes an experiment                        \\
-    Raw data     & Data directly from the real world, that are not yet ready to be primary data & The raw results of getting the genotypes of individuals         \\
-    SNP          & A named location within a genome                                             & \verb|rs12133641|                                               \\
-    Trait        & A phenotype                                                                  & The concentration of IL6RA in the blood                         
-  \end{tabular}
-  \caption{Terms used in this paper, and their definitions}
-  \label{tab:definitions}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -202,9 +179,9 @@ For example, we know that lactose intolerance in adults is
 caused by a decline in the production of lactose-degrading enzymes,
 and is most commonly found in south-east Asia and south Africa \cite{storhaug2017country}.
 The trait is caused by the genetic make-up, or 'genotype'
-(see Table \ref{tab:definitions} for the definitions of terms used in this paper), 
-of a person.
-The trait, also called 'phenotype' (again, see Table \ref{tab:definitions}), 
+(see Table \ref{tab:definitions} in the Supplementary Materials
+for the definitions of terms used in this paper), of a person.
+The trait, also called 'phenotype', 
 in this example is lactose intolerance at adult age,
 yet any human property, such as weight or height can be studied.
 When an association between genotype and phenotype is found,
@@ -1113,7 +1090,6 @@ similar website to upload containers, as the metadata for these
 sites are limited to free-text comments and tags (DockerHub)
 or not metadata at all (Syslabs).
 
-
 % \paragraph{The drawbacks of publishing code}
 
 Publishing code may be disadvantageous for an author.
@@ -1126,8 +1102,6 @@ Note, however, that not publishing code may put
 oneself in the focus of attention
 and -after much effect by others reproducing an incorrect result-
 at the cost of a scientific career \cite{baggerly2009deriving}.
-
-
 
 \iffalse
 \begin{table}[h]
@@ -1272,3 +1246,28 @@ with more figures.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This chapter has not been supported by funding.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Definitions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[h]
+  \begin{tabular}{|l|p{5cm}|p{5cm}|}
+    \hline
+    Term         & Definition                                                                   & Example                                                         \\
+    \hline
+    Code         & Body of text to be run by a computer                                         & The scripts run by a computational experiment                   \\
+    Data         & Individual facts, statistics, or items of information                        & The name of a SNP known to have a significant association       \\
+    Genotype     & The DNA allele at a certain location                                         & AA, AC, CG, GT, ...                                             \\
+    Paradata     & Data that describe the process of generating data                            & The code to conclude that a SNP has a significant association   \\
+    Phenotype    & How an organism looks like in the broadest sense                             & The concentration of IL6RA in the blood                         \\
+    Primary data & Data that is the foundation of an experiment                                 & The genotype of individuals                                     \\
+    Metadata     & Data that provide information about other data                               & The article that describes an experiment                        \\
+    Raw data     & Data directly from the real world, that are not yet ready to be primary data & The raw results of getting the genotypes of individuals         \\
+    SNP          & A named location within a genome                                             & \verb|rs12133641|                                               \\
+    Trait        & A phenotype                                                                  & The concentration of IL6RA in the blood                         
+    \hline
+  \end{tabular}
+  \caption{Terms used in this paper, and their definitions}
+  \label{tab:definitions}
+\end{table}
