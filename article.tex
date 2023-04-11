@@ -644,7 +644,6 @@ notify the user directly when the code has broken down.
 
 To preserve code for the longest time, 
 both code and its dependencies can be put into a so-called container.
-
 The most reproducible way of submitting the code of an experiment,
 is to put all code with all the (software) dependencies
 in a file that acts as a virtual computational environment,
@@ -665,7 +664,6 @@ Useful paradata, in general, are (1) comprehensive,
 (2) documented appropriately, (3) documented in co-evolution with the data,
 and (4) friendly to computers (\cite{huvila2022improving}).
 In this section, these ideal properties of paradata are applied to code.
-
 However, code has multiple uses,
 as code can be used to (1) reproduce, (2) replicate, or (3)
 extend a computational experiment (\cite{benureau2018re}).
@@ -678,7 +676,6 @@ there are different requirements for code being useful paradata.
 
 For code to be ideal paradata, it must be usefully 
 documented (\cite{huvila2022improving}).
-
 For purposes of reproducing code,
 it should at least be documented how to run the code and what it ought to do.
 Although this may be obvious, only 57\% out of 56 Science papers 
@@ -744,10 +741,8 @@ As code has many properties, there are many recommendations on this aspect.
 Code should be distributed in standard ways (\cite{peng2006reproducible}),
 as is done by using a code hosting website
 (see subsection \ref{subsec:code-hosting}).
-
 % \paragraph{Code must have extensive error handling}
-
-Code must be more extensive when it is (intended to be) 
+Additionally, code must be more extensive when it is (intended to be) 
 used on different data,
 as then 'code must act as a teacher for future developers' (\cite{sadowski2018modern}).
 Error handling is one of the mechanisms to do so.
@@ -870,9 +865,7 @@ and resulting to an experiment that is likelier to be reproducible
 The most reproducible way of submitting the code of an experiment,
 is by providing the code with all its (software) dependencies 
 in a container.
-
 % \paragraph{Runnable code can precisely reproduce an experiment}
-
 Containers allow a computation experiment to be highly reproducible:
 given the same data, an experiment put into a container will give
 the same results on different platforms, at least in theory.
@@ -896,9 +889,7 @@ A first example is to use a tool to enforce a coding style
 (e.g. the Tidyverse style guide (\cite{wickham2019advanced}) for R,
 or PEP 8 (\cite{van2001pep}) for Python),
 as following a consistent coding style improves software quality (\cite{fang2001}).
-
 % \paragraph{Using a tool for complexity}
-
 A second example is to use a tool to enforce a low cyclomatic complexity.
 The cyclomatic complexity is approximately defined 
 as the number of independent paths that
@@ -1027,7 +1018,6 @@ as well as friendly to computers (\cite{huvila2022improving}).
 
 Before applying these features, the first step is to publish 
 the code. 
-
 When applying these general recommendations to code, 
 this list can be phrased more precisely:
 
