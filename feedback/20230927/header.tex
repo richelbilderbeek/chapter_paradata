@@ -1,0 +1,95 @@
+% This is the header of this article.
+% It contains the higher-level things, such as packages.
+% The actual text is in 'article.tex'
+
+% By Springer
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox]{svmult}
+% \usepackage{showframe}
+% choose options for [] as required from the list
+% in the Reference Guide
+
+\usepackage{type1cm}        % activate if the above 3 fonts are
+                            % not available on your system
+%
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+
+\usepackage{newtxtext}       %
+\usepackage[varvw]{newtxmath}       % selects Times Roman as basic font
+
+\usepackage{hyperref}
+\usepackage{cprotect}
+\def\ttdefault{cmtt}
+
+\pagestyle{plain}
+
+% see the list of further useful packages
+% in the Reference Guide
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Other Springer things
+\parindent=0pt%
+\parskip=1em%
+\raggedbottom%
+
+% \def\thechapter{\vspace*{-2pc}}
+\def\chaptername{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of Springer things
+
+
+% Make cite look correct, fix #11
+\usepackage[authoryear]{natbib}
+
+% Just try to parse, do not ask for input
+\nonstopmode
+
+\title{
+Making research code useful paradata
+}
+\author{Richèl J.C. Bilderbeek}
+
+% Use double spacing
+%\usepackage{setspace}
+%\doublespacing
+
+% Allow 'epigraph' for quotes
+\usepackage{epigraph}
+
+% Adds numbered lines
+%\usepackage{lineno}
+%\linenumbers
+
+% Break URLs, from https://tex.stackexchange.com/a/54949
+\usepackage{xurl}
+% Older solution, from https://tex.stackexchange.com/a/54949
+% \usepackage[hyphenbreaks]{breakurl}
+% \usepackage[hyphens]{url}
+
+% This is chapter number 7
+\setcounter{chapter}{1} % LaTeX adds one
+
+% This is the header of this article.
+% It contains the higher-level things, such as packages.
+% The actual text is in 'article.tex'
+\begin{document}
+
+\maketitle
+
+\iffalse
+\tableofcontents
+\fi
+
+
+\include{article}
+
+\end{document}
