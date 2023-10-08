@@ -22,4 +22,4 @@ Currently, he works for the National Bioinformatics Infrastructure Sweden (NBIS)
 in Uppsala, Sweden, as an application expert and trainer, 
 with a focus on reproducible research. 
 All his work can be found on GitHub 
-at https://github.com/richelbilderbeek and his YouTube channel. 
+at https://github.com/richelbilderbeek and [his YouTube channel](https://youtube.com/@richelj.c.bilderbeek2489?si=Ju7UBKibtBemeNLt).
