@@ -11,7 +11,8 @@
 
 ## Downloads
 
- * [PDFs](https://github.com/richelbilderbeek/chapter_paradata/releases/download/v0.5/article_pdfs.zip)
+ * [Springer chapter (.pdf)](https://github.com/richelbilderbeek/chapter_paradata/files/12840405/article_springer.pdf)
+ * [Online chapter (.pdf)](https://github.com/richelbilderbeek/chapter_paradata/files/12840405/article_normal.pdf)
 
 ## About the author
 
