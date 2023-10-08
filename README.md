@@ -13,3 +13,12 @@
 
  * [PDFs](https://github.com/richelbilderbeek/chapter_paradata/releases/download/v0.5/article_pdfs.zip)
 
+## About the author
+
+Richèl J. C. Bilderbeek, Ph.D., has worked in computational biology 
+for more than a decade. 
+Currently, he works for the National Bioinformatics Infrastructure Sweden (NBIS) 
+in Uppsala, Sweden, as an application expert and trainer, 
+with a focus on reproducible research. 
+All his work can be found on GitHub 
+at https://github.com/richelbilderbeek and his YouTube channel. 
